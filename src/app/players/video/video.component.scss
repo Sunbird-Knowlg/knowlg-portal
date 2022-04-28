@@ -1,0 +1,49 @@
+.video-player-container{
+  height: 70vh;
+  width: 936.889px;
+  margin-top: -263.5px;
+  margin-left: -468.444px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: 25%;
+}
+
+
+.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+button {
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+
+
+  &.block {
+    display: block;
+    width: 200px;
+    color: #000000;
+
+  }
+
+  &.margin-auto {
+    margin: 0 auto;
+  }
+
+  &.margin-right {
+    margin-right: 20px;
+  }
+}
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}

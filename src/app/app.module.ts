@@ -3,16 +3,43 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EditorsComponent } from './editors/editors.component';
+import { PlayersComponent } from './players/players.component';
+import { PdfComponent } from './players/pdf/pdf.component';
+import { EpubComponent } from './players/epub/epub.component';
+import { HomeComponent } from './home/home.component';
+import { SunbirdEpubPlayerModule } from '@project-sunbird/sunbird-epub-player-v9';
+import { SunbirdPdfPlayerModule } from '@project-sunbird/sunbird-pdf-player-v9';
+import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
+import { VideoComponent } from './players/video/video.component';
+import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
+import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml-player-v9';
+import { QuestionCursorImplementationService } from './services/question-cursor-implementation.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditorsComponent,
+    PlayersComponent,
+    PdfComponent,
+    EpubComponent,
+    HomeComponent,
+    InteractivePlayerComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SunbirdPdfPlayerModule,
+    SunbirdEpubPlayerModule,
+    SunbirdVideoPlayerModule,
+    QumlLibraryModule
   ],
-  providers: [],
+  providers: [{
+    provide: QuestionCursor,
+    useClass: QuestionCursorImplementationService
+  }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
