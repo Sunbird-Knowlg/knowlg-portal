@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerService } from '../../players/player.service';
 
 @Component({
   selector: 'app-epub',
@@ -8,8 +7,8 @@ import { PlayerService } from '../../players/player.service';
 })
 export class EpubComponent implements OnInit {
 
-  constructor(playerService: PlayerService) { }
-
+  constructor() { }
+  value: any;
   playerConfig = {
     context: {
       mode: 'play',
@@ -99,6 +98,18 @@ export class EpubComponent implements OnInit {
   };
 
   ngOnInit(): void {
+  }
+
+  onEnter(value: string) {
+    this.value = value;
+    const artifactUrl = this.value;
+    const metadata = this.playerConfig.metadata;
+    metadata.streamingUrl = artifactUrl;
+    const config = this.playerConfig;
+    this.playerConfig = undefined;
+    setTimeout(() => {
+      //this.playerConfig = {...config, metadata};
+    }, 3000);
   }
 
   playerEvents(event) {

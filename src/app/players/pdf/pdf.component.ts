@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-pdf',
@@ -10,6 +10,7 @@ export class PdfComponent implements OnInit {
   constructor() { }
 
   value = '';
+  @ViewChild('preview', { static: false }) previewElement: ElementRef;
   ngOnInit(): void {
   }
 
@@ -75,10 +76,18 @@ export class PdfComponent implements OnInit {
         "description": "For details see below:"
       }
     },
-  }
+  };
 
   onEnter(value: string) {
     this.value = value;
+    const artifactUrl = this.value;
+    const metadata = this.playerConfig.metadata;
+    metadata.streamingUrl = artifactUrl;
+    const config = this.playerConfig;
+    this.playerConfig = undefined;
+    setTimeout(() => {
+      this.playerConfig = {...config, metadata};
+    }, 1000);
   }
 
   playerEvents(event) {

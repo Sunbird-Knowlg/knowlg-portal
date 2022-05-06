@@ -15,10 +15,16 @@ html {
   left: 50%;
   top: 50%;
   bottom: 25%;
-
+  padding: 9px;
 }
 
+.padding-nine{
+  padding: 9px;
+}
 
+.disp-inline {
+  display: inline;
+}
 .btn {
   background-color: DodgerBlue;
   border: none;

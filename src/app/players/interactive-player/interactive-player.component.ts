@@ -48,19 +48,9 @@ export class InteractivePlayerComponent implements OnInit {
         },
         apislug: '/action',
         repos: [
-            'https://staging.sunbirded.org/content-plugins'
+            'content-plugins'
         ],
         plugins: [
-            {
-                id: 'org.sunbird.iframeEvent',
-                ver: 1,
-                type: 'plugin'
-            },
-            {
-                id: 'org.sunbird.player.endpage',
-                ver: 1.1,
-                type: 'plugin'
-            }
         ],
         enableTelemetryValidation: false
     },
@@ -89,10 +79,6 @@ export class InteractivePlayerComponent implements OnInit {
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
   ngOnInit(): void {
     const playerInterval = setInterval(() => {
-      //this.playerConfig.uid = this.playerConfig.context.actor.id;
-     // this.playerConfig.metadata.basePath = '/_app_file_' + this.playerConfig.metadata.basePath;
-
-
       if (this.previewElement?.nativeElement) {
         clearInterval(playerInterval);
         // This is to reload a iframe as iframes reload method not working on cross-origin.
@@ -119,16 +105,12 @@ export class InteractivePlayerComponent implements OnInit {
                   //   () => { }
                   // );
                 } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
-                  // this.closeIframe();
+                  // for maxlimit reached
                 }
               } else if (this.isJSON(resp.data)) {
                 const response = JSON.parse(resp.data);
                 if (response.event === 'renderer:navigate') {
-                  // this.navigateBackToTrackableCollection = true;
-                  // this.navigateBackToContentDetails = false;
-                  // this.closeIframe({
-                  //   identifier: response.data.identifier
-                  // });
+                 // for navigation events
                 }
               }
             });
