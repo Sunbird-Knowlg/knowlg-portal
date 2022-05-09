@@ -23,3 +23,41 @@ table {
     width: 102px;
     margin-bottom: 23px;
   }
+  .status-button {
+    background-color: #787272;
+    border: 1px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    width: 88px;
+  }
+   .pagination {
+      font-size: 14px;
+      text-align: center;
+      margin: 20px auto;
+    }
+  
+    ::ng-deep .pagination-next a,
+    ::ng-deep .pagination-previous a {
+      outline: none;
+    }
+  
+    ::ng-deep .ngx-pagination .current {
+      border-radius: 4px;
+    }
+  
+    ::ng-deep .ngx-pagination {
+      padding: 0 !important;
+    }
+  
+    ::ng-deep .ngx-pagination a:hover,
+    ::ng-deep .ngx-pagination button:hover {
+      border-radius: 4px;
+    }
+  
+    ::ng-deep .ngx-pagination a,
+    ::ng-deep .ngx-pagination button {
+      border-radius: 4px;
+      outline: none;
+    }

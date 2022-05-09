@@ -23,6 +23,7 @@ import { CreateepubComponent } from './editors/editors/createepub/createepub.com
 import { CreateyoutubeComponent } from './editors/editors/createyoutube/createyoutube.component';
 import { Createh5phtmlComponent } from './editors/editors/createh5phtml/createh5phtml.component';
 import { ContentlistComponent } from './editors/editors/contentlist/contentlist.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ContentlistComponent } from './editors/editors/contentlist/contentlist.
     SunbirdPdfPlayerModule,
     SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
-    QumlLibraryModule
+    QumlLibraryModule,
+    NgxPaginationModule
   ],
   providers: [{
     provide: QuestionCursor,

@@ -8,6 +8,114 @@ import { Location } from '@angular/common';
 })
 export class ContentlistComponent implements OnInit {
 public contentType: any;
+public contentArray = [
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  },
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  },
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  },
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  },
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  },
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  },
+  {
+    name: 'collection',
+    contentType: 'course',
+    status: 'Draft'
+  },
+  {
+    name: 'textBook name',
+    contentType: 'TextBook',
+    status: 'Review'
+  },
+  {
+    name: 'collection name',
+    contentType: 'collection',
+    status: 'Draft'
+  }
+];
+public currentPage: any;
   constructor(private router: Router, private location: Location, public activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
@@ -25,5 +133,8 @@ public contentType: any;
   goBack() {
     this.location.back();
   }
-
+  pageChanged(event) {
+    this.currentPage = event;
+    console.log(event, 'event');
+  }
 }
