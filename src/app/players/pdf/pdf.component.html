@@ -1,10 +1,10 @@
 <a routerLink=".."><i class="dropdown icon"></i>&laquo; Back </a>
 
 <div class="pdf-player-container">
-  <div class="padding-nine">
-    <div class="disp-inline">Enter Url</div> :
-    <div class="disp-inline"><input #box (keyup.enter)="onEnter(box.value)"></div>
-    <button class="disp-inline btn margin-right" (click)="onEnter(box.value)">Submit</button>
+  <div class="intbox">
+    <div class="text-inline">Enter Url</div> :
+    <div class="text-inline"><input #box (keyup.enter)="onEnter(box.value)"></div>
+    <button class="text-inline btn margin-right" (click)="onEnter(box.value)">Submit</button>
   </div>
   <sunbird-pdf-player *ngIf="playerConfig" [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
     (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-pdf-player>
