@@ -1,15 +1,14 @@
 var express = require('express'),
-    http = require('http');
-    bodyParser = require('body-parser'),
-    proxy = require('express-http-proxy'),
-    urlHelper = require('url');
+http = require('http');
+bodyParser = require('body-parser'),
+proxy = require('express-http-proxy'),
+urlHelper = require('url');
 
 // ENV Variables
 const BASE_URL = 'dock.sunbirded.org';
 const API_AUTH_TOKEN = "";
 const PORTAL_COOKIES= "";
 const USER_TOKEN = "";
-
 
 var app = express();
 app.set('port', 3000);

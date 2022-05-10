@@ -108,7 +108,7 @@ export class EpubComponent implements OnInit {
     const config = this.playerConfig;
     this.playerConfig = undefined;
     setTimeout(() => {
-      //this.playerConfig = {...config, metadata};
+      this.playerConfig = {...config, metadata};
     }, 3000);
   }
 
@@ -118,5 +118,4 @@ export class EpubComponent implements OnInit {
   playerTelemetryEvents(event) {
 
   }
-
 }

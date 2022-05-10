@@ -1,5 +1,5 @@
 <a routerLink=".."><i class="dropdown icon"></i>&laquo; Back </a>
-<div class="text-div">
+<div class="text-div" *ngIf='mode === "QA"'>
   <div class="disp-inline">Enter Body</div> :
   <div class="disp-inline"><textarea #box> </textarea></div>
   <button class="btn margin-right disp-inline" (click)="onEnter(box.value)">Submit</button>

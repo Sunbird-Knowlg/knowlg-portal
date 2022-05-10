@@ -65,10 +65,10 @@ export class VideoComponent implements OnInit {
   }
 
   playerEvent(event) {
-
+    // todo for player Event
   }
   telemetryEvent(event) {
-
+    // todo for telemetry Event
   }
 
   ngOnInit(): void {
