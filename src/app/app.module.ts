@@ -23,7 +23,6 @@ import { CreateepubComponent } from './editors/editors/createepub/createepub.com
 import { CreateyoutubeComponent } from './editors/editors/createyoutube/createyoutube.component';
 import { Createh5phtmlComponent } from './editors/editors/createh5phtml/createh5phtml.component';
 import { ContentlistComponent } from './editors/editors/contentlist/contentlist.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import {EditorService} from '../../src/app/editors/editors/editor.service';
 @NgModule({
   declarations: [
