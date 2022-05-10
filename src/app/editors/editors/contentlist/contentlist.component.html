@@ -1,24 +1,45 @@
-<a (click)=goBack()><i class="dropdown icon"></i>&laquo; Back </a>
+<div class="ui container">
 
+    <a (click)=goBack()><i class="dropdown icon"></i>&laquo; Back </a>
 
-<div class="content container">
-    <div class="flex-parent">
-        <button class="btn create-new" (click)=navigateToContentCreate()>Create New</button>
+    <div class="content container">
+        <div class="flex-parent">
+            <button class="btn create-new" (click)=navigateToContentCreate()>Create New</button>
+        </div>
     </div>
-</div>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Content Type</th>
-        <th>Status</th>
-    </tr>
-    <tr *ngFor="let data of contentArray | paginate: {itemsPerPage:10, currentPage: currentPage}">
-        <td>{{data?.name}}</td>
-        <td>{{data?.contentType}}</td>
-        <td><button class="btn status-button" (click)=navigateToContentCreate()>{{data?.status}}</button></td>
-    </tr>
-</table>
-<div class="pagination">
-    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    <div class="sb-table-container">
+        <table class="sb-table sb-table-fixed sb-table-hover sb-table-lg">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Content Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of contentArray ">
+                    <td>{{data?.name}}</td>
+                    <td>{{data?.contentType}}</td>
+                    <td><button class="btn status-button" (click)=navigateToContentCreate()>{{data?.status}}</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="sb-pagination-container flex-jc-flex-end">
+        <div class="sb-pagination">
+            <a class="sb-item">First</a>
+            <a class="sb-item">Previous</a>
+            <a class="sb-item sb-item-active">1</a>
+            <a class="sb-item">...</a>
+            <a class="sb-item">10</a>
+            <a class="sb-item">11</a>
+            <a class="sb-item">12</a>
+            <a class="sb-item">Next</a>
+            <a class="sb-item">Last</a>
+        </div>
+    </div>
+
 </div>

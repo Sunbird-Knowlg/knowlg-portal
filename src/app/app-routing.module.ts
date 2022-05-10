@@ -34,22 +34,22 @@ const routes: Routes =  [
     path: 'editors/collection-editor', component: CollectionEditorComponent,
   },
   {
-    path: 'editors/Resources', component: CreateresourceComponent,
+    path: 'editors/resources', component: CreateresourceComponent,
   },
   {
-    path: 'editors/Pdf', component: CreatepdfComponent,
+    path: 'editors/pdf', component: CreatepdfComponent,
   },
   {
-    path: 'editors/Video', component: CreatevideoComponent,
+    path: 'editors/video', component: CreatevideoComponent,
   },
   {
-    path: 'editors/Epub', component: CreateepubComponent,
+    path: 'editors/epub', component: CreateepubComponent,
   },
   {
-    path: 'editors/Youtube', component: CreateyoutubeComponent,
+    path: 'editors/youtube', component: CreateyoutubeComponent,
   },
   {
-    path: 'editors/H5pHtml', component: Createh5phtmlComponent,
+    path: 'editors/h5phtml', component: Createh5phtmlComponent,
   },
   {
     path: 'players/pdf', component: PdfComponent,
