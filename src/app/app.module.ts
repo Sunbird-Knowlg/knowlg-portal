@@ -49,8 +49,7 @@ import {EditorService} from '../../src/app/editors/editors/editor.service';
     SunbirdPdfPlayerModule,
     SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
-    QumlLibraryModule,
-    NgxPaginationModule
+    QumlLibraryModule
   ],
   providers: [{
     provide: QuestionCursor,
