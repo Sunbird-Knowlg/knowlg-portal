@@ -135,8 +135,4 @@ export class ContentlistComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-  pageChanged(event) {
-    this.currentPage = event;
-    console.log(event, 'event');
-  }
 }
