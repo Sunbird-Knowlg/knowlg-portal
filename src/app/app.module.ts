@@ -23,7 +23,9 @@ import { CreateepubComponent } from './editors/editors/createepub/createepub.com
 import { CreateyoutubeComponent } from './editors/editors/createyoutube/createyoutube.component';
 import { Createh5phtmlComponent } from './editors/editors/createh5phtml/createh5phtml.component';
 import { ContentlistComponent } from './editors/editors/contentlist/contentlist.component';
-import {EditorService} from '../../src/app/editors/editors/editor.service';
+import {EditorService} from '../../src/app/editors/editors/services/editor.service';
+import {PublicDataService} from '../../src/app/editors/editors/services/public-data.service';
+import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,13 +51,15 @@ import {EditorService} from '../../src/app/editors/editors/editor.service';
     SunbirdPdfPlayerModule,
     SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
-    QumlLibraryModule
+    QumlLibraryModule,
+    CollectionEditorLibraryModule
   ],
   providers: [{
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
   },
-  EditorService
+  EditorService,
+  PublicDataService
   ],
   bootstrap: [AppComponent]
 })

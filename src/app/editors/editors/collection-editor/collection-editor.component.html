@@ -1,1 +1,1 @@
-<p>collection-editor works!</p>
+<lib-editor *ngIf="editorConfig" [editorConfig]="editorConfig" (editorEmitter)="editorEventListener($event)"></lib-editor>
