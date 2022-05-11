@@ -29,6 +29,11 @@ export class InteractivePlayerComponent implements OnInit {
         }
     },
     config: {
+      whiteListUrl:  ['self',
+      'https://*.blob.core.windows.net/**',
+      'https://ekstep-public-*.s3-ap-south-1.amazonaws.com/**',
+      'https://staging.sunbirded.org/**'
+    ],
         showEndPage: false,
         showStartPage: true,
         host: '',
@@ -43,7 +48,7 @@ export class InteractivePlayerComponent implements OnInit {
         },
         apislug: '/action',
         repos: [
-            'content-plugins'
+            'https://staging.sunbirded.org/content-plugins'
         ],
         plugins: [
             {

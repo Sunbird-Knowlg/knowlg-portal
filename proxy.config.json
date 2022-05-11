@@ -1,0 +1,44 @@
+{
+   "/api": {
+        "target": "http://localhost:3000/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/content": {
+        "target": "http://localhost:3000",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/content-plugins": {
+      "target": "https://staging.sunbirded.org",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true
+  },
+    "/latex": {
+        "target": "http://localhost:3000",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/assets": {
+        "target": "http://localhost:3000/assets",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/learner": {
+        "target": "http://localhost:3000/learner",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/action": {
+        "target": "http://localhost:3000",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}
