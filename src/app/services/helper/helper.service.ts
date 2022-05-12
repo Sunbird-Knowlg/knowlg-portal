@@ -64,7 +64,7 @@ export class HelperService {
         }
       }
     };
-    return this.actionService.get(req).pipe(
+    return this.actionService.post(req).pipe(
       map((response: any) => {
         return response;
       })
