@@ -27,4 +27,49 @@ export class HelperService {
       })
     );
   }
+
+  getAllCollectionList(requestData: object): Observable<any> {
+    const param = {};
+    const req = {
+      url: `${this.configService.urlConFig.SEARCH.COMPOSIT}`,
+      data: requestData
+    };
+    return this.actionService.post(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  // getAllCollectionList(reqData): Observable<any> {
+  //   const option = {
+  //     url: 'composite/v1/search',
+  //     data: reqData
+  //   };
+  //   return this.publicDataService.post(option);
+  // }
+  // getChannel(channel) {
+  //   const  url = 'channel/v1/read/' + channel;
+  //   return this.publicDataService.get(url);
+  // }
+  // getCategoryDefinition(objectType, name, channel?) {
+  //   const option = {
+  //     url: 'object/category/definition/v1/read?fields=objectMetadata,forms,name,label',
+  //     data: {
+  //       request: {
+  //         objectCategoryDefinition: {
+  //           objectType: objectType,
+  //           name: name,
+  //           ...(channel && { channel })
+  //         }
+  //       }
+  //     }
+  //   };
+  //   return this.publicDataService.post(option);
+  // }
+  // setConfig(config) {
+  //   this.editorConfig = config;
+  // }
+  // getConfig() {
+  //   return this.editorConfig;
+  // }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {EditorService} from '../services/editor.service';
+// import {EditorService} from '../services/editor.service';
 @Component({
   selector: 'app-collection-editor',
   templateUrl: './collection-editor.component.html',
@@ -8,10 +8,10 @@ import {EditorService} from '../services/editor.service';
 })
 export class CollectionEditorComponent implements OnInit {
   public editorConfig = {};
-  constructor(private router: Router, public activatedRoute: ActivatedRoute, public editorService: EditorService){}
+  constructor(private router: Router, public activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.editorConfig = this.editorService.getConfig();
+    // this.editorConfig = this.editorService.getConfig();
     console.log(this.editorConfig, 'this.editorConfig');
   }
   editorEventListener(event) {
