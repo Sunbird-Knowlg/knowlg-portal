@@ -7,11 +7,26 @@ import { InteractivePlayerComponent } from './players/interactive-player/interac
 import { PdfComponent } from './players/pdf/pdf.component';
 import { PlayersComponent } from './players/players.component';
 import { VideoComponent } from './players/video/video.component';
+import { EditorsComponent } from './editors/editors.component';
+import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
+import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 
 
 const routes: Routes =  [
   {
     path: '', component: HomeComponent
+  },
+  {
+    path: 'editors', component: EditorsComponent,
+  },
+  {
+    path: 'editors/content-list/:page', component: ContentlistComponent,
+  },
+  {
+    path: 'editors/collection-editor', component: CollectionEditorComponent,
+  },
+  {
+    path: 'editors/file-upload-editor', component: FileUploadEditorComponent,
   },
   {
     path: 'players', component: PlayersComponent,
@@ -27,10 +42,7 @@ const routes: Routes =  [
   },
   {
     path: 'players/video', component: VideoComponent,
-  },
-  {
-    path: 'editors/file-upload-editor', component: FileUploadEditorComponent,
-  },
+  }
 ];
 
 @NgModule({

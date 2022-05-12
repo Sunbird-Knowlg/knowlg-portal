@@ -16,6 +16,8 @@ import { VideoComponent } from './players/video/video.component';
 import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
 import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml-player-v9';
 import { QuestionCursorImplementationService } from './services/question-cursor-implementation.service';
+import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
+import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { QuestionCursorImplementationService } from './services/question-cursor-
     EpubComponent,
     HomeComponent,
     InteractivePlayerComponent,
-    VideoComponent
+    VideoComponent,
+    CollectionEditorComponent,
+    ContentlistComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +43,8 @@ import { QuestionCursorImplementationService } from './services/question-cursor-
   ],
   providers: [{
     provide: QuestionCursor,
-    useClass: QuestionCursorImplementationService
-  }
-  ],
+    useClass: QuestionCursorImplementationService,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
