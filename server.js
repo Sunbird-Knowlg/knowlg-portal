@@ -1,14 +1,10 @@
 var express = require('express'),
 http = require('http');
-bodyParser = require('body-parser'),
-proxy = require('express-http-proxy'),
-urlHelper = require('url');
+proxy = require('express-http-proxy');
+const env = process.env
 
 // ENV Variables
-const BASE_URL = 'dock.sunbirded.org';
-const API_AUTH_TOKEN = "";
-const PORTAL_COOKIES= "";
-const USER_TOKEN = "";
+const BASE_URL = env.base_url || 'dock.sunbirded.org';
 
 var app = express();
 app.set('port', 3000);
@@ -19,12 +15,9 @@ app.use(['/content/preview/*', '/content-plugins/*', '/assets/public/*'], proxy(
     proxyReqPathResolver: function(req) {
         return require('url').parse(`https://${BASE_URL}` + req.originalUrl).path
     },
-    proxyReqOptDecorator: function(proxyReqOpts, srcReq) {
-        // you can update headers
+    proxyReqOptDecorator: function(proxyReqOpts) {
         proxyReqOpts.headers['Content-Type'] = 'application/json';
-        proxyReqOpts.headers['user-id'] = 'content-editor';
-        proxyReqOpts.headers['Cookie'] = PORTAL_COOKIES;
-        proxyReqOpts.headers['authorization'] = `Bearer ${API_AUTH_TOKEN}`;
+        proxyReqOpts.headers['user-id'] = 'content-player';
         return proxyReqOpts;
     }
 }));

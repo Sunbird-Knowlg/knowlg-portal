@@ -1,14 +1,36 @@
-<a routerLink=".."><i class="dropdown icon"></i>&laquo; Back </a>
+<div class="relative position mt-0 sb-back-actionbar">
+  <a routerLink="..">
+    <button type="button" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round" tabindex="0">
+      <i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary">
+          <use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use>
+        </svg>
+      </i>
+      <span>Back</span>
+    </button>
+  </a>
+</div>
+
+<div class ='sbt-inside-page-container'>
+  <div class="relative9">
+      <!-- CC-Player Video -->
+      <div class="sb-single-resource">
+      <div class="ui container">
+          <div class="cc-player sb-g">
+            <section class="sb-g-col-xs-12 sb-g-col-md-12 sb-g-col-lg-12 sb-g-col-xxxl-16 cc-player__video" id="player-area-height">
+              <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio" #aspectRatio>
+                <div class="h-100">
+                  <iframe #preview id="contentPlayer" style="width:100%;border:none;" title="Content Player"  src="../../assets/content-player/preview.html?webview=false" aria-label="Content Player" class="contentViewerIframeShadow" name="contentPlayer"></iframe>
+                </div>
+              </div>
+            </section>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+
 <div class="text-div" *ngIf='mode === "QA"'>
-  <div class="text-inline">Enter Body</div> :
+  <div class="text-inline">Enter responce</div> :
   <div class="text-inline"><textarea #box> </textarea></div>
   <button class="btn margin-right text-inline" (click)="onEnter(box.value)">Submit</button>
-</div>
-<div class="content-video">
-  <section class="" id="player-area-height">
-    <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio" #aspectRatio>
-      <iframe #preview title="player" id="contentPlayer"  src="../../assets/content-player/preview.html?webview=false"
-    style="width:100%;border:none;"></iframe>
-  </div>
-</section>
 </div>
