@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upload-editor.component';
 import { HomeComponent } from './home/home.component';
 import { EpubComponent } from './players/epub/epub.component';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
@@ -26,7 +27,10 @@ const routes: Routes =  [
   },
   {
     path: 'players/video', component: VideoComponent,
-  }
+  },
+  {
+    path: 'editors/file-upload-editor', component: FileUploadEditorComponent,
+  },
 ];
 
 @NgModule({
