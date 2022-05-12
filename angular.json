@@ -71,7 +71,8 @@
               "src/assets/lib/transition.min.js",
               "src/assets/lib/modal.min.js",
               "src/assets/lib/semantic-ui-tree-picker.js",
-              "node_modules/@project-sunbird/client-services/index.js"
+              "node_modules/@project-sunbird/client-services/index.js",
+              "node_modules/izimodal/js/iziModal.min.js"
             ]
           },
           "configurations": {
@@ -130,8 +131,13 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -143,7 +149,9 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -161,5 +169,8 @@
       }
     }
   },
-  "defaultProject": "sunbired-knowledge"
+  "defaultProject": "sunbired-knowledge",
+  "cli": {
+    "analytics": false
+  }
 }

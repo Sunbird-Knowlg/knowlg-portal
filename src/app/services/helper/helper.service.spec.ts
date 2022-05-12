@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PublicDataService } from './public-data.service';
+import { HelperService } from './helper.service';
 
-describe('PublicDataService', () => {
-  let service: PublicDataService;
+describe('HelperService', () => {
+  let service: HelperService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PublicDataService);
+    service = TestBed.inject(HelperService);
   });
 
   it('should be created', () => {

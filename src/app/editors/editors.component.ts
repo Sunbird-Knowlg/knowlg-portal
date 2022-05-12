@@ -15,4 +15,8 @@ export class EditorsComponent implements OnInit {
   navigateToContentList(path) {
     this.router.navigate(['editors/content-list/' + path]);
   }
+
+  navigateToFileUploadEditor(identifier) {
+    this.router.navigate(['editors/file-upload-editor'], { queryParams: { identifier } });
+  }
 }

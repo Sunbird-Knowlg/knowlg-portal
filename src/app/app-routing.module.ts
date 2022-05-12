@@ -1,28 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upload-editor.component';
 import { HomeComponent } from './home/home.component';
 import { EpubComponent } from './players/epub/epub.component';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
 import { PdfComponent } from './players/pdf/pdf.component';
 import { PlayersComponent } from './players/players.component';
 import { VideoComponent } from './players/video/video.component';
-import { EditorsComponent } from './editors/editors/editors.component';
-import { CollectionEditorComponent } from './editors/editors/collection-editor/collection-editor.component';
-import { CreatepdfComponent } from './editors/editors/createpdf/createpdf.component';
-import { CreatevideoComponent } from './editors/editors/createvideo/createvideo.component';
-import { CreateepubComponent } from './editors/editors/createepub/createepub.component';
-import { CreateyoutubeComponent } from './editors/editors/createyoutube/createyoutube.component';
-import { CreateresourceComponent } from './editors/editors/createresource/createresource.component';
-import { Createh5phtmlComponent } from './editors/editors/createh5phtml/createh5phtml.component';
-import { ContentlistComponent } from './editors/editors/contentlist/contentlist.component';
+import { EditorsComponent } from './editors/editors.component';
+import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
+import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 
 
 const routes: Routes =  [
   {
     path: '', component: HomeComponent
-  },
-  {
-    path: 'players', component: PlayersComponent,
   },
   {
     path: 'editors', component: EditorsComponent,
@@ -34,22 +26,10 @@ const routes: Routes =  [
     path: 'editors/collection-editor', component: CollectionEditorComponent,
   },
   {
-    path: 'editors/resources', component: CreateresourceComponent,
+    path: 'editors/file-upload-editor', component: FileUploadEditorComponent,
   },
   {
-    path: 'editors/pdf', component: CreatepdfComponent,
-  },
-  {
-    path: 'editors/video', component: CreatevideoComponent,
-  },
-  {
-    path: 'editors/epub', component: CreateepubComponent,
-  },
-  {
-    path: 'editors/youtube', component: CreateyoutubeComponent,
-  },
-  {
-    path: 'editors/h5phtml', component: Createh5phtmlComponent,
+    path: 'players', component: PlayersComponent,
   },
   {
     path: 'players/pdf', component: PdfComponent,
