@@ -1,0 +1,117 @@
+{
+    "COLLECTION_EDITOR": {},
+    "INTERACTIVE_EDITOR": {},
+    "GENERIC_EDITOR": {
+        "WINDOW_CONFIG": {
+            "corePluginsPackaged": true,
+            "modalId": "genericEditor",
+            "dispatcher": "local",
+            "apislug": "/action",
+            "alertOnUnload": true,
+            "headerLogo": "",
+            "loadingImage": "",
+            "plugins": [
+                {
+                    "id": "org.ekstep.sunbirdcommonheader",
+                    "ver": "1.9",
+                    "type": "plugin"
+                },
+                {
+                    "id": "org.ekstep.sunbirdmetadata",
+                    "ver": "1.1",
+                    "type": "plugin"
+                },
+                {
+                    "id": "org.ekstep.metadata",
+                    "ver": "1.5",
+                    "type": "plugin"
+                }
+            ],
+            "previewConfig": {
+                "repos": [
+                    "/sunbird-plugins/renderer"
+                ],
+                "plugins": [
+                    {
+                        "id": "org.sunbird.player.endpage",
+                        "ver": 1.1,
+                        "type": "plugin"
+                    }
+                ],
+                "splash": {
+                    "text": "",
+                    "icon": "",
+                    "bgImage": "assets/icons/splacebackground_1.png",
+                    "webLink": ""
+                },
+                "overlay": {
+                    "showUser": false
+                },
+                "showEndPage": false
+            }
+        },
+        "WINDOW_CONTEXT": {
+            "user": {
+              "id": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+              "name": "N11",
+              "orgIds": [
+                "01309282781705830427",
+                "01274256635219968039517"
+                ],
+              "organisations": {
+                "01309282781705830427": "NIT",
+                "01274256635219968039517": "MPPS MUKKADAMPALLI"
+                }
+            },
+            "did": "e89ddca9c7816a77f2863325ecf5de12",
+            "sid": "n3HlyLV6YcsGDIjx5AmOG7CvZ1SLIpcV",
+            "contentId": "do_113534600911495168115",
+            "pdata": {
+              "id": "dev.sunbird.portal",
+              "ver": "4.9.0",
+              "pid": "sunbird-portal.collectioneditor"
+            },
+            "contextRollUp": {
+              "l1": "01309282781705830427",
+              "l2": "01274256635219968039517"
+            },
+            "tags": [
+              "01309282781705830427",
+              "01274256635219968039517",
+              "01309282781705830427"
+            ],
+            "channel": "01309282781705830427",
+            "env": "generic-editor",
+            "framework": "ekstep_ncert_k-12",
+            "ownershipType": [
+              "createdBy",
+              "createdFor"
+            ],
+            "timeDiff": -0.638,
+            "primaryCategories": [
+              "eTextbook",
+              "Explanation Content",
+              "Learning Resource",
+              "Practice Question Set",
+              "Teacher Resource",
+              "Exam Question"
+            ]
+        },
+        "contentState": [
+            "upForReview",
+            "review",
+            "published",
+            "limitedPublish",
+            "flagreviewer",
+            "collaborating-on"
+        ],
+        "contentStatus": [
+            "Review",
+            "Draft",
+            "Live",
+            "Unlisted",
+            "FlagDraft",
+            "FlagReview"
+        ]
+    }
+}

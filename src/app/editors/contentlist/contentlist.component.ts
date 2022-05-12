@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import {EditorService} from '../editor.service';
+
 @Component({
   selector: 'app-contentlist',
   templateUrl: './contentlist.component.html',
@@ -117,8 +117,7 @@ export class ContentlistComponent implements OnInit {
     }
   ];
   public currentPage: any;
-  constructor(private router: Router, private location: Location, public activatedRoute: ActivatedRoute,
-              public editorService: EditorService) { }
+  constructor(private router: Router, private location: Location, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params
