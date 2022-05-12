@@ -9,6 +9,7 @@ import { ConfigService } from '../config/config.service';
   providedIn: 'root',
 })
 export class HelperService {
+  public editorConfig: any;
   constructor(
     private configService: ConfigService,
     private actionService: ActionService
@@ -29,7 +30,6 @@ export class HelperService {
   }
 
   getAllCollectionList(requestData: object): Observable<any> {
-    const param = {};
     const req = {
       url: `${this.configService.urlConFig.SEARCH.COMPOSIT}`,
       data: requestData
@@ -40,36 +40,40 @@ export class HelperService {
       })
     );
   }
-  // getAllCollectionList(reqData): Observable<any> {
-  //   const option = {
-  //     url: 'composite/v1/search',
-  //     data: reqData
-  //   };
-  //   return this.publicDataService.post(option);
-  // }
-  // getChannel(channel) {
-  //   const  url = 'channel/v1/read/' + channel;
-  //   return this.publicDataService.get(url);
-  // }
-  // getCategoryDefinition(objectType, name, channel?) {
-  //   const option = {
-  //     url: 'object/category/definition/v1/read?fields=objectMetadata,forms,name,label',
-  //     data: {
-  //       request: {
-  //         objectCategoryDefinition: {
-  //           objectType: objectType,
-  //           name: name,
-  //           ...(channel && { channel })
-  //         }
-  //       }
-  //     }
-  //   };
-  //   return this.publicDataService.post(option);
-  // }
-  // setConfig(config) {
-  //   this.editorConfig = config;
-  // }
-  // getConfig() {
-  //   return this.editorConfig;
-  // }
+
+  getChannel(channelId: string): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.CHANNEL.READ}/${channelId}`,
+    };
+    return this.actionService.get(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  getCategoryDefinition(objectType, name, channel): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.CATEGORYDEFINATION.READ}`,
+      data: {
+        request: {
+          objectCategoryDefinition: {
+            objectType: objectType,
+            name: name,
+            channel: channel
+          }
+        }
+      }
+    };
+    return this.actionService.get(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  setConfig(config) {
+    this.editorConfig = config;
+  }
+  getConfig() {
+    return this.editorConfig;
+  }
 }

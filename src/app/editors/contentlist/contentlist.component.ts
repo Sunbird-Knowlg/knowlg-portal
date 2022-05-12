@@ -32,46 +32,46 @@ export class ContentlistComponent implements OnInit {
   goBack() {
     this.location.back();
   }
-  // openContent(id) {
-  //   this.editorService.readContent(id)
-  //     .subscribe((response) => {
-  //       this.content = _.get(response, 'result.content');
-  //       this.getChannel(_.get(response, 'result.content.channel'));
-  //     }, (error) => {
-  //       console.log(error);
-  //     });
-  // }
-  // getChannel(channelId) {
-  //   this.editorService.getChannel(channelId)
-  //   .subscribe((response) => {
-  //     this.channelData = _.get(response, 'result.channel');
-  //     this.getFrameWorkDetails();
-  //   }, (error) => {
-  //     console.log(error);
-  //   });
+  openContent(id) {
+    this.helperService.getContent(id)
+      .subscribe((response) => {
+        this.content = _.get(response, 'result.content');
+        this.getChannel(_.get(response, 'result.content.channel'));
+      }, (error) => {
+        console.log(error);
+      });
+  }
+  getChannel(channelId) {
+    this.helperService.getChannel(channelId)
+    .subscribe((response) => {
+      this.channelData = _.get(response, 'result.channel');
+      this.getFrameWorkDetails();
+    }, (error) => {
+      console.log(error);
+    });
 
-  // }
-  // getFrameWorkDetails() {
-  //   this.editorService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
-  //   .subscribe(data => {
-  //     // tslint:disable-next-line:max-line-length
-  //     if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
-  //       this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
-  //       if (!_.isEmpty(this.hierarchyConfig['children'])) {
-  //         this.hierarchyConfig['children'] = this.getPrimaryCategoryData(this.hierarchyConfig['children']);
-  //       }
-  //       if (!_.isEmpty(this.hierarchyConfig['hierarchy'])) {
-  //         _.forEach(this.hierarchyConfig['hierarchy'], (hierarchyValue) => {
-  //           if (_.get(hierarchyValue, 'children')) {
-  //             hierarchyValue['children'] = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
-  //           }
-  //         });
-  //       }
-  //     }
-  //     this.setEditorConfig();
-  //   }, err => {
-  //   });
-  // }
+  }
+  getFrameWorkDetails() {
+    this.helperService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
+    .subscribe(data => {
+      // tslint:disable-next-line:max-line-length
+      if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
+        this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
+        if (!_.isEmpty(this.hierarchyConfig['children'])) {
+          this.hierarchyConfig['children'] = this.getPrimaryCategoryData(this.hierarchyConfig['children']);
+        }
+        if (!_.isEmpty(this.hierarchyConfig['hierarchy'])) {
+          _.forEach(this.hierarchyConfig['hierarchy'], (hierarchyValue) => {
+            if (_.get(hierarchyValue, 'children')) {
+              hierarchyValue['children'] = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
+            }
+          });
+        }
+      }
+      this.setEditorConfig();
+    }, err => {
+    });
+  }
   getPrimaryCategoryData(childrenData) {
     _.forEach(childrenData, (value, key) => {
       if (_.isEmpty(value)) {
@@ -124,83 +124,83 @@ export class ContentlistComponent implements OnInit {
         console.log(error);
       });
   }
-  // setEditorConfig() {
-  //   // tslint:disable-next-line:max-line-length
-  //   const additionalCategory = _.merge(this.channelData.contentAdditionalCategories, this.channelData.collectionAdditionalCategories);
-  //   this.editorConfig = {
-  //     context: {
-  //       identifier: this.content.identifier,
-  //       channel: this.content.channel,
-  //       authToken: '',
-  //       sid: 'vLpZ1rFl6-sxMVHi4RrmrlHw0HsX9ggC',
-  //       did: '1d8e290dd3c2a6a9eeac58568cdef28d',
-  //       uid: '5a587cc1-e018-4859-a0a8-e842650b9d64',
-  //       additionalCategories: additionalCategory,
-  //       host: 'http://localhost:3000',
-  //       pdata: {
-  //         id: 'local.sunbird..knowledge.portal',
-  //         ver: '1.0.0',
-  //         pid: 'sunbird-knowledge-portal'
-  //       },
-  //       actor: {
-  //         id: '5a587cc1-e018-4859-a0a8-e842650b9d64',
-  //         type: 'User'
-  //       },
-  //       contextRollup: {
-  //         l1: '01309282781705830427'
-  //       },
-  //       tags: [
-  //         '01309282781705830427',
-  //         '01309282781705830427'
-  //       ],
-  //       timeDiff: -0.463,
-  //       defaultLicense: _.get(this.channelData, 'defaultLicense'),
-  //       endpoint: '/data/v3/telemetry',
-  //       env: 'collection_editor',
-  //       user: {
-  //         id: '5a587cc1-e018-4859-a0a8-e842650b9d64',
-  //         orgIds: [
-  //           '01309282781705830427'
-  //         ],
-  //         organisations: {},
-  //         fullName: 'N11',
-  //         firstName: 'N11',
-  //         lastName: '',
-  //         isRootOrgAdmin: true
-  //       },
-  //       channelData: this.channelData,
-  //       cloudStorageUrls: ''
-  //     },
-  //     config: {
-  //       mode: this.getEditorMode(),
-  //       collection: {
-  //         maxContentsLimit: 1200
-  //       },
-  //     }
-  //   };
-  //   this.editorConfig['config'].showAddCollaborator = false;
-  //   this.editorConfig['config'].publicStorageAccount = '';
+  setEditorConfig() {
+    // tslint:disable-next-line:max-line-length
+    const additionalCategory = _.merge(this.channelData.contentAdditionalCategories, this.channelData.collectionAdditionalCategories);
+    this.editorConfig = {
+      context: {
+        identifier: this.content.identifier,
+        channel: this.content.channel,
+        authToken: '',
+        sid: 'vLpZ1rFl6-sxMVHi4RrmrlHw0HsX9ggC',
+        did: '1d8e290dd3c2a6a9eeac58568cdef28d',
+        uid: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+        additionalCategories: additionalCategory,
+        host: 'http://localhost:3000',
+        pdata: {
+          id: 'local.sunbird..knowledge.portal',
+          ver: '1.0.0',
+          pid: 'sunbird-knowledge-portal'
+        },
+        actor: {
+          id: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+          type: 'User'
+        },
+        contextRollup: {
+          l1: '01309282781705830427'
+        },
+        tags: [
+          '01309282781705830427',
+          '01309282781705830427'
+        ],
+        timeDiff: -0.463,
+        defaultLicense: _.get(this.channelData, 'defaultLicense'),
+        endpoint: '/data/v3/telemetry',
+        env: 'collection_editor',
+        user: {
+          id: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+          orgIds: [
+            '01309282781705830427'
+          ],
+          organisations: {},
+          fullName: 'N11',
+          firstName: 'N11',
+          lastName: '',
+          isRootOrgAdmin: true
+        },
+        channelData: this.channelData,
+        cloudStorageUrls: ''
+      },
+      config: {
+        mode: this.getEditorMode(),
+        collection: {
+          maxContentsLimit: 1200
+        },
+      }
+    };
+    this.editorConfig['config'].showAddCollaborator = false;
+    this.editorConfig['config'].publicStorageAccount = '';
 
-  //   this.editorConfig['config'] = _.assign(this.editorConfig['config'], this.hierarchyConfig);
+    this.editorConfig['config'] = _.assign(this.editorConfig['config'], this.hierarchyConfig);
 
-  //   this.editorService.setConfig(this.editorConfig);
-  //   this.navigateToContentCreate();
-  // }
-  // getEditorMode() {
-  //   const contentStatus = this.content.status.toLowerCase();
-  //   if (contentStatus === 'draft' || contentStatus === 'live' || contentStatus === 'flagdraft'
-  //     || contentStatus === 'unlisted') {
-  //     return 'edit';
-  //   }
+    this.helperService.setConfig(this.editorConfig);
+    this.navigateToContentCreate();
+  }
+  getEditorMode() {
+    const contentStatus = this.content.status.toLowerCase();
+    if (contentStatus === 'draft' || contentStatus === 'live' || contentStatus === 'flagdraft'
+      || contentStatus === 'unlisted') {
+      return 'edit';
+    }
 
-  //   if (contentStatus === 'flagged' || contentStatus === 'flagreview') {
-  //     return 'read';
-  //   }
+    if (contentStatus === 'flagged' || contentStatus === 'flagreview') {
+      return 'read';
+    }
 
-  //   if (contentStatus === 'review') {
-  //     return 'review';
-  //   }
-  // }
+    if (contentStatus === 'review') {
+      return 'review';
+    }
+  }
   navigateToContentCreate() {
     this.router.navigate(['/editors/' + this.contentType], { queryParams: { identifier: this.content.identifier } });
     // this.router.navigate(['editors/' + this.contentType + '/' + identifier]);
