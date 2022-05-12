@@ -92,12 +92,12 @@ export class ContentlistComponent implements OnInit {
         filters: {
           status: [
             'Draft',
-            // 'FlagDraft',
+            'FlagDraft',
             'Review',
             'Processing',
             'Live',
-            // 'Unlisted',
-            // 'FlagReview'
+            'Unlisted',
+            'FlagReview'
           ],
           contentType: [
             'TextBook',
@@ -105,7 +105,8 @@ export class ContentlistComponent implements OnInit {
             'Course'
           ],
           objectType: 'Content',
-          channel: '01309282781705830427'
+          channel: '01309282781705830427',
+          createdBy: '5a587cc1-e018-4859-a0a8-e842650b9d64'
         },
         offset: 0,
         limit: 20,
