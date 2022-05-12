@@ -29,8 +29,8 @@
   </div>
 </div>
 
-<div class="text-div" *ngIf='mode === "QA"'>
-  <div class="text-inline">Enter responce</div> :
-  <div class="text-inline"><textarea #box> </textarea></div>
-  <button class="btn margin-right text-inline" (click)="onEnter(box.value)">Submit</button>
+<div *ngIf='mode === "QA"'>
+  <div>Enter Responce</div> :
+  <div><textarea #responseBox> </textarea></div>
+  <button class="btn margin-right" (click)="onEnter(responseBox.value)">Submit</button>
 </div>

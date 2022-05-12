@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class EpubComponent implements OnInit {
 
   constructor() { }
-  value: any;
   playerConfig = {
     context: {
       mode: 'play',
@@ -100,9 +99,7 @@ export class EpubComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onEnter(value: string) {
-    this.value = value;
-    const artifactUrl = this.value;
+  onEnter(artifactUrl: string) {
     const metadata = this.playerConfig.metadata;
     metadata.streamingUrl = artifactUrl;
     const config = this.playerConfig;

@@ -9,7 +9,6 @@ export class VideoComponent implements OnInit {
 
   constructor() { }
 
-  value: any;
   videoMetaDataconfig: any = JSON.parse(localStorage.getItem('config')) || {};
   config = {
     ...{
@@ -52,16 +51,14 @@ export class VideoComponent implements OnInit {
     data: {}
   };
 
-  onEnter(value) {
-    this.value = value;
-    const artifactUrl = this.value;
+  onEnter(artifactUrl: string) {
     const metadata = this.playerConfig.metadata;
     metadata.streamingUrl = artifactUrl;
     const config = this.playerConfig;
     this.playerConfig = undefined;
     setTimeout(() => {
       this.playerConfig = {...config, metadata};
-    }, 1000);
+    }, 3000);
   }
 
   playerEvent(event) {

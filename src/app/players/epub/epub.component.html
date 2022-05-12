@@ -10,10 +10,10 @@
   </a>
 </div>
 <div class="epub-player">
-  <div class="intbox">
-    <div style="display: inline;">Enter Url</div> :
-    <div style="display: inline;"><input #box></div>
-    <button style="display: inline;" class="btn margin-right" (click)="onEnter(box.value)">Submit</button>
+  <div class="d-flex">
+    <div>Enter Artifact or Streaming Url</div> :
+    <div><input #artifactUrlbox></div>
+    <button class="btn margin-right" (click)="onEnter(artifactUrlbox.value)">Submit</button>
   </div>
   <sunbird-epub-player [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
     (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-epub-player>

@@ -11,10 +11,10 @@
 </div>
 
 <div class="pdf-player-container">
-  <div class="intbox">
-    <div class="text-inline">Enter Url</div> :
-    <div class="text-inline"><input #box (keyup.enter)="onEnter(box.value)"></div>
-    <button class="text-inline btn margin-right" (click)="onEnter(box.value)">Submit</button>
+  <div class="d-flex">
+    <div>Enter Artifact or Streaming Url</div> :
+    <div><input #artifactUrlbox></div>
+    <button class="btn margin-right" (click)="onEnter(artifactUrlbox.value)">Submit</button>
   </div>
   <sunbird-pdf-player *ngIf="playerConfig" [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
     (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-pdf-player>
