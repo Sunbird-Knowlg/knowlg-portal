@@ -20,6 +20,10 @@ export class EditorService {
     };
     return this.publicDataService.post(option);
   }
+  getChannel(channel) {
+    const  url = 'channel/v1/read/' + channel;
+    return this.publicDataService.get(url);
+  }
   getCategoryDefinition(objectType, name, channel?) {
     const option = {
       url: 'object/category/definition/v1/read?fields=objectMetadata,forms,name,label',

@@ -12,6 +12,7 @@ export class CollectionEditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.editorConfig = this.editorService.getConfig();
+    console.log(this.editorConfig, 'this.editorConfig');
   }
   editorEventListener(event) {
     this.router.navigate(['editors/content-list/collection-editor']);

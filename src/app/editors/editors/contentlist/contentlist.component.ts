@@ -14,6 +14,7 @@ export class ContentlistComponent implements OnInit {
   public editorConfig = {};
   public content: any;
   public hierarchyConfig = {};
+  public channelData: any;
   constructor(private router: Router, private location: Location, public activatedRoute: ActivatedRoute,
               public editorService: EditorService) { }
 
@@ -34,21 +35,56 @@ export class ContentlistComponent implements OnInit {
     this.editorService.readContent(id)
       .subscribe((response) => {
         this.content = _.get(response, 'result.content');
-        this.getFrameWorkDetails();
+        this.getChannel(_.get(response, 'result.content.channel'));
       }, (error) => {
         console.log(error);
       });
   }
+  getChannel(channelId) {
+    this.editorService.getChannel(channelId)
+    .subscribe((response) => {
+      this.channelData = _.get(response, 'result.channel');
+      this.getFrameWorkDetails();
+    }, (error) => {
+      console.log(error);
+    });
+
+  }
   getFrameWorkDetails() {
     this.editorService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
-      .subscribe(data => {
-        // tslint:disable-next-line:max-line-length
-        if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
-          this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
-          this.setEditorConfig();
+    .subscribe(data => {
+      // tslint:disable-next-line:max-line-length
+      if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
+        this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
+        if (!_.isEmpty(this.hierarchyConfig['children'])) {
+          this.hierarchyConfig['children'] = this.getPrimaryCategoryData(this.hierarchyConfig['children']);
         }
-      }, err => {
-      });
+        if (!_.isEmpty(this.hierarchyConfig['hierarchy'])) {
+          _.forEach(this.hierarchyConfig['hierarchy'], (hierarchyValue) => {
+            if (_.get(hierarchyValue, 'children')) {
+              hierarchyValue['children'] = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
+            }
+          });
+        }
+      }
+      this.setEditorConfig();
+    }, err => {
+    });
+  }
+  getPrimaryCategoryData(childrenData) {
+    _.forEach(childrenData, (value, key) => {
+      if (_.isEmpty(value)) {
+        switch (key) {
+          case 'Content':
+            childrenData[key] = this.channelData.contentPrimaryCategories || [];
+            break;
+          case 'Collection':
+            childrenData[key] = this.channelData.collectionPrimaryCategories || [];
+            break;
+        }
+      }
+    });
+    return childrenData;
   }
   getAllCollectionList() {
     const req = {
@@ -56,12 +92,12 @@ export class ContentlistComponent implements OnInit {
         filters: {
           status: [
             'Draft',
-            'FlagDraft',
+            // 'FlagDraft',
             'Review',
             'Processing',
             'Live',
-            'Unlisted',
-            'FlagReview'
+            // 'Unlisted',
+            // 'FlagReview'
           ],
           contentType: [
             'TextBook',
@@ -88,7 +124,7 @@ export class ContentlistComponent implements OnInit {
   }
   setEditorConfig() {
     // tslint:disable-next-line:max-line-length
-    // const additionalCategories = _.merge(this.frameworkService['_channelData'].contentAdditionalCategories, this.frameworkService['_channelData'].collectionAdditionalCategories) || this.config.appConfig.WORKSPACE.primaryCategory;
+    const additionalCategory = _.merge(this.channelData.contentAdditionalCategories, this.channelData.collectionAdditionalCategories);
     this.editorConfig = {
       context: {
         identifier: this.content.identifier,
@@ -97,7 +133,7 @@ export class ContentlistComponent implements OnInit {
         sid: 'vLpZ1rFl6-sxMVHi4RrmrlHw0HsX9ggC',
         did: '1d8e290dd3c2a6a9eeac58568cdef28d',
         uid: '5a587cc1-e018-4859-a0a8-e842650b9d64',
-        additionalCategories: {},
+        additionalCategories: additionalCategory,
         host: 'http://localhost:3000',
         pdata: {
           id: 'local.sunbird..knowledge.portal',
@@ -116,7 +152,7 @@ export class ContentlistComponent implements OnInit {
           '01309282781705830427'
         ],
         timeDiff: -0.463,
-        defaultLicense: '',
+        defaultLicense: _.get(this.channelData, 'defaultLicense'),
         endpoint: '/data/v3/telemetry',
         env: 'collection_editor',
         user: {
@@ -130,7 +166,7 @@ export class ContentlistComponent implements OnInit {
           lastName: '',
           isRootOrgAdmin: true
         },
-        channelData: {},
+        channelData: this.channelData,
         cloudStorageUrls: ''
       },
       config: {
