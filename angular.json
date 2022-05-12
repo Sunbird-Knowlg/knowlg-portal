@@ -170,8 +170,5 @@
       }
     }
   },
-  "defaultProject": "sunbired-knowledge",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "sunbired-knowledge"
 }
