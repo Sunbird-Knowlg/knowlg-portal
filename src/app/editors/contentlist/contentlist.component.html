@@ -4,7 +4,7 @@
 
     <div class="content container">
         <div class="flex-parent">
-          <input  class="sb-search-input" #searchQuery type="text"  placeholder="Enter do Id here"/>
+          <input  class="sb-search-input" #searchQuery type="text"  placeholder="Enter content/asset id here"/>
             <button class="btn create-new" (click)=getContentDetails(searchQuery.value) >View</button>
             <div *ngIf="apiErrorResponse" class="error-message"> {{apiErrorResponse}}</div>
         </div>
