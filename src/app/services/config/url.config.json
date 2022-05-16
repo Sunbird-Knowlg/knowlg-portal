@@ -1,9 +1,9 @@
 {
   "CONTENT": {
-    "READ": "content/v3/read/"
+    "READ": "content/v3/read"
   },
   "CHANNEL": {
-    "READ": "channel/v1/read/"
+    "READ": "channel/v1/read"
   },
   "SEARCH": {
     "COMPOSIT": "composite/v3/search"

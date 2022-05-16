@@ -16,6 +16,7 @@ export class ContentlistComponent implements OnInit {
   public content: any;
   public hierarchyConfig = {};
   public channelData: any;
+  public apiErrorResponse: any;
   constructor(private router: Router, private location: Location, public activatedRoute: ActivatedRoute,
               public helperService: HelperService) { }
 
@@ -32,45 +33,52 @@ export class ContentlistComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+  getContentDetails(id) {
+if (id) {
+  this.openContent(id);
+}
+  }
   openContent(id) {
     this.helperService.getContent(id)
       .subscribe((response) => {
         this.content = _.get(response, 'result.content');
         this.getChannel(_.get(response, 'result.content.channel'));
+        this.apiErrorResponse = '';
       }, (error) => {
         console.log(error);
+        this.apiErrorResponse = error.error.params.errmsg;
       });
   }
   getChannel(channelId) {
     this.helperService.getChannel(channelId)
-    .subscribe((response) => {
-      this.channelData = _.get(response, 'result.channel');
-      this.getFrameWorkDetails();
-    }, (error) => {
-      console.log(error);
-    });
+      .subscribe((response) => {
+        this.channelData = _.get(response, 'result.channel');
+        this.getFrameWorkDetails();
+      }, (error) => {
+        console.log(error);
+      });
 
   }
   getFrameWorkDetails() {
     this.helperService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
-    .subscribe(data => {
-      // tslint:disable-next-line:max-line-length
-      if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
-        this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
-        if (!_.isEmpty(this.hierarchyConfig['children'])) {
-          this.hierarchyConfig['children'] = this.getPrimaryCategoryData(this.hierarchyConfig['children']);
+      .subscribe(data => {
+        // tslint:disable-next-line:max-line-length
+        if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
+          this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
+          if (!_.isEmpty(this.hierarchyConfig['children'])) {
+            this.hierarchyConfig['children'] = this.getPrimaryCategoryData(this.hierarchyConfig['children']);
+          }
+          if (!_.isEmpty(this.hierarchyConfig['hierarchy'])) {
+            _.forEach(this.hierarchyConfig['hierarchy'], (hierarchyValue) => {
+              if (_.get(hierarchyValue, 'children')) {
+                hierarchyValue['children'] = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
+              }
+            });
+          }
         }
-        if (!_.isEmpty(this.hierarchyConfig['hierarchy'])) {
-          _.forEach(this.hierarchyConfig['hierarchy'], (hierarchyValue) => {
-            if (_.get(hierarchyValue, 'children')) {
-              hierarchyValue['children'] = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
-            }
-          });
-        }
-      }
-      this.setEditorConfig();
-    }, err => {
-    });
+        this.setEditorConfig();
+      }, err => {
+      });
   }
   getPrimaryCategoryData(childrenData) {
     _.forEach(childrenData, (value, key) => {
@@ -95,7 +103,7 @@ export class ContentlistComponent implements OnInit {
             'Draft',
             'FlagDraft',
             'Review',
-            'Processing',
+            'flagged',
             'Live',
             'Unlisted',
             'FlagReview'
@@ -110,7 +118,7 @@ export class ContentlistComponent implements OnInit {
           createdBy: '5a587cc1-e018-4859-a0a8-e842650b9d64'
         },
         offset: 0,
-        limit: 20,
+        limit: 200,
         query: '',
         sort_by: {
           lastUpdatedOn: 'desc'
