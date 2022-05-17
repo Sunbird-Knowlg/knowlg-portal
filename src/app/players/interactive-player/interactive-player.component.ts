@@ -113,10 +113,7 @@ export class InteractivePlayerComponent implements OnInit {
                       }
                     } else if (resp.data && resp.data.event === 'renderer:contentNotComaptible'
                       || resp.data && resp.data.data.event === 'renderer:contentNotComaptible') {
-                      // cordova.plugins.InAppUpdateManager.checkForImmediateUpdate(
-                      //   () => { },
-                      //   () => { }
-                      // );
+                      // todo for compatiblity check
                     } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
                       // todo maxlimit reached
                     }
