@@ -1,4 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { delay, first, mergeMap, tap } from 'rxjs/operators';
+import { HelperService } from 'src/app/services/helper/helper.service';
 
 @Component({
   selector: 'app-pdf',
@@ -6,9 +10,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./pdf.component.scss']
 })
 export class PdfComponent implements OnInit {
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private helperService: HelperService) { }
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
-
+  mode = '';
+  public queryParams: any;
+  public contentDetails: any;
   playerConfig = {
     context: {
       mode: 'play',
@@ -74,16 +80,51 @@ export class PdfComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.getContentDetails().pipe(first(),
+      tap((data: any) => {
+        if (this.contentDetails){
+          this.loadContent(this.contentDetails);
+        }
+      }),
+      delay(10))
+      .subscribe((data) => {
+        // todo for loader
+      },
+        (error) => {
+          // todo to show error message
+          console.log('error --->', error);
+        }
+      );
   }
 
-  onEnter(artifactUrl: string) {
-    const metadata = this.playerConfig.metadata;
-    metadata.streamingUrl = artifactUrl;
+  private getContentDetails() {
+    if (this.queryParams.identifier) {
+      const options: any = { params: { fields: 'body,mimeType,name' } };
+      return this.helperService.getContent(this.queryParams.identifier, options).
+        pipe(mergeMap((data) => {
+          if (data){
+            this.contentDetails = data.result.content;
+          }
+          return of(data);
+        }));
+    } else {
+      return of({});
+    }
+  }
+
+  loadContent(metadata) {
     const config = this.playerConfig;
     this.playerConfig = undefined;
     setTimeout(() => {
       this.playerConfig = {...config, metadata};
     }, 3000);
+  }
+
+  getArtifactUrl(artifactUrl: string){
+    const metadata = this.playerConfig.metadata;
+    metadata.streamingUrl = artifactUrl;
+    this.loadContent(metadata);
   }
 
   playerEvents(event) {

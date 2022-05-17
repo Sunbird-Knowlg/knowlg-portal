@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { delay, first, mergeMap, tap } from 'rxjs/operators';
+import { HelperService } from 'src/app/services/helper/helper.service';
 
 @Component({
   selector: 'app-interactive-player',
@@ -8,9 +11,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InteractivePlayerComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private helperService: HelperService) { }
   value: any;
   mode = '';
+  public queryParams: any;
+  public contentDetails: any;
   playerConfig = {
     context: {
         mode: 'play',
@@ -79,49 +84,80 @@ export class InteractivePlayerComponent implements OnInit {
 
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
   ngOnInit(): void {
-    const playerInterval = setInterval(() => {
-      if (this.previewElement?.nativeElement) {
-        clearInterval(playerInterval);
-        // This is to reload a iframe as iframes reload method not working on cross-origin.
-        const src = this.previewElement.nativeElement.src;
-        this.previewElement.nativeElement.src = '';
-        this.previewElement.nativeElement.src = src;
-        this.previewElement.nativeElement.onload = () => {
-          setTimeout(() => {
-            this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfig);
-            this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
-              if (resp.data === 'renderer:question:submitscore') {
-                // todo submitscore
-              } else if (resp.data === 'renderer:question:reviewAssessment') {
-                // todo reviewAssement
-              } else if (resp.data && typeof resp.data === 'object') {
-                if (resp.data['player.pdf-renderer.error']) {
-                  const pdfError = resp.data['player.pdf-renderer.error'];
-                  if (pdfError.name === 'MissingPDFException') {
+    this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.getContentDetails().pipe(first(),
+      tap((data: any) => {
+        if (this.contentDetails){
+          this.playerConfig.metadata = this.contentDetails;
+          this.playerConfig.data = this.contentDetails.body;
+        }
+        const playerInterval = setInterval(() => {
+          if (this.previewElement?.nativeElement) {
+            clearInterval(playerInterval);
+            // This is to reload a iframe as iframes reload method not working on cross-origin.
+            const src = this.previewElement.nativeElement.src;
+            this.previewElement.nativeElement.src = '';
+            this.previewElement.nativeElement.src = src;
+            this.previewElement.nativeElement.onload = () => {
+              setTimeout(() => {
+                this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfig);
+                this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
+                  if (resp.data === 'renderer:question:submitscore') {
+                    // todo submitscore
+                  } else if (resp.data === 'renderer:question:reviewAssessment') {
+                    // todo reviewAssement
+                  } else if (resp.data && typeof resp.data === 'object') {
+                    if (resp.data['player.pdf-renderer.error']) {
+                      const pdfError = resp.data['player.pdf-renderer.error'];
+                      if (pdfError.name === 'MissingPDFException') {
+                      }
+                    } else if (resp.data && resp.data.event === 'renderer:contentNotComaptible'
+                      || resp.data && resp.data.data.event === 'renderer:contentNotComaptible') {
+                      // cordova.plugins.InAppUpdateManager.checkForImmediateUpdate(
+                      //   () => { },
+                      //   () => { }
+                      // );
+                    } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
+                      // todo maxlimit reached
+                    }
+                  } else if (this.isJSON(resp.data)) {
+                    const response = JSON.parse(resp.data);
+                    if (response.event === 'renderer:navigate') {
+                     // todo navigation events
+                    }
                   }
-                } else if (resp.data && resp.data.event === 'renderer:contentNotComaptible'
-                  || resp.data && resp.data.data.event === 'renderer:contentNotComaptible') {
-                  // cordova.plugins.InAppUpdateManager.checkForImmediateUpdate(
-                  //   () => { },
-                  //   () => { }
-                  // );
-                } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
-                  // todo maxlimit reached
-                }
-              } else if (this.isJSON(resp.data)) {
-                const response = JSON.parse(resp.data);
-                if (response.event === 'renderer:navigate') {
-                 // todo navigation events
-                }
-              }
-            });
-          }, 1000);
-        };
-      }
-  }, 500);
+                });
+              }, 1000);
+            };
+          }
+      }, 500);
+      }),
+      delay(10))
+      .subscribe((data) => {
+        // todo for loader
+      },
+        (error) => {
+          // todo to show tostmessage
+          console.log('error --->', error);
+        }
+      );
+
     this.activatedRoute.queryParams.subscribe(params => {
       this.mode = params.mode;
     });
+  }
+
+  private getContentDetails() {
+    if (this.queryParams.identifier) {
+      const options: any = { params: { fields: 'body,mimeType,name' } };
+      return this.helperService.getContent(this.queryParams.identifier, options).
+        pipe(mergeMap((data) => {
+          this.contentDetails = data.result.content;
+          return of(data);
+        }));
+    } else {
+      return of({});
+    }
   }
 
   playerEvents(event) {
