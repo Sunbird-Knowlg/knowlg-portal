@@ -127,7 +127,9 @@ export class EpubComponent implements OnInit {
       const options: any = { params: { fields: 'body,mimeType,name' } };
       return this.helperService.getContent(this.queryParams.identifier, options).
         pipe(mergeMap((data) => {
-          // this.contentDetails = data.result.content;
+          if (data){
+            this.contentDetails = data.result.content;
+          }
           return of(data);
         }));
     } else {
