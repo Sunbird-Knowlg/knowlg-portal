@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-video',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
+  mode = '';
   videoMetaDataconfig: any = JSON.parse(localStorage.getItem('config')) || {};
   config = {
     ...{
@@ -69,6 +71,9 @@ export class VideoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.mode = params.mode;
+  });
   }
 
 }

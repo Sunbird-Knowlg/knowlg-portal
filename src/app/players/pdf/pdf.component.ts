@@ -96,6 +96,9 @@ export class PdfComponent implements OnInit {
           console.log('error --->', error);
         }
       );
+    this.activatedRoute.queryParams.subscribe(params => {
+        this.mode = params.mode;
+    });
   }
 
   private getContentDetails() {
@@ -121,7 +124,7 @@ export class PdfComponent implements OnInit {
     }, 3000);
   }
 
-  getArtifactUrl(artifactUrl: string){
+  setArtifactUrl(artifactUrl: string){
     const metadata = this.playerConfig.metadata;
     metadata.streamingUrl = artifactUrl;
     this.loadContent(metadata);

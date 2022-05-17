@@ -8,6 +8,13 @@
       <span>Back</span>
     </button>
   </a>
+  <div *ngIf='mode === "QA"' class="d-flex margin-right2">
+    <div class="sb-field">
+      <label>Enter Responce</label> :
+      <textarea class="sb-form-control" #responseBox></textarea>
+    </div>
+    <button class="sb-btn sb-btn-normal margin-right" (click)="onEnter(responseBox.value)">Submit</button>
+  </div>
 </div>
 
 <div class ='sbt-inside-page-container'>
@@ -27,10 +34,4 @@
       </div>
   </div>
   </div>
-</div>
-
-<div *ngIf='mode === "QA"'>
-  <div>Enter Responce</div> :
-  <div><textarea #responseBox> </textarea></div>
-  <button class="btn margin-right" (click)="onEnter(responseBox.value)">Submit</button>
 </div>

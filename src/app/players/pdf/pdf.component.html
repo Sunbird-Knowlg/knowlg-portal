@@ -8,14 +8,31 @@
       <span>Back</span>
     </button>
   </a>
+  <div *ngIf='mode === "QA"' class="d-flex margin-right2">
+    <div class="sb-field">
+      <label>Enter Artifact or Streaming Url</label> :
+      <input class="sb-form-control" #artifactUrlbox>
+    </div>
+    <button class="sb-btn sb-btn-normal margin-right" (click)="setArtifactUrl(artifactUrlbox.value)">Submit</button>
+  </div>
 </div>
 
-<div class="pdf-player-container">
-  <div class="d-flex">
-    <div>Enter Artifact or Streaming Url</div> :
-    <div><input #artifactUrlbox></div>
-    <button class="btn margin-right" (click)="getArtifactUrl(artifactUrlbox.value)">Submit</button>
-  </div>
-  <sunbird-pdf-player *ngIf="playerConfig" [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
+<div class ='sbt-inside-page-container'>
+  <div class="relative9">
+      <!-- CC-Player Video -->
+      <div class="sb-single-resource player-maxwidth">
+      <div class="ui container">
+          <div class="cc-player sb-g">
+            <section class="sb-g-col-xs-12 sb-g-col-md-12 sb-g-col-lg-12 sb-g-col-xxxl-16 cc-player__video" id="player-area-height">
+              <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio" #aspectRatio>
+                <div class="h-100">
+                  <sunbird-pdf-player *ngIf="playerConfig" [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
     (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-pdf-player>
+                </div>
+              </div>
+            </section>
+          </div>
+      </div>
+  </div>
+  </div>
 </div>
