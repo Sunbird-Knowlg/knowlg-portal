@@ -20,6 +20,7 @@ export class PdfComponent implements OnInit {
   public queryParams: any;
   public contentDetails: any;
   playerConfig = this.configService.playerConfig.PDF_PLAYER;
+  isLoading = true;
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
@@ -28,13 +29,13 @@ export class PdfComponent implements OnInit {
         if (this.contentDetails){
           this.loadContent(this.contentDetails);
         }
-      }),
-      delay(10))
+      }))
       .subscribe((data) => {
-        // todo for loader
+        this.isLoading = false;
       },
         (error) => {
-          // todo to show error message
+          this.isLoading = false;
+          alert('Error to load pdf, Loading default pdf');
           console.log('error --->', error);
         }
       );
@@ -58,8 +59,10 @@ export class PdfComponent implements OnInit {
   loadContent(metadata) {
     const config = this.playerConfig;
     this.playerConfig = undefined;
+    this.isLoading = true;
     setTimeout(() => {
       this.playerConfig = {...config, metadata};
+      this.isLoading = false;
     }, 3000);
   }
 

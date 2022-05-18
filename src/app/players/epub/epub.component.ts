@@ -20,6 +20,7 @@ export class EpubComponent implements OnInit {
   public queryParams: any;
   public contentDetails: any;
   playerConfig = this.configService.playerConfig.EPUB_PLAYER;
+  isLoading = true;
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
@@ -28,13 +29,13 @@ export class EpubComponent implements OnInit {
         if (this.contentDetails){
           this.playerConfig = this.contentDetails;
         }
-      }),
-      delay(10))
+      }))
       .subscribe((data) => {
-        // todo for loader
+        this.isLoading = false;
       },
         (error) => {
-          // todo to show error message
+          this.isLoading = false;
+          alert('Error to load epub, Loading default epub');
           console.log('error --->', error);
         }
       );
