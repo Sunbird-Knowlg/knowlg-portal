@@ -6,48 +6,6 @@ html {
   height: 100%;
 }
 
-.epub-player{
-  height: 70vh;
-  width: 936.889px;
-  margin-top: -263.5px;
-  margin-left: -468.444px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  bottom: 25%;
-  padding: 9px;
-}
-::ng-deep{
-  iframe {
-    width: 100%;
-    height: 100% !important;
-  }
-  .video-js{height:100% !important;}
-  // html[layout='joy'] .content-video__player__details {
-  //   border-radius: 0px !important;
-  // }
-  .video-js {
-    padding-top:inherit !important;
-  }
-}
-
-.contentViewerIframeShadow {
-  width: 100%;
-  border: 0;
-  height: 100%;
-  left:50%;
-  top:50%;
-  right:50%;
-  bottom:50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  transition: all ease .3s;
-  iframe {
-    height: calc(100vh - 4rem) !important;
-  border:10px solid rebeccapurple;
-  }
-}
-
 .sb-single-resource {
 	width: 100%;
 	height: 100%;
@@ -75,12 +33,6 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-
-    video,iframe {
-      width: 100%;
-      height: 100% !important;
-      // border: calculateRem(6px) solid var(--black);
-    }
   }
   &.player-fullscreen {
     width: 100%;
@@ -95,7 +47,7 @@ html {
     padding:0;
     z-index:9999;
    }
-   &.player-fullscreen iframe, &.player-fullscreen video {
+   &.player-fullscreen iframe, &.player-fullscreen {
     width: 100%;
     height: calc(100vh - 50px) !important;
  }
