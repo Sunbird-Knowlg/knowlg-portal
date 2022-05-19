@@ -66,6 +66,7 @@ export class InteractivePlayerComponent implements OnInit {
       },
         (error) => {
           alert('Error to load interactive content, Loading default content');
+          this.isLoading = false;
           console.log('error --->', error);
         }
       );
@@ -73,7 +74,7 @@ export class InteractivePlayerComponent implements OnInit {
 
   private getContentDetails() {
     if (this.queryParams.identifier) {
-      const options: any = { params: { fields: 'body,mimeType,name' } };
+      const options: any = { params: { fields: 'body,mimeType,name,artifactUrl' } };
       return this.helperService.getContent(this.queryParams.identifier, options).
         pipe(mergeMap((data) => {
           this.contentDetails = data.result.content;
