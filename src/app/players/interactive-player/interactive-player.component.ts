@@ -66,6 +66,7 @@ export class InteractivePlayerComponent implements OnInit {
       },
         (error) => {
           alert('Error to load interactive content, Loading default content');
+          this.isLoading = false;
           console.log('error --->', error);
         }
       );
