@@ -4,7 +4,9 @@
 
     <div class="content container">
         <div class="flex-parent">
-            <button class="btn create-new" (click)=navigateToContentCreate()>Create New</button>
+          <input  class="sb-search-input" #searchQuery type="text"  placeholder="Enter content/asset id here"/>
+            <button class="btn create-new" (click)=getContentDetails(searchQuery.value) >View</button>
+            <div *ngIf="apiErrorResponse" class="error-message"> {{apiErrorResponse}}</div>
         </div>
     </div>
 
@@ -21,7 +23,7 @@
                 <tr *ngFor="let data of contentArray ">
                     <td>{{data?.name}}</td>
                     <td>{{data?.contentType}}</td>
-                    <td><button class="btn status-button" (click)=navigateToContentCreate()>{{data?.status}}</button>
+                    <td><button class="btn status-button" (click)=openContent(data?.identifier)>{{data?.status}}</button>
                     </td>
                 </tr>
 

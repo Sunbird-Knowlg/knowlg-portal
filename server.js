@@ -13,6 +13,45 @@ var app = express();
 app.set("port", 3000);
 app.use(express.json());
 
+app.use(['/action/dialcode/v3/search', 'action/asset/v1/create'], proxy(BASE_URL, {
+    https: true,
+    limit: '30mb',
+    proxyReqPathResolver: function(req) {
+        console.log('proxyReqOptDecorator ======> 2');
+        console.log("------> ", req.originalUrl);
+        let originalUrl = req.originalUrl.replace('/action/', '/api/')
+         originalUrl = originalUrl.replace('/v3/', '/v1/')
+        console.log("=======>", urlHelper.parse(originalUrl).path)
+        return urlHelper.parse(originalUrl).path;
+    },
+    proxyReqOptDecorator: function(proxyReqOpts, srcReq) {
+        // you can update headers
+        proxyReqOpts.headers['Content-Type'] = 'application/json';
+        proxyReqOpts.headers['user-id'] = 'content-editor';
+        // proxyReqOpts.headers['Cookie'] = PORTAL_COOKIES;
+        proxyReqOpts.headers['authorization'] = `Bearer ${API_AUTH_TOKEN}`;
+        proxyReqOpts.headers['x-authenticated-user-token'] = USER_TOKEN;
+        proxyReqOpts.headers['x-channel-id'] = 'ORG_001';
+        return proxyReqOpts;
+    }
+}));
+app.use(['/action/content/v3/hierarchy/*'], proxy(BASE_URL, {
+    https: true,
+    limit: '30mb',
+    proxyReqPathResolver: function(req) {
+        console.log('proxyReqOptDecorator ======> 1');
+        return urlHelper.parse(req.originalUrl).path;
+    },
+    proxyReqOptDecorator: function(proxyReqOpts, srcReq) {
+        console.log('proxyReqOptDecorator 4')
+        proxyReqOpts.headers['Content-Type'] = 'application/json';
+        proxyReqOpts.headers['user-id'] = 'content-editor';
+        // proxyReqOpts.headers['Cookie'] = PORTAL_COOKIES;
+        proxyReqOpts.headers['authorization'] = `Bearer ${API_AUTH_TOKEN}`;
+        proxyReqOpts.headers['x-authenticated-user-token'] = USER_TOKEN;
+        return proxyReqOpts;
+    }
+}));
 app.use(
   ["/action/content/v3/update/*"],
   proxy(BASE_URL, {

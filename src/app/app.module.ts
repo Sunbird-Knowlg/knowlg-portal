@@ -18,6 +18,8 @@ import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml
 import { QuestionCursorImplementationService } from './services/question-cursor-implementation.service';
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
+import {HelperService} from './services/helper/helper.service';
+import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,12 +41,15 @@ import { ContentlistComponent } from './editors/contentlist/contentlist.componen
     SunbirdPdfPlayerModule,
     SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
-    QumlLibraryModule
+    QumlLibraryModule,
+    CollectionEditorLibraryModule
   ],
   providers: [{
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
-  }],
+  },
+  HelperService,
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
