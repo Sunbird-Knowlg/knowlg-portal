@@ -20,7 +20,7 @@
             <section class="sb-g-col-xs-12 sb-g-col-md-12 sb-g-col-lg-12 sb-g-col-xxxl-16 cc-player__video" id="player-area-height">
               <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio" #aspectRatio>
                 <div class="h-100">
-                  <sunbird-epub-player [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
+                  <sunbird-epub-player *ngIf="playerConfig" [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
                   (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-epub-player>
                 </div>
               </div>

@@ -27,7 +27,7 @@ export class EpubComponent implements OnInit {
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
         if (this.contentDetails){
-          this.playerConfig = this.contentDetails;
+          this.loadContent(this.contentDetails);
         }
       }))
       .subscribe((data) => {
@@ -43,7 +43,7 @@ export class EpubComponent implements OnInit {
 
   private getContentDetails() {
     if (this.queryParams.identifier) {
-      const options: any = { params: { fields: 'body,mimeType,name' } };
+      const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
       return this.helperService.getContent(this.queryParams.identifier, options).
         pipe(mergeMap((data) => {
           if (data){
@@ -56,10 +56,13 @@ export class EpubComponent implements OnInit {
     }
   }
 
-  loadContent(contentDetails) {
+  loadContent(metadata) {
+    const config = this.playerConfig;
     this.playerConfig = undefined;
+    this.isLoading = true;
     setTimeout(() => {
-      this.playerConfig = contentDetails;
+      this.playerConfig = {...config, metadata};
+      this.isLoading = false;
     }, 3000);
   }
 
