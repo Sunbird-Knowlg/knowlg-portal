@@ -1,4 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { delay, first, mergeMap, tap } from 'rxjs/operators';
+import { HelperService } from 'src/app/services/helper/helper.service';
+import { ConfigService } from 'src/app/services/config/config.service';
 
 @Component({
   selector: 'app-pdf',
@@ -6,83 +11,58 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./pdf.component.scss']
 })
 export class PdfComponent implements OnInit {
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private helperService: HelperService,
+    private configService: ConfigService
+  ) { }
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
-
-  playerConfig = {
-    context: {
-      mode: 'play',
-      authToken: '',
-      sid: '7283cf2e-d215-9944-b0c5-269489c6fa56',
-      did: '3c0a3724311fe944dec5df559cc4e006',
-      uid: 'anonymous',
-      channel: '505c7c48ac6dc1edc9b08f21db5a571d',
-      pdata: {
-        id: 'sunbird.portal',
-        ver: '3.2.12',
-        pid: 'sunbird-portal.contentplayer'
-      },
-      contextRollup: {
-        l1: '505c7c48ac6dc1edc9b08f21db5a571d'
-      },
-      tags: [
-        ''
-      ],
-      cdata: [],
-      timeDiff: 0,
-      objectRollup: {},
-      host: '',
-      endpoint: '',
-      userData: {
-        firstName: 'Sourav',
-        lastName: 'Dey'
-      }
-    },
-    config: {},
-    metadata: {
-      compatibilityLevel: 4,
-      artifactUrl: 'https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/assets/do_31291455031832576019477/b301b302_std_1_tamilenglish_lang_term-1_opt.pdf',
-      contentType: 'FocusSpot',
-      identifier: 'do_31291455031832576019477',
-      audience: ['Teacher'],
-      visibility: 'Default',
-      mediaType: 'content',
-      osId: 'org.ekstep.quiz.app',
-      languageCode: ['en'],
-      license: 'CC BY 4.0',
-      name: 'B301,ENGLISH_LANG_TERM 1_OPT',
-      status: 'Live',
-      code: '43e68089-997e-49a4-902a-6262e5654515',
-      description: 'epdf',
-      streamingUrl: 'https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/assets/do_31291458881611366418883/b331332333_std_5_mathssciencesocial_tm_term-1_opt.pdf',
-      createdOn: '2019-12-16T07:59:53.154+0000',
-      copyrightYear: 2019,
-      additionalCategories: ['Focus Spot'],
-      lastUpdatedOn: '2019-12-16T11:52:56.405+0000',
-      creator: 'SCERT 2 ECONTENTS',
-      pkgVersion: 1,
-      versionKey: '1576497176405',
-      framework: 'tn_k-12_5',
-      createdBy: 'f4f80b17-8609-44b9-b781-b79df5cf7e8d',
-      resourceType: 'Read',
-      licenseDetails: {
-        name: 'CC BY 4.0',
-        url: 'https://creativecommons.org/licenses/by/4.0/legalcode',
-        description: 'For details see below:'
-      }
-    },
-  };
+  public queryParams: any;
+  public contentDetails: any;
+  playerConfig = this.configService.playerConfig.PDF_PLAYER;
+  isLoading = true;
 
   ngOnInit(): void {
+    this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.getContentDetails().pipe(first(),
+      tap((data: any) => {
+        if (this.contentDetails){
+          this.loadContent(this.contentDetails);
+        }
+      }))
+      .subscribe((data) => {
+        this.isLoading = false;
+      },
+        (error) => {
+          this.isLoading = false;
+          alert('Error to load pdf, Loading default pdf');
+          console.log('error --->', error);
+        }
+      );
   }
 
-  onEnter(artifactUrl: string) {
-    const metadata = this.playerConfig.metadata;
-    metadata.streamingUrl = artifactUrl;
+  private getContentDetails() {
+    if (this.queryParams.identifier) {
+      const options: any = { params: { fields: 'body,mimeType,name' } };
+      return this.helperService.getContent(this.queryParams.identifier, options).
+        pipe(mergeMap((data) => {
+          if (data){
+            this.contentDetails = data.result.content;
+          }
+          return of(data);
+        }));
+    } else {
+      return of({});
+    }
+  }
+
+  loadContent(metadata) {
     const config = this.playerConfig;
     this.playerConfig = undefined;
+    this.isLoading = true;
     setTimeout(() => {
       this.playerConfig = {...config, metadata};
+      this.isLoading = false;
     }, 3000);
   }
 

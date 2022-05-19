@@ -9,12 +9,24 @@
     </button>
   </a>
 </div>
-<div class="epub-player">
-  <div class="d-flex">
-    <div>Enter Artifact or Streaming Url</div> :
-    <div><input #artifactUrlbox></div>
-    <button class="btn margin-right" (click)="onEnter(artifactUrlbox.value)">Submit</button>
+
+<div class ='sbt-inside-page-container'>
+  <div *ngIf="isLoading">Loading.....</div>
+  <div class="relative9">
+      <!-- CC-Player Video -->
+      <div class="sb-single-resource player-maxwidth">
+      <div class="ui container">
+          <div class="cc-player sb-g">
+            <section class="sb-g-col-xs-12 sb-g-col-md-12 sb-g-col-lg-12 sb-g-col-xxxl-16 cc-player__video" id="player-area-height">
+              <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio" #aspectRatio>
+                <div class="h-100">
+                  <sunbird-epub-player [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
+                  (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-epub-player>
+                </div>
+              </div>
+            </section>
+          </div>
+      </div>
   </div>
-  <sunbird-epub-player [playerConfig]="playerConfig" (playerEvent)="playerEvents($event)"
-    (telemetryEvent)="playerTelemetryEvents($event)"></sunbird-epub-player>
+  </div>
 </div>

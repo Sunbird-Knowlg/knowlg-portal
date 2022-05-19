@@ -7,7 +7,6 @@ var express = require("express"),
 // ENV Variables
 const BASE_URL = "dev.sunbirded.org";
 const API_AUTH_TOKEN = "";
-const PORTAL_COOKIES = "";
 const USER_TOKEN = "";
 
 var app = express();
@@ -54,22 +53,23 @@ app.use(['/action/content/v3/hierarchy/*'], proxy(BASE_URL, {
     }
 }));
 app.use(
-  "/action/asset/v1/upload/:do_id",
+  ["/action/content/v3/update/*"],
   proxy(BASE_URL, {
     https: true,
     limit: "30mb",
     proxyReqPathResolver: function (req) {
       console.log("proxyReqOptDecorator ======> 1");
-      console.log("Before ------> ", req.originalUrl);
-      let originalUrl = req.originalUrl.replace("/action/", "");
-      console.log("After ------> ", urlHelper.parse(originalUrl).path);
+      console.log("Before -------> ", req.originalUrl);
+      let originalUrl = req.originalUrl.replace("/action/", "/api/");
+      originalUrl = originalUrl.replace("/v3/", "/v2/");
+      console.log("After  -------> ", originalUrl);
       return urlHelper.parse(originalUrl).path;
     },
     proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
       // you can update headers
       proxyReqOpts.headers["Content-Type"] = "application/json";
       proxyReqOpts.headers["user-id"] = "content-editor";
-      proxyReqOpts.headers["Cookie"] = PORTAL_COOKIES;
+      proxyReqOpts.headers["Cookie"] = '';
       proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
       proxyReqOpts.headers["x-authenticated-user-token"] = USER_TOKEN;
       return proxyReqOpts;
@@ -89,18 +89,17 @@ app.use(
     https: true,
     limit: "30mb",
     proxyReqPathResolver: function (req) {
-      console.log("proxyReqOptDecorator ======> 1");
-      console.log("Before ------> ", req.originalUrl);
+      console.log("proxyReqOptDecorator ======> 2");
+      console.log("Before -------> ", req.originalUrl);
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
       originalUrl = originalUrl.replace("/v3/", "/v1/");
-      console.log("After ------> ", urlHelper.parse(originalUrl).path);
+      console.log("After  -------> ", originalUrl);
       return urlHelper.parse(originalUrl).path;
     },
     proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
       // you can update headers
       proxyReqOpts.headers["Content-Type"] = "application/json";
       proxyReqOpts.headers["user-id"] = "content-editor";
-      proxyReqOpts.headers["Cookie"] = PORTAL_COOKIES;
       proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
       proxyReqOpts.headers["x-authenticated-user-token"] = USER_TOKEN;
       return proxyReqOpts;
@@ -114,17 +113,16 @@ app.use(
     https: true,
     limit: "30mb",
     proxyReqPathResolver: function (req) {
-      console.log("proxyReqOptDecorator ======> 2");
-      console.log("------> ", req.originalUrl);
+      console.log("proxyReqOptDecorator ======> 3");
+      console.log("Before -------> ", req.originalUrl);
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
-      console.log("=======>", urlHelper.parse(originalUrl).path);
+      console.log("After  -------> ", originalUrl);
       return urlHelper.parse(originalUrl).path;
     },
     proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
       // you can update headers
       proxyReqOpts.headers["Content-Type"] = "application/json";
       proxyReqOpts.headers["user-id"] = "content-editor";
-      proxyReqOpts.headers["Cookie"] = PORTAL_COOKIES;
       proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
       proxyReqOpts.headers["x-authenticated-user-token"] = USER_TOKEN;
       return proxyReqOpts;
@@ -138,13 +136,13 @@ app.use(
     https: true,
     limit: "30mb",
     proxyReqPathResolver: function (req) {
-      console.log("proxyReqOptDecorator ======> 3");
+      console.log("proxyReqOptDecorator ======> 4");
+      console.log("Before -------> ", req.originalUrl);
       return urlHelper.parse(req.originalUrl).path;
     },
     proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
       proxyReqOpts.headers["Content-Type"] = "application/json";
       proxyReqOpts.headers["user-id"] = "content-editor";
-      proxyReqOpts.headers["Cookie"] = PORTAL_COOKIES;
       proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
       proxyReqOpts.headers["x-authenticated-user-token"] = USER_TOKEN;
       return proxyReqOpts;
@@ -157,19 +155,20 @@ app.use(
     "/content/preview/*",
     "/content-plugins/*",
     "/assets/public/*",
-    "/generic-editor",
+    "/generic-editor/*",
+    "/content-editor/*"
   ],
   proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
-      console.log("proxyReqOptDecorator ======> 4");
+      console.log("proxyReqOptDecorator ======> 5");
+      console.log("Before -------> ", req.originalUrl);
       return require("url").parse(`https://${BASE_URL}` + req.originalUrl).path;
     },
     proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
       // you can update headers
       proxyReqOpts.headers["Content-Type"] = "application/json";
       proxyReqOpts.headers["user-id"] = "content-editor";
-      proxyReqOpts.headers["Cookie"] = PORTAL_COOKIES;
       proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
       return proxyReqOpts;
     },
