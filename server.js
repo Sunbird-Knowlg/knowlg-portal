@@ -46,7 +46,7 @@ app.use(['/action/content/v3/hierarchy/*'], proxy(BASE_URL, {
         console.log('proxyReqOptDecorator 4')
         proxyReqOpts.headers['Content-Type'] = 'application/json';
         proxyReqOpts.headers['user-id'] = 'content-editor';
-        proxyReqOpts.headers['Cookie'] = PORTAL_COOKIES;
+        // proxyReqOpts.headers['Cookie'] = PORTAL_COOKIES;
         proxyReqOpts.headers['authorization'] = `Bearer ${API_AUTH_TOKEN}`;
         proxyReqOpts.headers['x-authenticated-user-token'] = USER_TOKEN;
         return proxyReqOpts;
