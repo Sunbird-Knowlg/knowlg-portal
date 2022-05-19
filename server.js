@@ -31,7 +31,7 @@ app.use(['/action/dialcode/v3/search', 'action/asset/v1/create'], proxy(BASE_URL
         // proxyReqOpts.headers['Cookie'] = PORTAL_COOKIES;
         proxyReqOpts.headers['authorization'] = `Bearer ${API_AUTH_TOKEN}`;
         proxyReqOpts.headers['x-authenticated-user-token'] = USER_TOKEN;
-        proxyReqOpts.headers['x-channel-id'] = 'ORG_001';
+        proxyReqOpts.headers['x-channel-id'] = '01309282781705830427';
         return proxyReqOpts;
     }
 }));
@@ -125,6 +125,7 @@ app.use(
       proxyReqOpts.headers["user-id"] = "content-editor";
       proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
       proxyReqOpts.headers["x-authenticated-user-token"] = USER_TOKEN;
+      proxyReqOpts.headers['x-channel-id'] = '01309282781705830427';
       return proxyReqOpts;
     },
   })
