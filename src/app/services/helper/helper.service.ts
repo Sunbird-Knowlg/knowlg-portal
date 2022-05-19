@@ -9,6 +9,7 @@ import { ConfigService } from '../config/config.service';
   providedIn: 'root',
 })
 export class HelperService {
+  public editorConfig: any;
   constructor(
     private configService: ConfigService,
     private actionService: ActionService
@@ -26,5 +27,53 @@ export class HelperService {
         return response;
       })
     );
+  }
+
+  getAllCollectionList(requestData: object): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.SEARCH.COMPOSIT}`,
+      data: requestData
+    };
+    return this.actionService.post(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+
+  getChannel(channelId: string): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.CHANNEL.READ}/${channelId}`,
+    };
+    return this.actionService.get(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  getCategoryDefinition(objectType, name, channel): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.CATEGORYDEFINATION.READ}`,
+      data: {
+        request: {
+          objectCategoryDefinition: {
+            objectType: objectType,
+            name: name,
+            channel: channel
+          }
+        }
+      }
+    };
+    return this.actionService.post(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
+  setConfig(config) {
+    this.editorConfig = config;
+  }
+  getConfig() {
+    return this.editorConfig;
   }
 }

@@ -14,7 +14,7 @@ th {
 }
 
 .create-new {
-  padding-top: 6px;
+  padding: 6px;
   background-color: #008840de;
   border: 1px;
   border-radius: 5px;
@@ -23,6 +23,7 @@ th {
   font-size: 14px;
   width: 102px;
   margin-bottom: 23px;
+  margin-left: 10px;
 }
 .status-button {
   background-color: #787272;
@@ -98,4 +99,8 @@ th {
   margin-right: auto;
   display: block;
   max-width: 100% !important;
+}
+
+.error-message {
+color: red;
 }
