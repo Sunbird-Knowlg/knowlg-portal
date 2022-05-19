@@ -6,60 +6,57 @@ html {
   height: 100%;
 }
 
-.epub-player{
-  height: 70vh;
-  width: 936.889px;
-  margin-top: -263.5px;
-  margin-left: -468.444px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  bottom: 25%;
-  padding: 9px;
-}
-
-.intbox{
-  padding: 9px;
-}
-
-.text-inline {
-  display: inline;
-}
-.btn {
-  background-color: DodgerBlue;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  margin-left: 10px;
-}
-
-button {
-  border: 2px solid #ffffff;
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: all 150ms ease-in-out;
-
-
-  &.block {
-    display: block;
-    width: 200px;
-    color: #000000;
-
+.sb-single-resource {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
   }
 
-  &.margin-auto {
-    margin: 0 auto;
+
+  //aspect ratio
+.aspectratio {
+  position: relative;
+  height: 0;
+  width: 100%;
+
+  &[data-ratio="16:9"] {
+    padding-top: 56.25%;
   }
 
-  &.margin-right {
-    margin-right: 20px;
+  [data-ratio="4:3"] {
+    padding-top: 75%;
   }
-}
-/* Darker background on mouse-over */
-.btn:hover {
-  background-color: RoyalBlue;
+
+  & > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &.player-fullscreen {
+    width: 100%;
+    height: calc(100vh - 50px) !important;
+    position:fixed;
+    top:calculateRem(50px);
+    left:0;
+    bottom:0;
+    right:0;
+    border:none;
+    margin:0;
+    padding:0;
+    z-index:9999;
+   }
+   &.player-fullscreen iframe, &.player-fullscreen {
+    width: 100%;
+    height: calc(100vh - 50px) !important;
+ }
 }
 
+.player-maxwidth {
+  max-width: 60rem;
+}
+
+.margin-right2{
+  margin-left: auto;
+}
