@@ -57,9 +57,9 @@ export class HelperService {
       data: {
         request: {
           objectCategoryDefinition: {
-            objectType: objectType,
-            name: name,
-            channel: channel
+            objectType,
+            name,
+            channel
           }
         }
       }

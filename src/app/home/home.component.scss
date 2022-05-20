@@ -9,20 +9,23 @@
 
 button {
   width: 1000px;
-  border: 2px solid #ffffff;
-  border-radius: 8px;
-  padding: 15px 40px;
-  color: #ffffff;
-  font-size: 1.25rem;
-  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: revert;
+  line-height: 1.5rem;
+  min-width: 64px;
+  padding: 6px 16px;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(30 144 255);
+  box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+    rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
   transition: all 150ms ease-in-out;
-
 
   &.block {
     display: block;
     width: 200px;
     color: #000000;
-
   }
 
   &.margin-auto {
@@ -52,7 +55,7 @@ button {
   padding: 100px;
 }
 
-.player-header{
+.player-header {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 50px;
