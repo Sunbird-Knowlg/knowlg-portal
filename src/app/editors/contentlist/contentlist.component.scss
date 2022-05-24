@@ -1,0 +1,106 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+}
+th {
+  border-bottom: 1px solid #413535;
+}
+
+.create-new {
+  padding: 6px;
+  background-color: #008840de;
+  border: 1px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width: 102px;
+  margin-bottom: 23px;
+  margin-left: 10px;
+}
+.status-button {
+  background-color: #787272;
+  border: 1px;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width: 88px;
+}
+
+.sb-table {
+  width: 100%;
+  background: #fff;
+  border: 1px solid gray;
+  box-shadow: none;
+  border-radius: 4px 4px 0 0;
+  text-align: left;
+  color: gray;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.sb-table .sb-table-header.sb-table-thead-gray tr th,
+.sb-table thead.sb-table-thead-gray tr th {
+  font-size: 0.875rem;
+  padding: 1rem;
+  background-color: gray;
+}
+.sb-table .sb-table-header tr th,
+.sb-table thead tr th {
+  font-size: 0.75rem;
+  color: var(--gray);
+  padding: 0.5rem 1rem;
+  background-color: gray;
+  position: relative;
+  height: 2.5rem;
+  border-bottom: 1px solid gray;
+}
+
+.sb-pagination-container {
+  display: flex;
+}
+.flex-jc-flex-end {
+  justify-content: flex-end !important;
+}
+.sb-pagination-container .sb-pagination {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  background-color: white;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+}
+.sb-pagination-container .sb-pagination .sb-item:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+.sb-pagination-container .sb-pagination .sb-item {
+  padding: 0.5rem 1rem;
+  line-height: 0.875rem;
+  color: gray;
+  cursor: pointer;
+  background: white;
+  border: 0.0625rem solid #dedede;
+  border-right: none;
+  display: inline-block;
+}
+
+.ui.container {
+  width: 95% !important;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  max-width: 100% !important;
+}
+
+.error-message {
+color: red;
+}
