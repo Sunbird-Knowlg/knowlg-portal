@@ -19,8 +19,18 @@ export class EpubComponent implements OnInit {
   ) { }
   public queryParams: any;
   public contentDetails: any;
-  playerConfig = this.configService.playerConfig.EPUB_PLAYER;
+  playerConfig: any;
   isLoading = true;
+  context =  this.configService.playerConfig.PLAYER_CONTEXT;
+  config = {
+    traceId: '123456',
+    sideMenu: {
+      showShare: true,
+      showDownload: true,
+      showReplay: false,
+      showExit: false
+    }
+  };
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
@@ -28,6 +38,8 @@ export class EpubComponent implements OnInit {
       tap((data: any) => {
         if (this.contentDetails){
           this.loadContent(this.contentDetails);
+        }else{
+          this.loadDefaultData();
         }
       }))
       .subscribe((data) => {
@@ -36,11 +48,19 @@ export class EpubComponent implements OnInit {
         (error) => {
           this.isLoading = false;
           alert('Error to load epub, Loading default epub');
+          this.loadDefaultData();
           console.log('error --->', error);
         }
       );
   }
 
+  loadDefaultData(){
+    this.playerConfig = {
+      context: this.context,
+      config: this.config,
+      metadata: this.configService.playerConfig.EPUB_PLAYER.metadata
+    } ;
+  }
   private getContentDetails() {
     if (this.queryParams.identifier) {
       const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
@@ -57,13 +77,11 @@ export class EpubComponent implements OnInit {
   }
 
   loadContent(metadata) {
-    const config = this.playerConfig;
-    this.playerConfig = undefined;
-    this.isLoading = true;
-    setTimeout(() => {
-      this.playerConfig = {...config, metadata};
-      this.isLoading = false;
-    }, 3000);
+    this.playerConfig = {
+      context: this.context,
+      config: this.config,
+      metadata: this.contentDetails
+    };
   }
 
   playerEvents(event) {
