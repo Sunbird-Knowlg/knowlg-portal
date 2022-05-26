@@ -13,6 +13,24 @@ var app = express();
 app.set("port", 3000);
 app.use(express.json());
 
+app.post(
+  ["/action/content/v3/upload/:do_id"],
+  proxy(BASE_URL, {
+    https: true,
+    limit: "30mb",
+    parseReqBody: false,
+    proxyReqPathResolver: function (req) {
+      return urlHelper.parse(req.originalUrl).path;
+    },
+    proxyReqOptDecorator: function (proxyReqOpts, srcReq) {
+      proxyReqOpts.headers["authorization"] = `Bearer ${API_AUTH_TOKEN}`;
+      proxyReqOpts.headers["x-authenticated-user-token"] = USER_TOKEN;
+      return proxyReqOpts;
+    },
+  })
+);
+
+
 app.use(['/action/dialcode/v3/search', 'action/asset/v1/create'], proxy(BASE_URL, {
     https: true,
     limit: "30mb",
