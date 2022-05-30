@@ -22,22 +22,15 @@ export class EpubComponent implements OnInit {
   playerConfig: any;
   isLoading = true;
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
-  config = {
-    traceId: '123456',
-    sideMenu: {
-      showShare: true,
-      showDownload: true,
-      showReplay: false,
-      showExit: false
-    }
-  };
+  config: any;
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.setConfig();
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
         if (this.contentDetails){
-          this.loadContent(this.contentDetails);
+          this.loadContent();
         }else{
           this.loadDefaultData();
         }
@@ -54,13 +47,27 @@ export class EpubComponent implements OnInit {
       );
   }
 
+  setConfig(){
+    this.config = {
+      traceId: '123456',
+      sideMenu: {
+        showShare: this.queryParams.showShare && this.queryParams.showShare === 'false' ? false : true,
+        showDownload: this.queryParams.showDownload && this.queryParams.showDownload === 'false' ? false : true,
+        showReplay: this.queryParams.showReplay && this.queryParams.showReplay === 'false' ? false : true,
+        showExit: this.queryParams.showExit && this.queryParams.showExit === 'false' ? false : true,
+        showPrint: this.queryParams.showPrint && this.queryParams.showPrint === 'false' ? false : true,
+      }
+    };
+  }
+
   loadDefaultData(){
     this.playerConfig = {
       context: this.context,
       config: this.config,
-      metadata: this.configService.playerConfig.EPUB_PLAYER.metadata
+      metadata: this.configService.playerConfig.EPUB_PLAYER_METADATA
     } ;
   }
+
   private getContentDetails() {
     if (this.queryParams.identifier) {
       const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
@@ -76,7 +83,7 @@ export class EpubComponent implements OnInit {
     }
   }
 
-  loadContent(metadata) {
+  loadContent() {
     this.playerConfig = {
       context: this.context,
       config: this.config,

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { delay, first, mergeMap, tap } from 'rxjs/operators';
@@ -19,16 +19,24 @@ export class PdfComponent implements OnInit {
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
   public queryParams: any;
   public contentDetails: any;
-  playerConfig = this.configService.playerConfig.PDF_PLAYER;
+  playerConfig: any;
+  config: any = JSON.parse(localStorage.getItem('pdfConfig')) || {};
+  showShare: any = this.config.sideMenu.showShare || false;
+  showDownload: any = this.config.sideMenu.showDownload || false;
+  showReplay: any = this.config.sideMenu.showReplay || false;
+  showExit: any = this.config.sideMenu.showExit || false;
+  showPrint: any = this.config.sideMenu.showPrint || false;
   isLoading = true;
+  sidemenuConfig = this.config.sideMenu || false;
+  showSideMenu = false;
+  ShowsharePopup = false;
+
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
-        if (this.contentDetails){
-          this.loadContent(this.contentDetails);
-        }
+          this.loadContent();
       }))
       .subscribe((data) => {
         this.isLoading = false;
@@ -36,6 +44,7 @@ export class PdfComponent implements OnInit {
         (error) => {
           this.isLoading = false;
           alert('Error to load pdf, Loading default pdf');
+          this.loadContent();
           console.log('error --->', error);
         }
       );
@@ -56,18 +65,26 @@ export class PdfComponent implements OnInit {
     }
   }
 
-  loadContent(metadata) {
-    const config = this.playerConfig;
-    this.playerConfig = undefined;
-    this.isLoading = true;
-    setTimeout(() => {
-      this.playerConfig = {...config, metadata};
-      this.isLoading = false;
-    }, 3000);
+  loadContent() {
+    this.playerConfig = {
+      context: this.configService.playerConfig.PLAYER_CONTEXT,
+      config: this.config,
+      metadata: this.contentDetails || this.configService.playerConfig.PDF_PLAYER_METADATA
+    };
+  }
+
+  close() {
+    this.ShowsharePopup = false;
+  }
+
+  enableSideMenu(){
+    this.showSideMenu = true;
   }
 
   playerEvents(event) {
-
+    if (event.edata.type === 'SHARE') {
+      this.ShowsharePopup = true;
+    }
   }
   playerTelemetryEvents(event) {
 

@@ -19,18 +19,9 @@ export class VideoComponent implements OnInit {
   ) { }
 
   videoMetaDataconfig: any = JSON.parse(localStorage.getItem('config')) || {};
-  config = {
-    ...{
-      traceId: 'afhjgh',
-      sideMenu: {
-        showShare: true,
-        showDownload: true,
-        showReplay: true,
-        showExit: true
-      }
-    }, ...this.videoMetaDataconfig
-  };
-  playerConfig = this.configService.playerConfig.VIDEO_PLAYER;
+  config: any;
+  playerConfig: any;
+  context =  this.configService.playerConfig.PLAYER_CONTEXT;
   isLoading = true;
   public queryParams: any;
   public contentDetails: any;
@@ -43,12 +34,14 @@ export class VideoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.playerConfig.config = this.config;
   this.queryParams = this.activatedRoute.snapshot.queryParams;
+  this.setConfig();
   this.getContentDetails().pipe(first(),
       tap((data: any) => {
         if (this.contentDetails){
-          this.loadContent(this.contentDetails);
+          this.loadContent();
+        }else{
+          this.loadDefaultData();
         }
       }))
       .subscribe((data) => {
@@ -57,9 +50,18 @@ export class VideoComponent implements OnInit {
         (error) => {
           this.isLoading = false;
           alert('Error to load video, Loading default video');
+          this.loadDefaultData();
           console.log('error --->', error);
         }
       );
+  }
+
+  loadDefaultData(){
+    this.playerConfig = {
+      context: this.context,
+      config: this.config,
+      metadata: this.configService.playerConfig.VIDEO_PLAYER_METADATA
+    } ;
   }
 
   private getContentDetails() {
@@ -77,14 +79,27 @@ export class VideoComponent implements OnInit {
     }
   }
 
-  loadContent(metadata) {
-    const config = this.playerConfig;
-    this.playerConfig = undefined;
-    this.isLoading = true;
-    setTimeout(() => {
-      this.playerConfig = {...config, metadata};
-      this.isLoading = false;
-    }, 3000);
+  setConfig(){
+    this.config = {
+      ...{
+        traceId: 'afhjgh',
+        sideMenu: {
+          showShare: this.queryParams.showShare && this.queryParams.showShare === 'false' ? false : true,
+          showDownload: this.queryParams.showDownload && this.queryParams.showDownload === 'false' ? false : true,
+          showReplay: this.queryParams.showReplay && this.queryParams.showReplay === 'false' ? false : true,
+          showExit: this.queryParams.showExit && this.queryParams.showExit === 'false' ? false : true,
+          showPrint: this.queryParams.showPrint && this.queryParams.showPrint === 'false' ? false : true,
+        }
+      }, ...this.videoMetaDataconfig
+    };
+  }
+
+  loadContent() {
+    this.playerConfig = {
+      context: this.context,
+      config: this.config,
+      metadata: this.contentDetails
+    };
   }
 }
 
