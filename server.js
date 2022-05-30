@@ -5,12 +5,6 @@ var express = require("express"),
   (urlHelper = require("url"));
 const proxyUtils = require('./proxyUtils.js')
 
-// ENV Variables
-const BASE_URL = "dev.sunbirded.org";
-const API_AUTH_TOKEN = "";
-const USER_TOKEN = "";
-
-
 var app = express();
 app.set("port", 3000);
 app.use(express.json());
