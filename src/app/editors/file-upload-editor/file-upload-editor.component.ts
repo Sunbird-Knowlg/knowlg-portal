@@ -1,13 +1,12 @@
 import { Component, OnInit, NgZone, OnDestroy } from '@angular/core';
-import { of, throwError } from 'rxjs';
+import { of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { tap, delay, map, first, mergeMap } from 'rxjs/operators';
+import { tap, delay, first, mergeMap } from 'rxjs/operators';
 import * as _ from 'lodash-es';
 declare var jQuery: any;
 import { DomSanitizer } from '@angular/platform-browser';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
-
 /**
  * Component Launches the File upload Editor in a IFrame Modal
  */
