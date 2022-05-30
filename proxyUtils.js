@@ -1,4 +1,4 @@
-const envVariables = require('./environmentConfig');
+const envVariables = require('./config/environment');
 
 const decoratePrivateRequestHeaders = function () {
   return function (proxyReqOpts, srcReq) {

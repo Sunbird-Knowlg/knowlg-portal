@@ -4,14 +4,15 @@ var express = require("express"),
   (proxy = require("express-http-proxy")),
   (urlHelper = require("url"));
 const proxyUtils = require('./proxyUtils.js')
-var envVariables =  require('./environmentConfig');
+var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
+var routes = require('./config/constants');
 
 var app = express();
 app.set("port", 3000);
 app.use(express.json());
 
-app.post(["/action/content/v3/upload/:do_id"], proxy(BASE_URL, {
+app.post([routes.URLS.CONTENT.UPLOAD], proxy(BASE_URL, {
     https: true,
     parseReqBody: false,
     proxyReqPathResolver: function (req) {
@@ -21,7 +22,7 @@ app.post(["/action/content/v3/upload/:do_id"], proxy(BASE_URL, {
   })
 );
 
-app.use(['/action/dialcode/v3/search', 'action/asset/v1/create'], proxy(BASE_URL, {
+app.use([routes.URLS.DIALCODE.SEARCH, routes.URLS.ASSET.CREATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
@@ -33,12 +34,12 @@ app.use(['/action/dialcode/v3/search', 'action/asset/v1/create'], proxy(BASE_URL
 );
 
 app.use([ 
-   "/action/content/v3/hierarchy/*",
-   "/action/assessment/v3/*", 
-   "/action/content/v3/create",
-   "/action/content/v3/bundle",
-   "/action/content/v3/unlisted/publish/*",
-   "/action/review/comment/v1/read/comment",
+   routes.URLS.CONTENT.HIERARCHY,
+   routes.URLS.ASSESSMENT, 
+   routes.URLS.CONTENT.CREATE,
+   routes.URLS.CONTENT.BUNDLE,
+   routes.URLS.CONTENT.UNLISTED_PUBLISH,
+   routes.URLS.CONTENT.REVIEW_COMMENTS,
   ], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -48,7 +49,7 @@ app.use([
   })
 );
 
-app.use(["/action/content/v3/update/*"], proxy(BASE_URL, {
+app.use([routes.URLS.CONTENT.UPDATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
@@ -60,11 +61,11 @@ app.use(["/action/content/v3/update/*"], proxy(BASE_URL, {
 );
 
 app.use([
-    "/action/channel/v3/*",
-    "/action/content/v3/*",
-    "/action/framework/v3/*",
-    "/action/composite/v3/*",
-    "/action/language/v3/*",
+    routes.URLS.CHANNEL,
+    routes.URLS.CONTENT.GENERAL,
+    routes.URLS.FRAMEWORK,
+    routes.URLS.COMPOSITE,
+    routes.URLS.LANGUAGE,
   ], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -76,7 +77,7 @@ app.use([
   })
 );
 
-app.use(["/action"], proxy(BASE_URL, {
+app.use([routes.URLS.PREFIX.ACTION], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
@@ -86,7 +87,7 @@ app.use(["/action"], proxy(BASE_URL, {
   })
 );
 
-app.use(["/assets", "/api"], proxy(BASE_URL, {
+app.use([routes.URLS.PREFIX.ASSETS, routes.URLS.PREFIX.API], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
@@ -96,11 +97,11 @@ app.use(["/assets", "/api"], proxy(BASE_URL, {
 );
 
 app.use([
-    "/content/preview/*",
-    "/content-plugins/*",
-    "/assets/public/*",
-    "/generic-editor/*",
-    "/content-editor/*",
+    routes.URLS.GENERAL.CONTENT_PREVIEW,
+    routes.URLS.GENERAL.CONTENT_PLUGINS,
+    routes.URLS.GENERAL.ASSET_PUBLIC,
+    routes.URLS.GENERAL.GENERIC_EDITOR,
+    routes.URLS.GENERAL.CONTENT_EDITOR,
   ], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
