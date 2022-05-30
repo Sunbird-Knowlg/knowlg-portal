@@ -4,6 +4,8 @@ var express = require("express"),
   (proxy = require("express-http-proxy")),
   (urlHelper = require("url"));
 const proxyUtils = require('./proxyUtils.js')
+var envVariables =  require('./environmentConfig');
+var BASE_URL = envVariables.BASE_URL;
 
 var app = express();
 app.set("port", 3000);
