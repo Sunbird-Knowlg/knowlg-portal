@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sunbired-knowledge": {
+    "sunbird-knowledge": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sunbired-knowledge",
+            "outputPath": "dist/sunbird-knowledge",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -94,11 +94,6 @@
               "buildOptimizer": true,
               "budgets": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                },
-                {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
@@ -110,19 +105,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sunbired-knowledge:build",
+            "browserTarget": "sunbird-knowledge:build",
             "proxyConfig": "proxy.config.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sunbired-knowledge:build:production"
+              "browserTarget": "sunbird-knowledge:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sunbired-knowledge:build"
+            "browserTarget": "sunbird-knowledge:build"
           }
         },
         "test": {
@@ -159,16 +154,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sunbired-knowledge:serve"
+            "devServerTarget": "sunbird-knowledge:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sunbired-knowledge:serve:production"
+              "devServerTarget": "sunbird-knowledge:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "sunbired-knowledge"
+  "defaultProject": "sunbird-knowledge"
 }
