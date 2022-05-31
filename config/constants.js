@@ -1,5 +1,5 @@
 module.exports = {
-    "URLS": {
+    "API": {
        "CONTENT": {
            "UPLOAD" : "/action/content/v3/upload/:do_id",
            "HIERARCHY": "/action/content/v3/hierarchy/*",
