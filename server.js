@@ -18,7 +18,7 @@ app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
@@ -29,7 +29,7 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
       originalUrl = originalUrl.replace("/v3/", "/v1/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
@@ -45,7 +45,7 @@ app.use([
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
@@ -56,7 +56,7 @@ app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
       originalUrl = originalUrl.replace("/v3/", "/v2/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
@@ -73,7 +73,7 @@ app.use([
       originalUrl = originalUrl.replace("/v3/", "/v1/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
@@ -83,7 +83,7 @@ app.use([routes.API.PREFIX.ACTION], proxy(BASE_URL, {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
@@ -92,7 +92,7 @@ app.use([routes.API.PREFIX.ASSETS, routes.API.PREFIX.API], proxy(BASE_URL, {
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
