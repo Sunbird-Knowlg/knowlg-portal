@@ -12,60 +12,60 @@ var app = express();
 app.set("port", 3000);
 app.use(express.json());
 
-app.post([routes.URLS.CONTENT.UPLOAD], proxy(BASE_URL, {
+app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
     https: true,
     parseReqBody: false,
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
-app.use([routes.URLS.DIALCODE.SEARCH, routes.URLS.ASSET.CREATE], proxy(BASE_URL, {
+app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
       originalUrl = originalUrl.replace("/v3/", "/v1/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
 app.use([ 
-   routes.URLS.CONTENT.HIERARCHY,
-   routes.URLS.ASSESSMENT, 
-   routes.URLS.CONTENT.CREATE,
-   routes.URLS.CONTENT.BUNDLE,
-   routes.URLS.CONTENT.UNLISTED_PUBLISH,
-   routes.URLS.CONTENT.REVIEW_COMMENTS,
+   routes.API.CONTENT.HIERARCHY,
+   routes.API.ASSESSMENT, 
+   routes.API.CONTENT.CREATE,
+   routes.API.CONTENT.BUNDLE,
+   routes.API.CONTENT.UNLISTED_PUBLISH,
+   routes.API.CONTENT.REVIEW_COMMENTS,
   ], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
-app.use([routes.URLS.CONTENT.UPDATE], proxy(BASE_URL, {
+app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
       originalUrl = originalUrl.replace("/v3/", "/v2/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
 app.use([
-    routes.URLS.CHANNEL,
-    routes.URLS.CONTENT.GENERAL,
-    routes.URLS.FRAMEWORK,
-    routes.URLS.COMPOSITE,
-    routes.URLS.LANGUAGE,
+    routes.API.CHANNEL,
+    routes.API.CONTENT.GENERAL,
+    routes.API.FRAMEWORK,
+    routes.API.COMPOSITE,
+    routes.API.LANGUAGE,
   ], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -73,35 +73,35 @@ app.use([
       originalUrl = originalUrl.replace("/v3/", "/v1/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
-app.use([routes.URLS.PREFIX.ACTION], proxy(BASE_URL, {
+app.use([routes.API.PREFIX.ACTION], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       let originalUrl = req.originalUrl.replace("/action/", "/api/");
       return urlHelper.parse(originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
-app.use([routes.URLS.PREFIX.ASSETS, routes.URLS.PREFIX.API], proxy(BASE_URL, {
+app.use([routes.API.PREFIX.ASSETS, routes.API.PREFIX.API], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
       return urlHelper.parse(req.originalUrl).path;
     },
-    proxyReqOptDecorator: proxyUtils.decoratePrivateRequestHeaders()
+    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
 
 app.use([
-    routes.URLS.GENERAL.CONTENT_PREVIEW,
-    routes.URLS.GENERAL.CONTENT_PLUGINS,
-    routes.URLS.GENERAL.ASSET_PUBLIC,
-    routes.URLS.GENERAL.GENERIC_EDITOR,
-    routes.URLS.GENERAL.CONTENT_EDITOR,
+    routes.API.GENERAL.CONTENT_PREVIEW,
+    routes.API.GENERAL.CONTENT_PLUGINS,
+    routes.API.GENERAL.ASSET_PUBLIC,
+    routes.API.GENERAL.GENERIC_EDITOR,
+    routes.API.GENERAL.CONTENT_EDITOR,
   ], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {

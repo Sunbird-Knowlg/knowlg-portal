@@ -1,6 +1,6 @@
 const envVariables = require('./config/environment');
 
-const decoratePrivateRequestHeaders = function () {
+const decoratePublicRequestHeaders = function () {
   return function (proxyReqOpts, srcReq) {
     proxyReqOpts.headers["Content-Type"] = "application/json";
       proxyReqOpts.headers["user-id"] = envVariables.USER_ID;
@@ -11,14 +11,4 @@ const decoratePrivateRequestHeaders = function () {
   }
 }
 
-const decoratePublicRequestHeaders = function () {
-  return function (proxyReqOpts, srcReq) {
-    proxyReqOpts.headers["Content-Type"] = "application/json";
-    proxyReqOpts.headers["user-id"] = envVariables.USER_ID;
-    proxyReqOpts.headers.authorization = `Bearer ${envVariables.API_AUTH_TOKEN}`
-    return proxyReqOpts
-  }
-}
-
-module.exports.decoratePrivateRequestHeaders = decoratePrivateRequestHeaders
 module.exports.decoratePublicRequestHeaders = decoratePublicRequestHeaders
