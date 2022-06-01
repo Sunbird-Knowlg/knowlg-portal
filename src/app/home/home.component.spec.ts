@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router } from '@angular/router';
 import { HomeComponent } from './home.component';
+
+class RouterStub {
+  navigate = jasmine.createSpy('navigate');
+}
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +12,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      providers: [{ provide: Router, useClass: RouterStub }]
     })
     .compileComponents();
   }));
