@@ -1,6 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EpubComponent } from './epub.component';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+    }
+  }
+};
 
 describe('EpubComponent', () => {
   let component: EpubComponent;
@@ -8,7 +17,12 @@ describe('EpubComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EpubComponent ]
+      declarations: [ EpubComponent ],
+      imports: [HttpClientModule],
+      providers: [
+        HttpClient,
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+      ],
     })
     .compileComponents();
   }));

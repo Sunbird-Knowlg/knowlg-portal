@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.config.json",
-    "build": "ng build --configuration=production",
+    "build": "ng build",
+    "deploy": "ng build --output-path=server/dist/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -38,7 +39,6 @@
     "common-form-elements-web-v9": "^4.7.2",
     "epubjs": "^0.3.93",
     "export-to-csv": "^0.2.1",
-    "express-http-proxy": "^1.6.3",
     "fine-uploader": "^5.16.2",
     "font-awesome": "^4.7.0",
     "izimodal": "1.5.1",

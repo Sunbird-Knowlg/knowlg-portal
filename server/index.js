@@ -11,6 +11,7 @@ var routes = require('./config/constants');
 var app = express();
 app.set("port", 3000);
 app.use(express.json());
+app.use(express.static(process.cwd()+"/dist/"));
 
 app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
     https: true,
@@ -110,4 +111,10 @@ app.use([
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
+
+app.get('/*', (req,res) => {
+  res.sendFile(process.cwd()+"/dist/index.html")
+});
+
+
 http.createServer(app).listen(app.get("port"), 3000);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { HelperService } from '../../services/helper/helper.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { HelperService } from '../../services/helper/helper.service';
 })
 export class CollectionEditorComponent implements OnInit {
   public editorConfig = {};
-  constructor(private router: Router, public activatedRoute: ActivatedRoute, public helperService: HelperService){}
+  constructor(private router: Router, public helperService: HelperService){}
 
   ngOnInit(): void {
     this.editorConfig = this.helperService.getConfig();
