@@ -36,7 +36,7 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
   })
 );
 app.post(routes.API.TELEMMETRY, function(req, res) {
-  console.log(req.body, 'telemetry logged');
+  console.log(JSON.stringify(req.body), 'telemetry logged');
   res.status(200).json({message: "telemetry logged"})
 });
 app.post(routes.API.USER_SEARCH, function(req, res) {
