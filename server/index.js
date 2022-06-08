@@ -13,11 +13,13 @@ app.set("port", 3000);
 app.use(express.json());
 app.use(express.static(process.cwd()+"/dist/"));
 
-app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
+app.post([routes.API.CONTENT.UPLOAD, routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
     https: true,
     parseReqBody: false,
     proxyReqPathResolver: function (req) {
-      return urlHelper.parse(req.originalUrl).path;
+      let originalUrl = req.originalUrl.replace("/action/", "/api/");
+      originalUrl = originalUrl.replace("/v3/", "/v2/");
+      return urlHelper.parse(originalUrl).path;
     },
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
@@ -35,7 +37,6 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
 );
 
 app.use([ 
-   routes.API.CONTENT.HIERARCHY,
    routes.API.ASSESSMENT, 
    routes.API.CONTENT.CREATE,
    routes.API.CONTENT.BUNDLE,
@@ -50,6 +51,31 @@ app.use([
   })
 );
 
+app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("content/v3/", "collection/v1/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
+);
+app.use([
+   routes.API.BUNDLE,
+   routes.API.ITEMS_CREATE,
+   routes.API.ITEMS_UPDATE,
+   routes.API.CONTENT.UNLISTED_PUBLISH
+  ], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v1/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
+);
 app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {

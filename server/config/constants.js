@@ -2,6 +2,7 @@ module.exports = {
     "API": {
        "CONTENT": {
            "UPLOAD" : "/action/content/v3/upload/:do_id",
+           "UPLOAD_URL" : "/action/content/v3/upload/url/*",
            "HIERARCHY": "/action/content/v3/hierarchy/*",
            "CREATE": "/action/content/v3/create",
            "BUNDLE": "/action/content/v3/bundle",
@@ -21,6 +22,9 @@ module.exports = {
        "FRAMEWORK": "/action/framework/v3/*",
        "COMPOSITE": "/action/composite/v3/*",
        "LANGUAGE": "/action/language/v3/*",
+       "BUNDLE": "/action/content/v3/bundle/*", 
+       "ITEMS_UPDATE": "/action/assessment/v3/items/update/*", 
+       "ITEMS_CREATE": "/action/assessment/v3/items/create/*", 
        "PREFIX": {
            "ACTION": "/action",
            "ASSETS": "/assets",
