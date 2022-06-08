@@ -55,7 +55,7 @@ app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
     let originalUrl = req.originalUrl.replace("/action/", "/api/");
-    originalUrl = originalUrl.replace("content/v3/", "collection/v1/");
+    originalUrl = originalUrl.replace("/content/v3/", "/collection/v1/");
     return urlHelper.parse(originalUrl).path;
   },
   proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
