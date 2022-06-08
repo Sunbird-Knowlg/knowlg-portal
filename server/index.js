@@ -35,7 +35,16 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
-
+app.post(routes.API.TELEMMETRY, function(req, res) {
+  console.log(req.body, 'telemetry logged');
+  res.status(200).json({message: "telemetry logged"})
+});
+app.post(routes.API.USER_SEARCH, function(req, res) {
+  res.status(200).json({users: []})
+});
+app.patch(routes.API.CONTENT.COLLABORATOR_UPDATE, function(req, res) {
+  res.status(200).json({message: "Collabaration update successful"})
+});
 app.use([ 
    routes.API.ASSESSMENT, 
    routes.API.CONTENT.CREATE,

@@ -9,7 +9,8 @@ module.exports = {
            "UNLISTED_PUBLISH": "/action/content/v3/unlisted/publish/*",
            "REVIEW_COMMENTS": "/action/review/comment/v1/read/comment",
            "UPDATE": "/action/content/v3/update/*",
-           "GENERAL": "/action/content/v3/*"  
+           "GENERAL": "/action/content/v3/*",
+           "COLLABORATOR_UPDATE" : "/action/content/v1/collaborator/update"
        },
        "DIALCODE": {
            "SEARCH": '/action/dialcode/v3/search'
@@ -25,6 +26,9 @@ module.exports = {
        "BUNDLE": "/action/content/v3/bundle/*", 
        "ITEMS_UPDATE": "/action/assessment/v3/items/update/*", 
        "ITEMS_CREATE": "/action/assessment/v3/items/create/*", 
+       "TELEMMETRY": "/action/data/v3/telemetry",
+       "FORM_READ": "/action/data/v1/form/read",
+       "USER_SEARCH": "action/user/v1/search/*",
        "PREFIX": {
            "ACTION": "/action",
            "ASSETS": "/assets",
