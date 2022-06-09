@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(express.static(process.cwd()+"/dist/"));
 
 /**
- * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload link 
- * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload url link 
+ * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url 
+ * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload api url
  * @param  {} proxy(BASE_URL) This base url
  * @param  {true} {https} 
  * @param  {false} parseReqBody 
