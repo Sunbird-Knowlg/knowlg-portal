@@ -35,7 +35,16 @@ app.post([routes.API.CONTENT.UPLOAD, routes.API.CONTENT.UPLOAD_URL], proxy(BASE_
   proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
 })
 );
-
+/**
+ * [ this function is used for dial code search and asste create ]
+ * we are replaceing the /v3/ to /v2/ because its been onboarded as /v2/
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.DIALCODE.SEARCH This is the dial code search api route path
+ * @param  {} routes.API.ASSET.CREATE] This is the dial asset create api route path
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
 app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -151,6 +160,15 @@ app.use([
   proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
 })
 );
+/**
+ * [ this function is used for content update  ]
+ * we are replaceing the /v3/ to /v2/ because its been onboarded as content/v2/
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.CONTENT.UPDATE] This is the content update api route path
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
 app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -161,7 +179,20 @@ app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
-
+/**
+ * [ this function is used for channel read, content general interactions, framework read, composite search, getting languages  ]
+ * we are replaceing the /v3/ to /v1/ because its been onboarded as /v1/
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.CHANNEL This is the channel read api route path
+ * @param  {} routes.API.CONTENT.GENERAL This is the content general  api's route path
+ * @param  {} routes.API.FRAMEWORK This is the framework read api route path
+ * @param  {} routes.API.COMPOSITE This is the composit search api route path
+ * @param  {} routes.API.LANGUAGE This is the language api route path
+ * @param  {} ]
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
 app.use([
     routes.API.CHANNEL,
     routes.API.CONTENT.GENERAL,
@@ -178,7 +209,14 @@ app.use([
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
-
+/**
+ * [ this function is used for generic action routes]
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.PREFIX.ACTION] This is the generic action/* api route path
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
 app.use([routes.API.PREFIX.ACTION], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -188,7 +226,14 @@ app.use([routes.API.PREFIX.ACTION], proxy(BASE_URL, {
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
-
+/**
+ * [ this function is used for generic assets and api routes path requests]
+ * @param  {} [routes.API.PREFIX.ASSETS This is the generic asset api route path
+ * @param  {} routes.API.PREFIX.API] This is the generic api route path
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
 app.use([routes.API.PREFIX.ASSETS, routes.API.PREFIX.API], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {
@@ -197,7 +242,18 @@ app.use([routes.API.PREFIX.ASSETS, routes.API.PREFIX.API], proxy(BASE_URL, {
     proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
   })
 );
-
+/**
+ * [ this function is used for general content preview, plugins, public assets, generic editor]
+ * @param  {} [routes.API.GENERAL.CONTENT_PREVIEW This is the content preview api route path
+ * @param  {} routes.API.GENERAL.CONTENT_PLUGINS This is the content plugins api route path
+ * @param  {} routes.API.GENERAL.ASSET_PUBLIC This is the asset public api route path
+ * @param  {} routes.API.GENERAL.GENERIC_EDITOR This is the generic editor api route path
+ * @param  {} routes.API.GENERAL.CONTENT_EDITOR This is the content ediotor api route path
+ * @param  {} ]
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
 app.use([
     routes.API.GENERAL.CONTENT_PREVIEW,
     routes.API.GENERAL.CONTENT_PLUGINS,
