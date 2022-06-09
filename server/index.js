@@ -82,7 +82,7 @@ app.patch(routes.API.CONTENT.COLLABORATOR_UPDATE, function (req, res) {
 });
 
 /**
- * [ this function is used get the list of user details ]
+ * [ this function is used create content and add review comments to content ]
  * @param  {} routes.API.CONTENT.CREATE  This is the content create  api route path
  * @param  {} routes.API.CONTENT.REVIEW_COMMENTS This is the content review comments  api route path
  * @param  {} proxy(BASE_URL
