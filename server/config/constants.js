@@ -23,7 +23,6 @@ module.exports = {
        "FRAMEWORK": "/action/framework/v3/*",
        "COMPOSITE": "/action/composite/v3/*",
        "LANGUAGE": "/action/language/v3/*",
-       "BUNDLE": "/action/content/v3/bundle/*", 
        "ITEMS_UPDATE": "/action/assessment/v3/items/update/*", 
        "ITEMS_CREATE": "/action/assessment/v3/items/create/*", 
        "TELEMMETRY": "/action/data/v3/telemetry",

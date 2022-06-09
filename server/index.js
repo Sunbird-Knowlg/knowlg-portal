@@ -14,8 +14,11 @@ app.use(express.json());
 app.use(express.static(process.cwd()+"/dist/"));
 
 /**
- * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url 
- * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload api url
+ * [ this function is used for content upload ]
+ * we are replaceing the /v3/ to /v2/ because its been onboarded as /content/v2/upload
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api route path 
+ * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload api route path
  * @param  {} proxy(BASE_URL) This base url
  * @param  {true} {https} 
  * @param  {false} parseReqBody 
@@ -45,7 +48,8 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
 );
 
 /**
- * @param  {} routes.API.TELEMMETRY This is the telemetry api url
+ * [ this function is used to capture telemmetry logs ]
+ * @param  {} routes.API.TELEMMETRY This is the telemetry api route path
  * @param  {} {console.log(JSON.stringify(req.body) This is the logging of the request data
  * @param  {} ;res.status(200) Sending the response 
  */
@@ -55,7 +59,8 @@ app.post(routes.API.TELEMMETRY, function (req, res) {
 });
 
 /**
- * @param  {} routes.API.USER_SEARCH This is the user search api url
+ * [ this function is used get the list of user details ]
+ * @param  {} routes.API.USER_SEARCH This is the user search api route path
  * @param  {} res
  * @param  {} {res.status(200) Sending the api response
  * @param  {[]}} .json({users}) Sending empty array response 
@@ -65,7 +70,8 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
 });
 
 /**
- * @param  {} routes.API.CONTENT.COLLABORATOR_UPDATE This is the collaborator api url
+ * [ this function is used to update user collaboration ]
+ * @param  {} routes.API.CONTENT.COLLABORATOR_UPDATE This is the collaborator api route path
  * @param  {} function(req
  * @param  {} res
  * @param  {} {res.status(200 Api response status
@@ -76,20 +82,15 @@ app.patch(routes.API.CONTENT.COLLABORATOR_UPDATE, function (req, res) {
 });
 
 /**
- * @param  {} routes.API.ASSESSMENT     This is the assessment api url
- * @param  {} routes.API.CONTENT.CREATE  This is the content create  api url
- * @param  {} routes.API.CONTENT.BUNDLE   This is the content bundle  api url
- * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH This is the content unlist publish  api url
- * @param  {} routes.API.CONTENT.REVIEW_COMMENTS This is the content review comments  api url
+ * [ this function is used get the list of user details ]
+ * @param  {} routes.API.CONTENT.CREATE  This is the content create  api route path
+ * @param  {} routes.API.CONTENT.REVIEW_COMMENTS This is the content review comments  api route path
  * @param  {} proxy(BASE_URL
  * @param  {true} {https
  * @param  {function(req} proxyReqPathResolver
  */
 app.use([
-  routes.API.ASSESSMENT,
   routes.API.CONTENT.CREATE,
-  routes.API.CONTENT.BUNDLE,
-  routes.API.CONTENT.UNLISTED_PUBLISH,
   routes.API.CONTENT.REVIEW_COMMENTS,
 ], proxy(BASE_URL, {
   https: true,
@@ -101,7 +102,10 @@ app.use([
 );
 
 /**
- * @param  {} [routes.API.CONTENT.HIERARCHY] This is the content hierarchy api url
+ * [ this function is used get the content hierarchy details ]
+ * we are replaceing the /content/v3/ to /collection/v1/ because its been onboarded as /collection/v1/
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.CONTENT.HIERARCHY] This is the content hierarchy api route path
  * @param  {} proxy(BASE_URL
  * @param  {true} {https
  * @param  {function(req} proxyReqPathResolver
@@ -119,19 +123,24 @@ app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
 );
 
 /**
- * @param  {} [routes.API.BUNDLE This is the bundle api url
- * @param  {} routes.API.ITEMS_CREATE This is the items create api url
- * @param  {} routes.API.ITEMS_UPDATE This is the items update api url
- * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH] This is the content unlisted publish api url
+ * [ this function is used for the content bundles and items create and update and unlist content publish  ]
+ * we are replaceing the /v3/ to /v1/ because its been onboarded as /v1/
+ * we are replaceing the /action/ to /api/ because to redirect to service itself 
+ * @param  {} [routes.API.CONTENT.BUNDLE This is the bundle api route path
+ * @param  {} routes.API.ITEMS_CREATE This is the items create api route path
+ * @param  {} routes.API.ITEMS_UPDATE This is the items update api route path
+ * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH] This is the content unlisted publish api route path
+ * @param  {} routes.API.ASSESSMENT This is the assessment api route path
  * @param  {} proxy(BASE_URL
  * @param  {true} {https
  * @param  {function(req} proxyReqPathResolver
  */
 app.use([
-  routes.API.BUNDLE,
+  routes.API.CONTENT.BUNDLE,
   routes.API.ITEMS_CREATE,
   routes.API.ITEMS_UPDATE,
-  routes.API.CONTENT.UNLISTED_PUBLISH
+  routes.API.CONTENT.UNLISTED_PUBLISH,
+  routes.API.ASSESSMENT,
 ], proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
