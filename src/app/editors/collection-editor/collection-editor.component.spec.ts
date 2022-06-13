@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CollectionEditorComponent } from './collection-editor.component';
+import { Router } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+class RouterStub {
+  navigate = jasmine.createSpy('navigate');
+}
 
 describe('CollectionEditorComponent', () => {
   let component: CollectionEditorComponent;
@@ -8,7 +12,12 @@ describe('CollectionEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CollectionEditorComponent ]
+      declarations: [ CollectionEditorComponent ],
+      imports: [HttpClientModule],
+      providers: [
+        HttpClient,
+        { provide: Router, useClass: RouterStub }
+      ]
     })
     .compileComponents();
   }));

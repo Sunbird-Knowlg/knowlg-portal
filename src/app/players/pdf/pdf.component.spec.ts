@@ -1,6 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PdfComponent } from './pdf.component';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+    }
+  }
+};
 
 describe('PdfComponent', () => {
   let component: PdfComponent;
@@ -8,7 +17,12 @@ describe('PdfComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PdfComponent ]
+      declarations: [ PdfComponent ],
+      imports: [HttpClientModule],
+      providers: [
+        HttpClient,
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
+      ],
     })
     .compileComponents();
   }));

@@ -1,9 +1,9 @@
-import { Component, OnInit, AfterViewInit, NgZone, Renderer2, OnDestroy } from '@angular/core';
+import { Component, OnInit, NgZone, Renderer2, OnDestroy } from '@angular/core';
 import * as _ from 'lodash-es';
 import * as iziModal from 'izimodal/js/iziModal';
 import { ActivatedRoute, Router } from '@angular/router';
-import { combineLatest, of, throwError } from 'rxjs';
-import { map, mergeMap, tap, delay, first } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { mergeMap, tap, delay, first } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
 import { DomSanitizer } from '@angular/platform-browser';
