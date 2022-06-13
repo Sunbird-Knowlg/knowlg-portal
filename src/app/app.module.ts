@@ -21,7 +21,6 @@ import { ContentlistComponent } from './editors/contentlist/contentlist.componen
 import {HelperService} from './services/helper/helper.service';
 import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
 import { FormsModule } from '@angular/forms';
-import { SuiModalModule } from 'ng2-semantic-ui-v9';
 import { SnPopupComponent } from './sn-popup/sn-popup.component';
 import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -53,7 +52,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     QumlLibraryModule,
     CollectionEditorLibraryModule,
     FormsModule,
-    SuiModalModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatSidenavModule

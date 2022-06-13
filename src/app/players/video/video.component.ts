@@ -38,7 +38,6 @@ export class VideoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  // this.playerConfig.config = this.config;
   this.queryParams = this.activatedRoute.snapshot.queryParams;
   this.setConfig();
   this.getContentDetails().pipe(first(),
