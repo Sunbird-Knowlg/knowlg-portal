@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../services/user/localstorage.service';
 
 @Component({
   selector: 'app-editors',
@@ -8,19 +9,12 @@ import { Router } from '@angular/router';
 })
 export class EditorsComponent implements OnInit {
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private localStorageService: LocalStorageService){}
 
-  ngOnInit(): void {
-  }
-  navigateToContentList(path) {
-    this.router.navigate(['editors/content-list/' + path]);
-  }
+  ngOnInit(): void {}
 
-  navigateToFileUploadEditor(identifier) {
-    this.router.navigate(['editors/file-upload-editor'], { queryParams: { identifier } });
-  }
-
-  navigateToInteractiveEditor(identifier) {
-    this.router.navigate(['editors/interactive-editor'], { queryParams: { identifier } });
+  navigateToContentList(type: string): void  {
+    this.localStorageService.setItem('type', type);
+    this.router.navigate(['editors/content-list']);
   }
 }

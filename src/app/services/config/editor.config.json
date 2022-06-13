@@ -175,7 +175,6 @@
       },
       "did": "e89ddca9c7816a77f2863325ecf5de12",
       "sid": "n3HlyLV6YcsGDIjx5AmOG7CvZ1SLIpcV",
-      "contentId": "do_113534600911495168115",
       "pdata": {
         "id": "dev.sunbird.portal",
         "ver": "4.9.0",
@@ -220,5 +219,53 @@
       "FlagDraft",
       "FlagReview"
     ]
-  }
+  },
+  "CONTENT_TYPES": {
+    "collection": {
+      "mimeType": "application/vnd.ekstep.content-collection",
+      "editor": "collection-editor",
+      "resourceType": "Book",
+      "contentType": "TextBook"
+    },
+    "ecml": {
+      "mimeType": "application/vnd.ekstep.ecml-archive",
+      "contentType": "Resource",
+      "resourceType": "Learn",
+      "editor": "interactive-editor"
+    },
+    "pdf": {
+      "mimeType": "application/pdf",
+      "editor": "file-upload-editor"
+    },
+    "video": {
+      "mimeType": ["video/mp4", "video/webm"],
+      "editor": "file-upload-editor"
+    },
+    "youtube": {
+      "mimeType" : "video/x-youtube",
+      "editor": "file-upload-editor"
+    },
+    "html": {
+      "mimeType": "application/vnd.ekstep.html-archive",
+      "editor": "file-upload-editor"
+    },
+    "epub": {
+      "mimeType": "application/epub",
+      "editor": "file-upload-editor"
+    },
+    "h5p": {
+      "mimeType": "application/vnd.ekstep.h5p-archive",
+      "editor": "file-upload-editor"
+    }
+  },
+  "creator": [
+    "Draft",
+    "FlagDraft",
+    "Review",
+    "flagged",
+    "Live",
+    "Unlisted",
+    "FlagReview"
+  ],
+  "reviewer": ["Review", "FlagReview"]
 }

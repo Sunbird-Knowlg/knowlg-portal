@@ -1,6 +1,7 @@
 {
   "CONTENT": {
-    "READ": "content/v3/read"
+    "READ": "content/v3/read",
+    "CREATE": "content/v3/create"
   },
   "CHANNEL": {
     "READ": "channel/v1/read"
