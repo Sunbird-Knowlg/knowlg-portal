@@ -1,10 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { delay, first, mergeMap, tap } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
-
 @Component({
   selector: 'app-epub',
   templateUrl: './epub.component.html',
@@ -22,22 +21,18 @@ export class EpubComponent implements OnInit {
   playerConfig: any;
   isLoading = true;
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
-  config = {
-    traceId: '123456',
-    sideMenu: {
-      showShare: true,
-      showDownload: true,
-      showReplay: false,
-      showExit: false
-    }
-  };
+  epubMetaDataconfig: any = JSON.parse(localStorage.getItem('epubConfig')) || {};
+  config: any;
+  sidemenuConfig: any;
+  @Output() ShowsharePopup = new EventEmitter();
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.setConfig();
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
         if (this.contentDetails){
-          this.loadContent(this.contentDetails);
+          this.loadContent();
         }else{
           this.loadDefaultData();
         }
@@ -54,13 +49,30 @@ export class EpubComponent implements OnInit {
       );
   }
 
+  setConfig(){
+    this.config = {
+      ...{
+        traceId: 'afhjgh',
+        sideMenu: {
+          showShare: this.config?.sideMenu?.showShare || true,
+          showDownload: this.config?.sideMenu?.showDownload || true,
+          showReplay: this.config?.sideMenu?.showReplay || true,
+          showExit: this.config?.sideMenu?.showExit || true,
+          showPrint: this.config?.sideMenu?.showPrint || true,
+        }
+      }, ...this.epubMetaDataconfig
+    };
+    this.sidemenuConfig = this.config.sideMenu || false;
+  }
+
   loadDefaultData(){
     this.playerConfig = {
       context: this.context,
       config: this.config,
-      metadata: this.configService.playerConfig.EPUB_PLAYER.metadata
+      metadata: this.configService.playerConfig.EPUB_PLAYER_METADATA
     } ;
   }
+
   private getContentDetails() {
     if (this.queryParams.identifier) {
       const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
@@ -76,7 +88,7 @@ export class EpubComponent implements OnInit {
     }
   }
 
-  loadContent(metadata) {
+  loadContent() {
     this.playerConfig = {
       context: this.context,
       config: this.config,
@@ -85,8 +97,11 @@ export class EpubComponent implements OnInit {
   }
 
   playerEvents(event) {
-
+    if (event.edata.type === 'SHARE') {
+      this.ShowsharePopup.emit(event);
+    }
   }
+
   playerTelemetryEvents(event) {
 
   }

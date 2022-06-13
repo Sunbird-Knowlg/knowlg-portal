@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { delay, first, mergeMap, tap } from 'rxjs/operators';
@@ -18,37 +18,35 @@ export class VideoComponent implements OnInit {
     private configService: ConfigService
   ) { }
 
-  videoMetaDataconfig: any = JSON.parse(localStorage.getItem('config')) || {};
-  config = {
-    ...{
-      traceId: 'afhjgh',
-      sideMenu: {
-        showShare: true,
-        showDownload: true,
-        showReplay: true,
-        showExit: true
-      }
-    }, ...this.videoMetaDataconfig
-  };
-  playerConfig = this.configService.playerConfig.VIDEO_PLAYER;
+  videoMetaDataconfig: any = JSON.parse(localStorage.getItem('videoConfig')) || {};
+  config: any;
+  playerConfig: any;
+  context =  this.configService.playerConfig.PLAYER_CONTEXT;
   isLoading = true;
+  sidemenuConfig: any;
   public queryParams: any;
   public contentDetails: any;
+  @Output() ShowsharePopup = new EventEmitter();
 
   playerEvent(event) {
-    // todo for player Event
+    if (event?.edata?.type === 'SHARE') {
+      this.ShowsharePopup.emit(event);
+    }
   }
   telemetryEvent(event) {
     // todo for telemetry Event
   }
 
   ngOnInit(): void {
-  this.playerConfig.config = this.config;
+  // this.playerConfig.config = this.config;
   this.queryParams = this.activatedRoute.snapshot.queryParams;
+  this.setConfig();
   this.getContentDetails().pipe(first(),
       tap((data: any) => {
         if (this.contentDetails){
-          this.loadContent(this.contentDetails);
+          this.loadContent();
+        }else{
+          this.loadDefaultData();
         }
       }))
       .subscribe((data) => {
@@ -57,9 +55,18 @@ export class VideoComponent implements OnInit {
         (error) => {
           this.isLoading = false;
           alert('Error to load video, Loading default video');
+          this.loadDefaultData();
           console.log('error --->', error);
         }
       );
+  }
+
+  loadDefaultData(){
+    this.playerConfig = {
+      context: this.context,
+      config: this.config,
+      metadata: this.configService.playerConfig.VIDEO_PLAYER_METADATA
+    } ;
   }
 
   private getContentDetails() {
@@ -77,14 +84,28 @@ export class VideoComponent implements OnInit {
     }
   }
 
-  loadContent(metadata) {
-    const config = this.playerConfig;
-    this.playerConfig = undefined;
-    this.isLoading = true;
-    setTimeout(() => {
-      this.playerConfig = {...config, metadata};
-      this.isLoading = false;
-    }, 3000);
+  setConfig(){
+    this.config = {
+      ...{
+        traceId: 'afhjgh',
+        sideMenu: {
+          showShare: this.config?.sideMenu?.showShare || true,
+          showDownload: this.config?.sideMenu?.showDownload || true,
+          showReplay: this.config?.sideMenu?.showReplay || true,
+          showExit: this.config?.sideMenu?.showExit || true,
+          showPrint: this.config?.sideMenu?.showPrint || true,
+        }
+      }, ...this.videoMetaDataconfig
+    };
+    this.sidemenuConfig = this.config.sideMenu || false;
+  }
+
+  loadContent() {
+    this.playerConfig = {
+      context: this.context,
+      config: this.config,
+      metadata: this.contentDetails
+    };
   }
 }
 

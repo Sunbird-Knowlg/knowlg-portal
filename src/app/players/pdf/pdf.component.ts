@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { delay, first, mergeMap, tap } from 'rxjs/operators';
@@ -19,16 +19,19 @@ export class PdfComponent implements OnInit {
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
   public queryParams: any;
   public contentDetails: any;
-  playerConfig = this.configService.playerConfig.PDF_PLAYER;
+  playerConfig: any;
+  pdfMetaDataconfig: any = JSON.parse(localStorage.getItem('pdfConfig')) || {};
+  config: any;
   isLoading = true;
+  sidemenuConfig: any;
+  @Output() ShowsharePopup = new EventEmitter();
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.setConfig();
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
-        if (this.contentDetails){
-          this.loadContent(this.contentDetails);
-        }
+          this.loadContent();
       }))
       .subscribe((data) => {
         this.isLoading = false;
@@ -36,9 +39,26 @@ export class PdfComponent implements OnInit {
         (error) => {
           this.isLoading = false;
           alert('Error to load pdf, Loading default pdf');
+          this.loadContent();
           console.log('error --->', error);
         }
       );
+  }
+
+  setConfig(){
+    this.config = {
+      ...{
+        traceId: 'afhjgh',
+        sideMenu: {
+          showShare: this.config?.sideMenu?.showShare || true,
+          showDownload: this.config?.sideMenu?.showDownload || true,
+          showReplay: this.config?.sideMenu?.showReplay || true,
+          showExit: this.config?.sideMenu?.showExit || true,
+          showPrint: this.config?.sideMenu?.showPrint || true,
+        }
+      }, ...this.pdfMetaDataconfig
+    };
+    this.sidemenuConfig = this.config.sideMenu || false;
   }
 
   private getContentDetails() {
@@ -56,18 +76,18 @@ export class PdfComponent implements OnInit {
     }
   }
 
-  loadContent(metadata) {
-    const config = this.playerConfig;
-    this.playerConfig = undefined;
-    this.isLoading = true;
-    setTimeout(() => {
-      this.playerConfig = {...config, metadata};
-      this.isLoading = false;
-    }, 3000);
+  loadContent() {
+    this.playerConfig = {
+      context: this.configService.playerConfig.PLAYER_CONTEXT,
+      config: this.config,
+      metadata: this.contentDetails || this.configService.playerConfig.PDF_PLAYER_METADATA
+    };
   }
 
   playerEvents(event) {
-
+    if (event.edata.type === 'SHARE') {
+      this.ShowsharePopup.emit(event);
+    }
   }
   playerTelemetryEvents(event) {
 

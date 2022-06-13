@@ -20,8 +20,11 @@ export class InteractivePlayerComponent implements OnInit {
   value: any;
   public queryParams: any;
   public contentDetails: any;
-  playerConfig = this.configService.playerConfig.INTERACTIVE_PLAYER;
+  playerConfig: any;
   isLoading = true;
+  ecmlMetaDataconfig: any = JSON.parse(localStorage.getItem('ecmlConfig')) || {};
+  config: any;
+  sidemenuConfig: any;
 
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
 
@@ -50,16 +53,10 @@ export class InteractivePlayerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.setConfig();
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
-        if (this.contentDetails){
-          this.playerConfig.metadata = this.contentDetails;
-          this.playerConfig.data = this.contentDetails.body;
-          this.previewElement.nativeElement.contentWindow.location.reload();
-          setTimeout(() => {
-            this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfig);
-          }, 2000);
-        }
+          this.setContentData();
       }))
       .subscribe((data) => {
         this.isLoading = false;
@@ -70,6 +67,69 @@ export class InteractivePlayerComponent implements OnInit {
           console.log('error --->', error);
         }
       );
+  }
+
+  setConfig(){
+    this.config = {
+      showEndPage: false,
+      endPage: [
+        {
+          template: 'assessment',
+          contentType: ['SelfAssess']
+        }
+      ],
+      showStartPage: true,
+      host: '',
+      overlay: {
+          enableUserSwitcher: true,
+          showUser: false,
+          showOverlay: true,
+          showNext: true,
+          showPrevious: true,
+          showSubmit: false,
+          showReload: false,
+          menu: {
+              showTeachersInstruction: false
+          }
+      },
+      splash: {
+        text: '',
+        icon: '',
+        bgImage: 'assets/icons/splacebackground_1.png',
+        webLink: ''
+      },
+      apislug: '/action',
+      repos: ['/sunbird-plugins/renderer'],
+      plugins: [
+        {
+          id: 'org.sunbird.iframeEvent',
+          ver: 1,
+          type: 'plugin'
+        },
+        {
+          id: 'org.sunbird.player.endpage',
+          ver: 1.1,
+          type: 'plugin'
+        }
+      ],
+      sideMenu: {
+        showShare: true,
+        showDownload: true,
+        showExit: false
+      },
+      enableTelemetryValidation: false
+    };
+    this.config.overlay = {...this.config.overlay, ...this.ecmlMetaDataconfig};
+    this.sidemenuConfig = this.config.overlay || false;
+  }
+
+  setContentData(){
+    this.playerConfig = {
+      context: this.configService.playerConfig.INTERACTIVE_PLAYER.context,
+      config: this.config,
+      metadata: this.contentDetails || this.configService.playerConfig.INTERACTIVE_PLAYER.metadata,
+      data: this.contentDetails?.body || this.configService.playerConfig.INTERACTIVE_PLAYER.data
+    };
   }
 
   private getContentDetails() {
