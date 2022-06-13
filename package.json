@@ -50,7 +50,7 @@
     "mathjax-full": "^3.2.0",
     "moment": "^2.29.3",
     "ng2-cache-service": "^1.1.1",
-    "ng2-semantic-ui-v9": "0.0.6",
+    "ng2-semantic-ui-v9": "0.0.3",
     "ngx-bootstrap": "6.0.0",
     "ngx-chips": "2.2.0",
     "ngx-infinite-scroll": "^6.0.0",
