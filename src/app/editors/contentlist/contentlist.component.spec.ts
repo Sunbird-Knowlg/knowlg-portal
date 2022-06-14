@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ContentlistComponent } from './contentlist.component';
-import {of as observableOf } from 'rxjs';
+import { of as observableOf } from 'rxjs';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
@@ -17,24 +18,41 @@ describe('ContentlistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentlistComponent ],
+      declarations: [ContentlistComponent],
       imports: [HttpClientModule],
       providers: [
         HttpClient,
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: fakeActivatedRoute },
+        LocalStorageService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
+    localStorage.setItem('type', JSON.stringify('collection'));
     fixture = TestBed.createComponent(ContentlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  fit('#ngOnInit() should call the #getAllCollectionList method', () => {
+    spyOn(component, 'getAllCollectionList').and.callThrough();
+    component.ngOnInit();
+    expect(component.editorType).toBe('collection');
+    expect(component.getAllCollectionList).toHaveBeenCalled();
+  });
+
+  fit('#goBack() should navigate to "editors" page', () => {
+    spyOn(component, 'getAllCollectionList').and.callThrough();
+    component.ngOnInit();
+    expect(component.editorType).toBe('collection');
+    expect(component.getAllCollectionList).toHaveBeenCalled();
+  });
+
 });

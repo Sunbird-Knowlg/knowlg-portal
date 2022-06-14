@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
-import { of } from 'rxjs';
+import { forkJoin, Observable, of } from 'rxjs';
+import { map, mergeMap } from 'rxjs/operators';
 @Component({
   selector: 'app-collection-editor',
   templateUrl: './collection-editor.component.html',
@@ -18,62 +19,69 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
-    this.getContentDetails().subscribe((response) => {
-      this.content = _.get(response, 'result.content');
-      this.getChannel(_.get(response, 'result.content.channel'));
-      }, (error) => {
-         console.log('Fetching content details failed ::', error);
-      });
+    this.initialize();
+  }
+
+  initialize() {
+    this.getContentDetails(this.queryParams.identifier).pipe(map(content => {
+      this.content = content;
+      return content;
+    }), mergeMap(contentData => {
+      return forkJoin([
+        this.getChannel(contentData.channel),
+        this.getFrameWorkDetails()
+      ]);
+    })).subscribe(([channelData, categoryData]: any) => {
+      this.channelData = channelData;
+      this.setHierarchyConfig(categoryData);
+    });
   }
 
   editorEventListener(event) {
-    this.router.navigate(['editors/content-list/collection-editor']);
+    this.router.navigate(['editors/content-list']);
   }
 
-  private getContentDetails() {
-    if (this.queryParams.identifier) {
-      const options: any = { params: { mode: 'edit' } };
-      return this.helperService.getContent(this.queryParams.identifier, options);
-    } else {
-      return of({});
+  getContentDetails(identifier: string): Observable<any> {
+    const options: any = { params: { mode: 'edit' } };
+    return this.helperService.getContent(identifier, options).
+    pipe(map(response => {
+      return _.get(response, 'result.content');
+    }));
+  }
+
+  getChannel(channelId: string): Observable<any> {
+    return this.helperService.getChannel(channelId).pipe(map(response => {
+      return _.get(response, 'result.channel');
+    }));
+  }
+
+  getFrameWorkDetails(): Observable<any> {
+    return this.helperService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
+    .pipe(map(response => {
+      return _.get(response, 'result.objectCategoryDefinition');
+    }));
+  }
+
+  setHierarchyConfig(data: any) {
+    // tslint:disable-next-line:max-line-length
+    if (_.get(data, 'objectMetadata.config')) {
+      this.hierarchyConfig = _.get(data, 'objectMetadata.config.sourcingSettings.collection');
+      if (!_.isEmpty(this.hierarchyConfig.children)) {
+        this.hierarchyConfig.children = this.getPrimaryCategoryData(this.hierarchyConfig.children);
+      }
+      if (!_.isEmpty(this.hierarchyConfig.hierarchy)) {
+        _.forEach(this.hierarchyConfig.hierarchy, (hierarchyValue) => {
+          if (_.get(hierarchyValue, 'children')) {
+            hierarchyValue.children = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
+          }
+        });
+      }
     }
-  }
-
-  getChannel(channelId) {
-    this.helperService.getChannel(channelId)
-      .subscribe((response) => {
-        this.channelData = _.get(response, 'result.channel');
-        this.getFrameWorkDetails();
-      }, (error) => {
-        console.log(error);
-      });
-
-  }
-  getFrameWorkDetails() {
-    this.helperService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
-      .subscribe(data => {
-        // tslint:disable-next-line:max-line-length
-        if (_.get(data, 'result.objectCategoryDefinition.objectMetadata.config')) {
-          this.hierarchyConfig = _.get(data, 'result.objectCategoryDefinition.objectMetadata.config.sourcingSettings.collection');
-          if (!_.isEmpty(this.hierarchyConfig.children)) {
-            this.hierarchyConfig.children = this.getPrimaryCategoryData(this.hierarchyConfig.children);
-          }
-          if (!_.isEmpty(this.hierarchyConfig.hierarchy)) {
-            _.forEach(this.hierarchyConfig.hierarchy, (hierarchyValue) => {
-              if (_.get(hierarchyValue, 'children')) {
-                hierarchyValue.children = this.getPrimaryCategoryData(_.get(hierarchyValue, 'children'));
-              }
-            });
-          }
-        }
-        this.setEditorConfig();
-        this.editorConfig.context.framework = _.get(this.content, 'framework');
-        if (_.get(this.content, 'primaryCategory') && _.get(this.content, 'primaryCategory') !== 'Curriculum Course') {
-          this.editorConfig.context.targetFWIds = _.get(this.content, 'targetFWIds');
-        }
-      }, err => {
-        console.log('Read category defination failed::', err);
-      });
+    this.setEditorConfig();
+    this.editorConfig.context.framework = _.get(this.content, 'framework');
+    if (_.get(this.content, 'primaryCategory') && _.get(this.content, 'primaryCategory') !== 'Curriculum Course') {
+      this.editorConfig.context.targetFWIds = _.get(this.content, 'targetFWIds');
+    }
   }
 
   getPrimaryCategoryData(childrenData) {
@@ -150,6 +158,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
     this.editorConfig.config.publicStorageAccount = '';
     this.editorConfig.config = _.assign(this.editorConfig.config, this.hierarchyConfig);
   }
+
   getEditorMode() {
     const contentStatus = this.content.status.toLowerCase();
     if (contentStatus === 'draft' || contentStatus === 'live' || contentStatus === 'flagdraft'

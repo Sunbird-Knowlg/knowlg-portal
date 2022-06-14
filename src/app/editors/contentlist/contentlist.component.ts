@@ -61,6 +61,7 @@ export class ContentlistComponent implements OnInit {
 
     if (this.editorType !== 'collection' && this.editorType !== 'ecml') {
       this.openContent();
+      return;
     }
 
     const requestData = {
