@@ -37,18 +37,18 @@ describe('ContentlistComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('#ngOnInit() should call the #getAllCollectionList method', () => {
+  it('#ngOnInit() should call the #getAllCollectionList method', () => {
     spyOn(component, 'getAllCollectionList').and.callThrough();
     component.ngOnInit();
     expect(component.editorType).toBe('collection');
     expect(component.getAllCollectionList).toHaveBeenCalled();
   });
 
-  fit('#goBack() should navigate to "editors" page', () => {
+  it('#goBack() should navigate to "editors" page', () => {
     spyOn(component, 'getAllCollectionList').and.callThrough();
     component.ngOnInit();
     expect(component.editorType).toBe('collection');

@@ -31,4 +31,11 @@ describe('CollectionEditorComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#editorEventListener should navigate to "collection-editor" ', () => {
+    const router = TestBed.inject(Router);
+    component.editorEventListener({});
+    expect(router.navigate).toHaveBeenCalledWith(['editors/content-list/collection-editor']);
+  });
+
 });
