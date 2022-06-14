@@ -10,25 +10,29 @@
             </svg>
           </em>
         </div>
-        <h1 class="ui header slider-header">Settings</h1>
+        <h4 class="m-0 py-8 px-16 font-weight-bold text-uppercase">Settings</h4>
         <ng-container>
-          <table class="ui very basic collapsing celled table pl-10 pt-10 pr-10 pb-10">
-            <tbody>
-              <tr *ngFor="let item of sidemenuConfig | keyvalue; let i = index">
-                <td *ngIf="!isObject(sidemenuConfig[item.key])">{{configLable[i]}}</td>
-                <td *ngIf="!isObject(sidemenuConfig[item.key])">
-                  <div class="sb-field">
-                      <label class="switch">
-                        <input type="checkbox" [(ngModel)]="sidemenuConfig[item.key]">
-                        <span class="slider round"></span>
-                      </label>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="sb-field">
-            <button type="button" class="sb-btn sb-btn-normal" (click)="onEnter()">Submit</button>
+          <div class="">
+            <table class="w-100">
+              <tbody>
+                <tr style="border-bottom:1px solid #ddd;" *ngFor="let item of configLable let i = index">
+                  <td class="pl-16 p-8" *ngIf="!isObject(sidemenuConfig[item.key])">{{item.lable}}</td>
+                  <td class="p-8 text-right" *ngIf="!isObject(sidemenuConfig[item.key])">
+                    <div class="sb-field">
+                        <label class="switch mb-0">
+                          <input type="checkbox" [(ngModel)]="sidemenuConfig[item.key]">
+                          <span class="slider round"></span>
+                        </label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sb-field px-16" class="drawer-action-section">
+            <button type="button" class="sb-btn sb-btn-normal mr-8" (click)="drawer.toggle()">Cancel</button>
+            <button type="button" class="sb-btn sb-btn-normal sb-btn-primary" (click)="onEnter()">Save</button>
           </div>
         </ng-container>
       </div>

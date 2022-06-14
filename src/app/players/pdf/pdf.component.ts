@@ -50,11 +50,11 @@ export class PdfComponent implements OnInit {
       ...{
         traceId: 'afhjgh',
         sideMenu: {
-          showShare: this.config?.sideMenu?.showShare || true,
           showDownload: this.config?.sideMenu?.showDownload || true,
-          showReplay: this.config?.sideMenu?.showReplay || true,
           showExit: this.config?.sideMenu?.showExit || true,
           showPrint: this.config?.sideMenu?.showPrint || true,
+          showReplay: this.config?.sideMenu?.showReplay || true,
+          showShare: this.config?.sideMenu?.showShare || true,
         }
       }, ...this.pdfMetaDataconfig
     };

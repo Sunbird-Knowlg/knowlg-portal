@@ -15,18 +15,18 @@ export class SidebarComponent implements OnInit {
   @Input() configFor;
   showSideMenu: boolean;
   configLable: Array<any> = [];
+  playerSideMenuConfig: any;
 
   ngOnInit(): void {
     this.createLable();
-    console.log(this.sidemenuConfig);
   }
 
   createLable(){
     _.forEach(this.sidemenuConfig, (value, key) => {
-      if (!this.isObject(value)) {
-        const formatedLable = key.replace( /([A-Z])/g, ' $1' );
+      if (!this.isObject(key)) {
+        const formatedLable = key.replace( /([A-Z])/g, ' $1' ).replace('show', '');
         const lable = formatedLable.charAt(0).toUpperCase() + formatedLable.slice(1);
-        this.configLable.push(lable);
+        this.configLable.push({key, lable});
       }
     });
   }

@@ -82,12 +82,12 @@ export class InteractivePlayerComponent implements OnInit {
       host: '',
       overlay: {
           enableUserSwitcher: true,
-          showUser: false,
           showOverlay: true,
           showNext: true,
           showPrevious: true,
           showSubmit: false,
           showReload: false,
+          showUser: false,
           menu: {
               showTeachersInstruction: false
           }
