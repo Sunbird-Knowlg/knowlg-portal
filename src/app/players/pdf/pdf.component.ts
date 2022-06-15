@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import * as _ from 'lodash-es';
 import { first, mergeMap, tap } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
@@ -20,7 +21,6 @@ export class PdfComponent implements OnInit {
   public queryParams: any;
   public contentDetails: any;
   playerConfig: any;
-  pdfMetaDataconfig: any = JSON.parse(localStorage.getItem('pdfConfig')) || {};
   config: any;
   isLoading = true;
   sidemenuConfig: any;
@@ -46,19 +46,8 @@ export class PdfComponent implements OnInit {
   }
 
   setConfig(){
-    this.config = {
-      ...{
-        traceId: 'afhjgh',
-        sideMenu: {
-          showDownload: this.config?.sideMenu?.showDownload || true,
-          showExit: this.config?.sideMenu?.showExit || true,
-          showPrint: this.config?.sideMenu?.showPrint || true,
-          showReplay: this.config?.sideMenu?.showReplay || true,
-          showShare: this.config?.sideMenu?.showShare || true,
-        }
-      }, ...this.pdfMetaDataconfig
-    };
-    this.sidemenuConfig = this.config.sideMenu || false;
+    this.config = this.configService.getConfigData('pdfConfig');
+    this.sidemenuConfig = this.config?.sideMenu;
   }
 
   private getContentDetails() {

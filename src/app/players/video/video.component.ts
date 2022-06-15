@@ -18,7 +18,6 @@ export class VideoComponent implements OnInit {
     private configService: ConfigService
   ) { }
 
-  videoMetaDataconfig: any = JSON.parse(localStorage.getItem('videoConfig')) || {};
   config: any;
   playerConfig: any;
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
@@ -84,19 +83,8 @@ export class VideoComponent implements OnInit {
   }
 
   setConfig(){
-    this.config = {
-      ...{
-        traceId: 'afhjgh',
-        sideMenu: {
-          showDownload: this.config?.sideMenu?.showDownload || true,
-          showExit: this.config?.sideMenu?.showExit || true,
-          showPrint: this.config?.sideMenu?.showPrint || true,
-          showReplay: this.config?.sideMenu?.showReplay || true,
-          showShare: this.config?.sideMenu?.showShare || true,
-        }
-      }, ...this.videoMetaDataconfig
-    };
-    this.sidemenuConfig = this.config.sideMenu || false;
+    this.config = this.configService.getConfigData('videoConfig');
+    this.sidemenuConfig = this.config?.sideMenu;
   }
 
   loadContent() {

@@ -22,7 +22,6 @@ export class InteractivePlayerComponent implements OnInit {
   public contentDetails: any;
   playerConfig: any;
   isLoading = true;
-  ecmlMetaDataconfig: any = JSON.parse(localStorage.getItem('ecmlConfig')) || {};
   config: any;
   sidemenuConfig: any;
 
@@ -70,57 +69,8 @@ export class InteractivePlayerComponent implements OnInit {
   }
 
   setConfig(){
-    this.config = {
-      showEndPage: false,
-      endPage: [
-        {
-          template: 'assessment',
-          contentType: ['SelfAssess']
-        }
-      ],
-      showStartPage: true,
-      host: '',
-      overlay: {
-          enableUserSwitcher: true,
-          showOverlay: true,
-          showNext: true,
-          showPrevious: true,
-          showSubmit: false,
-          showReload: false,
-          showUser: false,
-          menu: {
-              showTeachersInstruction: false
-          }
-      },
-      splash: {
-        text: '',
-        icon: '',
-        bgImage: 'assets/icons/splacebackground_1.png',
-        webLink: ''
-      },
-      apislug: '/action',
-      repos: ['/sunbird-plugins/renderer'],
-      plugins: [
-        {
-          id: 'org.sunbird.iframeEvent',
-          ver: 1,
-          type: 'plugin'
-        },
-        {
-          id: 'org.sunbird.player.endpage',
-          ver: 1.1,
-          type: 'plugin'
-        }
-      ],
-      sideMenu: {
-        showShare: true,
-        showDownload: true,
-        showExit: false
-      },
-      enableTelemetryValidation: false
-    };
-    this.config.overlay = {...this.config.overlay, ...this.ecmlMetaDataconfig};
-    this.sidemenuConfig = this.config.overlay || false;
+    this.config = this.configService.getV1ConfigData();
+    this.sidemenuConfig = this.config?.overlay;
   }
 
   setContentData(){

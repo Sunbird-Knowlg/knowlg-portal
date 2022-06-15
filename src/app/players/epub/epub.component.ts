@@ -21,7 +21,6 @@ export class EpubComponent implements OnInit {
   playerConfig: any;
   isLoading = true;
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
-  epubMetaDataconfig: any = JSON.parse(localStorage.getItem('epubConfig')) || {};
   config: any;
   sidemenuConfig: any;
   @Output() ShowsharePopup = new EventEmitter();
@@ -50,19 +49,8 @@ export class EpubComponent implements OnInit {
   }
 
   setConfig(){
-    this.config = {
-      ...{
-        traceId: 'afhjgh',
-        sideMenu: {
-          showDownload: this.config?.sideMenu?.showDownload || true,
-          showExit: this.config?.sideMenu?.showExit || true,
-          showPrint: this.config?.sideMenu?.showPrint || true,
-          showReplay: this.config?.sideMenu?.showReplay || true,
-          showShare: this.config?.sideMenu?.showShare || true,
-        }
-      }, ...this.epubMetaDataconfig
-    };
-    this.sidemenuConfig = this.config.sideMenu || false;
+    this.config = this.configService.getConfigData('epubConfig');
+    this.sidemenuConfig = this.config?.sideMenu;
   }
 
   loadDefaultData(){

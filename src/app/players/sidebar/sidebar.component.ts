@@ -1,6 +1,7 @@
 import { Component, Input, OnInit} from '@angular/core';
 import * as _ from 'lodash-es';
 import {Router } from '@angular/router';
+import { ConfigService } from 'src/app/services/config/config.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +10,7 @@ import {Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private configService: ConfigService) { }
   showMainMenuBar = true;
   @Input() sidemenuConfig;
   @Input() configFor;
@@ -45,8 +46,7 @@ export class SidebarComponent implements OnInit {
     if (this.configFor === 'ecmlConfig'){
       playerConfigData = this.sidemenuConfig;
     }
-
-    localStorage.setItem(this.configFor, JSON.stringify(playerConfigData));
+    this.configService.setConfigData(this.configFor, JSON.stringify(playerConfigData));
     const currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
