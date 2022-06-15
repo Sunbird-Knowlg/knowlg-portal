@@ -1,6 +1,6 @@
-import { Component, Input, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { ConfigService } from 'src/app/services/config/config.service';
+import { Component, Input, OnInit} from '@angular/core';
 import * as _ from 'lodash-es';
+import {Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -9,7 +9,7 @@ import * as _ from 'lodash-es';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private configService: ConfigService) { }
+  constructor(private router: Router) { }
   showMainMenuBar = true;
   @Input() sidemenuConfig;
   @Input() configFor;
@@ -47,7 +47,10 @@ export class SidebarComponent implements OnInit {
     }
 
     localStorage.setItem(this.configFor, JSON.stringify(playerConfigData));
-    location.reload();
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currentUrl]);
+    });
   }
 
 }
