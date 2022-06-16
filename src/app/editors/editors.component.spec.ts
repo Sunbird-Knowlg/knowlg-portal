@@ -27,4 +27,11 @@ describe('EditorsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#navigateToContentList should navigate to "collection-editor" ', () => {
+    const router = TestBed.inject(Router);
+    component.navigateToContentList('collection-editor');
+    expect(router.navigate).toHaveBeenCalledWith(['editors/content-list']);
+  });
+
 });

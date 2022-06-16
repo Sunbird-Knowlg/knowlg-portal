@@ -20,7 +20,7 @@ const routes: Routes =  [
     path: 'editors', component: EditorsComponent,
   },
   {
-    path: 'editors/content-list/:page', component: ContentlistComponent,
+    path: 'editors/content-list', component: ContentlistComponent,
   },
   {
     path: 'editors/collection-editor', component: CollectionEditorComponent,

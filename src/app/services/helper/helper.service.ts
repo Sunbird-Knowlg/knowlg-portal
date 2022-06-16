@@ -29,6 +29,16 @@ export class HelperService {
     );
   }
 
+  createContent(reqBody: any): Observable<any> {
+    const req = {
+      url: this.configService.urlConFig.CONTENT.CREATE,
+      data: {
+        request: reqBody
+    }
+    };
+    return this.actionService.post(req);
+  }
+
   getAllCollectionList(requestData: object): Observable<any> {
     const req = {
       url: `${this.configService.urlConFig.SEARCH.COMPOSIT}`,
