@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
+import { LocalStorageService } from '../services/user/localstorage.service';
 import { EditorsComponent } from './editors.component';
 
 class RouterStub {
@@ -13,7 +14,7 @@ describe('EditorsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ EditorsComponent ],
-      providers: [{ provide: Router, useClass: RouterStub }]
+      providers: [{ provide: Router, useClass: RouterStub }, LocalStorageService]
     })
     .compileComponents();
   }));
