@@ -14,11 +14,11 @@ app.use(express.json());
 app.use(express.static(process.cwd()+"/dist/"));
 
 /**
- * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url 
+ * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url
  * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload api url
  * @param  {} proxy(BASE_URL) This base url
- * @param  {true} {https} 
- * @param  {false} parseReqBody 
+ * @param  {true} {https}
+ * @param  {false} parseReqBody
  * @param  {function(req} proxyReqPathResolver This is used to replace request url path
  */
 app.post([routes.API.CONTENT.UPLOAD, routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
@@ -47,7 +47,7 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
 /**
  * @param  {} routes.API.TELEMMETRY This is the telemetry api url
  * @param  {} {console.log(JSON.stringify(req.body) This is the logging of the request data
- * @param  {} ;res.status(200) Sending the response 
+ * @param  {} ;res.status(200) Sending the response
  */
 app.post(routes.API.TELEMMETRY, function (req, res) {
   console.log(JSON.stringify(req.body), 'telemetry logged');
@@ -58,10 +58,37 @@ app.post(routes.API.TELEMMETRY, function (req, res) {
  * @param  {} routes.API.USER_SEARCH This is the user search api url
  * @param  {} res
  * @param  {} {res.status(200) Sending the api response
- * @param  {[]}} .json({users}) Sending empty array response 
+ * @param  {[]}} .json({users}) Sending empty array response
  */
 app.post(routes.API.USER_SEARCH, function (req, res) {
   res.status(200).json({ users: [] })
+});
+
+/**
+ * @param  {} routes.API.USER_ROLE This is the user role api url
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ * @param  {[]}} .json({userRoles}) Sending array response
+ */
+ app.get(routes.API.USER_ROLE, function (req, res) {
+  res.status(200).json(envVariables.USER_ROLE)
+});
+
+/**
+ * @param  {} routes.API.USERS This is the user role api url
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ * @param  {[]}} .json({userRoles}) Sending array response
+ */
+ app.post(routes.API.USERS, function (req, res) {
+  let users = '';
+  if (req.body.roleType === 'creator'){
+    users = envVariables.CREATORS;
+  }
+  if (req.body.roleType === 'reviewer'){
+    users = envVariables.REVIEWERS;
+  }
+  res.status(200).json(users);
 });
 
 /**

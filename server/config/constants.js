@@ -23,12 +23,14 @@ module.exports = {
        "FRAMEWORK": "/action/framework/v3/*",
        "COMPOSITE": "/action/composite/v3/*",
        "LANGUAGE": "/action/language/v3/*",
-       "BUNDLE": "/action/content/v3/bundle/*", 
-       "ITEMS_UPDATE": "/action/assessment/v3/items/update/*", 
-       "ITEMS_CREATE": "/action/assessment/v3/items/create/*", 
+       "BUNDLE": "/action/content/v3/bundle/*",
+       "ITEMS_UPDATE": "/action/assessment/v3/items/update/*",
+       "ITEMS_CREATE": "/action/assessment/v3/items/create/*",
        "TELEMMETRY": "/action/data/v3/telemetry",
        "FORM_READ": "/action/data/v1/form/read",
        "USER_SEARCH": "action/user/v1/search/*",
+       "USER_ROLE": "/api/role",
+       "USERS": "/api/users",
        "PREFIX": {
            "ACTION": "/action",
            "ASSETS": "/assets",
@@ -42,4 +44,4 @@ module.exports = {
            "CONTENT_EDITOR": "/content-editor/*"
        }
     }
-}   
+}
