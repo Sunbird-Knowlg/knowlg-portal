@@ -7,6 +7,7 @@ const proxyUtils = require('./proxyUtils.js')
 var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
+const uuid = require('uuid/v1');
 
 var app = express();
 app.set("port", 3000);
@@ -71,7 +72,22 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {[]}} .json({userRoles}) Sending array response
  */
  app.get(routes.API.USER_ROLE, function (req, res) {
-  res.status(200).json(envVariables.USER_ROLE)
+  res.send({
+    id: "api.v1.users",
+    ver: "1.0",
+    ts: new Date().toISOString(),
+    params: {
+      resmsgid: uuid(),
+      msgid: uuid(),
+      status: "successful",
+      err: null,
+      errmsg: null,
+    },
+    responseCode: "OK",
+    result: {
+      roles: envVariables.USER_ROLE
+    }
+  });
 });
 
 /**
@@ -81,14 +97,29 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {[]}} .json({userRoles}) Sending array response
  */
  app.post(routes.API.USERS, function (req, res) {
-  let users = '';
+  let users = {};
   if (req.body.roleType === 'creator'){
     users = envVariables.CREATORS;
   }
   if (req.body.roleType === 'reviewer'){
     users = envVariables.REVIEWERS;
   }
-  res.status(200).json(users);
+  res.send({
+    id: "api.v1.users",
+    ver: "1.0",
+    ts: new Date().toISOString(),
+    params: {
+      resmsgid: uuid(),
+      msgid: uuid(),
+      status: "successful",
+      err: null,
+      errmsg: null,
+    },
+    responseCode: "OK",
+    result: {
+      users
+    }
+  });
 });
 
 /**
