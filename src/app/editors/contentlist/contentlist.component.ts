@@ -34,7 +34,7 @@ export class ContentlistComponent implements OnInit {
           status: this.configService.editorConfig[this.userData.role],
           mimeType: this.configService.editorConfig.CONTENT_TYPES[this.editorType].mimeType,
           objectType: 'Content',
-          channel: this.userData.channel,
+          channel: this.userData.channelId,
           createdBy: this.userData.userId
         },
         offset: 0,
@@ -67,7 +67,7 @@ export class ContentlistComponent implements OnInit {
           description: 'Enter description ',
           createdBy: this.userData.userId,
           organisation: ['NIT', 'MPPS MUKKADAMPALLI'],
-          createdFor: [this.userData.channel],
+          createdFor: [this.userData.channelId],
           framework: 'ekstep_ncert_k-12',
           creator: this.userData.userName,
           ...(_.omit(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor'))
