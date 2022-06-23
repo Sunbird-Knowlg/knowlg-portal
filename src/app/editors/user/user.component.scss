@@ -1,10 +1,10 @@
 .btn {
-    background-color: DodgerBlue;
+    background-color: lightgray;
     border: none;
-    color: white;
-    padding: 12px 30px;
+    color: black;
+    margin-bottom: 10px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
   }
   
   button {
@@ -16,6 +16,7 @@
     min-width: 64px;
     padding: 6px 16px;
     border-radius: 4px;
+    border-color: transparent;
     color: rgb(255, 255, 255);
     background-color: rgb(30 144 255);
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
@@ -55,7 +56,7 @@
   }
   
   .content {
-    font-size: 2rem;
+    font-size: 20px;
     padding: 0px;
   }
   
@@ -63,4 +64,22 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 50px;
+  }
+
+  .sb-user-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .sb-user-column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+  }
+  .user-imgae {
+      width: 20px;
+      height: 20px;
   }

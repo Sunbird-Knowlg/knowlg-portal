@@ -1,17 +1,19 @@
-
 <mat-dialog-content>
     <div class="content">
         <div class="flex-parent jc-center">
-            <p class="player-header">Please select user</p>
+            <p class="player-header" *ngIf="userArray.length"> {{configService?.labelConfig?.label?.selectUser}}</p>
+            <p class="player-header" *ngIf="!userArray.length"> {{configService?.labelConfig?.label?.emptyUserList}}</p>
         </div>
-        <div class="flex-parent jc-center">
-            <div *ngFor="let user of userArray">
-                <button class="btn margin-right margin-top" (click)="selectUser(user)">{{user.userName}}</button>
+        <div class='sb-user-container' *ngFor="let user of userArray">
+            <div class='sb-user-column'>
+                <button class="btn" (click)="selectUser(user)">
+                    <img src="../../../assets/images/user1.png" class="user-imgae"> {{user.userName}}
+                </button>
             </div>
         </div>
     </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button mat-dialog-close> {{configService?.labelConfig?.button?.cancel}}</button>
 </mat-dialog-actions>

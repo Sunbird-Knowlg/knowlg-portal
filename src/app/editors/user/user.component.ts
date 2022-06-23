@@ -3,6 +3,7 @@ import { LocalStorageService } from '../../services/user/localstorage.service';
 import * as _ from 'lodash-es';
 import { Router } from '@angular/router';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ConfigService } from '../../services/config/config.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,6 +14,7 @@ export class UserComponent implements OnInit {
   constructor(public localStorageService: LocalStorageService,
               private dialogRef: MatDialogRef<UserComponent>,
               @Inject(MAT_DIALOG_DATA) public data: { name: string },
+              public configService: ConfigService,
               private router: Router) { }
 
   ngOnInit(): void {

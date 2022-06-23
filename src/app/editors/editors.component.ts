@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../services/user/localstorage.service';
+import { ConfigService } from '../services/config/config.service';
 
 @Component({
   selector: 'app-editors',
@@ -9,7 +10,8 @@ import { LocalStorageService } from '../services/user/localstorage.service';
 })
 export class EditorsComponent implements OnInit {
   userData: any;
-  constructor(private router: Router, private localStorageService: LocalStorageService){}
+  constructor(private router: Router, private localStorageService: LocalStorageService,
+              public configService: ConfigService){}
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');

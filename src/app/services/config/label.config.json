@@ -1,0 +1,14 @@
+{
+    "button": {
+        "cancel": "Cancel",
+        "back": "Back"
+    },
+    "label": {
+       "selectUser":  "Please select user",
+       "emptyUserList": "The user list is empty for selected role",
+       "selectRole": "Please select role type",
+       "emptyRoleList" : "The roles list is empty",
+       "review": "Review",
+       "create": "Create"
+    }
+}
