@@ -2,11 +2,11 @@
 
 <div class="content">
     <div class="flex-parent jc-center">
-        <p class="player-header" *ngIf="rolesArray.length">{{configService?.labelConfig?.label?.selectRole}}</p>
-        <p class="player-header" *ngIf="!rolesArray.length">{{configService?.labelConfig?.label?.roleListEmpty}}</p>
+        <p class="player-header" *ngIf="rolesData.length">{{configService?.labelConfig?.label?.selectRole}}</p>
+        <p class="player-header" *ngIf="!rolesData.length">{{configService?.labelConfig?.label?.roleListEmpty}}</p>
     </div>
-    <div class="flex-parent jc-center" *ngIf="rolesArray.length">
-        <div *ngFor="let role of rolesArray">
+    <div class="flex-parent jc-center" *ngIf="rolesData.length">
+        <div *ngFor="let role of rolesData">
             <button class="btn margin-right" (click)=getAllUsersByRoleType(role)>{{role}}</button>
         </div>
     </div>

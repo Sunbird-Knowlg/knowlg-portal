@@ -13,8 +13,7 @@ import { ConfigService } from '../../services/config/config.service';
   styleUrls: ['./role.component.scss']
 })
 export class RoleComponent implements OnInit {
-  rolesArray = [];
-  userArray = [];
+  rolesData = [];
   selectedRoleType: any;
   constructor(public localStorageService: LocalStorageService,
               private dialog: MatDialog,
@@ -25,7 +24,7 @@ export class RoleComponent implements OnInit {
   }
   getAllRoleTypes() {
     this.helperService.getAllRoleTypes().subscribe((response) => {
-      this.rolesArray = _.get(response, 'result.roles');
+      this.rolesData = _.get(response, 'result.roles');
     }, (error) => {
       console.log(error);
     });
@@ -33,16 +32,16 @@ export class RoleComponent implements OnInit {
   getAllUsersByRoleType(roleType) {
     this.selectedRoleType = roleType;
     this.helperService.getAllUsersByRoleType(roleType).subscribe((response) => {
-      this.userArray = _.get(response, 'result.users');
-      this.openDialog(this.userArray);
+      const usersData = _.get(response, 'result.users');
+      this.openDialog(usersData);
     }, (error) => {
       console.log(error);
     });
   }
-  openDialog(userData): void {
+  openDialog(users): void {
     this.dialog.open(UserComponent, {
       data: {
-        userArray: userData,
+        usersData: users,
         selectedRoleType: this.selectedRoleType
       }
     });

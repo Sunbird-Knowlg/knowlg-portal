@@ -10,7 +10,7 @@ import { ConfigService } from '../../services/config/config.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  userArray = [];
+  usersData = [];
   constructor(public localStorageService: LocalStorageService,
               private dialogRef: MatDialogRef<UserComponent>,
               @Inject(MAT_DIALOG_DATA) public data: { name: string },
@@ -18,7 +18,7 @@ export class UserComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.userArray = _.get(this.data, 'userArray');
+    this.usersData = _.get(this.data, 'usersData');
   }
   selectUser(user) {
     user.role = _.get(this.data, 'selectedRoleType');
