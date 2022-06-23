@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToEditors(){
-    this.router.navigate(['/editors']);
+    this.router.navigate(['/users']);
   }
 
   ngOnInit(): void {

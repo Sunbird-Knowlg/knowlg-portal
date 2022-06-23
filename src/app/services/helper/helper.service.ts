@@ -80,6 +80,29 @@ export class HelperService {
       })
     );
   }
+  getAllRoleTypes(): Observable<any> {
+      const req = {
+        url: this.configService.urlConFig.USER.USER_ROLE,
+      };
+      return this.actionService.get(req).pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+  }
+getAllUsersByRoleType(role): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.USER.READ}`,
+      data: {
+          roleType: role
+      }
+    };
+    return this.actionService.post(req).pipe(
+      map((response: any) => {
+        return response;
+      })
+    );
+  }
   setConfig(config) {
     this.editorConfig = config;
   }

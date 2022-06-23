@@ -1,0 +1,13 @@
+<a routerLink="..">&laquo; Back </a>
+
+<div class="content">
+    <div class="flex-parent jc-center">
+        <p class="player-header">Please select role type</p>
+    </div>
+    <div class="flex-parent jc-center">
+        <div *ngFor="let role of rolesArray">
+            <button class="btn margin-right" (click)=getAllUsersByRoletype(role)>{{role}}</button>
+        </div>
+    </div>
+</div>
+

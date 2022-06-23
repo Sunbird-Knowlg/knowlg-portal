@@ -1,0 +1,17 @@
+
+<mat-dialog-content>
+    <div class="content">
+        <div class="flex-parent jc-center">
+            <p class="player-header">Please select user</p>
+        </div>
+        <div class="flex-parent jc-center">
+            <div *ngFor="let user of userArray">
+                <button class="btn margin-right margin-top" (click)="selectUser(user)">{{user.userName}}</button>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

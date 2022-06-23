@@ -13,17 +13,13 @@ import { LocalStorageService } from 'src/app/services/user/localstorage.service'
 export class ContentlistComponent implements OnInit {
   public editorType: string;
   public contentArray = [];
-  public userData = {
-    userName: 'Test',
-    role: 'creator',
-    channel: '01309282781705830427',
-    userId: '5a587cc1-e018-4859-a0a8-e842650b9d64'
-  };
+  public userData: any;
   constructor(private router: Router, private localStorageService: LocalStorageService,
               public helperService: HelperService, private configService: ConfigService) { }
 
   ngOnInit(): void {
     this.editorType = this.localStorageService.getItem('type');
+    this.userData = this.localStorageService.getItem('userData');
     this.getAllCollectionList();
   }
 

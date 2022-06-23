@@ -1,7 +1,8 @@
-<a routerLink="..">&laquo;  Back </a>
+<a (click)=goBack()>&laquo; Back </a>
 <div class="content">
   <div class="flex-parent jc-center">
-    <p class="player-header">What would you like to Create ?</p>
+    <p class="player-header">What would you like to <span *ngIf="userData?.role === 'creator'">Create </span> 
+      <span *ngIf="userData?.role === 'reviewer'"> Review</span> ?</p>
   </div>
   <div class="flex-parent jc-center">
     <button class="btn create-new margin-right" (click)="navigateToContentList('collection')">Collection (Book, Course, etc..)</button>
