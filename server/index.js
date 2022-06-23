@@ -97,7 +97,7 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {[]}} .json({userRoles}) Sending array response
  */
  app.post(routes.API.USERS, function (req, res) {
-  let users = {};
+  let users = [];
   if (req.body.roleType === 'creator'){
     users = envVariables.CREATORS;
   }
