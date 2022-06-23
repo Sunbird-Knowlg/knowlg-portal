@@ -10,6 +10,7 @@
        "roleListEmpty" : "The roles list is empty",
        "review": "Review",
        "create": "Create",
-       "likeTo": "What would you like to"
+       "likeTo": "What would you like to",
+       "as": "As"
     }
 }

@@ -7,7 +7,7 @@
     </div>
     <div class="flex-parent jc-center" *ngIf="rolesData.length">
         <div *ngFor="let role of rolesData">
-            <button class="btn margin-right" (click)=getAllUsersByRoleType(role)>{{role}}</button>
+            <button class="btn margin-right" (click)=getAllUsersByRoleType(role)>{{configService?.labelConfig?.label?.as}} {{role}}</button>
         </div>
     </div>
 </div>
