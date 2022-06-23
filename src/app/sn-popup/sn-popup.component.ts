@@ -11,13 +11,13 @@ export class SnPopupComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private ngZone: NgZone) { }
   shareLink = location.href;
-  @Input() ShowsharePopup;
+  @Input() share;
   @Output() closeSharePopup = new EventEmitter();
   @ViewChild('sharePopUp') sharePopUp: TemplateRef<any>;
   dialogRef: any;
 
   ngOnInit(): void {
-    this.ShowsharePopup.subscribe(() => {
+    this.share.subscribe(() => {
       this.showShareLinkModel = true;
       this.closeSharePopup.emit();
       this.openDialog();

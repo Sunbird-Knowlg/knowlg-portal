@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
-import * as _ from 'lodash-es';
 import { first, mergeMap, tap } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
@@ -24,7 +23,7 @@ export class PdfComponent implements OnInit {
   config: any;
   isLoading = true;
   sidemenuConfig: any;
-  @Output() ShowsharePopup = new EventEmitter();
+  @Output() share = new EventEmitter();
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
@@ -75,7 +74,7 @@ export class PdfComponent implements OnInit {
 
   playerEvents(event) {
     if (event.edata.type === 'SHARE') {
-      this.ShowsharePopup.emit(event);
+      this.share.emit(event);
     }
   }
   playerTelemetryEvents(event) {

@@ -25,11 +25,11 @@ export class VideoComponent implements OnInit {
   sidemenuConfig: any;
   public queryParams: any;
   public contentDetails: any;
-  @Output() ShowsharePopup = new EventEmitter();
+  @Output() share = new EventEmitter();
 
   playerEvent(event) {
     if (event?.edata?.type === 'SHARE') {
-      this.ShowsharePopup.emit(event);
+      this.share.emit(event);
     }
   }
   telemetryEvent(event) {

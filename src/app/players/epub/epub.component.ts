@@ -23,7 +23,7 @@ export class EpubComponent implements OnInit {
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
   config: any;
   sidemenuConfig: any;
-  @Output() ShowsharePopup = new EventEmitter();
+  @Output() share = new EventEmitter();
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
@@ -86,7 +86,7 @@ export class EpubComponent implements OnInit {
 
   playerEvents(event) {
     if (event.edata.type === 'SHARE') {
-      this.ShowsharePopup.emit(event);
+      this.share.emit(event);
     }
   }
 
