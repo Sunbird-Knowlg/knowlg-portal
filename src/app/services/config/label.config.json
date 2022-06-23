@@ -9,6 +9,7 @@
        "selectRole": "Please select role type",
        "emptyRoleList" : "The roles list is empty",
        "review": "Review",
-       "create": "Create"
+       "create": "Create",
+       "likeTo": "What would you like to"
     }
 }

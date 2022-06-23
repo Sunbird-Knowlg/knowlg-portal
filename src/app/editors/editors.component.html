@@ -1,7 +1,7 @@
-<a (click)=goBack()>&laquo; Back </a>
+<a (click)=goBack()>&laquo; {{configService?.labelConfig?.button?.back}} </a>
 <div class="content">
   <div class="flex-parent jc-center">
-    <p class="player-header">What would you like to <span *ngIf="userData?.role === 'creator'"> {{configService?.labelConfig?.label?.create}} </span> 
+    <p class="player-header">{{configService?.labelConfig?.label?.likeTo}}  <span *ngIf="userData?.role === 'creator'"> {{configService?.labelConfig?.label?.create}} </span> 
       <span *ngIf="userData?.role === 'reviewer'"> {{configService?.labelConfig?.label?.review}}</span> ?</p>
   </div>
   <div class="flex-parent jc-center">
