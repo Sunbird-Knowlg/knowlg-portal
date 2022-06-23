@@ -73,7 +73,7 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  */
  app.get(routes.API.USER_ROLE, function (req, res) {
   res.send({
-    id: "api.v1.users",
+    id: "api.v1.roles",
     ver: "1.0",
     ts: new Date().toISOString(),
     params: {
