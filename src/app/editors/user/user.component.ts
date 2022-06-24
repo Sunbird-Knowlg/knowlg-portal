@@ -12,8 +12,8 @@ import { ConfigService } from '../../services/config/config.service';
 export class UserComponent implements OnInit {
   usersData = [];
   constructor(public localStorageService: LocalStorageService,
-              private dialogRef: MatDialogRef<UserComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: { name: string },
+              public dialogRef: MatDialogRef<UserComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any,
               public configService: ConfigService,
               private router: Router) { }
 

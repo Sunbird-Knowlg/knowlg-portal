@@ -31,10 +31,10 @@ export class ContentlistComponent implements OnInit {
     const req = {
       request: {
         filters: {
-          status: this.configService.editorConfig[this.userData.role],
+          status: this.configService.editorConfig[_.get(this.userData, 'role')],
           mimeType: this.configService.editorConfig.CONTENT_TYPES[this.editorType].mimeType,
           objectType: 'Content',
-          channel: this.userData.channelId
+          channel: _.get(this.userData, 'channelId')
         },
         offset: 0,
         limit: 200,
@@ -44,7 +44,7 @@ export class ContentlistComponent implements OnInit {
         }
       }
     };
-    if (this.userData.role === 'creator') {
+    if (_.get(this.userData, 'role') === 'creator') {
       req.request.filters  = {...req.request.filters, ...{createdBy: this.userData.userId}};
     }
     this.helperService.getAllCollectionList(req)

@@ -1,8 +1,8 @@
 <mat-dialog-content>
     <div class="content">
         <div class="flex-parent jc-center">
-            <p class="player-header" *ngIf="usersData.length"> {{configService?.labelConfig?.label?.selectUser}}</p>
-            <p class="player-header" *ngIf="!usersData.length"> {{configService?.labelConfig?.label?.emptyUserList}}</p>
+            <p class="player-header" *ngIf="usersData?.length"> {{configService?.labelConfig?.label?.selectUser}}</p>
+            <p class="player-header" *ngIf="!usersData?.length"> {{configService?.labelConfig?.label?.emptyUserList}}</p>
         </div>
         <div class='sb-user-container' *ngFor="let user of usersData">
             <div class='sb-user-column'>

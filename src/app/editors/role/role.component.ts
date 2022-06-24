@@ -1,5 +1,3 @@
-
-
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from '../../services/user/localstorage.service';
 import { HelperService } from '../../services/helper/helper.service';
