@@ -20,6 +20,12 @@ import { CollectionEditorComponent } from './editors/collection-editor/collectio
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import {HelperService} from './services/helper/helper.service';
 import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
+import { FormsModule } from '@angular/forms';
+import { SnPopupComponent } from './sn-popup/sn-popup.component';
+import { SidebarComponent } from './players/sidebar/sidebar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatSidenavModule} from '@angular/material/sidenav';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +38,9 @@ import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collecti
     InteractivePlayerComponent,
     VideoComponent,
     CollectionEditorComponent,
-    ContentlistComponent
+    ContentlistComponent,
+    SnPopupComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +50,11 @@ import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collecti
     SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
     QumlLibraryModule,
-    CollectionEditorLibraryModule
+    CollectionEditorLibraryModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatSidenavModule
   ],
   providers: [{
     provide: QuestionCursor,

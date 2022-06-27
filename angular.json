@@ -48,6 +48,7 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               "./node_modules/@project-sunbird/sb-styles/assets/_styles.scss",
               "./node_modules/@project-sunbird/sb-themes/themes/themes-portal.scss",
@@ -132,6 +133,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []

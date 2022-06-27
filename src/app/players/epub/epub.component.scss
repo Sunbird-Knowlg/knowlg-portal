@@ -18,6 +18,7 @@ html {
   position: relative;
   height: 0;
   width: 100%;
+  z-index:1;
 
   &[data-ratio="16:9"] {
     padding-top: 56.25%;
