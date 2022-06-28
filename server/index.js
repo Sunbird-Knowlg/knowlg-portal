@@ -13,14 +13,24 @@ app.set("port", 3000);
 app.use(express.json());
 app.use(express.static(process.cwd()+"/dist/"));
 
-app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
-    https: true,
-    parseReqBody: false,
-    proxyReqPathResolver: function (req) {
-      return urlHelper.parse(req.originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+/**
+ * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url 
+ * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload api url
+ * @param  {} proxy(BASE_URL) This base url
+ * @param  {true} {https} 
+ * @param  {false} parseReqBody 
+ * @param  {function(req} proxyReqPathResolver This is used to replace request url path
+ */
+app.post([routes.API.CONTENT.UPLOAD, routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
+  https: true,
+  parseReqBody: false,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v2/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
 app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
@@ -34,22 +44,104 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
   })
 );
 
-app.use([ 
-   routes.API.CONTENT.HIERARCHY,
-   routes.API.ASSESSMENT, 
-   routes.API.CONTENT.CREATE,
-   routes.API.CONTENT.BUNDLE,
-   routes.API.CONTENT.UNLISTED_PUBLISH,
-   routes.API.CONTENT.REVIEW_COMMENTS,
-  ], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      return urlHelper.parse(req.originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+/**
+ * @param  {} routes.API.TELEMMETRY This is the telemetry api url
+ * @param  {} {console.log(JSON.stringify(req.body) This is the logging of the request data
+ * @param  {} ;res.status(200) Sending the response 
+ */
+app.post(routes.API.TELEMMETRY, function (req, res) {
+  console.log(JSON.stringify(req.body), 'telemetry logged');
+  res.status(200).json({ message: "telemetry logged" })
+});
+
+/**
+ * @param  {} routes.API.USER_SEARCH This is the user search api url
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ * @param  {[]}} .json({users}) Sending empty array response 
+ */
+app.post(routes.API.USER_SEARCH, function (req, res) {
+  res.status(200).json({ users: [] })
+});
+
+/**
+ * @param  {} routes.API.CONTENT.COLLABORATOR_UPDATE This is the collaborator api url
+ * @param  {} function(req
+ * @param  {} res
+ * @param  {} {res.status(200 Api response status
+ * @param  {"Collabarationupdatesuccessful"}} .json({message}) Sending api response
+ */
+app.patch(routes.API.CONTENT.COLLABORATOR_UPDATE, function (req, res) {
+  res.status(200).json({ message: "Collabaration update successful" })
+});
+
+/**
+ * @param  {} routes.API.ASSESSMENT     This is the assessment api url
+ * @param  {} routes.API.CONTENT.CREATE  This is the content create  api url
+ * @param  {} routes.API.CONTENT.BUNDLE   This is the content bundle  api url
+ * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH This is the content unlist publish  api url
+ * @param  {} routes.API.CONTENT.REVIEW_COMMENTS This is the content review comments  api url
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
+app.use([
+  routes.API.ASSESSMENT,
+  routes.API.CONTENT.CREATE,
+  routes.API.CONTENT.BUNDLE,
+  routes.API.CONTENT.UNLISTED_PUBLISH,
+  routes.API.CONTENT.REVIEW_COMMENTS,
+], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    return urlHelper.parse(req.originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
+/**
+ * @param  {} [routes.API.CONTENT.HIERARCHY] This is the content hierarchy api url
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
+
+app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/content/v3/", "/collection/v1/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
+);
+
+/**
+ * @param  {} [routes.API.BUNDLE This is the bundle api url
+ * @param  {} routes.API.ITEMS_CREATE This is the items create api url
+ * @param  {} routes.API.ITEMS_UPDATE This is the items update api url
+ * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH] This is the content unlisted publish api url
+ * @param  {} proxy(BASE_URL
+ * @param  {true} {https
+ * @param  {function(req} proxyReqPathResolver
+ */
+app.use([
+  routes.API.BUNDLE,
+  routes.API.ITEMS_CREATE,
+  routes.API.ITEMS_UPDATE,
+  routes.API.CONTENT.UNLISTED_PUBLISH
+], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v1/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
+);
 app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
     https: true,
     proxyReqPathResolver: function (req) {

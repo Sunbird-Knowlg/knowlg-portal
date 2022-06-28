@@ -10,6 +10,7 @@
   position: relative;
   height: 0;
   width: 100%;
+  z-index:1;
 
   &[data-ratio="16:9"] {
     padding-top: 56.25%;
@@ -51,4 +52,8 @@
 
 .margin-right2{
   margin-left: auto;
+}
+
+.pdf-config{
+  padding: 0.5rem 1rem 0.5rem;
 }
