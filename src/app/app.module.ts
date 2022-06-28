@@ -55,8 +55,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     SunbirdVideoPlayerModule,
     QumlLibraryModule,
     CollectionEditorLibraryModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
