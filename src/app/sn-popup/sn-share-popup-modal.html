@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Share Link</h1>
+<div mat-dialog-content><div class="sn-modal-content">
+  <p class="mb-8">
+    Share using the link
+  </p>
+  <div class="ui action input fluid" id="buttonPopUp" suiPopup popupText="text">
+    <input type="text" name="title" readonly aria-label="copy link data"
+    class="sb-form-control" #copyLinkData/>
+    <button class="ui basic primary button" tabindex="0"  #copyLinkButton>
+          Copy Link
+        </button>
+  </div>
+</div></div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="closeDialog()">Close</button>
+</div>

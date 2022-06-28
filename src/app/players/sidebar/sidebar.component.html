@@ -1,0 +1,42 @@
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="overlay-sidebar">
+      <div class="overlay-sidebar__menu" tabindex="0" role="dialog" id="overlaySidebarID" aria-labelledby="dialog1_label" aria-modal="true" aria-label="open sidebar navigation">
+        <div class="profile__info">
+          <em class="icon-svg icon-svg--xs icon-close" role="button" aria-label="Close sidebar navigation" title="Close sidebar" tabindex="0"
+          (click)="drawer.toggle()">
+            <svg class="icon icon-svg--gray">
+              <use xlink:href="./assets/images/sprite.svg#close"></use>
+            </svg>
+          </em>
+        </div>
+        <h4 class="m-0 py-8 px-16 font-weight-bold text-uppercase">Settings</h4>
+        <ng-container>
+          <div class="">
+            <table class="w-100">
+              <tbody>
+                <tr style="border-bottom:1px solid #ddd;" *ngFor="let item of configLable let i = index">
+                  <td class="pl-16 p-8" *ngIf="!isObject(sidemenuConfig[item.key])">{{item.lable}}</td>
+                  <td class="p-8 text-right" *ngIf="!isObject(sidemenuConfig[item.key])">
+                    <div class="sb-field">
+                        <label class="switch mb-0">
+                          <input type="checkbox" [(ngModel)]="sidemenuConfig[item.key]">
+                          <span class="slider round"></span>
+                        </label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="sb-field px-16" class="drawer-action-section">
+            <button type="button" class="sb-btn sb-btn-normal mr-8" (click)="drawer.toggle()">Cancel</button>
+            <button type="button" class="sb-btn sb-btn-normal sb-btn-primary" (click)="onEnter()">Save</button>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </mat-drawer>
+</mat-drawer-container>
+<div><button class="sb-btn sb-btn-normal sb-btn-primary setting-btn" (click)="drawer.toggle()">Settings</button></div>

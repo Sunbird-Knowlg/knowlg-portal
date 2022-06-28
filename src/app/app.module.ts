@@ -21,9 +21,13 @@ import { ContentlistComponent } from './editors/contentlist/contentlist.componen
 import {HelperService} from './services/helper/helper.service';
 import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
 import { UserComponent } from './editors/user/user.component';
+import { RoleComponent } from './editors/role/role.component';
+import { FormsModule } from '@angular/forms';
+import { SnPopupComponent } from './sn-popup/sn-popup.component';
+import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RoleComponent } from './editors/role/role.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,9 @@ import { RoleComponent } from './editors/role/role.component';
     CollectionEditorComponent,
     ContentlistComponent,
     UserComponent,
-    RoleComponent
+    RoleComponent,
+    SnPopupComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +57,10 @@ import { RoleComponent } from './editors/role/role.component';
     CollectionEditorLibraryModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatSidenavModule
   ],
   providers: [{
     provide: QuestionCursor,

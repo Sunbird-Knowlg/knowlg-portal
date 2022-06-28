@@ -48,6 +48,7 @@
               }
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
               "./node_modules/@project-sunbird/sb-styles/assets/_styles.scss",
               "./node_modules/@project-sunbird/sb-themes/themes/themes-portal.scss",
@@ -57,8 +58,7 @@
               "src/assets/quml-styles/quml-carousel.css",
               "src/assets/lib/semantic/semantic.min.css",
               "src/assets/styles/styles.scss",
-              "node_modules/font-awesome/css/font-awesome.css",
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/epubjs/dist/epub.js",
