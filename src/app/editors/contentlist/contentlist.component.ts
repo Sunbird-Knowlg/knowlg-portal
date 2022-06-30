@@ -20,14 +20,14 @@ export class ContentlistComponent implements OnInit {
   ngOnInit(): void {
     this.editorType = this.localStorageService.getItem('type');
     this.userData = this.localStorageService.getItem('userData');
-    this.getAllCollectionList();
+    this.contentSearch();
   }
 
   goBack() {
     this.router.navigate(['/editors/']);
   }
 
-  getAllCollectionList() {
+  contentSearch() {
     const req = {
       request: {
         filters: {
@@ -47,7 +47,7 @@ export class ContentlistComponent implements OnInit {
     if (_.get(this.userData, 'role') === 'creator') {
       req.request.filters  = {...req.request.filters, ...{createdBy: this.userData.userId}};
     }
-    this.helperService.getAllCollectionList(req)
+    this.helperService.contentSearch(req)
       .subscribe((response) => {
         this.contentArray = _.get(response, 'result.content');
       }, (error) => {

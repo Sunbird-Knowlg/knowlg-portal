@@ -39,7 +39,7 @@ export class HelperService {
     return this.actionService.post(req);
   }
 
-  getAllCollectionList(requestData: object): Observable<any> {
+  contentSearch(requestData: object): Observable<any> {
     const req = {
       url: `${this.configService.urlConFig.SEARCH.COMPOSIT}`,
       data: requestData
