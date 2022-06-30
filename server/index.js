@@ -21,7 +21,18 @@ app.use(express.static(process.cwd()+"/dist/"));
  * @param  {false} parseReqBody 
  * @param  {function(req} proxyReqPathResolver This is used to replace request url path
  */
-app.post([routes.API.CONTENT.UPLOAD, routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
+ app.post([routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v2/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
+);
+
+app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
   https: true,
   parseReqBody: false,
   proxyReqPathResolver: function (req) {

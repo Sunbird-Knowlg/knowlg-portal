@@ -129,7 +129,7 @@ export class InteractiveEditorComponent implements OnInit, OnDestroy {
     window.config = _.cloneDeep(this.configService.editorConfig.INTERACTIVE_EDITOR.WINDOW_CONFIG); // cloneDeep to preserve default config
     window.config.build_number = this.buildNumber;
     window.config.headerLogo = this.logo;
-    window.config.aws_s3_urls = ['https://s3.ap-south-1.amazonaws.com/ekstep-public-qa/', 'https://ekstep-public-qa.s3-ap-south-1.amazonaws.com/', 'https://sunbirddev.blob.core.windows.net/sunbird-content-dev/']
+    window.config.aws_s3_urls = ['https://s3.ap-south-1.amazonaws.com/ekstep-public-qa/', 'https://ekstep-public-qa.s3-ap-south-1.amazonaws.com/', 'https://sunbirddev.blob.core.windows.net/sunbird-content-dev/'];
     window.config.enableTelemetryValidation = false; // telemetry validation
     window.config.lock = _.pick(this.queryParams, 'lockKey', 'expiresAt', 'expiresIn');
     window.config.videoMaxSize = this.videoMaxSize;
