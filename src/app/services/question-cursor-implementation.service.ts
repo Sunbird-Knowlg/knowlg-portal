@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { QuestionCursor } from '@project-sunbird/sunbird-quml-player-v9';
 import { Observable, of, throwError as observableThrowError } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
@@ -34,7 +34,7 @@ export class QuestionCursorImplementationService implements QuestionCursor {
     }
 
     getQuestionSet(identifier: string): Observable<any> {
-        return of({})
+        return of({});
     }
 
     private post(requestParam): Observable<any> {
