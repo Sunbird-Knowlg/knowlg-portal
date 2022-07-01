@@ -26,6 +26,7 @@ import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     CollectionEditorComponent,
     ContentlistComponent,
     SnPopupComponent,
-    SidebarComponent
+    SidebarComponent,
+    CollectionPlayerComponent
   ],
   imports: [
     BrowserModule,
