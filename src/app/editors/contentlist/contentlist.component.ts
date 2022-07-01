@@ -13,13 +13,17 @@ import { LocalStorageService } from 'src/app/services/user/localstorage.service'
 export class ContentlistComponent implements OnInit {
   public editorType: string;
   public contentArray = [];
-  public userData: any;
+  public userData = {
+    userName: 'Test',
+    role: 'creator',
+    channel: '01309282781705830427',
+    userId: '5a587cc1-e018-4859-a0a8-e842650b9d64'
+  };
   constructor(private router: Router, private localStorageService: LocalStorageService,
               public helperService: HelperService, private configService: ConfigService) { }
 
   ngOnInit(): void {
     this.editorType = this.localStorageService.getItem('type');
-    this.userData = this.localStorageService.getItem('userData');
     this.contentSearch();
   }
 
@@ -31,10 +35,11 @@ export class ContentlistComponent implements OnInit {
     const req = {
       request: {
         filters: {
-          status: this.configService.editorConfig[_.get(this.userData, 'role')],
+          status: this.configService.editorConfig[this.userData.role],
           mimeType: this.configService.editorConfig.CONTENT_TYPES[this.editorType].mimeType,
           objectType: 'Content',
-          channel: _.get(this.userData, 'channelId')
+          channel: this.userData.channel,
+          createdBy: this.userData.userId
         },
         offset: 0,
         limit: 200,
@@ -44,9 +49,6 @@ export class ContentlistComponent implements OnInit {
         }
       }
     };
-    if (_.get(this.userData, 'role') === 'creator') {
-      req.request.filters  = {...req.request.filters, ...{createdBy: this.userData.userId}};
-    }
     this.helperService.contentSearch(req)
       .subscribe((response) => {
         this.contentArray = _.get(response, 'result.content');
@@ -69,7 +71,7 @@ export class ContentlistComponent implements OnInit {
           description: 'Enter description ',
           createdBy: this.userData.userId,
           organisation: ['NIT', 'MPPS MUKKADAMPALLI'],
-          createdFor: [this.userData.channelId],
+          createdFor: [this.userData.channel],
           framework: 'ekstep_ncert_k-12',
           creator: this.userData.userName,
           ...(_.omit(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor'))

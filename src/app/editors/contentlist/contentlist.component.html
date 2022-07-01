@@ -4,6 +4,8 @@
 
     <div class="content container">
         <div class="flex-parent">
+          <input  class="sb-search-input" #searchQuery type="text"  placeholder="Enter content/asset id here"/>
+            <button class="btn create-new" (click)=openContent(searchQuery.value) >View</button>
             <button class="btn create-new" *ngIf="userData?.role === 'creator'"  (click)=createContent() >Create New</button>
         </div>
     </div>
