@@ -8,6 +8,7 @@ var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
 const uuid = require('uuid/v1');
+const { json } = require("express");
 
 var app = express();
 app.set("port", 3000);
@@ -98,28 +99,60 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  */
  app.post(routes.API.USERS, function (req, res) {
   let users = [];
-  if (req.body.roleType === 'creator'){
-    users = envVariables.CREATORS;
+  if (req.body && req.body.roleType && req.body.roleType.toLowerCase()  == 'creator'){
+    users = JSON.parse(JSON.stringify(envVariables.CREATORS));
+    res.send({
+      id: "api.v1.users",
+      ts: new Date().toISOString(),
+      params: {
+        resmsgid: uuid(),
+        msgid: uuid(),
+        status: "successful",
+        err: null,
+        errmsg: null,
+      },
+      responseCode: "OK",
+      result: {
+        users
+      }
+    });
+  }else if (req.body && req.body.roleType && req.body.roleType.toLowerCase()  == 'reviewer'){
+    users = JSON.parse(JSON.stringify(envVariables.REVIEWERS));
+    res.send({
+      id: "api.v1.users",
+      ver: "1.0",
+      ts: new Date().toISOString(),
+      params: {
+        resmsgid: uuid(),
+        msgid: uuid(),
+        status: "successful",
+        err: null,
+        errmsg: null,
+      },
+      responseCode: "OK",
+      result: {
+        users
+      }
+    });
+  }else{
+    res.status(400).send({
+      id: "api.v1.users",
+      ver: "1.0",
+      ts: new Date().toISOString(),
+      params: {
+        resmsgid: uuid(),
+        msgid: uuid(),
+        status: "error",
+        err: "INVALID_REQUEST",
+        errmsg: "Request should have the roleType",
+      },
+      responseCode: "CLIENT_ERROR",
+      result: {
+        users
+      }
+    });
   }
-  if (req.body.roleType === 'reviewer'){
-    users = envVariables.REVIEWERS;
-  }
-  res.send({
-    id: "api.v1.users",
-    ver: "1.0",
-    ts: new Date().toISOString(),
-    params: {
-      resmsgid: uuid(),
-      msgid: uuid(),
-      status: "successful",
-      err: null,
-      errmsg: null,
-    },
-    responseCode: "OK",
-    result: {
-      users
-    }
-  });
+  delete res['userToken']
 });
 
 /**
