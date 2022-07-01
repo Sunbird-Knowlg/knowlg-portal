@@ -67,11 +67,11 @@ export class ContentlistComponent implements OnInit {
           code: 'Enter title',
           name: 'Enter title',
           description: 'Enter description ',
-          createdBy: this.userData.userId,
+          createdBy: _.get(this.userData, 'userId'),
           organisation: ['NIT', 'MPPS MUKKADAMPALLI'],
-          createdFor: [this.userData.channelId],
+          createdFor: [_.get(this.userData, 'channelId')],
           framework: 'ekstep_ncert_k-12',
-          creator: this.userData.userName,
+          creator: _.get(this.userData, 'userName'),
           ...(_.omit(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor'))
     }
    };
