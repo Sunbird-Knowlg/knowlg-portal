@@ -11,6 +11,7 @@ import { EditorsComponent } from './editors/editors.component';
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import { InteractiveEditorComponent } from './editors/interactive-editor/interactive-editor.component';
+import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 
 const routes: Routes =  [
   {
@@ -45,7 +46,11 @@ const routes: Routes =  [
   },
   {
     path: 'players/video', component: VideoComponent,
+  },
+  {
+    path: 'players/collection', component: CollectionPlayerComponent,
   }
+  
 ];
 
 @NgModule({
