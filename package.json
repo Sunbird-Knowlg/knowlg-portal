@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test-coverage": "ng test --code-coverage=true --watch=false --sourceMap=false",
+    "test-coverage": "ng test --code-coverage=true --watch=false --sourceMap=false --browsers=ChromeHeadless",
     "with-stats": "ng build --stats-json"
   },
   "private": true,

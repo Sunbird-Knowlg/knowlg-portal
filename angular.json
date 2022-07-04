@@ -136,7 +136,13 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverageExclude": [
+              "src/assets/**",
+              "src/**/*.spec.ts",
+              "src/**/*.spec.data.ts",
+              "src/**/*.module.ts"
+            ]
           }
         },
         "lint": {
