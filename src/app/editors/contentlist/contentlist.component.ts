@@ -34,7 +34,8 @@ export class ContentlistComponent implements OnInit {
           status: this.configService.editorConfig[_.get(this.userData, 'role')],
           mimeType: this.configService.editorConfig.CONTENT_TYPES[this.editorType].mimeType,
           objectType: 'Content',
-          channel: _.get(this.userData, 'channelId')
+          channel: _.get(this.userData, 'channelId'),
+          query: ""
         },
         offset: 0,
         limit: 200,
@@ -46,6 +47,8 @@ export class ContentlistComponent implements OnInit {
     };
     if (_.get(this.userData, 'role') === 'creator') {
       req.request.filters  = {...req.request.filters, ...{createdBy: this.userData.userId}};
+    } else if (_.get(this.userData, 'role') === 'reviewer'){
+      req.request.filters  = {...req.request.filters, ...{createdBy: { '!=' :  this.userData.userId}}};
     }
     this.helperService.contentSearch(req)
       .subscribe((response) => {
