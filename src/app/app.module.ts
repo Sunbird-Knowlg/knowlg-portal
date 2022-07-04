@@ -28,7 +28,7 @@ import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {InterceptorService} from './services/interceptor/interceptor.service';
+import {SessionInterceptor} from './interceptor/sessionInterceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +65,7 @@ import {InterceptorService} from './services/interceptor/interceptor.service';
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
   },
-  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: SessionInterceptor, multi: true },
   HelperService,
 ],
   bootstrap: [AppComponent]

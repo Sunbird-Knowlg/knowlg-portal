@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LocalStorageService } from '../user/localstorage.service';
+import { LocalStorageService } from '../services/user/localstorage.service';
 import * as _ from 'lodash-es';
 @Injectable({
   providedIn: 'root'
 })
-export class InterceptorService implements HttpInterceptor {
+export class SessionInterceptor implements HttpInterceptor {
   localStorage: LocalStorageService;
   constructor() {
     this.localStorage = localStorage;
@@ -18,8 +18,7 @@ export class InterceptorService implements HttpInterceptor {
         headers: req.headers.set('x-user-id', userId),
       }));
     } else {
-      req = req.clone({ headers: req.headers.set('Accept', 'application/json') });
-      return next.handle(req);
+      return next.handle(req.clone({}));
     }
   }
 }
