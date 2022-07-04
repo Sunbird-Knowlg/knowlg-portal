@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorsComponent } from './editors/editors.component';
@@ -28,6 +28,7 @@ import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {InterceptorService} from './services/interceptor/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
   },
+  { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   HelperService,
 ],
   bootstrap: [AppComponent]

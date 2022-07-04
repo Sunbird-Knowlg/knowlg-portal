@@ -4,7 +4,6 @@ import { mergeMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash-es';
-import { LocalStorageService } from '../user/localstorage.service';
 
 /**
  * Service to provide base CRUD methods to make api request.
@@ -19,8 +18,6 @@ export class DataService {
    * angular HttpClient
    */
   http: HttpClient;
-  userData: any;
-  localStorage: LocalStorageService;
   /**
    * Constructor
    * @param "HttpClient" http HttpClient reference
@@ -28,8 +25,6 @@ export class DataService {
   appVersion: string;
   constructor(http: HttpClient) {
     this.http = http;
-    this.localStorage = localStorage;
-    this.userData = this.localStorage.getItem('userData');
   }
 
   /**
@@ -57,7 +52,7 @@ export class DataService {
    */
   get(requestParam: any): Observable<any> {
     const httpOptions: any = {
-      headers: requestParam.header ? requestParam.header : this.getHeader(),
+      headers: requestParam.header,
       params: requestParam.param
     };
     return this.http.get(this.baseUrl + requestParam.url, httpOptions).pipe(
@@ -92,7 +87,7 @@ export class DataService {
    */
   post(requestParam: any): Observable<any> {
     const httpOptions: any = {
-      headers: requestParam.header ? requestParam.header : this.getHeader(),
+      headers: requestParam.header,
       params: requestParam.param
     };
     return this.http.post(this.baseUrl + requestParam.url, requestParam.data, httpOptions).pipe(
@@ -154,20 +149,5 @@ export class DataService {
         }
         return observableOf(data);
       }));
-  }
-
-  private getHeader(headers?) {
-    const default_headers = {
-      'Accept': 'application/json',
-    };
-    const userId = _.get(JSON.parse(this.userData), 'userId');
-    if (userId) {
-      default_headers['userId'] = userId;
-    }
-    if (headers) {
-      return { ...default_headers, ...headers };
-    } else {
-      return { ...default_headers };
-    }
   }
 }
