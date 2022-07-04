@@ -35,7 +35,6 @@ export class ContentlistComponent implements OnInit {
           mimeType: this.configService.editorConfig.CONTENT_TYPES[this.editorType].mimeType,
           objectType: 'Content',
           channel: _.get(this.userData, 'channelId'),
-          query: ""
         },
         offset: 0,
         limit: 200,
