@@ -14,7 +14,7 @@ export class RoleComponent implements OnInit {
   rolesData = [];
   selectedRoleType: any;
   constructor(public localStorageService: LocalStorageService,
-              private dialog: MatDialog,
+              public dialog: MatDialog,
               public configService: ConfigService,
               public helperService: HelperService) { }
   ngOnInit(): void {
