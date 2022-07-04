@@ -18,7 +18,7 @@ export class SessionInterceptor implements HttpInterceptor {
         headers: req.headers.set('x-user-id', userId),
       }));
     } else {
-      return next.handle(req.clone({}));
+      return next.handle(req);
     }
   }
 }
