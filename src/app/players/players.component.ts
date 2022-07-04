@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.scss']
 })
-export class PlayersComponent implements OnInit {
+export class PlayersComponent {
 
   constructor(private router: Router){}
 
@@ -26,7 +26,8 @@ export class PlayersComponent implements OnInit {
     this.router.navigate(['players/video']);
   }
 
-  ngOnInit(): void {
+  naviagteToCollectionPlayer(){
+    this.router.navigate(['players/collection']);
   }
 
 }

@@ -29,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {SessionInterceptor} from './interceptor/sessionInterceptor';
+import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import {SessionInterceptor} from './interceptor/sessionInterceptor';
     UserComponent,
     RoleComponent,
     SnPopupComponent,
-    SidebarComponent
+    SidebarComponent,
+    CollectionPlayerComponent
   ],
   imports: [
     BrowserModule,
