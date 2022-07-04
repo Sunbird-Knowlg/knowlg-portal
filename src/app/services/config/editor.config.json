@@ -267,5 +267,5 @@
     "Unlisted",
     "FlagReview"
   ],
-  "reviewer": ["Review", "FlagReview"]
+  "reviewer": ["Review"]
 }
