@@ -11,5 +11,9 @@
   },
   "CATEGORYDEFINATION": {
     "READ": "object/category/definition/v1/read?fields=objectMetadata,forms,name,label"
+  },
+  "USER": {
+    "READ": "users",
+    "USER_ROLE": "role"
   }
 }

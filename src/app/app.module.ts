@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorsComponent } from './editors/editors.component';
@@ -20,12 +20,15 @@ import { CollectionEditorComponent } from './editors/collection-editor/collectio
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import {HelperService} from './services/helper/helper.service';
 import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
+import { UserComponent } from './editors/user/user.component';
+import { RoleComponent } from './editors/role/role.component';
 import { FormsModule } from '@angular/forms';
 import { SnPopupComponent } from './sn-popup/sn-popup.component';
 import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {SessionInterceptor} from './interceptor/sessionInterceptor';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 @NgModule({
   declarations: [
@@ -40,6 +43,8 @@ import { CollectionPlayerComponent } from './players/collection-player/collectio
     VideoComponent,
     CollectionEditorComponent,
     ContentlistComponent,
+    UserComponent,
+    RoleComponent,
     SnPopupComponent,
     SidebarComponent,
     CollectionPlayerComponent
@@ -62,6 +67,7 @@ import { CollectionPlayerComponent } from './players/collection-player/collectio
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
   },
+  { provide: HTTP_INTERCEPTORS, useClass: SessionInterceptor, multi: true },
   HelperService,
 ],
   bootstrap: [AppComponent]

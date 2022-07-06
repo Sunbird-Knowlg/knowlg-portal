@@ -11,6 +11,7 @@ import { EditorsComponent } from './editors/editors.component';
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import { InteractiveEditorComponent } from './editors/interactive-editor/interactive-editor.component';
+import { RoleComponent } from './editors/role/role.component';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 
 const routes: Routes =  [
@@ -31,6 +32,9 @@ const routes: Routes =  [
   },
   {
     path: 'editors/interactive-editor', component: InteractiveEditorComponent,
+  },
+  {
+    path: 'users', component: RoleComponent,
   },
   {
     path: 'players', component: PlayersComponent,

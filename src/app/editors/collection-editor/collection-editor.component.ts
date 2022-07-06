@@ -4,6 +4,7 @@ import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
 import { forkJoin, Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
+import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 @Component({
   selector: 'app-collection-editor',
   templateUrl: './collection-editor.component.html',
@@ -15,9 +16,12 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   public content: any;
   public channelData; any;
   public hierarchyConfig;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, public helperService: HelperService){}
+  public userData: any;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, public helperService: HelperService,
+              public localStorageService: LocalStorageService){}
 
   ngOnInit(): void {
+    this.userData = this.localStorageService.getItem('userData');
     this.queryParams = this.activatedRoute.snapshot.queryParams;
     this.initialize();
   }
@@ -110,7 +114,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
         authToken: '',
         sid: 'vLpZ1rFl6-sxMVHi4RrmrlHw0HsX9ggC',
         did: '1d8e290dd3c2a6a9eeac58568cdef28d',
-        uid: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+        uid: _.get(this.userData, 'userId'),
         additionalCategories: additionalCategory,
         host: 'http://localhost:3000',
         pdata: {
@@ -119,7 +123,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
           pid: 'sunbird-knowledge-portal'
         },
         actor: {
-          id: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+          id: _.get(this.userData, 'userId'),
           type: 'User'
         },
         contextRollup: {
@@ -134,13 +138,13 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
         endpoint: '/data/v3/telemetry',
         env: 'collection_editor',
         user: {
-          id: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+          id: _.get(this.userData, 'userId'),
           orgIds: [
             '01309282781705830427'
           ],
           organisations: {},
-          fullName: 'N11',
-          firstName: 'N11',
+          fullName: _.get(this.userData, 'userName'),
+          firstName:  _.get(this.userData, 'userName'),
           lastName: '',
           isRootOrgAdmin: true
         },

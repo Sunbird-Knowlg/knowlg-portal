@@ -1,0 +1,13 @@
+<a routerLink="..">&laquo; {{configService?.labelConfig?.button?.back}}</a>
+
+<div class="content">
+    <div class="flex-parent jc-center">
+        <p class="player-header" *ngIf="rolesData.length">{{configService?.labelConfig?.label?.selectRole}}</p>
+        <p class="player-header" *ngIf="!rolesData.length">{{configService?.labelConfig?.label?.roleListEmpty}}</p>
+    </div>
+    <div class="flex-parent jc-center" *ngIf="rolesData.length">
+        <div *ngFor="let role of rolesData">
+            <button class="btn margin-right" (click)=getAllUsersByRoleType(role)>{{configService?.labelConfig?.label?.as}} {{role}}</button>
+        </div>
+    </div>
+</div>
