@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CollectionPlayerComponent implements OnInit {
 
   constructor() { }
-
+  isLoading = true;
   ngOnInit(): void {
   }
 

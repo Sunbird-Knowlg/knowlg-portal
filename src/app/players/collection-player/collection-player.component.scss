@@ -1,0 +1,51 @@
+
+@import "./../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins";
+
+  // textbook header
+  .textbook {
+    &-container {
+      z-index: 2;
+      position: relative;
+      background-color: var(--rc-FAFAFA);
+    }
+
+    &__details {
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__bookimg {
+      width: calculateRem(48px);
+      height: calculateRem(48px);
+
+      img {
+        width: calculateRem(48px);
+        height: calculateRem(48px);
+      }
+    }
+
+    &__heading {
+      min-width: 0;
+
+      .textbook__title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 18px;
+      }
+    }
+
+    &__addbtn {
+      white-space: nowrap;
+    }
+  }
+
+::ng-deep {
+    html[layout=joy] .sb-btn-round.sb-btn-round--notext {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+}
+  .sb-g--gap24 {
+    grid-column-gap: 1.5rem;
+  }
