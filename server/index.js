@@ -3,7 +3,8 @@ var express = require("express"),
 (bodyParser = require("body-parser")),
   (proxy = require("express-http-proxy")),
   (urlHelper = require("url"));
-const proxyUtils = require('./proxyUtils.js')
+const proxyUtils = require('./proxyUtils.js');
+const responseUtils = require("./responseUtil.js");
 var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
@@ -73,22 +74,12 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {[]}} .json({userRoles}) Sending array response
  */
  app.get(routes.API.USER_ROLE, function (req, res) {
-  res.send({
-    id: "api.v1.roles",
-    ver: "1.0",
-    ts: new Date().toISOString(),
-    params: {
-      resmsgid: uuid(),
-      msgid: uuid(),
-      status: "successful",
-      err: null,
-      errmsg: null,
-    },
-    responseCode: "OK",
-    result: {
-      roles: envVariables.USER_ROLE
-    }
-  });
+  let response = responseUtils.successResponse({
+    apiId: "api.v1.roles",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: envVariables.USER_ROLE});
+  res.send(response);
 });
 
 /**
@@ -98,61 +89,33 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {[]}} .json({userRoles}) Sending array response
  */
  app.post(routes.API.USERS, function (req, res) {
-  let users = [];
-  if (req.body && req.body.roleType && req.body.roleType.toLowerCase()  == 'creator'){
-    users = JSON.parse(JSON.stringify(envVariables.CREATORS));
-    res.send({
-      id: "api.v1.users",
-      ts: new Date().toISOString(),
-      params: {
-        resmsgid: uuid(),
-        msgid: uuid(),
-        status: "successful",
-        err: null,
-        errmsg: null,
-      },
-      responseCode: "OK",
-      result: {
-        users
-      }
+  let response = {
+    apiId: "api.v1.users",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: []
+  };
+  var roleType = req.body.roleType && req.body.roleType.toLowerCase();
+  if (roleType  == 'creator'){
+    response.result = envVariables.CREATORS.filter(function(user){
+      delete user.userToken;
+      return user;
     });
-  }else if (req.body && req.body.roleType && req.body.roleType.toLowerCase()  == 'reviewer'){
-    users = JSON.parse(JSON.stringify(envVariables.REVIEWERS));
-    res.send({
-      id: "api.v1.users",
-      ver: "1.0",
-      ts: new Date().toISOString(),
-      params: {
-        resmsgid: uuid(),
-        msgid: uuid(),
-        status: "successful",
-        err: null,
-        errmsg: null,
-      },
-      responseCode: "OK",
-      result: {
-        users
-      }
+    let creatorResonse = responseUtils.successResponse(response)
+    res.send(creatorResonse);
+  } else if (roleType  == 'reviewer'){
+    response.result = envVariables.REVIEWERS.filter(function(user){
+      delete user.userToken;
+      return user;
     });
-  }else{
-    res.status(400).send({
-      id: "api.v1.users",
-      ver: "1.0",
-      ts: new Date().toISOString(),
-      params: {
-        resmsgid: uuid(),
-        msgid: uuid(),
-        status: "error",
-        err: "INVALID_REQUEST",
-        errmsg: "Request should have the roleType",
-      },
-      responseCode: "CLIENT_ERROR",
-      result: {
-        users
-      }
-    });
+    let reviewerResonse = responseUtils.successResponse(response)
+    res.send(reviewerResonse);
+  } else{
+    response.errCode = 400;
+    response.errmsg = "Request should have the roleType";
+    let errorResponse = responseUtils.errorResponse(response)
+    res.status(400).send(response);
   }
-  delete res['userToken']
 });
 
 /**
