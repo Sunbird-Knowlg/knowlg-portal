@@ -10,10 +10,10 @@ module.exports = {
            "REVIEW_COMMENTS": "/action/review/comment/v1/read/comment",
            "UPDATE": "/action/content/v3/update/*",
            "GENERAL": "/action/content/v3/*",
-           "COLLABORATOR_UPDATE" : "/action/content/v1/collaborator/update"
+           "COLLABORATOR_UPDATE" : "/action/content/v1/collaborator/update" 
        },
        "DIALCODE": {
-           "SEARCH": '/action/dialcode/v3/search'
+           "SEARCH": '/action/dialcode/v3/search/*'
        },
        "ASSET": {
            "CREATE": 'action/asset/v1/create'
