@@ -1,12 +1,12 @@
 version: 2.1
 jobs:
   build:
-    working_directory: ~/sunbird-knowledge
+    working_directory: ~/knowlg-portal
     docker:
       - image: circleci/node:12.20.2-browsers
     steps:
       - checkout:
-          path: ~/sunbird-knowledge
+          path: ~/knowlg-portal
       - run:
           name: Node version
           command: 'node --version'
@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Installing Angular cli
           command: 'npm install -g @angular/cli@6.0.8 --no-progress'
-       - restore_cache:
+      - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Installing NPM deps
@@ -38,7 +38,7 @@ jobs:
           command: npm install -g sonarqube-scanner
       - run:
           name: Run sonar scanner
-          command: 'cd ~/sunbird-knowledge && sonar-scanner'
+          command: 'cd ~/knowlg-portal && sonar-scanner'
 workflows:
   version: 2.1
   build_and_test:

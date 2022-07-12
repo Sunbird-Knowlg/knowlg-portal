@@ -7,6 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Sunbird Knowledge';
+  title = 'knowlg-portal';
   constructor(private router: Router){}
 }
