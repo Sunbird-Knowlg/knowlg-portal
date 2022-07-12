@@ -30,19 +30,24 @@ export class CollectionPlayerComponent implements OnInit {
   selectedItems = [];
   PlatformType = PlatformType;
   TocCardType = TocCardType;
+  public queryParams: any;
+  showPlayer = true;
 
   constructor(
     private helperService: HelperService,
     public route: ActivatedRoute,
     public router: Router
-  ) { 
+  ) {
     this.router.onSameUrlNavigation = 'ignore';
   }
 
   ngOnInit(): void {
     this.activeMimeTypeFilter = ['all'];
-    this.getCollectionHierarchy("do_112818443587420160125").subscribe();
-    
+    this.queryParams = this.route.snapshot.queryParams;
+    const collectionId = this.queryParams.collectionId || "KP_FT_1611083388567";
+    this.getCollectionHierarchy(collectionId)
+      .subscribe();
+
   }
 
   selectedFilter(event) {
@@ -69,8 +74,28 @@ export class CollectionPlayerComponent implements OnInit {
     }
   }
 
+  isActiveContentVideoType() {
+    return ['video/mp4', 'video/x-youtube', 'video/webm'].includes(this.activeContent?.mimeType);
+  }
+
+  isActiveContentInteractiveType() {
+    return ['application/vnd.ekstep.ecml-archive', 'application/vnd.ekstep.h5p-archive', 'application/vnd.ekstep.html-archive'].includes(this.activeContent?.mimeType);
+  }
+
   private initPlayer(id: string): void {
     // Navigate to the route to start the player
+    this.showPlayer = false;
+    setTimeout(() => {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: { identifier: id },
+        queryParamsHandling: 'merge'
+      });
+      
+        this.showPlayer = true;
+    });
   }
 
   showNoContent(event) {

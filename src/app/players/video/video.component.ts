@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component,Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { first, mergeMap, tap } from 'rxjs/operators';
@@ -25,6 +25,7 @@ export class VideoComponent implements OnInit {
   sidemenuConfig: any;
   public queryParams: any;
   public contentDetails: any;
+  @Input() showPlayerOnly = false; 
   @Output() share = new EventEmitter();
 
   playerEvent(event) {
