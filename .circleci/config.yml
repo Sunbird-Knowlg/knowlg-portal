@@ -8,9 +8,6 @@ jobs:
       - checkout:
           path: ~/knowlg-portal
       - run:
-          name: Node version
-          command: 'node --version'
-      - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
       - run:
