@@ -28,6 +28,7 @@
     "@angular/router": "~9.1.13",
     "@project-sunbird/ckeditor-build-classic": "^4.1.3",
     "@project-sunbird/client-services": "^4.8.13",
+    "@project-sunbird/common-consumption-v9": "^4.9.1",
     "@project-sunbird/sb-dashlet-v9": "^1.0.4",
     "@project-sunbird/sb-styles": "0.0.9",
     "@project-sunbird/sb-themes": "0.0.49",

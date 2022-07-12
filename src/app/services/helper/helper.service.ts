@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import * as _ from 'lodash-es';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CollectionHierarchyAPI } from '../../players/interfaces/content.service';
+import { ServerResponse } from '../../players/interfaces/serverResponse';
 import { ActionService } from '../action/action.service';
-import { ConfigService } from '../config/config.service';
+import { ConfigService } from '../config/config.service'; 
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +16,14 @@ export class HelperService {
     private configService: ConfigService,
     private actionService: ActionService
   ) { }
+
+  public sortChildrenWithIndex(tree) {
+    if (!_.get(tree, 'children.length')) {
+      return tree;
+    }
+    tree.children = _.sortBy(tree.children.map(childNode => this.sortChildrenWithIndex(childNode)), ['index']);
+    return tree;
+  }
 
   getContent(contentId: string, option: any = { params: {} }): Observable<any> {
     // const param = { fields: this.configService.editorConfig.DEFAULT_PARAMS_FIELDS };
@@ -29,6 +39,19 @@ export class HelperService {
     );
   }
 
+  public getCollectionHierarchy(identifier: string, option: any = { params: {} }): Observable<CollectionHierarchyAPI.Get> {
+    const req = {
+      url: `${this.configService.urlConFig.COLLECTION.HIERARCHY}/${identifier}`,
+      param: option.params
+    };
+    return this.actionService.get(req).pipe(map((response: ServerResponse) => {
+      if (response.result.content) {
+        response.result.content = this.sortChildrenWithIndex(response.result.content);
+      }
+      return response;
+    }));
+  }
+  
   createContent(reqBody: any): Observable<any> {
     const req = {
       url: this.configService.urlConFig.CONTENT.CREATE,

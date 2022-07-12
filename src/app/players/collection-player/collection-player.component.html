@@ -38,7 +38,20 @@
                         </div>
                     </section>
                     <section class="sb-course-details__info sb-g-col-xs-12 sb-g-col-md-3 sb-g-col-lg-3 sb-g-col-xxxl-4">
-                        right side bar
+                        <div class="toc-box-shadow mb-2">
+                            <sb-library-filters [hidden]="isSelectChapter" [tocList]="mimeTypeFilters" [layout]="'round-with-icon'"
+                              (selectedMimeType)="selectedFilter($event)">
+                            </sb-library-filters>
+                          </div>
+                          <div [hidden]="isSelectChapter" class="main-side-toc-content">
+                            <sb-toc-item [selectAll]="selectAll" [selectMode]="isCopyAsCourseClicked"
+                              [activeMimeTypeFilter]="activeMimeTypeFilter" [tocData]="collectionData"
+                              [noContentMessage]="noContentMessage" (tocCardClick)="tocCardClickHandler($event)"
+                              [activeContent]="activeContent" (noContent)="showNoContent($event)"
+                              (selectedItem)="handleSelectedItem($event)"
+                              [platform]="PlatformType.PORTAL" [type]="TocCardType.TRACKABLE"
+                              [trackableDefaultImage]="'assets/images/mask-image/courses.svg'"></sb-toc-item>
+                          </div>
                 </section>
                 </div>
             </div>

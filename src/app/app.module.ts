@@ -30,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {SessionInterceptor} from './interceptor/sessionInterceptor';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
+import { CommonConsumptionModule} from '@project-sunbird/common-consumption-v9';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,7 +63,8 @@ import { CollectionPlayerComponent } from './players/collection-player/collectio
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CommonConsumptionModule
   ],
   providers: [{
     provide: QuestionCursor,
