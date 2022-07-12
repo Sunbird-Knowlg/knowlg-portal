@@ -8,6 +8,7 @@ const responseUtils = require("./responseUtil.js");
 var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
+var users = require('./config/users');
 const uuid = require('uuid/v1');
 const { json } = require("express");
 
@@ -75,7 +76,7 @@ app.post(routes.API.TELEMMETRY, function (req, res) {
  * @param  {[]}} .json({users}) Sending empty array response
  */
 app.post(routes.API.USER_SEARCH, function (req, res) {
-  res.status(200).json({ users: [] })
+  res.status(200).json(users)
 });
 
 /**
@@ -89,7 +90,8 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     apiId: "api.v1.roles",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: envVariables.USER_ROLE});
+    result: { roles: envVariables.USER_ROLE}
+  });
   res.send(response);
 });
 
@@ -104,18 +106,25 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     apiId: "api.v1.users",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: []
+    result: {}
   };
   var roleType = req.body.roleType && req.body.roleType.toLowerCase();
   if (roleType  == 'creator'){
-    response.result = envVariables.CREATORS.filter(function(user){
+    response.result.users = envVariables.CREATORS.filter(function(user){
       delete user.userToken;
       return user;
     });
     let creatorResonse = responseUtils.successResponse(response)
     res.send(creatorResonse);
   } else if (roleType  == 'reviewer'){
-    response.result = envVariables.REVIEWERS.filter(function(user){
+    response.result.users = envVariables.REVIEWERS.filter(function(user){
+      delete user.userToken;
+      return user;
+    });
+    let reviewerResonse = responseUtils.successResponse(response)
+    res.send(reviewerResonse);
+  } else if (roleType  == 'collaborator'){
+    response.result.users = envVariables.COLLABORATORS.filter(function(user){
       delete user.userToken;
       return user;
     });
@@ -127,17 +136,6 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     let errorResponse = responseUtils.errorResponse(response)
     res.status(400).send(response);
   }
-});
-
-/**
- * @param  {} routes.API.CONTENT.COLLABORATOR_UPDATE This is the collaborator api url
- * @param  {} function(req
- * @param  {} res
- * @param  {} {res.status(200 Api response status
- * @param  {"Collabarationupdatesuccessful"}} .json({message}) Sending api response
- */
-app.patch(routes.API.CONTENT.COLLABORATOR_UPDATE, function (req, res) {
-  res.status(200).json({ message: "Collabaration update successful" })
 });
 
 /**
