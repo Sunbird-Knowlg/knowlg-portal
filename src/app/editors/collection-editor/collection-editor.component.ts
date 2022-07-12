@@ -158,7 +158,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
         },
       }
     };
-    this.editorConfig.config.showAddCollaborator = false;
+    this.editorConfig.config.showAddCollaborator = true;
     this.editorConfig.config.publicStorageAccount = '';
     this.editorConfig.config = _.assign(this.editorConfig.config, this.hierarchyConfig);
   }
