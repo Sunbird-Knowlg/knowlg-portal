@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  xit(`should have as title 'sunbird-knowledge'`, () => {
+  xit(`should have as title 'knowlg-portal'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('sunbird-knowledge');
+    expect(app.title).toEqual('knowlg-portal');
   });
 
   xit('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('sunbird-knowledge app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('knowlg-portal app is running!');
   });
 });
