@@ -3,10 +3,13 @@ var express = require("express"),
 (bodyParser = require("body-parser")),
   (proxy = require("express-http-proxy")),
   (urlHelper = require("url"));
-const proxyUtils = require('./proxyUtils.js')
+const proxyUtils = require('./proxyUtils.js');
+const responseUtils = require("./responseUtil.js");
 var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
+const uuid = require('uuid/v1');
+const { json } = require("express");
 
 var app = express();
 app.set("port", 3000);
@@ -14,11 +17,11 @@ app.use(express.json());
 app.use(express.static(process.cwd()+"/dist/"));
 
 /**
- * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url 
+ * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url
  * @param  {} routes.API.CONTENT.UPLOAD_URL] This is the content upload api url
  * @param  {} proxy(BASE_URL) This base url
- * @param  {true} {https} 
- * @param  {false} parseReqBody 
+ * @param  {true} {https}
+ * @param  {false} parseReqBody
  * @param  {function(req} proxyReqPathResolver This is used to replace request url path
  */
  app.post([routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
@@ -58,7 +61,7 @@ app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
 /**
  * @param  {} routes.API.TELEMMETRY This is the telemetry api url
  * @param  {} {console.log(JSON.stringify(req.body) This is the logging of the request data
- * @param  {} ;res.status(200) Sending the response 
+ * @param  {} ;res.status(200) Sending the response
  */
 app.post(routes.API.TELEMMETRY, function (req, res) {
   console.log(JSON.stringify(req.body), 'telemetry logged');
@@ -69,10 +72,61 @@ app.post(routes.API.TELEMMETRY, function (req, res) {
  * @param  {} routes.API.USER_SEARCH This is the user search api url
  * @param  {} res
  * @param  {} {res.status(200) Sending the api response
- * @param  {[]}} .json({users}) Sending empty array response 
+ * @param  {[]}} .json({users}) Sending empty array response
  */
 app.post(routes.API.USER_SEARCH, function (req, res) {
   res.status(200).json({ users: [] })
+});
+
+/**
+ * @param  {} routes.API.USER_ROLE This is the user role api url
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ * @param  {[]}} .json({userRoles}) Sending array response
+ */
+ app.get(routes.API.USER_ROLE, function (req, res) {
+  let response = responseUtils.successResponse({
+    apiId: "api.v1.roles",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: envVariables.USER_ROLE});
+  res.send(response);
+});
+
+/**
+ * @param  {} routes.API.USERS This is the user role api url
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ * @param  {[]}} .json({userRoles}) Sending array response
+ */
+ app.post(routes.API.USERS, function (req, res) {
+  let response = {
+    apiId: "api.v1.users",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: []
+  };
+  var roleType = req.body.roleType && req.body.roleType.toLowerCase();
+  if (roleType  == 'creator'){
+    response.result = envVariables.CREATORS.filter(function(user){
+      delete user.userToken;
+      return user;
+    });
+    let creatorResonse = responseUtils.successResponse(response)
+    res.send(creatorResonse);
+  } else if (roleType  == 'reviewer'){
+    response.result = envVariables.REVIEWERS.filter(function(user){
+      delete user.userToken;
+      return user;
+    });
+    let reviewerResonse = responseUtils.successResponse(response)
+    res.send(reviewerResonse);
+  } else{
+    response.errCode = 400;
+    response.errmsg = "Request should have the roleType";
+    let errorResponse = responseUtils.errorResponse(response)
+    res.status(400).send(response);
+  }
 });
 
 /**
