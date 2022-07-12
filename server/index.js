@@ -5,7 +5,7 @@ var express = require("express"),
   (urlHelper = require("url"));
 const proxyUtils = require('./proxyUtils.js');
 const responseUtils = require("./responseUtil.js");
-var envVariables =  require('./config/environment');
+var envVariables = require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
 const uuid = require('uuid/v1');
@@ -14,7 +14,7 @@ const { json } = require("express");
 var app = express();
 app.set("port", 3000);
 app.use(express.json());
-app.use(express.static(process.cwd()+"/dist/"));
+app.use(express.static(process.cwd() + "/dist/"));
 
 /**
  * @param  {} [routes.API.CONTENT.UPLOAD This is the content upload api url
@@ -24,7 +24,7 @@ app.use(express.static(process.cwd()+"/dist/"));
  * @param  {false} parseReqBody
  * @param  {function(req} proxyReqPathResolver This is used to replace request url path
  */
- app.post([routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
+app.post([routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
     let originalUrl = req.originalUrl.replace("/action/", "/api/");
@@ -48,14 +48,14 @@ app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
 );
 
 app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      let originalUrl = req.originalUrl.replace("/action/", "/api/");
-      originalUrl = originalUrl.replace("/v3/", "/v1/");
-      return urlHelper.parse(originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v1/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
 /**
@@ -84,13 +84,25 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {} {res.status(200) Sending the api response
  * @param  {[]}} .json({userRoles}) Sending array response
  */
- app.get(routes.API.USER_ROLE, function (req, res) {
-  let response = responseUtils.successResponse({
-    apiId: "api.v1.roles",
+app.get(routes.API.USER_ROLE, function (req, res) {
+  let response = {
+    apiId: "api.v1.user.role",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: envVariables.USER_ROLE});
-  res.send(response);
+    result: []
+  };
+  try {
+    response.result = {role: envVariables.USER_ROLE.split(",")};
+    return res.send(response);
+  } catch (error) {
+    console.log(`Error while sending response, ${error} ${envVariables.USER_ROLE}`);
+    response.errCode = 500;
+    response.errmsg = "Server error with config";
+    response.responseCode = "SERVER_ERROR"
+    let errorResponse = responseUtils.errorResponse(response);
+    res.status(500).send(errorResponse);
+  }
+
 });
 
 /**
@@ -99,7 +111,7 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
  * @param  {} {res.status(200) Sending the api response
  * @param  {[]}} .json({userRoles}) Sending array response
  */
- app.post(routes.API.USERS, function (req, res) {
+app.post(routes.API.USERS, function (req, res) {
   let response = {
     apiId: "api.v1.users",
     apiVersion: "1.0",
@@ -107,21 +119,21 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     result: []
   };
   var roleType = req.body.roleType && req.body.roleType.toLowerCase();
-  if (roleType  == 'creator'){
-    response.result = envVariables.CREATORS.filter(function(user){
+  if (roleType == 'creator') {
+    response.result = envVariables.CREATORS.filter(function (user) {
       delete user.userToken;
       return user;
     });
     let creatorResonse = responseUtils.successResponse(response)
     res.send(creatorResonse);
-  } else if (roleType  == 'reviewer'){
-    response.result = envVariables.REVIEWERS.filter(function(user){
+  } else if (roleType == 'reviewer') {
+    response.result = envVariables.REVIEWERS.filter(function (user) {
       delete user.userToken;
       return user;
     });
     let reviewerResonse = responseUtils.successResponse(response)
     res.send(reviewerResonse);
-  } else{
+  } else {
     response.errCode = 400;
     response.errmsg = "Request should have the roleType";
     let errorResponse = responseUtils.errorResponse(response)
@@ -208,69 +220,69 @@ app.use([
 })
 );
 app.use([routes.API.CONTENT.UPDATE], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      let originalUrl = req.originalUrl.replace("/action/", "/api/");
-      originalUrl = originalUrl.replace("/v3/", "/v2/");
-      return urlHelper.parse(originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v2/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
 app.use([
-    routes.API.CHANNEL,
-    routes.API.CONTENT.GENERAL,
-    routes.API.FRAMEWORK,
-    routes.API.COMPOSITE,
-    routes.API.LANGUAGE,
-  ], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      let originalUrl = req.originalUrl.replace("/action/", "/api/");
-      originalUrl = originalUrl.replace("/v3/", "/v1/");
-      return urlHelper.parse(originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+  routes.API.CHANNEL,
+  routes.API.CONTENT.GENERAL,
+  routes.API.FRAMEWORK,
+  routes.API.COMPOSITE,
+  routes.API.LANGUAGE,
+], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    originalUrl = originalUrl.replace("/v3/", "/v1/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
 app.use([routes.API.PREFIX.ACTION], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      let originalUrl = req.originalUrl.replace("/action/", "/api/");
-      return urlHelper.parse(originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+  https: true,
+  proxyReqPathResolver: function (req) {
+    let originalUrl = req.originalUrl.replace("/action/", "/api/");
+    return urlHelper.parse(originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
 app.use([routes.API.PREFIX.ASSETS, routes.API.PREFIX.API], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      return urlHelper.parse(req.originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+  https: true,
+  proxyReqPathResolver: function (req) {
+    return urlHelper.parse(req.originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
 app.use([
-    routes.API.GENERAL.CONTENT_PREVIEW,
-    routes.API.GENERAL.CONTENT_PLUGINS,
-    routes.API.GENERAL.ASSET_PUBLIC,
-    routes.API.GENERAL.GENERIC_EDITOR,
-    routes.API.GENERAL.CONTENT_EDITOR,
-  ], proxy(BASE_URL, {
-    https: true,
-    proxyReqPathResolver: function (req) {
-      return require("url").parse(`https://${BASE_URL}` + req.originalUrl).path;
-    },
-    proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
-  })
+  routes.API.GENERAL.CONTENT_PREVIEW,
+  routes.API.GENERAL.CONTENT_PLUGINS,
+  routes.API.GENERAL.ASSET_PUBLIC,
+  routes.API.GENERAL.GENERIC_EDITOR,
+  routes.API.GENERAL.CONTENT_EDITOR,
+], proxy(BASE_URL, {
+  https: true,
+  proxyReqPathResolver: function (req) {
+    return require("url").parse(`https://${BASE_URL}` + req.originalUrl).path;
+  },
+  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+})
 );
 
-app.get('/*', (req,res) => {
-  res.sendFile(process.cwd()+"/dist/index.html")
+app.get('/*', (req, res) => {
+  res.sendFile(process.cwd() + "/dist/index.html")
 });
 
 
