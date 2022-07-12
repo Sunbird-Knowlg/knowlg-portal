@@ -28,7 +28,7 @@ module.exports = {
        "ITEMS_CREATE": "/action/assessment/v3/items/create/*", 
        "TELEMMETRY": "/action/data/v3/telemetry",
        "FORM_READ": "/action/data/v1/form/read",
-       "USER_SEARCH": "action/user/v1/search/*",
+       "USER_SEARCH": "/action/user/v1/search",
        "PREFIX": {
            "ACTION": "/action",
            "ASSETS": "/assets",

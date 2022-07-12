@@ -7,6 +7,7 @@ const proxyUtils = require('./proxyUtils.js')
 var envVariables =  require('./config/environment');
 var BASE_URL = envVariables.BASE_URL;
 var routes = require('./config/constants');
+var users = require('./config/users');
 
 var app = express();
 app.set("port", 3000);
@@ -72,18 +73,7 @@ app.post(routes.API.TELEMMETRY, function (req, res) {
  * @param  {[]}} .json({users}) Sending empty array response 
  */
 app.post(routes.API.USER_SEARCH, function (req, res) {
-  res.status(200).json({ users: [] })
-});
-
-/**
- * @param  {} routes.API.CONTENT.COLLABORATOR_UPDATE This is the collaborator api url
- * @param  {} function(req
- * @param  {} res
- * @param  {} {res.status(200 Api response status
- * @param  {"Collabarationupdatesuccessful"}} .json({message}) Sending api response
- */
-app.patch(routes.API.CONTENT.COLLABORATOR_UPDATE, function (req, res) {
-  res.status(200).json({ message: "Collabaration update successful" })
+  res.status(200).json(users)
 });
 
 /**
