@@ -116,18 +116,20 @@ app.post(routes.API.USERS, function (req, res) {
     apiId: "api.v1.users",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: []
+    result: {
+      users: []
+    }
   };
   var roleType = req.body.roleType && req.body.roleType.toLowerCase();
-  if (roleType == 'creator') {
-    response.result = envVariables.CREATORS.filter(function (user) {
+  if (roleType  == 'creator'){
+    response.result.users = envVariables.CREATORS.filter(function(user){
       delete user.userToken;
       return user;
     });
     let creatorResonse = responseUtils.successResponse(response)
     res.send(creatorResonse);
-  } else if (roleType == 'reviewer') {
-    response.result = envVariables.REVIEWERS.filter(function (user) {
+  } else if (roleType  == 'reviewer'){
+    response.result.users = envVariables.REVIEWERS.filter(function(user){
       delete user.userToken;
       return user;
     });
