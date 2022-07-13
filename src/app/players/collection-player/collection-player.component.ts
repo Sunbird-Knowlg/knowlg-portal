@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 import { CollectionHierarchyAPI } from '../interfaces/content.service';
 import { PlatformType, TocCardType } from '@project-sunbird/common-consumption-v9';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { CollectionDetailsModelComponent } from './collection-details-model/collection-details-model.component';
+import { ContentDetailsModelComponent } from './content-details-model/content-details-model.component';
 
 @Component({
   selector: 'app-collection-player',
@@ -36,11 +39,29 @@ export class CollectionPlayerComponent implements OnInit {
   constructor(
     private helperService: HelperService,
     public route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public dialog: MatDialog
   ) {
     this.router.onSameUrlNavigation = 'ignore';
   }
 
+
+  openCollectionDetailsModel() {
+    this.dialog.open(CollectionDetailsModelComponent,{
+      data: {
+        collectionData: this.collectionData,
+      },
+    });
+  }
+
+  openContentDetailsModel() {
+    this.dialog.open(ContentDetailsModelComponent,{
+      data: {
+        activeContent: this.activeContent,
+      },
+    });
+  }
+  
   ngOnInit(): void {
     this.activeMimeTypeFilter = ['all'];
     this.queryParams = this.route.snapshot.queryParams;

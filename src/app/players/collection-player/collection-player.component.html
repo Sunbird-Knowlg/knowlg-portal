@@ -15,7 +15,7 @@
         </div>
         <div class="certified-course mx-8">
             <div class="certified-course__btn"><button
-                    class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0">Details</button></div>
+                    class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0" (click)="openCollectionDetailsModel()">Details</button></div>
         </div>
     </div>
 
@@ -37,6 +37,17 @@
                                 <app-video [showPlayerOnly]="true" *ngIf="isActiveContentVideoType()"></app-video>
                                 <app-epub [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === 'application/epub'"></app-epub>
                                 <app-interactive-player [showPlayerOnly]="true" *ngIf="isActiveContentInteractiveType()" ></app-interactive-player>
+                            </div>
+                        </div>
+                        <div class="textbook d-flex flex-ai-center w-100 ml-16">
+                            <div class="textbook__details d-flex flex-ai-center">
+                                <div class="ml-8 textbook__heading">
+                                    <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{activeContent?.name}}</h5>
+                                </div>
+                            </div>
+                            <div class="certified-course mx-8">
+                                <div class="certified-course__btn"><button
+                                        class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0" (click)="openContentDetailsModel()">Details</button></div>
                             </div>
                         </div>
                     </section>
