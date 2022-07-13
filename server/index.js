@@ -89,7 +89,8 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     apiId: "api.v1.roles",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: envVariables.USER_ROLE});
+    result: {roles: envVariables.USER_ROLE}
+  });
   res.send(response);
 });
 
@@ -104,18 +105,20 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     apiId: "api.v1.users",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: []
+    result: {
+      users: []
+    }
   };
   var roleType = req.body.roleType && req.body.roleType.toLowerCase();
   if (roleType  == 'creator'){
-    response.result = envVariables.CREATORS.filter(function(user){
+    response.result.users = envVariables.CREATORS.filter(function(user){
       delete user.userToken;
       return user;
     });
     let creatorResonse = responseUtils.successResponse(response)
     res.send(creatorResonse);
   } else if (roleType  == 'reviewer'){
-    response.result = envVariables.REVIEWERS.filter(function(user){
+    response.result.users = envVariables.REVIEWERS.filter(function(user){
       delete user.userToken;
       return user;
     });
