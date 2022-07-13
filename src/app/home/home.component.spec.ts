@@ -27,4 +27,14 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('#navigateToPlayers should navigate to players page', () => {
+    const router = TestBed.inject(Router);
+    component.navigateToPlayers();
+    expect(router.navigate).toHaveBeenCalledWith(['/players']);
+  });
+  it('#navigateToUsers should navigate to users page', () => {
+    const router = TestBed.inject(Router);
+    component.navigateToUsers();
+    expect(router.navigate).toHaveBeenCalledWith(['/users']);
+  });
 });
