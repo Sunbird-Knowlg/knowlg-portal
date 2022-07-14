@@ -106,7 +106,6 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
     }
 
     if (event.data.identifier !== _.get(this.activeContent, 'identifier') ) {
-      console.log("called")
       this.isContentPresent = true;
       this.isFirstContentLoaded = true;
       this.activeContent = event.data;

@@ -92,6 +92,11 @@ export class VideoComponent implements OnInit {
   }
 
   loadContent() {
+    const metaData = this.configService.getMetaData();
+    for(let item in metaData) {
+      this.config[item] = metaData[item];
+    }
+    
     this.playerConfig = {
       context: this.context,
       config: this.config,
