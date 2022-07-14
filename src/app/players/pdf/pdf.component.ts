@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { first, mergeMap, tap } from 'rxjs/operators';
@@ -23,6 +23,7 @@ export class PdfComponent implements OnInit {
   config: any;
   isLoading = true;
   sidemenuConfig: any;
+  @Input() showPlayerOnly = false; 
   @Output() share = new EventEmitter();
 
   ngOnInit(): void {
