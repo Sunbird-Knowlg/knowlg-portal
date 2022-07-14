@@ -3,15 +3,16 @@ import { CollectionEditorComponent } from './collection-editor.component';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
+import { mockData } from './collection-editor.component.data';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
 
 const mockActivatedRoute = {
   snapshot: {
-      queryParams: {
-          identifier: 'do_21247940906829414411032',
-      }
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+    }
   }
 };
 
@@ -21,7 +22,7 @@ describe('CollectionEditorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CollectionEditorComponent ],
+      declarations: [CollectionEditorComponent],
       imports: [HttpClientModule],
       providers: [
         HttpClient,
@@ -29,7 +30,7 @@ describe('CollectionEditorComponent', () => {
         { provide: Router, useClass: RouterStub }
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -59,7 +60,7 @@ describe('CollectionEditorComponent', () => {
     expect(component.editorConfig).toBe(null);
   });
   it('#getEditorMode should call getEditorMode and get content status', () => {
-    component.content = {status : 'review'};
+    component.content = { status: 'review' };
     const contentStatus = component.getEditorMode();
     expect(contentStatus).toBe('review');
   });
@@ -77,5 +78,29 @@ describe('CollectionEditorComponent', () => {
     spyOn(component.helperService, 'getChannel').and.callFake(() => of(true));
     component.getChannel('123456');
     expect(component.helperService.getChannel).toHaveBeenCalled();
+  });
+  it('#getFrameWorkDetails should call getFrameWorkDetails and get CategoryDefinition details', () => {
+    component.content = { primaryCategory: 'abc', channel: '123' };
+    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of(true));
+    component.getFrameWorkDetails();
+    expect(component.helperService.getCategoryDefinition).toHaveBeenCalled();
+  });
+  it('#getContentDetails should call getContentDetails and get content details', () => {
+    spyOn(component.helperService, 'getContent').and.callFake(() => of(true));
+    component.getContentDetails('5a587cc1-e018-4859-a0a8-e842650b9d64');
+    expect(component.helperService.getContent).toHaveBeenCalled();
+  });
+  it('#getPrimaryCategoryData should call getPrimaryCategoryData and return children data', () => {
+    const childrenData = mockData.childrenData;
+    component.channelData = mockData.channelData;
+    const response = component.getPrimaryCategoryData(childrenData);
+    expect(response.Content).toEqual('123');
+  });
+  it('#setHierarchyConfig should call setHierarchyConfig and set editor config', () => {
+    spyOn(component, 'setEditorConfig').and.callThrough();
+    spyOn(component, 'getPrimaryCategoryData').and.callThrough();
+    component.setHierarchyConfig(mockData.objectMetadata);
+    expect(component.setEditorConfig).toHaveBeenCalled();
+    expect(component.editorConfig).toBeDefined();
   });
 });

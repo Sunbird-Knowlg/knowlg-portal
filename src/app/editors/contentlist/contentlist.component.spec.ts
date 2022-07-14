@@ -50,10 +50,9 @@ describe('ContentlistComponent', () => {
   });
 
   it('#goBack() should navigate to "editors" page', () => {
-    spyOn(component, 'contentSearch').and.callThrough();
-    component.ngOnInit();
-    expect(component.editorType).toBe('collection');
-    expect(component.contentSearch).toHaveBeenCalled();
+    const router = TestBed.inject(Router);
+    component.goBack();
+    expect(router.navigate).toHaveBeenCalledWith(['/editors/']);
   });
 
   it('#contentSearch() should fetch the contents', () => {
