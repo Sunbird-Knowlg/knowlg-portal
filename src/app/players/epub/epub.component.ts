@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { first, mergeMap, tap } from 'rxjs/operators';
@@ -23,6 +23,7 @@ export class EpubComponent implements OnInit {
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
   config: any;
   sidemenuConfig: any;
+  @Input() showPlayerOnly = false; 
   @Output() share = new EventEmitter();
 
   ngOnInit(): void {

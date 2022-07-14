@@ -90,7 +90,7 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     apiId: "api.v1.roles",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: { roles: envVariables.USER_ROLE}
+    result: {roles: envVariables.USER_ROLE}
   });
   res.send(response);
 });
@@ -106,7 +106,9 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     apiId: "api.v1.users",
     apiVersion: "1.0",
     msgid: uuid(),
-    result: {}
+    result: {
+      users: []
+    }
   };
   var roleType = req.body.roleType && req.body.roleType.toLowerCase();
   if (roleType  == 'creator'){
@@ -123,18 +125,11 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
     });
     let reviewerResonse = responseUtils.successResponse(response)
     res.send(reviewerResonse);
-  } else if (roleType  == 'collaborator'){
-    response.result.users = envVariables.COLLABORATORS.filter(function(user){
-      delete user.userToken;
-      return user;
-    });
-    let reviewerResonse = responseUtils.successResponse(response)
-    res.send(reviewerResonse);
   } else{
     response.errCode = 400;
     response.errmsg = "Request should have the roleType";
     let errorResponse = responseUtils.errorResponse(response)
-    res.status(400).send(response);
+    res.status(400).send(errorResponse);
   }
 });
 
@@ -167,7 +162,7 @@ app.use([
  * @param  {} [routes.API.CONTENT.HIERARCHY] This is the content hierarchy api url
  * @param  {} proxy(BASE_URL
  * @param  {true} {https
- * @param  {function(req} proxyReqPathResolver
+ * @param  {function req} proxyReqPathResolver
  */
 
 app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
@@ -188,7 +183,7 @@ app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
  * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH] This is the content unlisted publish api url
  * @param  {} proxy(BASE_URL
  * @param  {true} {https
- * @param  {function(req} proxyReqPathResolver
+ * @param  {function req} proxyReqPathResolver
  */
 app.use([
   routes.API.BUNDLE,

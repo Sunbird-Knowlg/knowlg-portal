@@ -2,8 +2,8 @@ version: 2.1
 jobs:
   build:
     working_directory: ~/knowlg-portal
-    docker:
-      - image: circleci/node:12.20.2-browsers
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - checkout:
           path: ~/knowlg-portal
