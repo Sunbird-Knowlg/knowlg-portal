@@ -5,17 +5,17 @@
 
     <div class="textbook d-flex flex-ai-center w-100 ml-16">
         <div class="textbook__details d-flex flex-ai-center">
-            <div class="textbook__bookimg"><img src="assets/images/book.png" alt="Course with timer"></div>
+            <div class="textbook__bookimg"> <img [src]="collectionData.appIcon" alt="{{collectionData.name}}" onerror="this.onerror=null;this.src='assets/images/book.png';" /></div>
             <div class="ml-8 textbook__heading">
-                <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">Course with timer </h5>
+                <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{collectionData.name}}</h5>
                 <div class="textbook__rating d-flex flex-ai-center">
-                  subtext and toolbar items
+                    {{collectionData.description}}
                 </div>
             </div>
         </div>
         <div class="certified-course mx-8">
             <div class="certified-course__btn"><button
-                    class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0">Button</button></div>
+                    class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0" (click)="openCollectionDetailsModel()">Details</button></div>
         </div>
     </div>
 
@@ -32,13 +32,40 @@
                         id="player-area-height">
                         <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio"
                             #aspectRatio>
-                            <div class="h-100">
-                                player
+                            <div class="h-100" *ngIf="showPlayer">
+                                <app-pdf [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === 'application/pdf'"></app-pdf>
+                                <app-video [showPlayerOnly]="true" *ngIf="isActiveContentVideoType()"></app-video>
+                                <app-epub [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === 'application/epub'"></app-epub>
+                                <app-interactive-player [showPlayerOnly]="true" *ngIf="isActiveContentInteractiveType()" ></app-interactive-player>
+                            </div>
+                        </div>
+                        <div class="textbook d-flex flex-ai-center w-100 ml-16">
+                            <div class="textbook__details d-flex flex-ai-center">
+                                <div class="ml-8 textbook__heading">
+                                    <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{activeContent?.name}}</h5>
+                                </div>
+                            </div>
+                            <div class="certified-course mx-8">
+                                <div class="certified-course__btn"><button
+                                        class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0" (click)="openContentDetailsModel()">Details</button></div>
                             </div>
                         </div>
                     </section>
                     <section class="sb-course-details__info sb-g-col-xs-12 sb-g-col-md-3 sb-g-col-lg-3 sb-g-col-xxxl-4">
-                        right side bar
+                        <div class="toc-box-shadow mb-2">
+                            <sb-library-filters [hidden]="isSelectChapter" [tocList]="mimeTypeFilters" [layout]="'round-with-icon'"
+                              (selectedMimeType)="selectedFilter($event)">
+                            </sb-library-filters>
+                          </div>
+                          <div [hidden]="isSelectChapter" class="main-side-toc-content">
+                            <sb-toc-item [selectAll]="selectAll" [selectMode]="isCopyAsCourseClicked"
+                              [activeMimeTypeFilter]="activeMimeTypeFilter" [tocData]="collectionData"
+                              [noContentMessage]="noContentMessage" (tocCardClick)="tocCardClickHandler($event)"
+                              [activeContent]="activeContent" (noContent)="showNoContent($event)"
+                              (selectedItem)="handleSelectedItem($event)"
+                              [platform]="PlatformType.PORTAL" [type]="TocCardType.TRACKABLE"
+                              [trackableDefaultImage]="'assets/images/mask-image/courses.svg'"></sb-toc-item>
+                          </div>
                 </section>
                 </div>
             </div>

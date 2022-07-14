@@ -3,6 +3,9 @@
     "READ": "content/v3/read",
     "CREATE": "content/v3/create"
   },
+  "COLLECTION": {
+    "HIERARCHY": "content/v3/hierarchy"
+  },
   "CHANNEL": {
     "READ": "channel/v1/read"
   },
