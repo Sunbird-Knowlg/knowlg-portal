@@ -9,7 +9,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CollectionDetailsModelComponent } from './collection-details-model/collection-details-model.component';
 import { ContentDetailsModelComponent } from './content-details-model/content-details-model.component';
-import * as TreeModel from 'tree-model';
 
 @Component({
   selector: 'app-collection-player',
