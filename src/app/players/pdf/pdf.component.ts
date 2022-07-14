@@ -77,6 +77,9 @@ export class PdfComponent implements OnInit {
     if (event.edata.type === 'SHARE') {
       this.share.emit(event);
     }
+    if (event.edata.type === 'END') {
+      this.configService.setMetaData(event);
+    }
   }
   playerTelemetryEvents(event) {
 

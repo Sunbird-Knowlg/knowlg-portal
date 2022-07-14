@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CollectionDetailsModelComponent } from './collection-details-model/collection-details-model.component';
 import { ContentDetailsModelComponent } from './content-details-model/content-details-model.component';
+import * as TreeModel from 'tree-model';
 
 @Component({
   selector: 'app-collection-player',
@@ -35,6 +36,7 @@ export class CollectionPlayerComponent implements OnInit {
   TocCardType = TocCardType;
   public queryParams: any;
   showPlayer = true;
+  treeModel: any;
 
   constructor(
     private helperService: HelperService,
@@ -67,7 +69,9 @@ export class CollectionPlayerComponent implements OnInit {
     this.queryParams = this.route.snapshot.queryParams;
     const collectionId = this.queryParams.collectionId || "KP_FT_1611083388567";
     this.getCollectionHierarchy(collectionId)
-      .subscribe();
+      .subscribe((data) => {
+        this.parseChildContent(data);
+      });
 
   }
 
@@ -81,6 +85,19 @@ export class CollectionPlayerComponent implements OnInit {
         this.collectionData = _.get(response, 'result.content');
         return { data: _.get(response, 'result.content') };
       }));
+  }
+
+  private parseChildContent(collection: any) {
+    const model = new TreeModel();
+    if (collection.data) {
+      this.treeModel = model.parse(collection.data);
+      this.treeModel.walk((node) => {
+        if (node.model.mimeType !== 'application/vnd.ekstep.content-collection') {
+          this.initPlayer(node.model.identifier);
+          return;
+        }
+      });
+    }
   }
 
   tocCardClickHandler(event) {
