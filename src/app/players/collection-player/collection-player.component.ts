@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map } from 'rxjs/internal/operators/map';
 import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
@@ -16,7 +16,7 @@ import * as TreeModel from 'tree-model';
   templateUrl: './collection-player.component.html',
   styleUrls: ['./collection-player.component.scss']
 })
-export class CollectionPlayerComponent implements OnInit {
+export class CollectionPlayerComponent implements OnInit, OnDestroy {
 
   isLoading = true;
   isSelectChapter = false;
@@ -24,6 +24,10 @@ export class CollectionPlayerComponent implements OnInit {
   { text: "Video", value: 'video' },
   { text: "Interactive", value: 'interactive' },
   { text: "Docs", value: 'docs' }];
+  videoMimeTypes = ['video/mp4', 'video/x-youtube', 'video/webm'];
+  interactiveMimeTypes = ['application/vnd.ekstep.ecml-archive', 'application/vnd.ekstep.h5p-archive', 'application/vnd.ekstep.html-archive'];
+  pdfMimeType = 'application/pdf';
+  epubMimeType = 'application/epub';
   activeMimeTypeFilter: [string];
   selectAll = false;
   isCopyAsCourseClicked = false;
@@ -31,13 +35,15 @@ export class CollectionPlayerComponent implements OnInit {
   noContentMessage = "Content not added yet";
   activeContent: any;
   isContentPresent = false;
+  isFirstContentLoaded = false;
   selectedItems = [];
   PlatformType = PlatformType;
   TocCardType = TocCardType;
   public queryParams: any;
-  showPlayer = true;
+  showPlayer = false;
   treeModel: any;
-
+  contentIdList = [];
+  subscription:any;
   constructor(
     private helperService: HelperService,
     public route: ActivatedRoute,
@@ -68,11 +74,13 @@ export class CollectionPlayerComponent implements OnInit {
     this.activeMimeTypeFilter = ['all'];
     this.queryParams = this.route.snapshot.queryParams;
     const collectionId = this.queryParams.collectionId || "KP_FT_1611083388567";
-    this.getCollectionHierarchy(collectionId)
-      .subscribe((data) => {
-        this.parseChildContent(data);
-      });
+    this.subscription = this.getCollectionHierarchy(collectionId).subscribe();
+  }
 
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   selectedFilter(event) {
@@ -87,37 +95,31 @@ export class CollectionPlayerComponent implements OnInit {
       }));
   }
 
-  private parseChildContent(collection: any) {
-    const model = new TreeModel();
-    if (collection.data) {
-      this.treeModel = model.parse(collection.data);
-      this.treeModel.walk((node) => {
-        if (node.model.mimeType !== 'application/vnd.ekstep.content-collection') {
-          this.initPlayer(node.model.identifier);
-          return;
-        }
-      });
-    }
-  }
-
   tocCardClickHandler(event) {
-    this.callinitPlayer(event);
+      this.callinitPlayer(event, );
   }
 
   callinitPlayer(event) {
-    if (event.data.identifier !== _.get(this.activeContent, 'identifier')) {
+    
+    if(!(event.event instanceof PointerEvent) && this.isFirstContentLoaded) { 
+      return;
+    }
+
+    if (event.data.identifier !== _.get(this.activeContent, 'identifier') ) {
+      console.log("called")
       this.isContentPresent = true;
+      this.isFirstContentLoaded = true;
       this.activeContent = event.data;
       this.initPlayer(_.get(this.activeContent, 'identifier'));
     }
   }
 
   isActiveContentVideoType() {
-    return ['video/mp4', 'video/x-youtube', 'video/webm'].includes(this.activeContent?.mimeType);
+    return this.videoMimeTypes.includes(this.activeContent?.mimeType);
   }
 
   isActiveContentInteractiveType() {
-    return ['application/vnd.ekstep.ecml-archive', 'application/vnd.ekstep.h5p-archive', 'application/vnd.ekstep.html-archive'].includes(this.activeContent?.mimeType);
+    return this.interactiveMimeTypes.includes(this.activeContent?.mimeType);
   }
 
   private initPlayer(id: string): void {
