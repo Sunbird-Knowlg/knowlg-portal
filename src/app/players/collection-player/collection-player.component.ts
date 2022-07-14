@@ -19,15 +19,15 @@ export class CollectionPlayerComponent implements OnInit {
 
   isLoading = true;
   isSelectChapter = false;
-  mimeTypeFilters = [{ text: "All", value: 'all' },
-  { text: "Video", value: 'video' },
-  { text: "Interactive", value: 'interactive' },
-  { text: "Docs", value: 'docs' }];
+  mimeTypeFilters = [{ text: 'All', value: 'all' },
+  { text: 'Video', value: 'video' },
+  { text: 'Interactive', value: 'interactive' },
+  { text: 'Docs', value: 'docs' }];
   activeMimeTypeFilter: [string];
   selectAll = false;
   isCopyAsCourseClicked = false;
   collectionData: any;
-  noContentMessage = "Content not added yet";
+  noContentMessage = 'Content not added yet';
   activeContent: any;
   isContentPresent = false;
   selectedItems = [];
@@ -47,7 +47,7 @@ export class CollectionPlayerComponent implements OnInit {
 
 
   openCollectionDetailsModel() {
-    this.dialog.open(CollectionDetailsModelComponent,{
+    this.dialog.open(CollectionDetailsModelComponent, {
       data: {
         collectionData: this.collectionData,
       },
@@ -55,17 +55,17 @@ export class CollectionPlayerComponent implements OnInit {
   }
 
   openContentDetailsModel() {
-    this.dialog.open(ContentDetailsModelComponent,{
+    this.dialog.open(ContentDetailsModelComponent, {
       data: {
         activeContent: this.activeContent,
       },
     });
   }
-  
+
   ngOnInit(): void {
     this.activeMimeTypeFilter = ['all'];
     this.queryParams = this.route.snapshot.queryParams;
-    const collectionId = this.queryParams.collectionId || "KP_FT_1611083388567";
+    const collectionId = this.queryParams.collectionId || 'KP_FT_1611083388567';
     this.getCollectionHierarchy(collectionId)
       .subscribe();
 
@@ -100,6 +100,7 @@ export class CollectionPlayerComponent implements OnInit {
   }
 
   isActiveContentInteractiveType() {
+    // tslint:disable-next-line:max-line-length
     return ['application/vnd.ekstep.ecml-archive', 'application/vnd.ekstep.h5p-archive', 'application/vnd.ekstep.html-archive'].includes(this.activeContent?.mimeType);
   }
 
@@ -114,8 +115,8 @@ export class CollectionPlayerComponent implements OnInit {
         queryParams: { identifier: id },
         queryParamsHandling: 'merge'
       });
-      
-        this.showPlayer = true;
+
+    this.showPlayer = true;
     });
   }
 

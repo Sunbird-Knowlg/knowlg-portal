@@ -23,7 +23,7 @@ export class PdfComponent implements OnInit {
   config: any;
   isLoading = true;
   sidemenuConfig: any;
-  @Input() showPlayerOnly = false; 
+  @Input() showPlayerOnly = false;
   @Output() share = new EventEmitter();
 
   ngOnInit(): void {

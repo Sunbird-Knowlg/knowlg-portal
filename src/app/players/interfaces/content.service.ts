@@ -1,3 +1,4 @@
+// tslint:disable-next-line:no-namespace
 export namespace CollectionHierarchyAPI {
   export interface Get {
     id: string;

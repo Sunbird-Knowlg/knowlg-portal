@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { CollectionHierarchyAPI } from '../../players/interfaces/content.service';
 import { ServerResponse } from '../../players/interfaces/serverResponse';
 import { ActionService } from '../action/action.service';
-import { ConfigService } from '../config/config.service'; 
+import { ConfigService } from '../config/config.service';
 
 @Injectable({
   providedIn: 'root',
@@ -51,7 +51,7 @@ export class HelperService {
       return response;
     }));
   }
-  
+
   createContent(reqBody: any): Observable<any> {
     const req = {
       url: this.configService.urlConFig.CONTENT.CREATE,
