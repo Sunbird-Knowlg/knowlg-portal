@@ -3,13 +3,16 @@ jobs:
   build:
     working_directory: ~/knowlg-portal
     machine:
-      image: ubuntu-1604:202101-01
+      image: ubuntu-2004:202010-01
     steps:
       - checkout:
           path: ~/knowlg-portal
       - run:
           name: Node version
           command: 'node --version'
+      - run:
+          name: Show current branch
+          command: echo ${CIRCLE_BRANCH}
       - run:
           name: Installing Angular cli
           command: 'npm install -g @angular/cli@6.0.8 --no-progress'
