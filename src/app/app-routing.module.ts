@@ -54,7 +54,6 @@ const routes: Routes =  [
   {
     path: 'players/collection', component: CollectionPlayerComponent,
   }
-  
 ];
 
 @NgModule({
