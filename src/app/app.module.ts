@@ -30,6 +30,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {SessionInterceptor} from './interceptor/sessionInterceptor';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
+import { CommonConsumptionModule} from '@project-sunbird/common-consumption-v9';
+import { CollectionDetailsModelComponent } from './players/collection-player/collection-details-model/collection-details-model.component';
+import {MatListModule} from '@angular/material/list';
+import { ContentDetailsModelComponent } from './players/collection-player/content-details-model/content-details-model.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +52,9 @@ import { CollectionPlayerComponent } from './players/collection-player/collectio
     RoleComponent,
     SnPopupComponent,
     SidebarComponent,
-    CollectionPlayerComponent
+    CollectionPlayerComponent,
+    CollectionDetailsModelComponent,
+    ContentDetailsModelComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,9 @@ import { CollectionPlayerComponent } from './players/collection-player/collectio
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CommonConsumptionModule,
+    MatListModule
   ],
   providers: [{
     provide: QuestionCursor,

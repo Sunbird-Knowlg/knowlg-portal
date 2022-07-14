@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Content Details</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-list role="list" *ngIf="data">
+        <mat-list-item role="listitem" *ngFor="let item of viewPropertiesList">{{item.lable}}: {{item.value}}</mat-list-item>
+    </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+</mat-dialog-actions>

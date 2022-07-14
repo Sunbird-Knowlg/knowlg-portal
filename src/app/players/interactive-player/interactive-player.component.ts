@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { first, mergeMap, tap } from 'rxjs/operators';
@@ -24,6 +24,7 @@ export class InteractivePlayerComponent implements OnInit {
   isLoading = true;
   config: any;
   sidemenuConfig: any;
+  @Input() showPlayerOnly = false; 
 
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
 
