@@ -23,7 +23,7 @@ export class PdfComponent implements OnInit {
   config: any;
   isLoading = true;
   sidemenuConfig: any;
-  @Input() showPlayerOnly = false; 
+  @Input() showPlayerOnly = false;
   @Output() share = new EventEmitter();
 
   ngOnInit(): void {
@@ -67,7 +67,8 @@ export class PdfComponent implements OnInit {
 
   loadContent() {
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    // tslint:disable-next-line:forin
+    for (const item in metaData) {
       this.config[item] = metaData[item];
     }
 

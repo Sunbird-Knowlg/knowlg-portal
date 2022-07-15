@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ContentDetailsModelComponent } from './content-details-model.component';
 
 describe('ContentDetailsModelComponent', () => {
@@ -8,7 +8,13 @@ describe('ContentDetailsModelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentDetailsModelComponent ]
+      imports: [MatDialogModule],
+      declarations: [ ContentDetailsModelComponent ],
+      providers: [{ provide: MAT_DIALOG_DATA, useValue: {
+        activeContent: {
+          name: 'Test'
+        }
+        } }]
     })
     .compileComponents();
   }));
@@ -16,7 +22,7 @@ describe('ContentDetailsModelComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ContentDetailsModelComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {

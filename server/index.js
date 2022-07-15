@@ -93,8 +93,8 @@ app.get(routes.API.USER_ROLE, function (req, res) {
     result: []
   };
   try {
-    response.result = {role: envVariables.USER_ROLE.split(",")};
-    return res.send(response);
+    response.result = {roles: envVariables.USER_ROLE.split(",")};
+    return res.send(responseUtils.successResponse(response));
   } catch (error) {
     console.log(`Error while sending response, ${error} ${envVariables.USER_ROLE}`);
     response.errCode = 500;
