@@ -48,47 +48,56 @@ describe('CollectionEditorComponent', () => {
     component.editorEventListener({});
     expect(router.navigate).toHaveBeenCalledWith(['editors/content-list']);
   });
-  it('#ngOnInit should call ngOnInitl and get user data and content identifier', () => {
+  it('#ngOnInit should call ngOnInitl and get user data and content identifier from queryParams', () => {
     spyOn(component, 'initialize').and.callFake(() => of(true));
     component.ngOnInit();
     expect(component.initialize).toHaveBeenCalled();
     expect(component.userData).toBeDefined();
     expect(component.queryParams.identifier).toBeDefined();
   });
-  it('#ngOnDestroy should call ngOnDestroy and set editorConfig to null', () => {
+  it('#ngOnDestroy should call ngOnDestroy and set null value to editorConfig', () => {
     component.ngOnDestroy();
     expect(component.editorConfig).toBe(null);
   });
-  it('#getEditorMode should call getEditorMode and get content status', () => {
+  it('#getEditorMode should call getEditorMode and get content status for review case', () => {
     component.content = { status: 'review' };
     const contentStatus = component.getEditorMode();
     expect(contentStatus).toBe('review');
   });
-  it('#editorEventListener() should navigate to content list', () => {
+  it('#editorEventListener() should call editorEventListener and navigate to content list', () => {
     const router = TestBed.inject(Router);
     component.editorEventListener({});
     expect(router.navigate).toHaveBeenCalledWith(['editors/content-list']);
   });
-  it('#initialize should call initialize', () => {
+  it('#initialize should call initialize method and get the content details', () => {
     spyOn(component, 'getContentDetails').and.callFake(() => of(true));
     component.initialize();
     expect(component.content).toBeDefined();
   });
-  it('#getChannel should call getChannel and get channel details', () => {
-    spyOn(component.helperService, 'getChannel').and.callFake(() => of(true));
-    component.getChannel('123456');
-    expect(component.helperService.getChannel).toHaveBeenCalled();
+  it('#getChannel should call getChannel method and get channel details for success case', () => {
+    spyOn(component.helperService, 'getChannel').and.callFake(() => of({ result: mockData.channel.result }));
+    const response = component.getChannel('01309282781705830427');
+    response.subscribe(data => {
+      expect(data).toBe(mockData.channel.result.channel);
+      expect(data.code).toBe('01309282781705830427');
+    });
   });
-  it('#getFrameWorkDetails should call getFrameWorkDetails and get CategoryDefinition details', () => {
+  it('#getFrameWorkDetails should call getFrameWorkDetails and get CategoryDefinition details for success case', () => {
     component.content = { primaryCategory: 'abc', channel: '123' };
-    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of(true));
-    component.getFrameWorkDetails();
-    expect(component.helperService.getCategoryDefinition).toHaveBeenCalled();
+    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of({ result: mockData.objectCategoryDefinition.result }));
+    const response = component.getFrameWorkDetails();
+    response.subscribe(data => {
+      expect(data).toBe(mockData.objectCategoryDefinition.result.objectCategoryDefinition);
+      expect(data.objectCategoryDefinition.identifier).toBe('obj-cat:digital-textbook_collection_all');
+      expect(data.objectCategoryDefinition.name).toBe('Digital Textbook');
+    });
   });
-  it('#getContentDetails should call getContentDetails and get content details', () => {
-    spyOn(component.helperService, 'getContent').and.callFake(() => of(true));
-    component.getContentDetails('5a587cc1-e018-4859-a0a8-e842650b9d64');
-    expect(component.helperService.getContent).toHaveBeenCalled();
+  it('#getContentDetails should call getContentDetails and get content details for success case', () => {
+    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of({ result: mockData.contentRead.result }));
+    const response = component.getContentDetails('do_11357573655467622411178');
+    response.subscribe(data => {
+      expect(data).toBe(mockData.contentRead.result.content);
+    });
   });
   it('#getPrimaryCategoryData should call getPrimaryCategoryData and return children data', () => {
     const childrenData = mockData.childrenData;
@@ -96,7 +105,7 @@ describe('CollectionEditorComponent', () => {
     const response = component.getPrimaryCategoryData(childrenData);
     expect(response.Content).toEqual('123');
   });
-  it('#setHierarchyConfig should call setHierarchyConfig and set editor config', () => {
+  it('#setHierarchyConfig should call setHierarchyConfig and set editor config details', () => {
     spyOn(component, 'setEditorConfig').and.callThrough();
     spyOn(component, 'getPrimaryCategoryData').and.callThrough();
     component.setHierarchyConfig(mockData.objectMetadata);

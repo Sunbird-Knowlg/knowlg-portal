@@ -27,7 +27,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   }
 
   initialize() {
-    this.getContentDetails(this.queryParams.identifier).pipe(map(content => {
+    this.getContentDetails(_.get(this.queryParams, 'identifier')).pipe(map(content => {
       this.content = content;
       return content;
     }), mergeMap(contentData => {

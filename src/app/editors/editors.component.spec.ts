@@ -34,12 +34,12 @@ describe('EditorsComponent', () => {
     component.navigateToContentList('collection-editor');
     expect(router.navigate).toHaveBeenCalledWith(['editors/content-list']);
   });
-  it('#goBack should navigate to users page', () => {
+  it('#goBack should call goBack and navigate to users page', () => {
     const router = TestBed.inject(Router);
     component.goBack();
     expect(router.navigate).toHaveBeenCalledWith(['/users/']);
   });
-  it('#ngOnInit should call ngOnInit ', () => {
+  it('#ngOnInit should call ngOnInit and get user data details ', () => {
     component.ngOnInit();
     expect(component.userData).toBeDefined();
   });
