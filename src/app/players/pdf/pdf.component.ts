@@ -66,6 +66,11 @@ export class PdfComponent implements OnInit {
   }
 
   loadContent() {
+    const metaData = this.configService.getMetaData();
+    for(let item in metaData) {
+      this.config[item] = metaData[item];
+    }
+
     this.playerConfig = {
       context: this.configService.playerConfig.PLAYER_CONTEXT,
       config: this.config,
@@ -76,6 +81,9 @@ export class PdfComponent implements OnInit {
   playerEvents(event) {
     if (event.edata.type === 'SHARE') {
       this.share.emit(event);
+    }
+    if (event.edata.type === 'END') {
+      this.configService.setMetaData(event);
     }
   }
   playerTelemetryEvents(event) {

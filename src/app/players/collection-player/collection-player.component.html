@@ -5,11 +5,11 @@
 
     <div class="textbook d-flex flex-ai-center w-100 ml-16">
         <div class="textbook__details d-flex flex-ai-center">
-            <div class="textbook__bookimg"> <img [src]="collectionData.appIcon" alt="{{collectionData.name}}" onerror="this.onerror=null;this.src='assets/images/book.png';" /></div>
+            <div class="textbook__bookimg"> <img [src]="collectionData?.appIcon" alt="{{collectionData?.name}}" onerror="this.onerror=null;this.src='assets/images/book.png';" /></div>
             <div class="ml-8 textbook__heading">
-                <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{collectionData.name}}</h5>
+                <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{collectionData?.name}}</h5>
                 <div class="textbook__rating d-flex flex-ai-center">
-                    {{collectionData.description}}
+                    {{collectionData?.description}}
                 </div>
             </div>
         </div>
@@ -33,9 +33,9 @@
                         <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio"
                             #aspectRatio>
                             <div class="h-100" *ngIf="showPlayer">
-                                <app-pdf [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === 'application/pdf'"></app-pdf>
+                                <app-pdf [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === pdfMimeType"></app-pdf>
                                 <app-video [showPlayerOnly]="true" *ngIf="isActiveContentVideoType()"></app-video>
-                                <app-epub [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === 'application/epub'"></app-epub>
+                                <app-epub [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === epubMimeType"></app-epub>
                                 <app-interactive-player [showPlayerOnly]="true" *ngIf="isActiveContentInteractiveType()" ></app-interactive-player>
                             </div>
                         </div>
