@@ -8,12 +8,21 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HelperService } from '../../services/helper/helper.service';
 import { of } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserComponent } from '../user/user.component';
 import {mockData} from './role.component.spec.data';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
+
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+      collectionId: 'do_1234'
+    }
+  }
+};
 
 describe('RoleComponent', () => {
   let component: RoleComponent;
@@ -28,7 +37,8 @@ describe('RoleComponent', () => {
         MatDialog,
         LocalStorageService,
         { provide: Router, useClass: RouterStub },
-        HelperService
+        HelperService,
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     })
       .compileComponents();

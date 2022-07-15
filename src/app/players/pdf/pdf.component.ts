@@ -67,7 +67,8 @@ export class PdfComponent implements OnInit {
 
   loadContent() {
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    // tslint:disable-next-line:forin
+    for (const item in metaData) {
       this.config[item] = metaData[item];
     }
 

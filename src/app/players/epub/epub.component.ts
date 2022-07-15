@@ -56,7 +56,8 @@ export class EpubComponent implements OnInit {
 
   loadDefaultData(){
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    // tslint:disable-next-line:forin
+    for (const item in metaData) {
       this.config[item] = metaData[item];
     }
     this.playerConfig = {
@@ -83,7 +84,8 @@ export class EpubComponent implements OnInit {
 
   loadContent() {
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    // tslint:disable-next-line:forin
+    for (const item in metaData) {
       this.config[item] = metaData[item];
     }
 

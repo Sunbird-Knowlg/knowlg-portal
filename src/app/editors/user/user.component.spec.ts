@@ -4,7 +4,7 @@ import { UserComponent } from './user.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
@@ -17,6 +17,17 @@ const userData = {
   }],
   selectedRoleType: 'creator'
 };
+
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+      collectionId: 'do_1234'
+    }
+  }
+};
+
+
 describe('UserComponent', () => {
   let component: UserComponent;
   let fixture: ComponentFixture<UserComponent>;
@@ -34,6 +45,7 @@ describe('UserComponent', () => {
         { provide: MAT_DIALOG_DATA, useValue: { userData } },
         HttpClient,
         LocalStorageService,
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     })
       .compileComponents();
