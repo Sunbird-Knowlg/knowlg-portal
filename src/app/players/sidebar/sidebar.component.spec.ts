@@ -1,11 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SidebarComponent } from './sidebar.component';
 
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
 
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+      collectionId: 'do_1234'
+    }
+  }
+};
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -16,6 +24,7 @@ describe('SidebarComponent', () => {
       declarations: [ SidebarComponent ],
       providers: [
         { provide: Router, useClass: RouterStub },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     })
     .compileComponents();

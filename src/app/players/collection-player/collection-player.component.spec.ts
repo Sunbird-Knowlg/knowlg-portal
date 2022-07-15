@@ -1,16 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CollectionPlayerComponent } from './collection-player.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { MatDialogModule } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { CollectionPlayerComponent } from './collection-player.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+
 describe('CollectionPlayerComponent', () => {
   let component: CollectionPlayerComponent;
   let fixture: ComponentFixture<CollectionPlayerComponent>;
-  class RouterStub {
-    navigate = jasmine.createSpy('navigate');
-  }
   const mockActivatedRoute = {
     snapshot: {
       queryParams: {
@@ -18,23 +15,25 @@ describe('CollectionPlayerComponent', () => {
       }
     }
   };
+  class RouterStub {
+    navigate = jasmine.createSpy('navigate');
+  }
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatDialogModule, HttpClientModule],
-      declarations: [CollectionPlayerComponent],
-      providers: [MatDialog, HttpClient,
-        { provide: Router, useClass: RouterStub },
-        { provide: MatDialogRef, useValue: {} },
-        { provide: ActivatedRoute, useValue: mockActivatedRoute },
-      ],
+      imports: [HttpClientModule, MatDialogModule],
+      declarations: [ CollectionPlayerComponent ],
+      providers: [
+        HttpClient, { provide: ActivatedRoute, useValue: mockActivatedRoute },
+        { provide: Router, useClass: RouterStub }]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CollectionPlayerComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {

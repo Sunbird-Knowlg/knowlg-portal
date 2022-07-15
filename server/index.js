@@ -93,8 +93,8 @@ app.get(routes.API.USER_ROLE, function (req, res) {
     result: []
   };
   try {
-    response.result = {role: envVariables.USER_ROLE.split(",")};
-    return res.send(response);
+    response.result = {roles: envVariables.USER_ROLE.split(",")};
+    return res.send(responseUtils.successResponse(response));
   } catch (error) {
     console.log(`Error while sending response, ${error} ${envVariables.USER_ROLE}`);
     response.errCode = 500;
@@ -131,6 +131,13 @@ app.post(routes.API.USERS, function (req, res) {
     res.send(creatorResonse);
   } else if (roleType  == 'reviewer'){
     response.result.users = envVariables.REVIEWERS.filter(function(user){
+      delete user.userToken;
+      return user;
+    });
+    let reviewerResonse = responseUtils.successResponse(response)
+    res.send(reviewerResonse);
+  } else if (roleType  == 'collaborator'){
+    response.result.users = envVariables.COLLABORATORS.filter(function(user){
       delete user.userToken;
       return user;
     });

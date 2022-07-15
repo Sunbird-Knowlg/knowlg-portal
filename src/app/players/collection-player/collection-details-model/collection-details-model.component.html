@@ -1,9 +1,14 @@
 <h2 mat-dialog-title>Collection Details</h2>
 <mat-dialog-content class="mat-typography">
-    <mat-list role="list" *ngIf="data">
-        <mat-list-item role="listitem" *ngFor="let item of viewPropertiesList">{{item.lable}}: {{item.value}}</mat-list-item>
-    </mat-list>
+  <div class="sb-meta-data-container sb-meta-data-row-facing">
+    <dl class="sb-meta-data sb-meta-d1 mb-0" *ngIf="data">
+      <ng-container *ngFor="let item of viewPropertiesList">
+        <dt>{{item.lable}}</dt>
+        <dd>{{item.value}}</dd>
+      </ng-container>
+    </dl>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close class="sb-btn sb-btn-normal sb-btn-outline-primary mb-16">Cancel</button>
 </mat-dialog-actions>

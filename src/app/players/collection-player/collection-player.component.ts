@@ -19,11 +19,12 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
 
   isLoading = true;
   isSelectChapter = false;
-  mimeTypeFilters = [{ text: "All", value: 'all' },
-  { text: "Video", value: 'video' },
-  { text: "Interactive", value: 'interactive' },
-  { text: "Docs", value: 'docs' }];
+  mimeTypeFilters = [{ text: 'All', value: 'all' },
+  { text: 'Video', value: 'video' },
+  { text: 'Interactive', value: 'interactive' },
+  { text: 'Docs', value: 'docs' }];
   videoMimeTypes = ['video/mp4', 'video/x-youtube', 'video/webm'];
+  // tslint:disable-next-line:max-line-length
   interactiveMimeTypes = ['application/vnd.ekstep.ecml-archive', 'application/vnd.ekstep.h5p-archive', 'application/vnd.ekstep.html-archive'];
   pdfMimeType = 'application/pdf';
   epubMimeType = 'application/epub';
@@ -31,7 +32,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   selectAll = false;
   isCopyAsCourseClicked = false;
   collectionData: any;
-  noContentMessage = "Content not added yet";
+  noContentMessage = 'Content not added yet';
   activeContent: any;
   isContentPresent = false;
   isFirstContentLoaded = false;
@@ -42,7 +43,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   showPlayer = false;
   treeModel: any;
   contentIdList = [];
-  subscription:any;
+  subscription: any;
   constructor(
     private helperService: HelperService,
     public route: ActivatedRoute,
@@ -54,7 +55,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
 
 
   openCollectionDetailsModel() {
-    this.dialog.open(CollectionDetailsModelComponent,{
+    this.dialog.open(CollectionDetailsModelComponent, {
       data: {
         collectionData: this.collectionData,
       },
@@ -62,17 +63,17 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   }
 
   openContentDetailsModel() {
-    this.dialog.open(ContentDetailsModelComponent,{
+    this.dialog.open(ContentDetailsModelComponent, {
       data: {
         activeContent: this.activeContent,
       },
     });
   }
-  
+
   ngOnInit(): void {
     this.activeMimeTypeFilter = ['all'];
     this.queryParams = this.route.snapshot.queryParams;
-    const collectionId = this.queryParams.collectionId || "KP_FT_1611083388567";
+    const collectionId = this.queryParams.collectionId || 'KP_FT_1611083388567';
     this.subscription = this.getCollectionHierarchy(collectionId).subscribe();
   }
 
@@ -99,8 +100,8 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   }
 
   callinitPlayer(event) {
-    
-    if(!(event.event instanceof PointerEvent) && this.isFirstContentLoaded) { 
+
+    if (!(event.event instanceof PointerEvent) && this.isFirstContentLoaded) {
       return;
     }
 
@@ -131,8 +132,8 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
         queryParams: { identifier: id },
         queryParamsHandling: 'merge'
       });
-      
-        this.showPlayer = true;
+
+    this.showPlayer = true;
     });
   }
 

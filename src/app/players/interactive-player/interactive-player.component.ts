@@ -24,7 +24,7 @@ export class InteractivePlayerComponent implements OnInit {
   isLoading = true;
   config: any;
   sidemenuConfig: any;
-  @Input() showPlayerOnly = false; 
+  @Input() showPlayerOnly = false;
 
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
 

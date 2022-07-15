@@ -7,14 +7,14 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./content-details-model.component.scss']
 })
 export class ContentDetailsModelComponent implements OnInit {
-  viewPropertiesList : any;
+  viewPropertiesList: any;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
    ngOnInit() {
     this.viewPropertiesList = [
-      {"lable": "Name", "value": this.data.activeContent.name},
-      {"lable": "Description", "value": this.data.activeContent.description},
-      {"lable": "License terms", "value": this.data.activeContent.license},
-      {"lable": "Compatibility Level", "value": this.data.activeContent.compatibilityLevel}
+      {lable: 'Name', value: this.data.activeContent.name},
+      {lable: 'Description', value: this.data.activeContent.description},
+      {lable: 'License terms', value: this.data.activeContent.license},
+      {lable: 'Compatibility Level', value: this.data.activeContent.compatibilityLevel}
     ];
    }
 
