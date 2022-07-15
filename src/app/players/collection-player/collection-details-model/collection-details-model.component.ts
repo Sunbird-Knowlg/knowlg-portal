@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { CollectionHierarchyAPI } from '../../interfaces/content.service';
+
 @Component({
   selector: 'app-collection-details-model',
   templateUrl: './collection-details-model.component.html',

@@ -32,6 +32,9 @@ export class VideoComponent implements OnInit {
     if (event?.edata?.type === 'SHARE') {
       this.share.emit(event);
     }
+    if (event.edata.type === 'END') {
+      this.configService.setMetaData(event);
+    }
   }
   telemetryEvent(event) {
     // todo for telemetry Event
@@ -89,6 +92,11 @@ export class VideoComponent implements OnInit {
   }
 
   loadContent() {
+    const metaData = this.configService.getMetaData();
+    for(let item in metaData) {
+      this.config[item] = metaData[item];
+    }
+    
     this.playerConfig = {
       context: this.context,
       config: this.config,
