@@ -3,6 +3,7 @@ import * as urlConfig from './url.config.json';
 import * as playerConfig from './player.config.json';
 import * as editorConfig from './editor.config.json';
 import * as labelConfig from './label.config.json';
+import { ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +13,32 @@ export class ConfigService {
   playerConfig = (playerConfig.default as any);
   editorConfig = (editorConfig.default as any);
   labelConfig = (labelConfig.default as any);
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute,) { }
 
   setConfigData(key, data){
     sessionStorage.setItem(key, data);
   }
+
+  getMetaDataKey() {
+    const contentId = this.activatedRoute.snapshot.queryParams?.identifier || 'default';
+    const collectionId = this.activatedRoute.snapshot.queryParams?.collectionId || contentId;
+    return `player_metadata_${collectionId}_${contentId}`
+  }
+
+  setMetaData(event) {  
+    const key = this.getMetaDataKey();
+    sessionStorage.setItem(key, JSON.stringify(event.metaData));
+  }
+
+  getMetaData() {
+    const key = this.getMetaDataKey();
+    const metaData = sessionStorage.getItem(key);
+    if (metaData) {
+      return JSON.parse(metaData);
+    }
+    return {};
+  }
+
   getConfigData(key){
     const configData =  JSON.parse(sessionStorage.getItem(key));
     if (key && configData){
