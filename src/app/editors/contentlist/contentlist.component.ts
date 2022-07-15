@@ -48,7 +48,10 @@ export class ContentlistComponent implements OnInit {
       req.request.filters  = {...req.request.filters, ...{createdBy: this.userData.userId}};
     } else if (_.get(this.userData, 'role') === 'reviewer'){
       req.request.filters  = {...req.request.filters, ...{createdBy: { '!=' :  this.userData.userId}}};
+    } else if (_.get(this.userData, 'role') === 'collaborator'){
+      req.request.filters  = {...req.request.filters, ...{collaborators: [this.userData.userId]}};
     }
+
     this.helperService.contentSearch(req)
       .subscribe((response) => {
         this.contentArray = _.get(response, 'result.content');
