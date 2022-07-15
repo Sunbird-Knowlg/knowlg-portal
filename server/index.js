@@ -136,6 +136,13 @@ app.post(routes.API.USERS, function (req, res) {
     });
     let reviewerResonse = responseUtils.successResponse(response)
     res.send(reviewerResonse);
+  } else if (roleType  == 'collaborator'){
+    response.result.users = envVariables.COLLABORATORS.filter(function(user){
+      delete user.userToken;
+      return user;
+    });
+    let reviewerResonse = responseUtils.successResponse(response)
+    res.send(reviewerResonse);
   } else {
     response.errCode = 400;
     response.errmsg = "Request should have the roleType";
