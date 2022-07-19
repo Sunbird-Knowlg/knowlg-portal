@@ -9,6 +9,6 @@ let envVariables = {
   USER_ROLE: env.knowlg_bb_portal_user_role, // should be like  "creator,reviewer,collaborator"
   CREATORS: env.knowlg_bb_portal_users_creator || [{userName:'Creator',userId:'123gjh313',channelId:'12345',userToken:'1233123123'}],
   REVIEWERS: env.knowlg_bb_portal_users_reviewer || [{userName:'Reviewer',userId:'123gjh313',channelId:'12345',userToken:'1233123123'}],
-  COLLABORATORS: env.knowlg_bb_portal_users_creator || "",
+  COLLABORATORS: env.knowlg_bb_portal_users_collaborator || [{userName:'Collaborator',userId:'123gjh313',channelId:'12345',userToken:'1233123123'}]
 }
 module.exports = envVariables;
