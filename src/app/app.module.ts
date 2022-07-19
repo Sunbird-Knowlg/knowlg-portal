@@ -54,8 +54,7 @@ import { ContentDetailsModelComponent } from './players/collection-player/conten
     SidebarComponent,
     CollectionPlayerComponent,
     CollectionDetailsModelComponent,
-    ContentDetailsModelComponent,
-    BasePlayerComponent
+    ContentDetailsModelComponent
   ],
   imports: [
     BrowserModule,
