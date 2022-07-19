@@ -219,7 +219,11 @@ app.use([
   proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
 })
 );
-app.use([routes.API.CONTENT.UPDATE, routes.API.CONTENT.REVIEW], proxy(BASE_URL, {
+app.use([
+  routes.API.CONTENT.UPDATE, 
+  routes.API.CONTENT.REVIEW,
+  routes.API.CONTENT.REJECT
+], proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
     let originalUrl = req.originalUrl.replace("/action/", "/api/");
