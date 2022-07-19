@@ -9,14 +9,16 @@ module.exports = {
            "UNLISTED_PUBLISH": "/action/content/v3/unlisted/publish/*",
            "REVIEW_COMMENTS": "/action/review/comment/v1/read/comment",
            "UPDATE": "/action/content/v3/update/*",
+           "REVIEW": "/action/content/v3/review/*",
+           "REJECT": "/action/content/v3/reject/*",
            "GENERAL": "/action/content/v3/*",
-           "COLLABORATOR_UPDATE" : "/action/content/v1/collaborator/update"
+           "COLLABORATOR_UPDATE" : "/action/content/v1/collaborator/update/*"
        },
        "DIALCODE": {
            "SEARCH": '/action/dialcode/v3/search'
        },
        "ASSET": {
-           "CREATE": 'action/asset/v1/create'
+           "CREATE": '/action/asset/v1/create'
        },
        "ASSESSMENT": "/action/assessment/v3/*",
        "CHANNEL": "/action/channel/v3/*",
