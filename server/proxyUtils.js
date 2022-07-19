@@ -20,7 +20,6 @@ const decoratePublicRequestHeaders = function () {
 const customDecorateReqHeaders = function () {
   return function (proxyReqOpts, srcReq) {
       proxyReqOpts.headers = Object.assign({}, proxyReqOpts.headers, publicRequestHeaders);
-      console.log(proxyReqOpts);
       return proxyReqOpts;
   }
 }
