@@ -44,7 +44,7 @@ app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
     originalUrl = originalUrl.replace("/v3/", "/v2/");
     return urlHelper.parse(originalUrl).path;
   },
-  proxyReqOptDecorator: proxyUtils.decoratePublicRequestHeaders()
+  proxyReqOptDecorator: proxyUtils.customDecorateReqHeaders()
 })
 );
 
