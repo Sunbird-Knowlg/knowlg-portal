@@ -18,7 +18,7 @@ import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml
 import { QuestionCursorImplementationService } from './services/question-cursor-implementation.service';
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
-import {HelperService} from './services/helper/helper.service';
+import { HelperService } from './services/helper/helper.service';
 import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
 import { UserComponent } from './editors/user/user.component';
 import { RoleComponent } from './editors/role/role.component';
@@ -27,14 +27,13 @@ import { SnPopupComponent } from './sn-popup/sn-popup.component';
 import { SidebarComponent } from './players/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {SessionInterceptor} from './interceptor/sessionInterceptor';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SessionInterceptor } from './interceptor/sessionInterceptor';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 import { CommonConsumptionModule} from '@project-sunbird/common-consumption-v9';
 import { CollectionDetailsModelComponent } from './players/collection-player/collection-details-model/collection-details-model.component';
 import {MatListModule} from '@angular/material/list';
 import { ContentDetailsModelComponent } from './players/collection-player/content-details-model/content-details-model.component';
-import { BasePlayerComponent } from './players/base-player/base-player.component'
 
 @NgModule({
   declarations: [
@@ -79,8 +78,8 @@ import { BasePlayerComponent } from './players/base-player/base-player.component
     useClass: QuestionCursorImplementationService,
   },
   { provide: HTTP_INTERCEPTORS, useClass: SessionInterceptor, multi: true },
-  HelperService,
-],
+    HelperService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

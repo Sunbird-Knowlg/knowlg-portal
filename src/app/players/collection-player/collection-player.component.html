@@ -3,7 +3,7 @@
     <button type="button" routerLink=".." class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round sb-btn-round--notext"
     tabindex="0"><i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary"><use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use></svg></i><span>Back</span></button>
 
-    <div class="textbook d-flex flex-ai-center w-100 ml-16">
+    <div class="textbook d-flex flex-ai-center w-100 ml-16 mt-16">
         <div class="textbook__details d-flex flex-ai-center">
             <div class="textbook__bookimg"> <img [src]="collectionData?.appIcon" alt="{{collectionData?.name}}" onerror="this.onerror=null;this.src='assets/images/book.png';" /></div>
             <div class="ml-8 textbook__heading">
@@ -39,7 +39,7 @@
                                 <app-interactive-player [showPlayerOnly]="true" *ngIf="isActiveContentInteractiveType()" ></app-interactive-player>
                             </div>
                         </div>
-                        <div class="textbook d-flex flex-ai-center w-100 ml-16">
+                        <div class="textbook d-flex flex-ai-center w-100 ml-16 mt-16">
                             <div class="textbook__details d-flex flex-ai-center">
                                 <div class="ml-8 textbook__heading">
                                     <h5 class="textbook__title sb-color-primary font-weight-bold mb-0" tabindex="0">{{activeContent?.name}}</h5>

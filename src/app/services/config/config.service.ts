@@ -13,7 +13,7 @@ export class ConfigService {
   playerConfig = (playerConfig.default as any);
   editorConfig = (editorConfig.default as any);
   labelConfig = (labelConfig.default as any);
-  constructor(private activatedRoute: ActivatedRoute,) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   setConfigData(key, data){
     sessionStorage.setItem(key, data);
@@ -22,10 +22,10 @@ export class ConfigService {
   getMetaDataKey() {
     const contentId = this.activatedRoute.snapshot.queryParams?.identifier || 'default';
     const collectionId = this.activatedRoute.snapshot.queryParams?.collectionId || contentId;
-    return `player_metadata_${collectionId}_${contentId}`
+    return `player_metadata_${collectionId}_${contentId}`;
   }
 
-  setMetaData(event) {  
+  setMetaData(event) {
     const key = this.getMetaDataKey();
     sessionStorage.setItem(key, JSON.stringify(event.metaData));
   }

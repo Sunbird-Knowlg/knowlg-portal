@@ -23,7 +23,7 @@ export class EpubComponent implements OnInit {
   context =  this.configService.playerConfig.PLAYER_CONTEXT;
   config: any;
   sidemenuConfig: any;
-  @Input() showPlayerOnly = false; 
+  @Input() showPlayerOnly = false;
   @Output() share = new EventEmitter();
 
   ngOnInit(): void {
@@ -56,7 +56,8 @@ export class EpubComponent implements OnInit {
 
   loadDefaultData(){
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    // tslint:disable-next-line:forin
+    for (const item in metaData) {
       this.config[item] = metaData[item];
     }
     this.playerConfig = {
@@ -83,7 +84,8 @@ export class EpubComponent implements OnInit {
 
   loadContent() {
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    // tslint:disable-next-line:forin
+    for (const item in metaData) {
       this.config[item] = metaData[item];
     }
 
