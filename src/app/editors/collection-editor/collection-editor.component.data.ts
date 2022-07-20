@@ -131,17 +131,6 @@ export const mockData = {
                 name: 'Name',
                 inputType: 'text',
                 placeholder: 'Name',
-                validations: [
-                  {
-                    type: 'maxLength',
-                    value: '50',
-                    message: 'Input is Exceeded'
-                  },
-                  {
-                    type: 'required',
-                    message: 'Name is required'
-                  }
-                ]
               }
             ]
           },
@@ -166,17 +155,6 @@ export const mockData = {
                     },
                     required: true,
                     visible: true,
-                    validations: [
-                      {
-                        type: 'maxLength',
-                        value: '120',
-                        message: 'Input is Exceeded'
-                      },
-                      {
-                        type: 'required',
-                        message: 'Title is required'
-                      }
-                    ]
                   }
                 ]
               }
