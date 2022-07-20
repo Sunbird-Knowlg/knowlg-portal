@@ -36,7 +36,7 @@ describe('CollectionEditorComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CollectionEditorComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {
