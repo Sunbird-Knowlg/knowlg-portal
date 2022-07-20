@@ -11,7 +11,7 @@ class RouterStub {
 const mockActivatedRoute = {
   snapshot: {
     queryParams: {
-      identifier: 'do_21247940906829414411032',
+      identifier: 'do_21358476305801216017',
     }
   }
 };
