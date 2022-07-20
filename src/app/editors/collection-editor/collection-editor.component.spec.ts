@@ -55,7 +55,7 @@ describe('CollectionEditorComponent', () => {
     expect(component.userData).toBeDefined();
     expect(component.queryParams.identifier).toBeDefined();
   });
-  it('#ngOnDestroy should call and set null value to editorConfig', () => {
+  it('#ngOnDestroy should set null value to editorConfig', () => {
     component.ngOnDestroy();
     expect(component.editorConfig).toBe(null);
   });
