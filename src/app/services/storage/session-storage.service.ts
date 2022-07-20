@@ -11,7 +11,7 @@ export class SessionStorageService implements Storage {
   }
 
   write(key: string, value: string): void {
-    return sessionStorage.setItem(key, value);  
+    return sessionStorage.setItem(key, value);
   }
 
   delete(key: string) {

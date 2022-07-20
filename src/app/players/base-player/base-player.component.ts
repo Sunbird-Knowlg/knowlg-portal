@@ -12,14 +12,14 @@ export class BasePlayerComponent  {
 
   playerConfig: any;
   isLoading = true;
-  
+
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private helperService: HelperService,
     private configService: ConfigService
   ) { }
-  
+
 
 
 
