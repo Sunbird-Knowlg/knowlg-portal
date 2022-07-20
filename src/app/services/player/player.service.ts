@@ -10,6 +10,6 @@ export class PlayerService {
   constructor(private helperService: HelperService) { }
 
   getContent(contentId: string, option: any = { params: {} }): Observable<any> {
-    return this.getContent(contentId, option);
+    return this.helperService.getContent(contentId, option);
   }
 }

@@ -13,7 +13,7 @@ export class ConfigService {
   playerConfig = (playerConfig.default as any);
   editorConfig = (editorConfig.default as any);
   labelConfig = (labelConfig.default as any);
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(public activatedRoute: ActivatedRoute) { }
 
   setConfigData(key, data){
     sessionStorage.setItem(key, data);

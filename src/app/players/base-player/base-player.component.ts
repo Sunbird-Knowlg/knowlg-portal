@@ -15,12 +15,5 @@ export class BasePlayerComponent  {
 
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private helperService: HelperService,
-    private configService: ConfigService
   ) { }
-
-
-
-
 }
