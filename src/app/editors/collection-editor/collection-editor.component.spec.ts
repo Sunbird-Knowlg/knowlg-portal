@@ -55,10 +55,6 @@ describe('CollectionEditorComponent', () => {
     expect(component.userData).toBeDefined();
     expect(component.queryParams.identifier).toBeDefined();
   });
-  it('#ngOnDestroy should set null value to editorConfig', () => {
-    component.ngOnDestroy();
-    expect(component.editorConfig).toBe(null);
-  });
   it('#getEditorMode should call and get content status for review case', () => {
     component.content = { status: 'review' };
     const contentStatus = component.getEditorMode();
@@ -91,12 +87,6 @@ describe('CollectionEditorComponent', () => {
     response.subscribe(data => {
       expect(data).toBe(mockData.contentRead.result.content);
     });
-  });
-  it('#getPrimaryCategoryData should call and return children data', () => {
-    const childrenData = mockData.childrenData;
-    component.channelData = mockData.channelData;
-    const response = component.getPrimaryCategoryData(childrenData);
-    expect(response.Content).toEqual('123');
   });
   it('#setHierarchyConfig should call and set editor config details', () => {
     spyOn(component, 'setEditorConfig').and.callThrough();
