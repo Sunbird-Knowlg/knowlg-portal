@@ -79,12 +79,12 @@ describe('ContentlistComponent', () => {
     const helperService: HelperService = TestBed.inject(HelperService);
     const createContentRes = {
       result: {
-        identifier: 'do_1233'
+        content_id: 'do_1233'
       }
     };
     spyOn(helperService, 'createContent').and.callFake(() => of(createContentRes));
     component.createContent();
-    expect(component.openContent).toHaveBeenCalledWith(createContentRes.result.identifier);
+    expect(component.openContent).toHaveBeenCalledWith(createContentRes.result.content_id);
   });
 
   it('#openContent() should navigate to collection editor', () => {

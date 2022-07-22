@@ -163,7 +163,6 @@ app.post(routes.API.USERS, function (req, res) {
  */
 app.use([
   routes.API.ASSESSMENT,
-  routes.API.CONTENT.CREATE,
   routes.API.CONTENT.BUNDLE,
   routes.API.CONTENT.UNLISTED_PUBLISH,
   routes.API.CONTENT.REVIEW_COMMENTS,
@@ -204,6 +203,7 @@ app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
  * @param  {function req} proxyReqPathResolver
  */
 app.use([
+  routes.API.CONTENT.CREATE,
   routes.API.BUNDLE,
   routes.API.ITEMS_CREATE,
   routes.API.ITEMS_UPDATE,
