@@ -15,35 +15,35 @@ export class BasePlayerComponent implements OnDestroy {
   playerSettingconfig: any;
   private subscription: Subscription;
   private identifierChangeSubscription: Subscription;
-  @Input() showPlayerOnly = false; 
+  @Input() showPlayerOnly = false;
   @Output() share = new EventEmitter();
-  
-  constructor(public configService: ConfigService, public playerService: PlayerService) { 
+
+  constructor(public configService: ConfigService, public playerService: PlayerService) {
     this.playerService.contentChangeObservable.subscribe( (identifier: string) => {
       this.getContentDetails(identifier);
-    })
+    });
   }
-  
+
 
   public getContentDetails(identifier: string) {
       const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
       this.subscription = this.playerService.getContent(identifier, options)
       .subscribe((data) => {
-        this.loadContent(data.result.content)
+        this.loadContent(data.result.content);
         this.isLoading = false;
       });
   }
 
-  private loadContent(content : any) {
+  private loadContent(content: any) {
     const metaData = this.configService.getMetaData();
-    for(let item in metaData) {
+    for (const item in metaData) {
       this.playerSettingconfig[item] = metaData[item];
     }
 
     this.playerConfig = {
       context: this.configService.playerConfig.PLAYER_CONTEXT,
       config: this.playerSettingconfig,
-      metadata: content 
+      metadata: content
     };
   }
 
