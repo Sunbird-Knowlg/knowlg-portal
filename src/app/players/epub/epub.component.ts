@@ -1,111 +1,38 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
-import { first, mergeMap, tap } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
+import { BasePlayerComponent } from '../base-player/base-player.component';
+import { PlayerService } from 'src/app/services/player/player.service';
 @Component({
   selector: 'app-epub',
   templateUrl: './epub.component.html',
   styleUrls: ['./epub.component.scss']
 })
-export class EpubComponent implements OnInit {
+export class EpubComponent extends BasePlayerComponent {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private helperService: HelperService,
-    private configService: ConfigService
-  ) { }
+    public configService: ConfigService,
+    public playerService: PlayerService
+  ) {
+    super(configService, playerService)
+   }
   public queryParams: any;
-  public contentDetails: any;
-  playerConfig: any;
-  isLoading = true;
-  context =  this.configService.playerConfig.PLAYER_CONTEXT;
-  config: any;
   sidemenuConfig: any;
-  @Input() showPlayerOnly = false;
-  @Output() share = new EventEmitter();
 
   ngOnInit(): void {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
     this.setConfig();
-    this.getContentDetails().pipe(first(),
-      tap((data: any) => {
-        if (this.contentDetails){
-          this.loadContent();
-        }else{
-          this.loadDefaultData();
-        }
-      }))
-      .subscribe((data) => {
-        this.isLoading = false;
-      },
-        (error) => {
-          this.isLoading = false;
-          alert('Error to load epub, Loading default epub');
-          this.loadDefaultData();
-          console.log('error --->', error);
-        }
-      );
+    // LoadContent
+    this.getContentDetails("do_21312960731822489612047");
+
+    // listen for changes in the route with service
   }
 
   setConfig(){
-    this.config = this.configService.getConfigData('epubConfig');
-    this.sidemenuConfig = this.config?.sideMenu;
+    this.playerSettingconfig = this.configService.getConfigData('epubConfig');
+    this.sidemenuConfig = this.playerSettingconfig?.sideMenu;
   }
 
-  loadDefaultData(){
-    const metaData = this.configService.getMetaData();
-    // tslint:disable-next-line:forin
-    for (const item in metaData) {
-      this.config[item] = metaData[item];
-    }
-    this.playerConfig = {
-      context: this.context,
-      config: this.config,
-      metadata: this.configService.playerConfig.EPUB_PLAYER_METADATA
-    } ;
-  }
-
-  private getContentDetails() {
-    if (this.queryParams.identifier) {
-      const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
-      return this.helperService.getContent(this.queryParams.identifier, options).
-        pipe(mergeMap((data) => {
-          if (data){
-            this.contentDetails = data.result.content;
-          }
-          return of(data);
-        }));
-    } else {
-      return of({});
-    }
-  }
-
-  loadContent() {
-    const metaData = this.configService.getMetaData();
-    // tslint:disable-next-line:forin
-    for (const item in metaData) {
-      this.config[item] = metaData[item];
-    }
-
-    this.playerConfig = {
-      context: this.context,
-      config: this.config,
-      metadata: this.contentDetails
-    };
-  }
-
-  playerEvents(event) {
-    if (event.edata.type === 'SHARE') {
-      this.share.emit(event);
-    }
-    if (event.edata.type === 'END') {
-      this.configService.setMetaData(event);
-    }
-  }
-
-  playerTelemetryEvents(event) {
-
-  }
 }
