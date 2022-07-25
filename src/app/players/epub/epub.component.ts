@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
@@ -9,14 +9,14 @@ import { PlayerService } from 'src/app/services/player/player.service';
   templateUrl: './epub.component.html',
   styleUrls: ['./epub.component.scss']
 })
-export class EpubComponent extends BasePlayerComponent {
+export class EpubComponent extends BasePlayerComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
     public configService: ConfigService,
     public playerService: PlayerService
   ) {
-    super(configService, playerService)
+    super(configService, playerService);
    }
   public queryParams: any;
   sidemenuConfig: any;
@@ -25,7 +25,7 @@ export class EpubComponent extends BasePlayerComponent {
     this.queryParams = this.activatedRoute.snapshot.queryParams;
     this.setConfig();
     // LoadContent
-    this.getContentDetails("do_21312960731822489612047");
+    this.getContentDetails('do_21312960731822489612047');
 
     // listen for changes in the route with service
   }

@@ -36,9 +36,13 @@ export class BasePlayerComponent implements OnDestroy {
 
   private loadContent(content: any) {
     const metaData = this.configService.getMetaData();
+
     for (const item in metaData) {
-      this.playerSettingconfig[item] = metaData[item];
-    }
+        if (item) {
+          this.playerSettingconfig[item] = metaData[item];
+        }
+      }
+
 
     this.playerConfig = {
       context: this.configService.playerConfig.PLAYER_CONTEXT,
