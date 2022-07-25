@@ -14,10 +14,15 @@ export class BasePlayerComponent implements OnDestroy {
   isLoading = true;
   playerSettingconfig: any;
   private subscription: Subscription;
+  private identifierChangeSubscription: Subscription;
   @Input() showPlayerOnly = false; 
   @Output() share = new EventEmitter();
   
-  constructor(public configService: ConfigService, public playerService: PlayerService) { }
+  constructor(public configService: ConfigService, public playerService: PlayerService) { 
+    this.playerService.contentChangeObservable.subscribe( (identifier: string) => {
+      this.getContentDetails(identifier);
+    })
+  }
   
 
   public getContentDetails(identifier: string) {
@@ -56,7 +61,8 @@ export class BasePlayerComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-      this.subscription.unsubscribe()
+      this.subscription.unsubscribe();
+      this.identifierChangeSubscription.unsubscribe();
   }
 
 }

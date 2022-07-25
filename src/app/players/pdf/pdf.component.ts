@@ -29,8 +29,6 @@ export class PdfComponent extends BasePlayerComponent {
     this.setConfig();
     // LoadContent
     this.getContentDetails("do_11348995249825382411");
-
-    // listen for changes in the route with service
   }
 
   setConfig(){
