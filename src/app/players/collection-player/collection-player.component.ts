@@ -96,7 +96,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   }
 
   tocCardClickHandler(event) {
-      this.callinitPlayer(event, );
+    this.callinitPlayer(event, );
   }
 
   callinitPlayer(event) {
@@ -105,7 +105,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
       return;
     }
 
-    if (event.data.identifier !== _.get(this.activeContent, 'identifier') ) {
+    if (event.data.identifier !== _.get(this.activeContent, 'identifier')) {
       this.isContentPresent = true;
       this.isFirstContentLoaded = true;
       this.activeContent = event.data;
@@ -125,15 +125,15 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
     // Navigate to the route to start the player
     this.showPlayer = false;
     setTimeout(() => {
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.route,
-        queryParams: { identifier: id },
-        queryParamsHandling: 'merge'
-      });
+      this.router.navigate(
+        [],
+        {
+          relativeTo: this.route,
+          queryParams: { identifier: id },
+          queryParamsHandling: 'merge'
+        });
 
-    this.showPlayer = true;
+      this.showPlayer = true;
     });
   }
 
