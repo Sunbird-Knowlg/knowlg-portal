@@ -19,7 +19,7 @@ export class BasePlayerComponent implements OnDestroy {
   @Output() share = new EventEmitter();
 
   constructor(public configService: ConfigService, public playerService: PlayerService) {
-    this.playerService.contentChangeObservable.subscribe( (identifier: string) => {
+    this.identifierChangeSubscription = this.playerService.contentChangeObservable.subscribe( (identifier: string) => {
       this.getContentDetails(identifier);
     });
   }
@@ -52,10 +52,10 @@ export class BasePlayerComponent implements OnDestroy {
   }
 
   playerEvents(event) {
-    if (event.edata.type === 'SHARE') {
+    if (event?.edata?.type === 'SHARE') {
       this.share.emit(event);
     }
-    if (event.edata.type === 'END') {
+    if (event?.edata?.type === 'END') {
       this.configService.setMetaData(event);
     }
   }

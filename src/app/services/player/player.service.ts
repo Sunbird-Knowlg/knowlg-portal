@@ -18,12 +18,14 @@ export class PlayerService {
     private configService: ConfigService,
     private activatedRoute: ActivatedRoute
     ) {
-    this.defaultContentDataMap['do_11348995249825382411'] = this.configService.playerConfig.PDF_PLAYER_METADATA;
-    this.defaultContentDataMap['do_21312960731822489612047'] = this.configService.playerConfig.EPUB_PLAYER_METADATA;
-    this.defaultContentDataMap['do_31309320735055872011111'] = this.configService.playerConfig.VIDEO_PLAYER_METADATA;
-    this.identifier$ = new Subject<string>();
-    this.contentChangeObservable = this.identifier$.asObservable();
-    this.activatedRoute.paramMap.subscribe(params => {
+      this.defaultContentDataMap =  {
+        do_11348995249825382411: this.configService.playerConfig.PDF_PLAYER_METADATA,
+        do_21312960731822489612047: this.configService.playerConfig.EPUB_PLAYER_METADATA,
+        do_31309320735055872011111: this.configService.playerConfig.VIDEO_PLAYER_METADATA
+      };
+      this.identifier$ = new Subject<string>();
+      this.contentChangeObservable = this.identifier$.asObservable();
+      this.activatedRoute.paramMap.subscribe(params => {
       this.identifier$.next(params.get('identifier'));
     });
   }
