@@ -1,8 +1,8 @@
 'use strict'
 const env = process.env
 let envVariables = {
-  BASE_URL: env.knowlg_bb_portal_base_url || 'dev.sunbirded.org',
-  API_AUTH_TOKEN: env.knowlg_bb_portal_api_auth_token || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlNmI4Nzg2MmVmNjg0MWU0OWE5YzM5MGEzOTZmNTk0NyJ9.WkIHjIn77-OkC48a3KresX5Bh21RtlwHobTWUDVPEsQ",
+  BASE_URL: env.knowlg_bb_portal_base_url || 'dev.knowlg.sunbird.org',
+  API_AUTH_TOKEN: env.knowlg_bb_portal_api_auth_token || "",
   USER_API_TOKEN: env.knowlg_bb_portal_user_api_token || "",
   CHANNEL_ID: env.knowlg_bb_portal_channel_id || "",
   USER_ID: env.knowlg_bb_portal_user_id || "",
