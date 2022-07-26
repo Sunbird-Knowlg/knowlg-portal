@@ -5,10 +5,20 @@ import { of as observableOf, of } from 'rxjs';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 import { HelperService } from 'src/app/services/helper/helper.service';
+import { ConfigService } from '../../services/config/config.service';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
-
+const configServiceData = {
+  CONTENT_TYPES: {
+    collection: {
+      mimeType: 'application/vnd.ekstep.content-collection',
+      editor: 'collection-editor',
+      resourceType: 'Book',
+      contentType: 'TextBook'
+    }
+  }
+};
 const fakeActivatedRoute = {
   params: observableOf({ page: 'collection-editor' })
 };
@@ -25,7 +35,7 @@ describe('ContentlistComponent', () => {
         HttpClient,
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: fakeActivatedRoute },
-        LocalStorageService, HelperService
+        LocalStorageService, HelperService, ConfigService
       ]
     })
       .compileComponents();
@@ -35,7 +45,7 @@ describe('ContentlistComponent', () => {
     localStorage.setItem('type', JSON.stringify('collection'));
     fixture = TestBed.createComponent(ContentlistComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    // fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -50,10 +60,9 @@ describe('ContentlistComponent', () => {
   });
 
   it('#goBack() should navigate to "editors" page', () => {
-    spyOn(component, 'contentSearch').and.callThrough();
-    component.ngOnInit();
-    expect(component.editorType).toBe('collection');
-    expect(component.contentSearch).toHaveBeenCalled();
+    const router = TestBed.inject(Router);
+    component.goBack();
+    expect(router.navigate).toHaveBeenCalledWith(['/editors/']);
   });
 
   it('#contentSearch() should fetch the contents', () => {
@@ -84,11 +93,12 @@ describe('ContentlistComponent', () => {
     };
     spyOn(helperService, 'createContent').and.callFake(() => of(createContentRes));
     component.createContent();
-    expect(component.openContent).toHaveBeenCalledWith(createContentRes.result.content_id);
+    expect(component.openContent).toHaveBeenCalled();
   });
 
   it('#openContent() should navigate to collection editor', () => {
     const router = TestBed.inject(Router);
+    component.editorType = 'collection';
     component.openContent('do_123');
     expect(router.navigate).toHaveBeenCalledWith(['/editors/collection-editor'], { queryParams: { identifier: 'do_123' } });
   });

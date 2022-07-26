@@ -32,7 +32,7 @@ export class ContentlistComponent implements OnInit {
       request: {
         filters: {
           status: this.configService.editorConfig[_.get(this.userData, 'role')],
-          mimeType: this.configService.editorConfig.CONTENT_TYPES[this.editorType].mimeType,
+          mimeType: _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'mimeType'),
           objectType: 'Content',
           channel: _.get(this.userData, 'channelId'),
         },
@@ -88,7 +88,7 @@ export class ContentlistComponent implements OnInit {
   }
 
   openContent(identifier?: string) {
-    const editorType = this.configService.editorConfig.CONTENT_TYPES[this.editorType].editor;
+    const editorType = _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor');
     this.router.navigate(['/editors/' + editorType], { queryParams: { identifier} });
   }
 

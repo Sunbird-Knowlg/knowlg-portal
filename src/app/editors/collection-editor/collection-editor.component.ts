@@ -27,7 +27,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   }
 
   initialize() {
-    this.getContentDetails(this.queryParams.identifier).pipe(map(content => {
+    this.getContentDetails(_.get(this.queryParams, 'identifier')).pipe(map(content => {
       this.content = content;
       return content;
     }), mergeMap(contentData => {
@@ -60,7 +60,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   }
 
   getFrameWorkDetails(): Observable<any> {
-    return this.helperService.getCategoryDefinition('Collection', this.content.primaryCategory, this.content.channel)
+    return this.helperService.getCategoryDefinition('Collection', _.get(this.content, 'primaryCategory'), _.get(this.content, 'channel'))
     .pipe(map(response => {
       return _.get(response, 'result.objectCategoryDefinition');
     }));
@@ -106,11 +106,11 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
 
   setEditorConfig() {
     // tslint:disable-next-line:max-line-length
-    const additionalCategory = _.merge(this.channelData.contentAdditionalCategories, this.channelData.collectionAdditionalCategories);
+    const additionalCategory = _.merge(_.get(this.channelData, 'contentAdditionalCategories'), _.get(this.channelData, 'collectionAdditionalCategories'));
     this.editorConfig = {
       context: {
-        identifier: this.content.identifier,
-        channel: this.content.channel,
+        identifier: _.get(this.content, 'identifier'),
+        channel: _.get(this.content, 'channel'),
         authToken: '',
         sid: 'vLpZ1rFl6-sxMVHi4RrmrlHw0HsX9ggC',
         did: '1d8e290dd3c2a6a9eeac58568cdef28d',
@@ -164,7 +164,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   }
 
   getEditorMode() {
-    const contentStatus = this.content.status.toLowerCase();
+    const contentStatus = _.toLower(_.get(this.content, 'status'));
     if (contentStatus === 'draft' || contentStatus === 'live' || contentStatus === 'flagdraft'
       || contentStatus === 'unlisted') {
       return 'edit';
