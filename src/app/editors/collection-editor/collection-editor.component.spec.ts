@@ -60,4 +60,16 @@ describe('CollectionEditorComponent', () => {
     expect(component.userData).toBeDefined();
     expect(component.queryParams.identifier).toBeDefined();
   });
+  it('#getEditorMode should call and get content status for review case', () => {
+    component.content = { status: 'review' };
+    const contentStatus = component.getEditorMode();
+    expect(contentStatus).toBe('review');
+  });
+  it('#setHierarchyConfig should call and set editor config details', () => {
+    spyOn(component, 'setEditorConfig').and.callThrough();
+    spyOn(component, 'getPrimaryCategoryData').and.callThrough();
+    component.setHierarchyConfig(mockData.objectMetadata);
+    expect(component.setEditorConfig).toHaveBeenCalled();
+    expect(component.editorConfig).toBeDefined();
+  });
 });
