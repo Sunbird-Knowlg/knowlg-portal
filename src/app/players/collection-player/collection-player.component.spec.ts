@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CollectionPlayerComponent } from './collection-player.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('CollectionPlayerComponent', () => {
   let component: CollectionPlayerComponent;
@@ -21,8 +21,8 @@ describe('CollectionPlayerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientModule, MatDialogModule],
-      declarations: [ CollectionPlayerComponent ],
+      imports: [HttpClientModule, MatDialogModule, BrowserAnimationsModule],
+      declarations: [CollectionPlayerComponent],
       providers: [
         HttpClient, { provide: ActivatedRoute, useValue: mockActivatedRoute },
         { provide: Router, useClass: RouterStub }]
