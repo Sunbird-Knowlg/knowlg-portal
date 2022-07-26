@@ -72,11 +72,12 @@ describe('CollectionEditorComponent', () => {
     expect(component.setEditorConfig).toHaveBeenCalled();
     expect(component.editorConfig).toBeDefined();
   });
-  it('#getContentDetails should call and get content details for success api response', () => {
-    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of({ result: mockData.contentRead.result }));
-    const response = component.getContentDetails('do_11357573655467622411178');
+  it('#getFrameWorkDetails should call and get CategoryDefinition details for success api response', () => {
+    component.content = { primaryCategory: 'abc', channel: '123' };
+    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of({ result: mockData.objectCategoryDefinition.result }));
+    const response = component.getFrameWorkDetails();
     response.subscribe(data => {
-      expect(data).toBe(mockData.contentRead.result.content);
+      expect(data).toBe(mockData.objectCategoryDefinition.result.objectCategoryDefinition);
     });
   });
 });
