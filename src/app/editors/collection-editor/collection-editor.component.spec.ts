@@ -72,4 +72,11 @@ describe('CollectionEditorComponent', () => {
     expect(component.setEditorConfig).toHaveBeenCalled();
     expect(component.editorConfig).toBeDefined();
   });
+  it('#getContentDetails should call and get content details for success api response', () => {
+    spyOn(component.helperService, 'getCategoryDefinition').and.callFake(() => of({ result: mockData.contentRead.result }));
+    const response = component.getContentDetails('do_11357573655467622411178');
+    response.subscribe(data => {
+      expect(data).toBe(mockData.contentRead.result.content);
+    });
+  });
 });
