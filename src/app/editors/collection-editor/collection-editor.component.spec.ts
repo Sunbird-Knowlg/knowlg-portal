@@ -80,4 +80,12 @@ describe('CollectionEditorComponent', () => {
       expect(data).toBe(mockData.objectCategoryDefinition.result.objectCategoryDefinition);
     });
   });
+  it('#getChannel should call  method and get channel details for success api response', () => {
+    spyOn(component.helperService, 'getChannel').and.callFake(() => of({ result: mockData.channel.result }));
+    const response = component.getChannel('01309282781705830427');
+    response.subscribe(data => {
+      expect(data).toBe(mockData.channel.result.channel);
+      expect(data.code).toBe('01309282781705830427');
+    });
+  });
 });
