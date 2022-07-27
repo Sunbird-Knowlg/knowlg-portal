@@ -36,7 +36,7 @@ app.post([routes.API.CONTENT.UPLOAD_URL], proxy(BASE_URL, {
 })
 );
 
-app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
+app.post([routes.API.CONTENT.UPLOAD, routes.API.ASSET.UPLAOD, routes.API.COLLECTION.IMPORT], proxy(BASE_URL, {
   https: true,
   parseReqBody: false,
   proxyReqPathResolver: function (req) {
@@ -48,7 +48,7 @@ app.post([routes.API.CONTENT.UPLOAD], proxy(BASE_URL, {
 })
 );
 
-app.use([routes.API.DIALCODE.SEARCH, routes.API.ASSET.CREATE], proxy(BASE_URL, {
+app.use([routes.API.DIALCODE.SEARCH, routes.API.DIALCODE.LINK, routes.API.ASSET.CREATE], proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
     let originalUrl = req.originalUrl.replace("/action/", "/api/");

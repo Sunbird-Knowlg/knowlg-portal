@@ -105,7 +105,7 @@
         "01309282781705830427"
       ],
       "channel": "01309282781705830427",
-      "framework": "ekstep_ncert_k-12",
+      "framework": "test_jp_k-12",
       "ownershipType": ["createdBy", "createdFor"],
       "timeDiff": -280.363,
       "uid": "5a587cc1-e018-4859-a0a8-e842650b9d64",
@@ -191,7 +191,7 @@
       ],
       "channel": "01309282781705830427",
       "env": "generic-editor",
-      "framework": "ekstep_ncert_k-12",
+      "framework": "test_jp_k-12",
       "ownershipType": ["createdBy", "createdFor"],
       "timeDiff": -0.638,
       "primaryCategories": [

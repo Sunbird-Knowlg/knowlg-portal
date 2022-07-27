@@ -8,17 +8,20 @@ import * as _ from 'lodash-es';
 })
 export class SessionInterceptor implements HttpInterceptor {
   localStorage: LocalStorageService;
+  public skipHeaders: string[] = ['https://sunbirdstagingpublic.blob.core.windows.net'];
   constructor() {
     this.localStorage = localStorage;
   }
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(req: any, next: HttpHandler): Observable<HttpEvent<any>> {
+    const found = this.skipHeaders.find(url => req.url.includes(url)); // Skip headers
+    if (found) { return next.handle(req); }
+
     const userId = _.get(JSON.parse(localStorage.getItem('userData')), 'userId');
     if (userId) {
       return next.handle(req.clone({
         headers: req.headers.set('x-user-id', userId),
       }));
-    } else {
-      return next.handle(req);
     }
+    return next.handle(req);
   }
 }

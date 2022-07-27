@@ -74,7 +74,7 @@ export const mockData = {
         name: 'NIT123',
         defaultCourseFramework: 'TPD',
         status: 'Live',
-        defaultFramework: 'ekstep_ncert_k-12'
+        defaultFramework: 'test_jp_k-12'
       }
     }
   },
