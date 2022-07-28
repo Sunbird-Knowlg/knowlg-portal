@@ -14,11 +14,16 @@ module.exports = {
            "GENERAL": "/action/content/v3/*",
            "COLLABORATOR_UPDATE" : "/action/content/v1/collaborator/update/*"
        },
+       "COLLECTION": {
+            "IMPORT" : "/action/collection/v1/import/*"
+       },
        "DIALCODE": {
-           "SEARCH": '/action/dialcode/v3/search'
+           "SEARCH": '/action/dialcode/v3/search',
+           "LINK": '/action/collection/v3/dialcode/link/*'
        },
        "ASSET": {
-           "CREATE": '/action/asset/v1/create'
+           "CREATE": '/action/asset/v1/create',
+           "UPLAOD": '/action/asset/v1/upload/*'
        },
        "ASSESSMENT": "/action/assessment/v3/*",
        "CHANNEL": "/action/channel/v3/*",
