@@ -7,8 +7,13 @@ let envVariables = {
   CHANNEL_ID: env.knowlg_bb_portal_channel_id || "",
   USER_ID: env.knowlg_bb_portal_user_id || "",
   USER_ROLE: env.knowlg_bb_portal_user_role, // should be like  "creator,reviewer,collaborator"
-  CREATORS: env.knowlg_bb_portal_users_creator || [{userName:'Creator',userId:'123gjh313',channelId:'12345',userToken:'1233123123'}],
-  REVIEWERS: env.knowlg_bb_portal_users_reviewer || [{userName:'Reviewer',userId:'123gjh313',channelId:'12345',userToken:'1233123123'}],
-  COLLABORATORS: env.knowlg_bb_portal_users_collaborator || [{userName:'Collaborator',userId:'123gjh313',channelId:'12345',userToken:'1233123123'}]
+  CREATORS: [{userName:'N11',userId:'5a587cc1-e018-4859-a0a8-e842650b9d64',channelId:'01309282781705830427'}],
+  REVIEWERS: [{userName:'N150',userId:'ae94b68c-a535-4dce-8e7a-fb9662b0ad68',channelId:'01309282781705830427'}],
+  COLLABORATORS: [
+    {userName:'Collaborator 1',userId:'8a342db2-c512-476d-9c78-113b09420534',channelId:'01309282781705830427'},
+    {userName:'Collaborator 2',userId:'a1e9ac3b-3c17-44da-8068-f735ba914bbc',channelId:'01309282781705830427'},
+    {userName:'Collaborator 3',userId:'e8f5bd4d-84be-4280-b8ad-8ce259d47f7c',channelId:'01309282781705830427'},
+    {userName:'Collaborator 3',userId:'d5ca92fa-7ad1-44cc-b61a-4cbb2beb1da9',channelId:'01309282781705830427'}
+  ]
 }
 module.exports = envVariables;
