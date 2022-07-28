@@ -119,7 +119,10 @@ describe('CollectionPlayerComponent', () => {
     const state = component.isActiveContentVideoType();
     expect(state).toBeFalse();
   });
+  it('#tocCardClickHandler() should call tocCardClickHandler and call callinitPlayer method', () => {
+    const event = {data : {identifier: 'abc'}};
+    spyOn(component, 'callinitPlayer').and.callThrough();
+    component.tocCardClickHandler(event);
+    expect(component.callinitPlayer).toHaveBeenCalledWith(event);
+  });
 });
-// () {
-//   return this.videoMimeTypes.includes(this.activeContent?.mimeType);
-// }
