@@ -25,7 +25,7 @@ export class SessionInterceptor implements HttpInterceptor {
     const userId = _.get(JSON.parse(localStorage.getItem('userData')), 'userId');
     if (userId) {
       return next.handle(req.clone({
-        headers: req.headers.set('x-user-id', userId),
+        headers: req.headers.set('user-id', userId),
       }));
     }
     return next.handle(req);
