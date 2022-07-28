@@ -75,7 +75,7 @@ export class ContentlistComponent implements OnInit {
           createdBy: _.get(this.userData, 'userId'),
           organisation: ['NIT', 'MPPS MUKKADAMPALLI'],
           createdFor: [_.get(this.userData, 'channelId')],
-          framework: 'test_jp_k-12',
+          framework: 'knowlg_k-12',
           creator: _.get(this.userData, 'userName'),
           ...(_.omit(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor'))
     }
