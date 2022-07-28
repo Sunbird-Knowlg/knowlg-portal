@@ -1,6 +1,5 @@
 const envVariables = require('./config/environment');
 var publicRequestHeaders = {
-  "user-id": envVariables.USER_ID,
   authorization: `Bearer ${envVariables.API_AUTH_TOKEN}`,
   "x-authenticated-user-token": envVariables.USER_API_TOKEN,
   "x-channel-id": envVariables.CHANNEL_ID
