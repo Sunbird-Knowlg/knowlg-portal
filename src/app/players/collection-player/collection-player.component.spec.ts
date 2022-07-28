@@ -107,4 +107,19 @@ describe('CollectionPlayerComponent', () => {
     component.handleSelectedItem(event);
     expect(component.selectedItems.length).toBe(2);
   });
+  it('#isActiveContentVideoType should return true for active content video mime type', () => {
+    component.videoMimeTypes = ['video/mp4', 'video/x-youtube', 'video/webm'];
+    component.activeContent = { mimeType: 'video/mp4' };
+    const state = component.isActiveContentVideoType();
+    expect(state).toBeTrue();
+  });
+  it('#isActiveContentVideoType should return false for active content video mime type', () => {
+    component.videoMimeTypes = ['video/x-youtube', 'video/webm'];
+    component.activeContent = { mimeType: 'video/mp4' };
+    const state = component.isActiveContentVideoType();
+    expect(state).toBeFalse();
+  });
 });
+// () {
+//   return this.videoMimeTypes.includes(this.activeContent?.mimeType);
+// }
