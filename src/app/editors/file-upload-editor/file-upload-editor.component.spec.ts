@@ -62,4 +62,5 @@ describe('FileUploadEditorComponent', () => {
         const value = component.editorURL();
         expect(value).toBe('generic-editor/index.html?4.9.0.c10c531');
     });
+
 });
