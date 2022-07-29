@@ -33,6 +33,5 @@ describe('CollectionDetailsModelComponent', () => {
   it('#ngOnInit() should define viewPropertiesList data ', () => {
     component.ngOnInit();
     expect(component.viewPropertiesList).toBeDefined();
-    expect(component.viewPropertiesList[0].value).toBeDefined();
   });
 });
