@@ -53,7 +53,7 @@ describe('PlayersComponent', () => {
     component.navigateToEcml();
     expect(router.navigate).toHaveBeenCalledWith(['players/interactive']);
   });
-  it('#navigateToEcml() should not navigate to ecml(interactive) player', () => {
+  it('#navigateToEcml() should not navigate to then ecml(interactive) player', () => {
     const router = TestBed.inject(Router);
     component.navigateToEcml();
     expect(router.navigate).not.toHaveBeenCalledWith(['players/epub']);
@@ -63,7 +63,7 @@ describe('PlayersComponent', () => {
     component.navigateToVideo();
     expect(router.navigate).toHaveBeenCalledWith(['players/video']);
   });
-  it('#navigateToVideo() should not navigate to video player', () => {
+  it('#navigateToVideo() should not navigate to then video player', () => {
     const router = TestBed.inject(Router);
     component.navigateToVideo();
     expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf']);
@@ -73,7 +73,7 @@ describe('PlayersComponent', () => {
     component.naviagteToCollectionPlayer();
     expect(router.navigate).toHaveBeenCalledWith(['players/collection']);
   });
-  it('#naviagteToCollectionPlayer() should not navigate to collection player', () => {
+  it('#naviagteToCollectionPlayer() should not navigate to then collection player', () => {
     const router = TestBed.inject(Router);
     component.naviagteToCollectionPlayer();
     expect(router.navigate).not.toHaveBeenCalledWith(['players/video']);
