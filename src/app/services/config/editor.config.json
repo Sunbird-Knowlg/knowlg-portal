@@ -261,11 +261,7 @@
   "creator": [
     "Draft",
     "FlagDraft",
-    "Review",
-    "flagged",
-    "Live",
-    "Unlisted",
-    "FlagReview"
+    "Live"
   ],
   "reviewer": ["Review"]
 }
