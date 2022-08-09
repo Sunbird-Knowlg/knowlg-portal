@@ -149,7 +149,12 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
           isRootOrgAdmin: true
         },
         channelData: this.channelData,
-        cloudStorageUrls: ''
+        cloudStorageUrls: '',
+        cloudStorage: {
+          presigned_headers: {
+            'x-ms-blob-type': 'BlockBlob'
+          }
+        }
       },
       config: {
         mode: this.getEditorMode(),
