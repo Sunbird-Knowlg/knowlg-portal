@@ -6,7 +6,7 @@
         </div>
         <div class='sb-user-container' *ngFor="let user of usersData">
             <div class='sb-user-column'>
-                <button class="btn" (click)="selectUser(user)">
+                <button class="btn sb-btn sb-btn-normal sb-btn-primary" (click)="selectUser(user)">
                     <img src="../../../assets/images/user1.png" class="user-imgae"> {{user.userName}}
                 </button>
             </div>
@@ -15,5 +15,5 @@
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close> {{configService?.labelConfig?.button?.cancel}}</button>
+    <button type="button" mat-button mat-dialog-close class="sb-btn sb-btn-outline-gray sb-btn-normal ripple btn-cancel"> {{configService?.labelConfig?.button?.cancel}}</button>
 </mat-dialog-actions>

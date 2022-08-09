@@ -1,4 +1,4 @@
-<div class="relative position mt-0 sb-back-actionbar">
+<div class="relative position mt-0 sb-back-actionbar back-panel">
   <a routerLink="..">
     <button type="button" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round" tabindex="0">
       <i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary">
@@ -9,21 +9,18 @@
     </button>
   </a>
 </div>
-
-<div class="content">
-  <div class="flex-parent jc-center">
-    <p class="player-header">What would you like to play ?</p>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn margin-right" (click)=navigateToPdf()>PDF Content</button>
-
-    <button class="btn margin-right" (click)=navigateToEpub()>EPUB Content</button>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn margin-right" (click)=navigateToEcml()>Interactive Content</button>
-    <button class="btn margin-right" (click)=navigateToVideo()>Video Content</button>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn margin-right" (click)=naviagteToCollectionPlayer()>Collection</button>
+<div class ='sbt-inside-page-container'>
+  <div class="content">
+    <div class="flex-parent jc-center">
+      <p class="player-header">What would you like to play ?</p>
+    </div>
+    <div class="flex-parent jc-center">
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn" (click)=navigateToPdf()>PDF Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn-cancel" (click)=navigateToEpub()>EPUB Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn" (click)=navigateToEcml()>Interactive Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn" (click)=navigateToVideo()>Video Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn" (click)=naviagteToCollectionPlayer()>Collection</button>
+    </div>
   </div>
 </div>
+

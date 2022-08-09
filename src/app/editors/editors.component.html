@@ -1,25 +1,31 @@
-<a (click)=goBack()>&laquo; {{configService?.labelConfig?.button?.back}} </a>
-<div class="content">
-  <div class="flex-parent jc-center">
-    <p class="player-header">{{configService?.labelConfig?.label?.likeTo}}  <span *ngIf="userData?.role === 'creator'"> {{configService?.labelConfig?.label?.create}} </span> 
-      <span *ngIf="userData?.role === 'reviewer'"> {{configService?.labelConfig?.label?.review}}</span> ?</p>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn create-new margin-right" (click)="navigateToContentList('collection')">Collection (Book, Course, etc..)</button>
-
-    <button class="btn create-new" (click)="navigateToContentList('ecml')">Resource (Similar to Google slide)</button>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn create-new margin-right" (click)="navigateToContentList('pdf')">PDF Content</button>
-
-    <button class="btn create-new" (click)="navigateToContentList('video')">Video Content</button>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn create-new margin-right" (click)="navigateToContentList('epub')">EPUB Content</button>
-      <button class="btn create-new" (click)="navigateToContentList('youtube')">Youtube Content</button>
-  </div>
-  <div class="flex-parent jc-center">
-    <button class="btn create-new margin-right" (click)="navigateToContentList('h5p')">H5P</button>
-    <button class="btn create-new" (click)="navigateToContentList('html')">HTML</button>
+<!-- <a (click)=goBack()>&laquo; {{configService?.labelConfig?.button?.back}} </a> -->
+<div class="relative position mt-0 sb-back-actionbar" *ngIf="!showPlayerOnly">
+  <a (click)=goBack()>
+    <button type="button" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round" tabindex="0">
+      <i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary">
+          <use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use>
+        </svg>
+      </i>
+      <span>Back</span>
+    </button>
+  </a>
+</div>
+<div class ='sbt-inside-page-container'>
+  <div class="content">
+    <div class="flex-parent jc-center">
+      <p class="player-header">{{configService?.labelConfig?.label?.likeTo}}  <span *ngIf="userData?.role === 'creator'"> {{configService?.labelConfig?.label?.create}} </span> 
+        <span *ngIf="userData?.role === 'reviewer'"> {{configService?.labelConfig?.label?.review}}</span> ?</p>
+    </div>
+    <div class="flex-parent jc-center">
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('collection')">Collection (Book, Course, etc..)</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('ecml')">Resource (Similar to Google slide)</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('pdf')">PDF Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('video')">Video Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('epub')">EPUB Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('youtube')">Youtube Content</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('h5p')">H5P</button>
+      <button class="sb-btn sb-btn-primary sb-btn-normal btn create-new" (click)="navigateToContentList('html')">HTML</button>
+    </div>
   </div>
 </div>
+
