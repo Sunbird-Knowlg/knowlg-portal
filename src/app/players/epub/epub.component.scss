@@ -1,5 +1,7 @@
+@import "./../../../../node_modules/@project-sunbird/sb-styles/assets/mixins/mixins";
+
 body {
-  background-color: white;
+  background-color: var(--white);
   height: 100%;
 }
 html {

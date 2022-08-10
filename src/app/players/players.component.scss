@@ -4,10 +4,6 @@
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-.jc-center {
-  justify-content: center;
-  padding: 20px;
-}
 
 .content {
   font-size: 2rem;
@@ -15,7 +11,7 @@
 }
 
 .player-header {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
 }

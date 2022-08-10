@@ -1,45 +1,42 @@
-<div class="ui container">
-
-    <a (click)=goBack()>&laquo; Back </a>
-
-    <div class="content container">
-        <div class="flex-parent">
-            <button class="btn create-new" *ngIf="userData?.role === 'creator'"  (click)=createContent() >Create New</button>
+<div class="relative position mt-0 sb-back-actionbar d-flex flex-ai-center flex-jc-space-between">
+    <button type="button" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round sb-btn-round--notext"
+    tabindex="0"  (click)=goBack()><i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary"><use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use></svg></i><span>Back</span></button>
+    <button class="sb-btn sb-btn-secondary sb-btn-normal ml-auto textbook__addbtn" tabindex="0" *ngIf="userData?.role === 'creator'"  (click)=createContent() >Create New</button>
+</div>
+<div class='sbt-inside-page-container'>
+    <div class="relative9">
+        <div class="sb-table-container">
+            <table class="sb-table sb-table-fixed sb-table-hover sb-table-lg">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Content Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of contentArray ">
+                        <td>{{data?.name}}</td>
+                        <td>{{data?.contentType}}</td>
+                        <td><button class="btn status-button" (click)=openContent(data?.identifier)>{{data?.status}}</button>
+                        </td>
+                    </tr>
+    
+                </tbody>
+            </table>
+        </div>
+        <div class="sb-pagination-container flex-jc-flex-end">
+            <div class="sb-pagination">
+                <a class="sb-item">First</a>
+                <a class="sb-item">Previous</a>
+                <a class="sb-item sb-item-active">1</a>
+                <a class="sb-item">...</a>
+                <a class="sb-item">10</a>
+                <a class="sb-item">11</a>
+                <a class="sb-item">12</a>
+                <a class="sb-item">Next</a>
+                <a class="sb-item">Last</a>
+            </div>
         </div>
     </div>
-
-    <div class="sb-table-container">
-        <table class="sb-table sb-table-fixed sb-table-hover sb-table-lg">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Content Type</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let data of contentArray ">
-                    <td>{{data?.name}}</td>
-                    <td>{{data?.contentType}}</td>
-                    <td><button class="btn status-button" (click)=openContent(data?.identifier)>{{data?.status}}</button>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-    </div>
-    <div class="sb-pagination-container flex-jc-flex-end">
-        <div class="sb-pagination">
-            <a class="sb-item">First</a>
-            <a class="sb-item">Previous</a>
-            <a class="sb-item sb-item-active">1</a>
-            <a class="sb-item">...</a>
-            <a class="sb-item">10</a>
-            <a class="sb-item">11</a>
-            <a class="sb-item">12</a>
-            <a class="sb-item">Next</a>
-            <a class="sb-item">Last</a>
-        </div>
-    </div>
-
 </div>

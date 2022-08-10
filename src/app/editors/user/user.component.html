@@ -1,19 +1,17 @@
 <mat-dialog-content>
     <div class="content">
-        <div class="flex-parent jc-center">
-            <p class="player-header" *ngIf="usersData?.length"> {{configService?.labelConfig?.label?.selectUser}}</p>
-            <p class="player-header" *ngIf="!usersData?.length"> {{configService?.labelConfig?.label?.emptyUserList}}</p>
+        <div class="d-block">
+            <p class="player-header mb-24" *ngIf="usersData?.length"> {{configService?.labelConfig?.label?.selectUser}}</p>
+            <p class="player-header mb-24" *ngIf="!usersData?.length"> {{configService?.labelConfig?.label?.emptyUserList}}</p>
         </div>
-        <div class='sb-user-container' *ngFor="let user of usersData">
-            <div class='sb-user-column'>
-                <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="selectUser(user)">
-                    <img src="../../../assets/images/user1.png" class="user-imgae"> {{user.userName}}
-                </button>
-            </div>
+        <div class='w-100 pb-8' *ngFor="let user of usersData">
+            <button class="sb-btn sb-btn-normal sb-btn-primary w-100" (click)="selectUser(user)">
+                <img src="../../../assets/images/user1.png" class="user-imgae"> {{user.userName}}
+            </button>
         </div>
     </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button type="button" mat-button mat-dialog-close class="sb-btn sb-btn-outline-gray sb-btn-normal ripple btn-cancel"> {{configService?.labelConfig?.button?.cancel}}</button>
+    <button type="button" mat-button mat-dialog-close class="sb-btn sb-btn-outline-gray sb-btn-normal w-100 mb-12"> {{configService?.labelConfig?.button?.cancel}}</button>
 </mat-dialog-actions>

@@ -1,22 +1,15 @@
 .flex-parent {
-  display: flex;
   min-height: 0px;
   gap: 0.625rem;
 }
-
-.jc-center {
-  justify-content: center;
-}
-
 .content {
   font-size: 2rem;
-  padding: 100px;
+  padding: 6.25rem;
 }
 
 .player-header {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 50px;
   text-align: center;
 }
 
