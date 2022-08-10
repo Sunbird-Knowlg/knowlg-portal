@@ -4,26 +4,26 @@
 </div>
 <div class='sbt-inside-page-container'>
   <div class="relative9">
-    <div class="content">
-      <div class="flex-parent flex-jc-center pb-16">
+    <div class="editor-content">
+      <div class="editor-items flex-jc-center pb-16">
         <p class="player-header mb-16">{{configService?.labelConfig?.label?.likeTo}}  <span *ngIf="userData?.role === 'creator'"> {{configService?.labelConfig?.label?.create}} </span> 
           <span *ngIf="userData?.role === 'reviewer'"> {{configService?.labelConfig?.label?.review}}</span> ?</p>
       </div>
-      <div class="flex-parent flex-jc-center pb-16">
+      <div class="editor-items flex-jc-center pb-16">
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('collection')">Collection (Book, Course, etc..)</button>
     
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('ecml')">Resource (Similar to Google slide)</button>
       </div>
-      <div class="flex-parent flex-jc-center pb-16">
+      <div class="editor-items flex-jc-center pb-16">
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('pdf')">PDF Content</button>
     
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('video')">Video Content</button>
       </div>
-      <div class="flex-parent flex-jc-center pb-16">
+      <div class="editor-items flex-jc-center pb-16">
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('epub')">EPUB Content</button>
           <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('youtube')">Youtube Content</button>
       </div>
-      <div class="flex-parent flex-jc-center pb-16">
+      <div class="editor-items flex-jc-center pb-16">
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('h5p')">H5P</button>
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('html')">HTML</button>
       </div>

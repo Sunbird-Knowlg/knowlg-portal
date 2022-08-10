@@ -1,25 +1,10 @@
-.flex-parent {
-  min-height: 0px;
-  gap: 10px;
-}
+
 .content {
   font-size: 2rem;
   padding: 6.25rem;
 }
-
-.player-header {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
 @media (max-width:768px) {
-  .flex-parent {
-    flex-direction: column;
-  }
   .content {
     padding: 2rem;
-  }
-  .btn{
-    width: 100%;
   }
 }
