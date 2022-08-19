@@ -1,32 +1,10 @@
-.flex-parent {
-  display: flex;
-  min-height: 0px;
-  gap: 10px;
-}
-
-.jc-center {
-  justify-content: center;
-}
 
 .content {
   font-size: 2rem;
-  padding: 100px;
-}
-
-.player-header {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 50px;
-  text-align: center;
+  padding: 6.25rem;
 }
 @media (max-width:768px) {
-  .flex-parent {
-    flex-direction: column;
-  }
   .content {
     padding: 2rem;
-  }
-  .btn{
-    width: 100%;
   }
 }

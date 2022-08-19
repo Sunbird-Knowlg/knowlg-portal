@@ -1,46 +1,5 @@
 
-.btn-cancel{
-  width: 100%;
+.user-imgae {
+  width: 1.25rem;
+  height: 1.25rem;
 }
-  .margin-top {
-    margin-top: 20px;;
-  }
-
-  .flex-parent {
-    display: block;
-    min-height: 0px;
-  }
-  
-  .jc-center {
-    justify-content: center;
-  }
-  
-  .content {
-    font-size: 20px;
-    padding: 0px;
-  }
-  
-  .player-header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 50px;
-  }
-
-  .sb-user-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    padding-bottom: 0.625rem;
-  }
-  
-  .sb-user-column {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
-  }
-  .user-imgae {
-      width: 20px;
-      height: 20px;
-  }

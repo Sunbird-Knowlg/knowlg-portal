@@ -4,3 +4,40 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.player-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.min-height{
+    min-height: 0;
+}
+.editor-items{
+    display: grid;
+    min-height: 0px;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.flex-parent {
+    min-height: 0px;
+    gap: 0.625rem;
+}
+.content {
+    font-size: 2rem;
+    padding: 6.25rem;
+}
+.editor-content {
+    font-size: 2rem;
+    padding: 2rem;
+  }
+ 
+@media (max-width:768px) {
+    .editor-items,.flex-parent {
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .content {
+        padding: 2rem;
+      }
+  }
+

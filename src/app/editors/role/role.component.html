@@ -1,15 +1,21 @@
-<a routerLink="..">&laquo; {{configService?.labelConfig?.button?.back}}</a>
-
-  <div class ='sbt-inside-page-container'>
-    <div class="content">
-        <div class="flex-parent jc-center">
-            <p class="player-header" *ngIf="rolesData.length">{{configService?.labelConfig?.label?.selectRole}}</p>
-            <p class="player-header" *ngIf="!rolesData.length">{{configService?.labelConfig?.label?.roleListEmpty}}</p>
-        </div>
-        <div class="flex-parent jc-center" *ngIf="rolesData.length">
-            <div *ngFor="let role of rolesData">
-                <button class="sb-btn sb-btn-normal sb-btn-primary btn" (click)=getAllUsersByRoleType(role)>{{configService?.labelConfig?.label?.as}} {{role}}</button>
+<div class="relative position mt-0 sb-back-actionbar d-flex flex-ai-center">
+    <button type="button" routerLink=".." class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round sb-btn-round--notext"
+    tabindex="0"><i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary"><use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use></svg></i><span>Back</span></button>
+</div>
+<div class='sbt-inside-page-container'>
+    <div class="relative9">
+        <div class="content">
+            <div class="d-flex flex-jc-center">
+                <p class="player-header mb-32" *ngIf="rolesData.length">{{configService?.labelConfig?.label?.selectRole}}</p>
+                <p class="player-header mb-32" *ngIf="!rolesData.length">{{configService?.labelConfig?.label?.roleListEmpty}}</p>
+            </div>
+            <div class="flex-parent d-flex flex-jc-center" *ngIf="rolesData.length">
+                <div class="d-flex flex-jc-center" *ngFor="let role of rolesData">
+                    <button class="sb-btn sb-btn-normal sb-btn-primary" (click)=getAllUsersByRoleType(role)>{{configService?.labelConfig?.label?.as}} {{role}}</button>
+                </div>
             </div>
         </div>
     </div>
-  </div>
+ </div>
+
+
