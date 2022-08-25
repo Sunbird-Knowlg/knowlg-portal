@@ -1,5 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RoleComponent } from './role.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
@@ -28,7 +27,7 @@ describe('RoleComponent', () => {
   let component: RoleComponent;
   let fixture: ComponentFixture<RoleComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [RoleComponent],
       imports: [HttpClientModule, MatDialogModule, BrowserAnimationsModule],

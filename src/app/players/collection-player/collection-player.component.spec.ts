@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CollectionPlayerComponent } from './collection-player.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,7 +21,7 @@ describe('CollectionPlayerComponent', () => {
     navigate = jasmine.createSpy('navigate');
   }
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, MatDialogModule, BrowserAnimationsModule],
       declarations: [CollectionPlayerComponent],
