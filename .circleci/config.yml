@@ -31,17 +31,13 @@ jobs:
           name: Testing
           command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
       - run:
-          name: Swap node versions
+          name: Install  Node.js v14.20.0 with build in nvm tool
+          # https://www.cloudesire.com/how-to-upgrade-node-on-circleci-machine-executor/
           command: |
-          set +e
-          wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-          nvm install 14
-          nvm alias default 14
-          echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
-          echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm install v14 && nvm use v14.20.0 && nvm alias default v14.20.0
+            node -v
       - run:
           name: Install sonar scanner
           command: npm install -g sonarqube-scanner
