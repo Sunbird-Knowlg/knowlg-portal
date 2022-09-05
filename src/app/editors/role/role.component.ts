@@ -36,15 +36,6 @@ export class RoleComponent implements OnInit {
       console.log(error);
     });
   }
-  getAllUsersByRoleTypeHello(roleType) {
-    this.selectedRoleType = roleType;
-    this.helperService.getAllUsersByRoleType(roleType).subscribe((response) => {
-      const usersData = _.get(response, 'result.users');
-      this.openDialog(usersData);
-    }, (error) => {
-      console.log(error);
-    });
-  }
   openDialog(users): void {
     this.dialog.open(UserComponent, {
       data: {
