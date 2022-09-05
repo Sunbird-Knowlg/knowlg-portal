@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/knowlg-portal
     machine:
-      image: ubuntu-2004:202010-01
+      image: ubuntu-2004:202111-02
     steps:
       - checkout:
           path: ~/knowlg-portal
