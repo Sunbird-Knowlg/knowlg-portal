@@ -8,12 +8,6 @@ jobs:
       - checkout:
           path: ~/knowlg-portal
       - run:
-          name: Install NVM
-          command: 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh|bash'
-      - run:
-          name: alter node version
-          command: 'nvm install 14 && nvm use 14 && nvm alias default 14 && node -v'          
-      - run:
           name: Node version
           command: 'node --version'
       - run:
@@ -37,11 +31,23 @@ jobs:
           name: Testing
           command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
       - run:
+          name: Swap node versions
+          command: |
+          set +e
+          wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+          nvm install 14
+          nvm alias default 14
+          echo 'export NVM_DIR="$HOME/.nvm"' >> $BASH_ENV
+          echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+      - run:
           name: Install sonar scanner
-          command: 'npm install -g sonarqube-scanner'
+          command: npm install -g sonarqube-scanner
       - run:
           name: Run sonar scanner
-          command:  'cd ~/knowlg-portal && sonar-scanner'
+          command: 'cd ~/knowlg-portal && sonar-scanner'
 workflows:
   version: 2.1
   build_and_test:
