@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'pdfplayer/:playerType/:id',
+    loadChildren: () => import('./pdfplayer/pdfplayer.module').then( m => m.PdfplayerPageModule)
+  }
 ];
 
 @NgModule({

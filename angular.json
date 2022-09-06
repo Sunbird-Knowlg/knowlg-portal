@@ -176,7 +176,50 @@
           }
         }
       }
+    },
+    "sharedcomponents": {
+      "projectType": "library",
+      "root": "projects/sharedcomponents",
+      "sourceRoot": "projects/sharedcomponents/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/sharedcomponents/tsconfig.lib.json",
+            "project": "projects/sharedcomponents/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/sharedcomponents/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sharedcomponents/src/test.ts",
+            "tsConfig": "projects/sharedcomponents/tsconfig.spec.json",
+            "karmaConfig": "projects/sharedcomponents/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sharedcomponents/tsconfig.lib.json",
+              "projects/sharedcomponents/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "knowlg-portal"
+  "defaultProject": "knowlg-portal",
+  "cli": {
+    "analytics": false
+  }
 }

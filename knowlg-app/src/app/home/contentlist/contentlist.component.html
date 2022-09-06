@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>
+      <strong>Select content </strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  
+  <ion-row *ngFor="let content of contentList ">
+    <ion-col size="12" (click)="navigateToPlayer(content?.identifier)">
+      <ion-card class="content-card">
+        <ion-item class="content-item">
+          <ion-label>{{content?.name}}</ion-label>
+          <ion-button fill="outline" slot="end" >View</ion-button>
+        </ion-item>
+        <ion-card-content>
+          {{content?.description}}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
