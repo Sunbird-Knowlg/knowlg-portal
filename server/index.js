@@ -11,6 +11,7 @@ var routes = require('./config/constants');
 var users = require('./config/users');
 const uuid = require('uuid/v1');
 const { json } = require("express");
+const forms = require('./config/forms');
 
 var app = express();
 app.set("port", 3000);
@@ -79,6 +80,30 @@ app.post(routes.API.USER_SEARCH, function (req, res) {
   res.status(200).json(users)
 });
 
+ app.post(routes.API.FORM_READ, function (req, res) {
+  let response = {
+    apiId: "api.form.read",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: {}
+  };
+  const data = req.body
+  if (!data.request || !data.request.type || !data.request.subType || !data.request.action) {
+    response.errCode = "ERR_GET_FORM_DATA";
+    response.errMsg = "Required fields to get form are missing";
+    let errorResponse = responseUtils.errorResponse(response);
+    return res.status(400).send(errorResponse);
+  }
+  const formKey = `${req.body.request.type}_${req.body.request.subType}_${req.body.request.action}`;
+  if(!forms[formKey]){
+    response.errCode = "ERR_GET_FORM_DATA";
+    response.errMsg = "Form not found for given values";
+    let errorResponse = responseUtils.errorResponse(response);
+    return res.status(404).send(errorResponse);
+  }
+  res.status(200).json(forms[formKey])
+});
+
 /**
  * @param  {} routes.API.USER_ROLE This is the user role api url
  * @param  {} res
@@ -98,7 +123,7 @@ app.get(routes.API.USER_ROLE, function (req, res) {
   } catch (error) {
     console.log(`Error while sending response, ${error} ${envVariables.USER_ROLE}`);
     response.errCode = 500;
-    response.errmsg = "Server error with config";
+    response.errMsg = "Server error with config";
     response.responseCode = "SERVER_ERROR"
     let errorResponse = responseUtils.errorResponse(response);
     res.status(500).send(errorResponse);
@@ -145,7 +170,7 @@ app.post(routes.API.USERS, function (req, res) {
     res.send(reviewerResonse);
   } else {
     response.errCode = 400;
-    response.errmsg = "Request should have the roleType";
+    response.errMsg = "Request should have the roleType";
     let errorResponse = responseUtils.errorResponse(response)
     res.status(400).send(errorResponse);
   }
