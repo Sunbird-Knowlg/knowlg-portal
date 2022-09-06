@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ContentlistComponent } from './contentlist.component';
 import { of as observableOf, of } from 'rxjs';
@@ -27,7 +27,7 @@ describe('ContentlistComponent', () => {
   let component: ContentlistComponent;
   let fixture: ComponentFixture<ContentlistComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ContentlistComponent],
       imports: [HttpClientModule],
