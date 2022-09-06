@@ -1,0 +1,7 @@
+{
+  "name": "knowlg-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
