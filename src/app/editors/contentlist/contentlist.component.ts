@@ -4,6 +4,7 @@ import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
 import { ConfigService } from '../../services/config/config.service';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-contentlist',
@@ -11,11 +12,18 @@ import { LocalStorageService } from 'src/app/services/user/localstorage.service'
   styleUrls: ['./contentlist.component.scss']
 })
 export class ContentlistComponent implements OnInit {
+  constructor(private router: Router, private localStorageService: LocalStorageService,
+              public helperService: HelperService, private configService: ConfigService) { }
   public editorType: string;
   public contentArray = [];
   public userData: any;
-  constructor(private router: Router, private localStorageService: LocalStorageService,
-              public helperService: HelperService, private configService: ConfigService) { }
+
+  // MatPaginator
+  pagelength = [];
+  pageSize = 5;
+  pageIndex = 0;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageEvent: PageEvent;
 
   ngOnInit(): void {
     this.editorType = this.localStorageService.getItem('type');
@@ -36,8 +44,8 @@ export class ContentlistComponent implements OnInit {
           objectType: 'Content',
           channel: _.get(this.userData, 'channelId'),
         },
-        offset: 0,
-        limit: 200,
+        offset: this.pageIndex * this.pageSize,
+        limit: this.pageSize,
         query: '',
         sort_by: {
           lastUpdatedOn: 'desc'
@@ -55,6 +63,7 @@ export class ContentlistComponent implements OnInit {
     this.helperService.contentSearch(req)
       .subscribe((response) => {
         this.contentArray = _.get(response, 'result.content');
+        this.pagelength = _.get(response, 'result.count');
       }, (error) => {
         console.log(error);
       });
@@ -90,6 +99,12 @@ export class ContentlistComponent implements OnInit {
   openContent(identifier?: string) {
     const editorType = _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor');
     this.router.navigate(['/editors/' + editorType], { queryParams: { identifier} });
+  }
+
+  handlePageEvent(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    this.contentSearch();
   }
 
 }
