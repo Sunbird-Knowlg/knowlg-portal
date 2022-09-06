@@ -218,8 +218,5 @@
       }
     }
   },
-  "defaultProject": "knowlg-portal",
-  "cli": {
-    "analytics": false
-  }
+  "defaultProject": "knowlg-portal"
 }
