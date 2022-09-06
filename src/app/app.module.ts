@@ -34,7 +34,6 @@ import { CommonConsumptionModule} from '@project-sunbird/common-consumption-v9';
 import { CollectionDetailsModelComponent } from './players/collection-player/collection-details-model/collection-details-model.component';
 import {MatListModule} from '@angular/material/list';
 import { ContentDetailsModelComponent } from './players/collection-player/content-details-model/content-details-model.component';
-import { SharedcomponentsModule } from 'sharedcomponents';
 
 @NgModule({
   declarations: [
@@ -71,7 +70,6 @@ import { SharedcomponentsModule } from 'sharedcomponents';
     MatDialogModule,
     MatSidenavModule,
     CommonConsumptionModule,
-    SharedcomponentsModule,
     MatListModule
   ],
   providers: [{
