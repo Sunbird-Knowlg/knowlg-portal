@@ -19,7 +19,7 @@ import { QuestionCursorImplementationService } from './services/question-cursor-
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import { HelperService } from './services/helper/helper.service';
-import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor';
+import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
 import { UserComponent } from './editors/user/user.component';
 import { RoleComponent } from './editors/role/role.component';
 import { FormsModule } from '@angular/forms';

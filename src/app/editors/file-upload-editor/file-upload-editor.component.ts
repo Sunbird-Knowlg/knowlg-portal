@@ -145,6 +145,11 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
     window.config.enableTelemetryValidation = false; // added
     window.config.videoMaxSize = this.videoMaxSize;
     window.config.defaultContentFileSize = this.defaultContentFileSize; // making configurable upload limit in workspace for content upload
+    window.config.cloudStorage = {
+      presigned_headers: {
+        'x-ms-blob-type': 'BlockBlob'
+      }
+    };
   }
 
   closeModal() {

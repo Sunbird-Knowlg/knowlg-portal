@@ -11,6 +11,9 @@ var contentTypeHeaders = {
 
 const decoratePublicRequestHeaders = function () {
   return function (proxyReqOpts, srcReq) {
+      if(srcReq.get('user-id')) {
+        proxyReqOpts.headers['x-authenticated-userid'] = srcReq.get('user-id')
+      }
       proxyReqOpts.headers = Object.assign({}, proxyReqOpts.headers, publicRequestHeaders, contentTypeHeaders);
       return proxyReqOpts;
   }
