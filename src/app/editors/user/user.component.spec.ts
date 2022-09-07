@@ -1,5 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserComponent } from './user.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
@@ -35,7 +34,7 @@ describe('UserComponent', () => {
   const dialog = {
     close: () => { }
   };
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [UserComponent],
       imports: [HttpClientModule, MatDialogModule],

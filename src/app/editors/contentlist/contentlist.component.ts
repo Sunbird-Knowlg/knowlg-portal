@@ -81,7 +81,7 @@ export class ContentlistComponent implements OnInit {
     }
    };
     this.helperService.createContent(requestData).subscribe(res => {
-      this.openContent(res.result.content_id);
+      this.openContent(res.result.content_id || res.result.identifier);
     }, err => {
       console.log('create content failed ::', err);
     });

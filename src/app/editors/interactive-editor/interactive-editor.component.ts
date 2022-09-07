@@ -133,6 +133,11 @@ export class InteractiveEditorComponent implements OnInit, OnDestroy {
     window.config.enableTelemetryValidation = false; // telemetry validation
     window.config.lock = _.pick(this.queryParams, 'lockKey', 'expiresAt', 'expiresIn');
     window.config.videoMaxSize = this.videoMaxSize;
+    window.config.cloudStorage = {
+      presigned_headers: {
+        'x-ms-blob-type': 'BlockBlob'
+      }
+    };
   }
 
   /**

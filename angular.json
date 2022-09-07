@@ -22,7 +22,6 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -33,7 +32,7 @@
               },
               {
                 "glob": "**/*",
-                "input": "node_modules/@project-sunbird/sunbird-collection-editor/lib/assets",
+                "input": "node_modules/@project-sunbird/sunbird-collection-editor-v9/lib/assets",
                 "output": "/assets/"
               },
               {
@@ -80,7 +79,13 @@
               "src/assets/lib/semantic-ui-tree-picker.js",
               "node_modules/@project-sunbird/client-services/index.js",
               "node_modules/izimodal/js/iziModal.min.js"
-            ]
+            ],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -93,7 +98,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -106,7 +110,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
