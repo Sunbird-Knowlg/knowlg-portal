@@ -17,11 +17,11 @@ export class ContentlistComponent implements OnInit {
     this.playerType = this.activatedRoute.snapshot.paramMap.get('playerType');
     this.contentList = this.contentService.getContenstList(this.playerType);
   }
-  navigateToPlayer(identifier) {
+  navigateToPlayer(content) {
     if (this.playerType === 'pdf') {
-      this.router.navigate(['/pdfplayer/' , this.playerType, identifier] );
+      this.router.navigate(['/pdfplayer/' , this.playerType, content.identifier] );
     } else if (this.playerType === 'epub') {
-      this.router.navigate(['/epubplayer/' , identifier, this.playerType] );
+      this.router.navigate(['/epubplayer/' , content.identifier, this.playerType] );
     }
   }
 }

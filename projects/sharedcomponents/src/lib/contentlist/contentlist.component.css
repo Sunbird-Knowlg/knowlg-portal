@@ -1,0 +1,29 @@
+.box-shodow {
+    color: black;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+}
+.content-name {
+    background-color: #000;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.content-description {
+    color: black; 
+    padding: 10px;
+    background-color: white;
+}
+.view-button {
+    float: right;
+    background: white;
+    color: #3880ff;
+    background: transparent;
+    border: 1px solid #3880ff;
+}
