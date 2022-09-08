@@ -19,9 +19,9 @@
       "dom"
     ],
     "paths": {
-      "sharedcomponents": [
-        "dist/sharedcomponents/sharedcomponents",
-        "dist/sharedcomponents"
+      "shared": [
+        "dist/shared/shared",
+        "dist/shared"
       ]
     }
   },

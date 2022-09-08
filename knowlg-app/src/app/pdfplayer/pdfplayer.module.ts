@@ -7,14 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { PdfplayerPageRoutingModule } from './pdfplayer-routing.module';
 
 import { PdfplayerPage } from './pdfplayer.page';
-import { SharedcomponentsModule } from 'sharedcomponents';
+import { SharedModule } from 'shared';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SharedcomponentsModule,
+    SharedModule,
     PdfplayerPageRoutingModule
   ],
   declarations: [PdfplayerPage]

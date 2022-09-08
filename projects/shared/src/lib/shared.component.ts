@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-sharedcomponents',
+  selector: 'lib-shared',
   template: `
     <p>
-      sharedcomponents works!
+      shared works!
     </p>
   `,
   styles: [
   ]
 })
-export class SharedcomponentsComponent implements OnInit {
+export class SharedComponent implements OnInit {
 
   constructor() { }
 

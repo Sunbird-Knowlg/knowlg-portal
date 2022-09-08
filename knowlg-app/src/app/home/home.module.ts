@@ -7,7 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { PlayerslistComponent } from './playerslist/playerslist.component';
 import { ContentlistComponent } from './contentlist/contentlist.component';
-import { SharedcomponentsModule } from 'sharedcomponents';
+import { SharedModule } from 'shared';
 import { ContentService } from './services/content.service';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { ContentService } from './services/content.service';
     CommonModule,
     FormsModule,
     IonicModule,
-    SharedcomponentsModule,
+    SharedModule,
     HomePageRoutingModule
   ],
   providers: [ContentService],
