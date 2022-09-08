@@ -26,8 +26,8 @@ getPlayersList() {
   return data.playersArray;
 }
 
-preparePlayerConfig(contentId, playerTypeSelected) {
-  const contentMetadata =  _.filter(this.getContenstList(playerTypeSelected), { identifier: contentId})[0];
+preparePlayerConfig(contentId, mimeType) {
+  const contentMetadata =  _.filter(this.getContenstList(mimeType), { identifier: contentId})[0];
   const playerConfig = {
     metadata: contentMetadata,
     config: this.getConfig(),
