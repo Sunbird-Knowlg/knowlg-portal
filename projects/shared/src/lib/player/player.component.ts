@@ -1,18 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'lib-player',
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.css']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent  {
 
   @Input() playerConfig;
   @Output() playerEvent = new EventEmitter<any>();
   constructor() { }
 
-  ngOnInit(): void {
-  }
   playerEventHandler(event) {
     this.playerEvent.emit(event);
   }

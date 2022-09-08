@@ -24,6 +24,5 @@ export class PdfplayerPage implements OnInit {
         this.router.navigate(['/home/contentList/pdf']);
         break;
     }
-    console.log(event, 'eventevent');
   }
 }
