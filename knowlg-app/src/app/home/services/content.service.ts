@@ -17,10 +17,10 @@ export class ContentService {
     }
   }
 getContex() {
-  return data.PDF_CONTEXT;
+  return data.CONTEXT;
 }
 getConfig() {
-  return data.PDF_CONFIG;
+  return data.CONFIG;
 }
 getPlayersList() {
   return data.playersArray;

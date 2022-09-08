@@ -220,7 +220,7 @@ export const  data = {
       EPUB: [
       ],
       VIDEO: [],
-      PDF_CONTEXT: {
+      CONTEXT: {
         "mode": "play",
         "authToken": "",
         "sid": "7283cf2e-d215-9944-b0c5-269489c6fa56",
@@ -248,7 +248,7 @@ export const  data = {
           "lastName": "More"
         }
     },
-      PDF_CONFIG: {
+      CONFIG: {
         "traceId": "afhjgh",
         "sideMenu": {
           "showDownload": true,
