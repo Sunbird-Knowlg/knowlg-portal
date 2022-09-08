@@ -27,7 +27,7 @@
     "@ionic/angular": "^6.1.9",
     "@project-sunbird/client-services": "^4.9.1",
     "@project-sunbird/sb-styles": "0.0.9",
-    "@project-sunbird/sunbird-pdf-player-v9": "file:../../../sunbird-pdf-player/dist/sunbird-pdf-player",
+    "@project-sunbird/sunbird-pdf-player-v9": "^5.1.0",
     "cordova-android": "10.1.2",
     "install": "^0.13.0",
     "npm": "^8.19.1",

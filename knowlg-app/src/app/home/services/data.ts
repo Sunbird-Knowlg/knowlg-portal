@@ -1,5 +1,5 @@
 export const  data = {
-    PDF_DATA : [
+    PDF : [
         {
           "copyright": "2022",
           "subject": [
@@ -217,8 +217,9 @@ export const  data = {
           }
       }
       ],
-      EPUB_DATA: [
+      EPUB: [
       ],
+      VIDEO: [],
       PDF_CONTEXT: {
         "mode": "play",
         "authToken": "",
@@ -256,5 +257,17 @@ export const  data = {
           "showReplay": true,
           "showShare": true
         }
-      }
+      },
+      playersArray: [{
+        name: 'pdf',
+        mimeType: 'pdf'
+      },
+      {
+        name: 'epub',
+        mimeType: 'epub'
+      },
+      {
+        name: 'video',
+        mimeType: 'video'
+      }]
 };

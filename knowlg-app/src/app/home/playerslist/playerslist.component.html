@@ -7,13 +7,13 @@
   <div id="container">
     <ion-row>
       <ion-col class="ion-margin" size="11">
-        <strong class="label-player">Select player to experience?</strong>
+        <strong class="label-player">What would you like to play ?</strong>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let player of playersArray ">
       <ion-col class="ion-margin" size="11">
-        <ion-button expand="block" color="secondary" (click)="navigateToContentList(player?.contentType)" margin-top>
-          {{player?.name}}
+        <ion-button expand="block" color="secondary" (click)="navigateToContentList(player?.mimeType)" margin-top>
+          {{player?.name}} content
         </ion-button>
       </ion-col>
     </ion-row>

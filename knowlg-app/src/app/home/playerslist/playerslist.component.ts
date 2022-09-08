@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContentService } from '../services/content.service';
 
 @Component({
   selector: 'app-playerslist',
@@ -7,21 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./playerslist.component.scss'],
 })
 export class PlayerslistComponent implements OnInit {
-  playersArray = [{
-    name: 'Pdf',
-    contentType: 'pdf'
-  },
-  {
-    name: 'Epub',
-    contentType: 'epub'
-  },
-  {
-    name: 'Video',
-    contentType: 'video'
-  }];
-  constructor(public router: Router) { }
+  playersArray = [];
+  constructor(public router: Router, public contentService: ContentService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.playersArray = this.contentService.getPlayersList();
+  }
   navigateToContentList(type) {
     this.router.navigateByUrl('/home/contentList/' + type);
   }

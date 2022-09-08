@@ -7,13 +7,13 @@ import {data} from './data';
 export class ContentService {
   playerConfig = {};
   constructor() { }
-  getContenstList(playerType) {
-    if (playerType === 'pdf') {
-      return data.PDF_DATA;
-    } else if (playerType === 'epub') {
-      return data.EPUB_DATA;
-    } else {
-      return [];
+  getContenstList(mimeType) {
+    if (mimeType === 'pdf') {
+      return data.PDF;
+    } else if (mimeType === 'epub') {
+      return data.EPUB;
+    } else if (mimeType === 'video'){
+      return data.VIDEO;
     }
   }
 getContex() {
@@ -22,6 +22,10 @@ getContex() {
 getConfig() {
   return data.PDF_CONFIG;
 }
+getPlayersList() {
+  return data.playersArray;
+}
+
 preparePlayerConfig(contentId, playerTypeSelected) {
   const contentMetadata =  _.filter(this.getContenstList(playerTypeSelected), { identifier: contentId})[0];
   const playerConfig = {
