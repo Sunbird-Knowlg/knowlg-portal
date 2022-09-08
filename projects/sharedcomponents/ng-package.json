@@ -3,10 +3,5 @@
   "dest": "../../dist/sharedcomponents",
   "lib": {
     "entryFile": "src/public-api.ts"
-  },
-  "whitelistedNonPeerDependencies": [
-    "@project-sunbird/client-services",
-    "@project-sunbird/sb-styles",
-    "@project-sunbird/sunbird-pdf-player-v9"
-  ]
+  }
 }
