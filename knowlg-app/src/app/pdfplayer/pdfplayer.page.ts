@@ -14,7 +14,7 @@ export class PdfplayerPage implements OnInit {
 
    ngOnInit() {
       this.activatedRoute.params.subscribe(params => {
-      this.playerConfig =  this.contentService.preparePlayerConfig(params['id'], params['playerType']);
+      this.playerConfig =  this.contentService.preparePlayerConfig(params['id'], params['mimeType']);
     });
   }
   pdfPlayerEvent(event) {

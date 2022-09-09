@@ -1,6 +1,6 @@
-<div style="height:100vh;width:100%;" *ngIf="playerConfig?.metadata?.mimeType === 'application/pdf'">
-<sunbird-pdf-player class="sunbird-pdf-player"
-[playerConfig]="playerConfig" (playerEvent)="playerEventHandler($event)"
-(telemetryEvent)="telemetryEvent($event)"
-></sunbird-pdf-player>
+<div [ngSwitch]="playerConfig?.metadata?.mimeType">
+    <div *ngSwitchCase="'application/pdf'" class="player">
+        <sunbird-pdf-player class="sunbird-pdf-player" [playerConfig]="playerConfig"
+            (playerEvent)="playerEventHandler($event)" (telemetryEvent)="telemetryEvent($event)"></sunbird-pdf-player>
+    </div>
 </div>

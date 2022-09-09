@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'pdfplayer/:playerType/:id',
+    path: 'pdfplayer/:mimeType/:id',
     loadChildren: () => import('./pdfplayer/pdfplayer.module').then( m => m.PdfplayerPageModule)
   }
 ];

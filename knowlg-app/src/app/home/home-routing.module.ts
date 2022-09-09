@@ -14,7 +14,7 @@ const routes: Routes = [
     component: PlayerslistComponent,
   },
   {
-    path: 'contentList/:playerType',
+    path: 'contentList/:mimeType',
     component: ContentlistComponent,
   }
 ];

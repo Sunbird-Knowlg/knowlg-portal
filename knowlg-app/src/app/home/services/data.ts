@@ -1,5 +1,5 @@
 export const  data = {
-    PDF : [
+      pdf : [
         {
           "copyright": "2022",
           "subject": [
@@ -217,9 +217,9 @@ export const  data = {
           }
       }
       ],
-      EPUB: [
+      epub: [
       ],
-      VIDEO: [],
+      video: [],
       CONTEXT: {
         "mode": "play",
         "authToken": "",

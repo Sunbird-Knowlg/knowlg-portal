@@ -8,13 +8,7 @@ export class ContentService {
   playerConfig = {};
   constructor() { }
   getContenstList(mimeType) {
-    if (mimeType === 'pdf') {
-      return data.PDF;
-    } else if (mimeType === 'epub') {
-      return data.EPUB;
-    } else if (mimeType === 'video'){
-      return data.VIDEO;
-    }
+      return data[mimeType];
   }
 getContex() {
   return data.CONTEXT;

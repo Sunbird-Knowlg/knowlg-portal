@@ -10,18 +10,18 @@ import { ContentService } from '../services/content.service';
 })
 export class ContentlistComponent implements OnInit {
   contentList = [];
-  playerType: any;
+  mimeType: any;
   constructor(public router: Router, public contentService: ContentService, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.playerType = this.activatedRoute.snapshot.paramMap.get('playerType');
-    this.contentList = this.contentService.getContenstList(this.playerType);
+    this.mimeType = this.activatedRoute.snapshot.paramMap.get('mimeType');
+    this.contentList = this.contentService.getContenstList(this.mimeType);
   }
   navigateToPlayer(content) {
-    if (this.playerType === 'pdf') {
-      this.router.navigate(['/pdfplayer/' , this.playerType, content.identifier] );
-    } else if (this.playerType === 'epub') {
-      this.router.navigate(['/epubplayer/' , content.identifier, this.playerType] );
+    if (this.mimeType === 'pdf') {
+      this.router.navigate(['/pdfplayer/' , this.mimeType, content.identifier] );
+    } else if (this.mimeType === 'epub') {
+      this.router.navigate(['/epubplayer/' , content.identifier, this.mimeType] );
     }
   }
 }
