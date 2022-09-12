@@ -3,4 +3,8 @@
         <sunbird-pdf-player class="sunbird-pdf-player" [playerConfig]="playerConfig"
             (playerEvent)="playerEventHandler($event)" (telemetryEvent)="telemetryEvent($event)"></sunbird-pdf-player>
     </div>
+    <div *ngSwitchCase="'application/epub'" class="player">
+        <sunbird-epub-player class="sunbird-pdf-player" [playerConfig]="playerConfig"
+            (playerEvent)="playerEventHandler($event)" (telemetryEvent)="telemetryEvent($event)"></sunbird-epub-player>
+    </div>
 </div>
