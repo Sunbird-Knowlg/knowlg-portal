@@ -337,7 +337,110 @@ export const  data = {
         }
       }
       ],
-      video: [],
+      video: [
+        {
+          "interceptionPoints": "{'items':[{'type':'QuestionSet','interceptionPoint':50,'identifier':'do_213272808198291456121'},{'type':'QuestionSet','interceptionPoint':90,'identifier':'do_213272808198291456121'},{'type':'QuestionSet','interceptionPoint':120,'identifier':'do_213272808198291456121'}]}",
+          "interceptionType": "Timestamp",
+          "compatibilityLevel": 2,
+          "copyright": "NCERT",
+          "subject": ["CPD"],
+          "channel": "0125196274181898243",
+          "language": ["English"],
+          "mimeType": "video/mp4",
+          "objectType": "Content",
+          "gradeLevel": ["Others"],
+          "appIcon": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/do_31309320735055872011111/artifact/nishtha_icon.thumb.jpg",
+          "primaryCategory": "Explanation Content",
+          "artifactUrl": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/assets/do_31309320735055872011111/engagement-with-language-.mp4",
+          "contentType": "ExplanationResource",
+          "identifier": "do_31309320735055872011111",
+          "audience": ["Student"],
+          "visibility": "Default",
+          "mediaType": "content",
+          "osId": "org.ekstep.quiz.app",
+          "languageCode": ["en"],
+          "license": "CC BY-SA 4.0",
+          "name": "Engagement with Language video content",
+          "description": "Engagement with Language video content",
+          "status": "Live",
+          "code": "1c5bd8da-ad50-44ad-8b07-9c18ec06ce29",
+          "streamingUrl": "https://ntppreprodmedia-inct.streaming.media.azure.net/409780ae-3fc2-4879-85f7-f1affcce55fa/mp4_14.ism/manifest(format=m3u8-aapl-v3)",
+          "medium": ["English"],
+          "createdOn": "2020-08-24T17:58:32.911+0000",
+          "copyrightYear": 2020,
+          "lastUpdatedOn": "2020-08-25T04:36:47.587+0000",
+          "creator": "NCERT COURSE CREATOR 6",
+          "pkgVersion": 1,
+          "versionKey": "1598330207587",
+          "framework": "ncert_k-12",
+          "createdBy": "68dc1f8e-922b-4fcd-b663-593573c75f22",
+          "resourceType": "Learn",
+          "orgDetails": { "email": "director.ncert@nic.in", "orgName": "NCERT" },
+          "licenseDetails": {
+            "name": "CC BY-SA 4.0",
+            "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+            "description": "For details see below:"
+          }
+        },
+        {
+          "copyright": "Tamil Nadu",
+          "subject": [
+            "Accountancy"
+          ],
+          "channel": "01269878797503692810",
+          "language": [
+            "English"
+          ],
+          "mimeType": "video/mp4",
+          "objectType": "Content",
+          "gradeLevel": [
+            "Class 1"
+          ],
+          "appIcon": "https://sunbirdstagingpublic.blob.core.windows.net/sunbird-content-staging/content/do_21339735496488550411039/artifact/do_2133165974693396481129_1625561214791_2.thumb.jpg",
+          "primaryCategory": "Explanation Content",
+          "artifactUrl": "https://sunbirdstagingpublic.blob.core.windows.net/sunbird-content-staging/content/assets/do_21339735496488550411039/file_example_mp4_1280_10mg.mp4",
+          "contentType": "Resource",
+          "identifier": "do_21339735496488550411039",
+          "audience": [
+            "Student"
+          ],
+          "visibility": "Default",
+          "mediaType": "content",
+          "osId": "org.ekstep.quiz.app",
+          "languageCode": [
+            "en"
+          ],
+          "license": "CC BY 4.0",
+          "name": "Video Content",
+          "description": "Video Content",
+          "status": "Live",
+          "code": "31e8a802-3c1a-4a1b-ada0-ba2d3d67b3b4",
+          "interceptionPoints": {},
+          "streamingUrl": "https://sunbirdspikemedia-inct.streaming.media.azure.net/45e78eeb-41d5-4e45-9283-d30d9375e290/file_example_mp4_1280_10mg.ism/manifest(format=m3u8-aapl-v3)",
+          "medium": [
+            "English"
+          ],
+          "createdOn": "2021-10-28T11:08:27.238+0000",
+          "copyrightYear": 2009,
+          "lastUpdatedOn": "2021-10-28T11:44:45.387+0000",
+          "creator": "CCTN",
+          "pkgVersion": 1,
+          "versionKey": "1635421485387",
+          "framework": "tn_k-12_5",
+          "createdBy": "fca2925f-1eee-4654-9177-fece3fd6afc9",
+          "board": "State (Tamil Nadu)",
+          "resourceType": "Learn",
+          "orgDetails": {
+            "email": null,
+            "orgName": "Tamil nadu"
+          },
+          "licenseDetails": {
+            "name": "CC BY 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+            "description": "For details see below:"
+          }
+        }
+      ],
       CONTEXT: {
         "mode": "play",
         "authToken": "",
