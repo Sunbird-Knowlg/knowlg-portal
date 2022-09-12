@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { PdfplayerPage } from './pdfplayer.page';
+import { PlayerPage } from './player.page';
 
-describe('PdfplayerPage', () => {
-  let component: PdfplayerPage;
-  let fixture: ComponentFixture<PdfplayerPage>;
+describe('PlayerPage', () => {
+  let component: PlayerPage;
+  let fixture: ComponentFixture<PlayerPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PdfplayerPage ],
+      declarations: [ PlayerPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PdfplayerPage);
+    fixture = TestBed.createComponent(PlayerPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

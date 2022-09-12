@@ -217,7 +217,125 @@ export const  data = {
           }
       }
       ],
-      epub: [
+      epub: [        {
+        "copyright": "Test axis,2123",
+        "keywords": [
+          "All_Contents"
+        ],
+        "subject": [
+          "Hindi"
+        ],
+        "channel": "01309282781705830427",
+        "language": [
+          "English"
+        ],
+        "mimeType": "application/epub",
+        "objectType": "Content",
+        "gradeLevel": [
+          "Class 10"
+        ],
+        "appIcon": "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/content/do_113351970257264640126/assets/9.thumb.jpg",
+        "primaryCategory": "Explanation Content",
+        "artifactUrl": "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/content/do_113351970257264640126/artifact/index.epub",
+        "contentType": "ClassroomTeachingVideo",
+        "identifier": "do_113351970257264640126",
+        "audience": [
+          "Student"
+        ],
+        "visibility": "Default",
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "languageCode": [
+          "en"
+        ],
+        "license": "CC BY 4.0",
+        "name": "Explanation Content",
+        "attributions": [
+          ""
+        ],
+        "status": "Live",
+        "code": "6748afa0-32fc-869c-fc39-2f4cf7adaacd",
+        "interceptionPoints": {},
+        "description": "epub",
+        "streamingUrl": "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/content/do_113351970257264640126/artifact/index.epub",
+        "medium": [
+          "English"
+        ],
+        "createdOn": "2021-08-25T08:16:27.082+0000",
+        "lastUpdatedOn": "2021-08-25T08:16:30.696+0000",
+        "originData": {
+          "identifier": "do_113351970257264640126",
+          "repository": "https://dock.sunbirded.org/api/content/v1/read/do_113351970257264640126"
+        },
+        "creator": "epub",
+        "pkgVersion": 1,
+        "versionKey": "1629879390696",
+        "framework": "ekstep_ncert_k-12",
+        "createdBy": "0b71985d-fcb0-4018-ab14-83f10c3b0426",
+        "board": "CBSE",
+        "orgDetails": {
+          "email": null,
+          "orgName": "NIT"
+        },
+        "licenseDetails": {
+          "name": "CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "description": "This license is Creative Commons Attribution"
+        }
+      },
+      {
+        "copyright": "1234",
+        "subject": [
+          "Environmental Studies"
+        ],
+        "channel": "01329314824202649627",
+        "language": [
+          "English"
+        ],
+        "mimeType": "application/epub",
+        "objectType": "Content",
+        "primaryCategory": "Learning Resource",
+        "artifactUrl": "https://sunbirdstagingpublic.blob.core.windows.net/sunbird-content-staging/content/do_21336609349471436814791/artifact/index.epub",
+        "contentType": "PreviousBoardExamPapers",
+        "identifier": "do_21336609349471436814791",
+        "audience": [
+          "Student"
+        ],
+        "visibility": "Default",
+        "author": "mvc1",
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "languageCode": [
+          "en"
+        ],
+        "license": "CC BY 4.0",
+        "name": "Epub_Mycontent",
+        "description": "Epub_Mycontent",
+        "status": "Live",
+        "code": "4230a29a-242c-335f-6c15-3e24e9f207ed",
+        "interceptionPoints": {},
+        "streamingUrl": "https://sunbirdstagingpublic.blob.core.windows.net/sunbird-content-staging/content/do_21336609349471436814791/artifact/index.epub",
+        "createdOn": "2021-09-14T07:15:58.065+0000",
+        "lastUpdatedOn": "2021-09-14T07:16:01.313+0000",
+        "originData": {
+          "identifier": "do_21336609349471436814791",
+          "repository": "https://dockstaging.sunbirded.org/api/content/v1/read/do_21336609349471436814791"
+        },
+        "creator": "mvc1",
+        "pkgVersion": 1,
+        "versionKey": "1631603761313",
+        "framework": "TPD",
+        "createdBy": "2328fc42-c4f4-4314-b17f-6b993331942d",
+        "orgDetails": {
+          "email": null,
+          "orgName": "CBSE"
+        },
+        "licenseDetails": {
+          "name": "CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "description": "For details see below:"
+        }
+      }
       ],
       video: [],
       CONTEXT: {

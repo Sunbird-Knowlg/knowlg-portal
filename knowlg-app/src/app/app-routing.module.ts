@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'pdfplayer/:mimeType/:id',
-    loadChildren: () => import('./pdfplayer/pdfplayer.module').then( m => m.PdfplayerPageModule)
+    path: 'player/:mimeType/:id',
+    loadChildren: () => import('./player/player.module').then( m => m.PlayerPageModule)
   }
 ];
 

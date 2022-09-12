@@ -18,10 +18,6 @@ export class ContentlistComponent implements OnInit {
     this.contentList = this.contentService.getContenstList(this.mimeType);
   }
   navigateToPlayer(content) {
-    if (this.mimeType === 'pdf') {
-      this.router.navigate(['/pdfplayer/' , this.mimeType, content.identifier] );
-    } else if (this.mimeType === 'epub') {
-      this.router.navigate(['/epubplayer/' , content.identifier, this.mimeType] );
-    }
+      this.router.navigate(['/player/', this.mimeType, content.identifier]);
   }
 }

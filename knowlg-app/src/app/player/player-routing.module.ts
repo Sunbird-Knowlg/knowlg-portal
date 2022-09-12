@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PdfplayerPage } from './pdfplayer.page';
+import { PlayerPage } from './player.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: PdfplayerPage
+    component: PlayerPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PdfplayerPageRoutingModule {}
+export class PlayerPageRoutingModule {}

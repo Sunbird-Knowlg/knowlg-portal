@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PdfplayerPageRoutingModule } from './pdfplayer-routing.module';
-
-import { PdfplayerPage } from './pdfplayer.page';
+import { PlayerPageRoutingModule } from './player-routing.module';
 import { SharedModule } from 'shared';
+import { PlayerPage } from './player.page';
 
 @NgModule({
   imports: [
@@ -15,8 +14,8 @@ import { SharedModule } from 'shared';
     FormsModule,
     IonicModule,
     SharedModule,
-    PdfplayerPageRoutingModule
+    PlayerPageRoutingModule
   ],
-  declarations: [PdfplayerPage]
+  declarations: [PlayerPage]
 })
-export class PdfplayerPageModule {}
+export class PlayerPageModule {}
