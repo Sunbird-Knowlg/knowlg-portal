@@ -379,25 +379,7 @@ export const  data = {
           ],
           status: 'Live',
           code: '2a38c802-a986-cba4-3e74-f666b7983b01',
-          interceptionPoints: {
-            items: [
-              {
-                type: 'QuestionSet',
-                interceptionPoint: 50,
-                identifier: 'do_213487261245874176191'
-              },
-              {
-                type: 'QuestionSet',
-                interceptionPoint: 120,
-                identifier: 'do_213272808198291456121'
-              },
-              {
-                type: 'QuestionSet',
-                interceptionPoint: 80,
-                identifier: 'do_213471560301830144119'
-              }
-            ]
-          },
+          interceptionPoints: {},
           description: 'mp4',
           // tslint:disable-next-line
           streamingUrl: 'https://ntppreprodmedia-inct.streaming.media.azure.net/409780ae-3fc2-4879-85f7-f1affcce55fa/mp4_14.ism/manifest(format=m3u8-aapl-v3)',
