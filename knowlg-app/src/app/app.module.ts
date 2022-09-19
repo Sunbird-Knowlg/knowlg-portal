@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SunbirdPdfPlayerModule } from '@project-sunbird/sunbird-pdf-player-v9';
 import { SunbirdEpubPlayerModule } from '@project-sunbird/sunbird-epub-player-v9';
-
+import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SunbirdPdfPlayerModule, SunbirdEpubPlayerModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, SunbirdPdfPlayerModule,
+     SunbirdEpubPlayerModule, SunbirdVideoPlayerModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
