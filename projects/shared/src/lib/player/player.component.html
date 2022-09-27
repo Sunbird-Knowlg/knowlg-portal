@@ -1,0 +1,18 @@
+<div [ngSwitch]="playerConfig?.metadata?.mimeType">
+    <div *ngSwitchCase="'application/pdf'" class="player">
+        <sunbird-pdf-player class="sunbird-pdf-player" [playerConfig]="playerConfig"
+            (playerEvent)="playerEventHandler($event)" (telemetryEvent)="telemetryEvent($event)"></sunbird-pdf-player>
+    </div>
+    <div *ngSwitchCase="'application/epub'" class="player">
+        <sunbird-epub-player class="sunbird-pdf-player" [playerConfig]="playerConfig"
+            (playerEvent)="playerEventHandler($event)" (telemetryEvent)="telemetryEvent($event)"></sunbird-epub-player>
+    </div>
+    <div *ngSwitchCase="'video/mp4'" class="player">
+        <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio" #aspectRatio>
+            <div class="h-100">
+                <sunbird-video-player [playerConfig]="playerConfig" (playerEvent)="playerEventHandler($event)"
+                    (telemetryEvent)="telemetryEvent($event)"></sunbird-video-player>
+            </div>
+        </div>
+    </div>
+</div>

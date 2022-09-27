@@ -1,0 +1,10 @@
+<div class="row" *ngFor="let content of contentList">
+    <div class="box-shodow" (click)="selectContent(content)">
+        <div class="content-name"> {{content?.name}}
+            <button class="btn view-button"> view </button>
+        </div>
+        <div class="content-description">
+            {{content?.description}}
+        </div>
+    </div>
+</div>
