@@ -751,7 +751,47 @@ module.exports = {
                             },
                             "required": false,
                             "visible": true
-                        }
+                        },
+                        {
+                          "code": "verticals",
+                          "dataType": "text",
+                          "description": "Verticals",
+                          "editable": true,
+                          "index": 12,
+                          "inputType": "select",
+                          "label": "Verticals",
+                          "name": "Verticals",
+                          "placeholder": "Choose from the list of verticals",
+                          "renderingHints": {},
+                          "range": [
+                              "Nipun Bharat",
+                              "Adult Education",
+                              "Vocational Education",
+                              "CWSN",
+                              "Virtual Labs"
+                          ],
+                          "required": false,
+                          "visible": true
+                      },
+                      {
+                          "code": "programs",
+                          "dataType": "text",
+                          "description": "Programs",
+                          "editable": true,
+                          "index": 12,
+                          "inputType": "select",
+                          "label": "Programs",
+                          "name": "Programs",
+                          "placeholder": "Choose from the list of programs",
+                          "renderingHints": {},
+                          "range": [
+                              "NISHTHA 2.0 (Secondary Level)",
+                              "NISHTHA 3.0 (Nipun Bharat)",
+                              "Chapter as a Course"
+                          ],
+                          "required": false,
+                          "visible": true
+                      }
                     ]
                 },
                 "created_on": "2020-05-15T09:45:23.623Z",
