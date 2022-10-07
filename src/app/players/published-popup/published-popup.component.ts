@@ -25,9 +25,9 @@ export class PublishedPopupComponent implements OnInit {
   publishCheckListData: any;
 
   constructor(private route: Router, private activatedRoute: ActivatedRoute,
-    public dialogRef: MatDialogRef<PublishedPopupComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private helperService: HelperService) { }
+              public dialogRef: MatDialogRef<PublishedPopupComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private helperService: HelperService) { }
 
 
   ngOnInit() {
