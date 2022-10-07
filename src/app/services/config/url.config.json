@@ -1,7 +1,8 @@
 {
   "CONTENT": {
     "READ": "content/v3/read",
-    "CREATE": "content/v3/create"
+    "CREATE": "content/v3/create",
+    "PUBLISH": "content/v1/publish"
   },
   "COLLECTION": {
     "HIERARCHY": "content/v3/hierarchy"
@@ -18,5 +19,8 @@
   "USER": {
     "READ": "user/v1/read",
     "USER_ROLE": "user/v1/role"
+  },
+  "dataDrivenForms": {
+    "READ": "data/v1/form/read"
   }
 }

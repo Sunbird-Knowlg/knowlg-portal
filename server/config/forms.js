@@ -802,6 +802,68 @@ module.exports = {
         "ts": "2022-09-01T08:56:23.471Z",
         "ver": "1.0"
     },
+    "content_resource_publish" : {
+        "id": "api.form.read",
+        "params": {
+            "resmsgid": "7d8c5b85-344e-4d69-ad73-558e5c153956",
+            "msgid": "8777e2c0-ebaf-4664-a3e5-8558ee5df794",
+            "status": "successful"
+        },
+        "responseCode": "OK",
+        "result": {
+            "form": {
+                "type": "content",
+                "subtype": "resource",
+                "action": "publish",
+                "component": "*",
+                "framework": "*",
+                "data": {
+                    "templateName": "defaultTemplate",
+                    "action": "publish",
+                    "fields": [
+                        {
+                            "contents": [
+                                {
+                                    "name": "Appropriateness",
+                                    "checkList": [
+                                        "No Hate speech, Abuse, Violence, Profanity",
+                                        "No Sexual content, Nudity or Vulgarity",
+                                        "No Discrimination or Defamation",
+                                        "Is suitable for children"
+                                    ]
+                                },
+                                {
+                                    "name": "Content details",
+                                    "checkList": [
+                                        "Appropriate Title, Description",
+                                        "Correct Board, Grade, Subject, Medium",
+                                        "Appropriate tags such as Resource Type, Concepts",
+                                        "Relevant Keywords"
+                                    ]
+                                },
+                                {
+                                    "name": "Usability",
+                                    "checkList": [
+                                        "Content plays correctly",
+                                        "Can see the content clearly on Desktop and App",
+                                        "Audio (if any) is clear and easy to understand",
+                                        "No Spelling mistakes in the text",
+                                        "Language is simple to understand"
+                                    ]
+                                }
+                            ],
+                            "title": "Please confirm that ALL the following items are verified (by ticking the check-boxes) before you can publish:"
+                        }
+                    ]
+                },
+                "created_on": "2020-05-15T09:45:57.076Z",
+                "last_modified_on": "2020-05-28T12:16:02.044Z",
+                "rootOrgId": "*"
+            }
+        },
+        "ts": "2022-10-07T08:07:47.943Z",
+        "ver": "1.0"
+    },
     "content_questions_question-filter-view": {
         "id": "api.form.read",
         "params": {

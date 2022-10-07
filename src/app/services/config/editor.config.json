@@ -235,7 +235,8 @@
     },
     "pdf": {
       "mimeType": "application/pdf",
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "player": "pdf"
     },
     "video": {
       "mimeType": ["video/mp4", "video/webm"],

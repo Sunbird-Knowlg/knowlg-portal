@@ -62,6 +62,16 @@ export class HelperService {
     return this.actionService.post(req);
   }
 
+  publishContent(reqBody: any, contentId: string): Observable<any> {
+    const req = {
+      url: `${this.configService.urlConFig.CONTENT.PUBLISH}/${contentId}`,
+      data: {
+        request: reqBody
+    }
+    };
+    return this.actionService.post(req);
+  }
+
   contentSearch(requestData: object): Observable<any> {
     const req = {
       url: `${this.configService.urlConFig.SEARCH.COMPOSIT}`,
@@ -113,7 +123,7 @@ export class HelperService {
         })
       );
   }
-getAllUsersByRoleType(role): Observable<any> {
+  getAllUsersByRoleType(role): Observable<any> {
     const req = {
       url: `${this.configService.urlConFig.USER.READ}`,
       data: {
@@ -126,6 +136,23 @@ getAllUsersByRoleType(role): Observable<any> {
       })
     );
   }
+
+  getFormData(formInputParams): Observable<any> {
+    const channelOptions = {
+      url: this.configService.urlConFig.dataDrivenForms.READ,
+      data: {
+        request: {
+          type: formInputParams.formType,
+          action: formInputParams.formAction,
+          subType: formInputParams.subType
+        }
+      }
+    };
+    return this.actionService.post(channelOptions).pipe(map((data) => {
+      return data;
+    }));
+  }
+
   setConfig(config) {
     this.editorConfig = config;
   }

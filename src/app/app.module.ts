@@ -35,6 +35,8 @@ import { CollectionDetailsModelComponent } from './players/collection-player/col
 import {MatListModule} from '@angular/material/list';
 import { ContentDetailsModelComponent } from './players/collection-player/content-details-model/content-details-model.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { HeaderComponent } from './players/header/header.component';
+import { PublishedPopupComponent } from './players/published-popup/published-popup.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     SidebarComponent,
     CollectionPlayerComponent,
     CollectionDetailsModelComponent,
-    ContentDetailsModelComponent
+    ContentDetailsModelComponent,
+    HeaderComponent,
+    PublishedPopupComponent
   ],
   imports: [
     BrowserModule,
