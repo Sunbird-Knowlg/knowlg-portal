@@ -105,7 +105,7 @@ export class ContentlistComponent implements OnInit {
     const playerType = _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'player', null);
     const contentStatus = _.lowerCase(content.status);
     if (playerType && contentStatus === 'review' && _.get(this.userData, 'role') === 'reviewer') {
-      this.router.navigate(['/players/' + playerType], { queryParams: { identifier: content.identifier, mode: 'publish'} });
+      this.router.navigate(['/players/' + playerType], { queryParams: { identifier: content.identifier, mode: 'review'} });
     } else {
       this.openContent(content.identifier);
     }

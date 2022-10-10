@@ -10,7 +10,7 @@ import { LocalStorageService } from 'src/app/services/user/localstorage.service'
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public isPublishMode = false;
+  public isContentReviewer = false;
   public showPublishPopup = false;
   public contentId: string;
   public userData: any;
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     this.userData = this.localStorageService.getItem('userData');
     this.activatedRoute.queryParams.subscribe((params: any) => {
       this.contentId = params.identifier;
-      this.isPublishMode = params.mode && params.mode === 'publish' ? true : false;
+      this.isContentReviewer = params.mode && params.mode === 'review' ? true : false;
     });
   }
 
