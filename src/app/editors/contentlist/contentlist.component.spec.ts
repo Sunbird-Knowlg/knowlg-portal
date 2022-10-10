@@ -127,7 +127,7 @@ describe('ContentlistComponent', () => {
       component.editorType = 'pdf';
       component.onSelectContent({ status: 'review', identifier: 'do_123456789' });
       expect(component.openContent).not.toHaveBeenCalled();
-      expect(router.navigate).toHaveBeenCalledWith(['/players/pdf'], { queryParams: { identifier: 'do_123456789', mode: 'review' } });
+      expect(router.navigate).toHaveBeenCalledWith(['players/pdf'], { queryParams: { identifier: 'do_123456789', mode: 'review' } });
     });
   });
 
