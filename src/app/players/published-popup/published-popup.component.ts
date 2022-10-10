@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit, ViewChildren } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import * as _ from 'lodash-es';
 import { HelperService } from 'src/app/services/helper/helper.service';
 
@@ -24,7 +24,7 @@ export class PublishedPopupComponent implements OnInit {
   showloader = true;
   publishCheckListData: any;
 
-  constructor(private route: Router, private activatedRoute: ActivatedRoute,
+  constructor(private route: Router,
               public dialogRef: MatDialogRef<PublishedPopupComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private helperService: HelperService) { }

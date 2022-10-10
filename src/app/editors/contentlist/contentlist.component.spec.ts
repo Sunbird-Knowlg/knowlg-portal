@@ -131,4 +131,14 @@ describe('ContentlistComponent', () => {
     });
   });
 
+  it('#handlePageEvent() should set page event data and call #contentSearch method', () => {
+    spyOn(component, 'contentSearch').and.callThrough();
+    component.editorType = 'pdf';
+    component.handlePageEvent({pageSize: 1, pageIndex: 2, length: 10});
+    expect(component.pageSize).toBe(1);
+    expect(component.pageIndex).toBe(2);
+    expect(component.contentSearch).toHaveBeenCalled();
+  });
+
+
 });
