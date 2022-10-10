@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>
+  Please confirm that ALL the following items are verified (by ticking the
+  check-boxes) before you can publish:
+</h1>
+<div mat-dialog-content>
+  <div class="ui three column grid">
+    <div class="column" *ngFor="let list of publishCheckListData?.contents">
+      <h5 class="ui tiny header">{{ list.name }}</h5>
+      <div class="ui list" *ngFor="let item of list.checkList">
+        <div class="item">
+          <div class="ui checkbox checklist">
+            <input
+              type="checkbox"
+              #inputFields
+              class="listItem"
+              tabindex="0"
+              (click)="createCheckedArray(item)"
+            />
+            <label>{{ item }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <div class="sb-modal-actions">
+    <button
+      class="sb-btn sb-btn-normal sb-btn-primary"
+      type="button"
+      [disabled]="isDisabled"
+      tabindex="0"
+      (click)="submitPublishChanges()"
+    >
+      Publish
+    </button>
+    <button
+      class="sb-btn sb-btn-normal sb-btn-outline-primary mr-8"
+      type="button"
+      tabindex="0"
+      (click)="closeDialog()"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

@@ -101,6 +101,17 @@ export class ContentlistComponent implements OnInit {
     this.router.navigate(['/editors/' + editorType], { queryParams: { identifier} });
   }
 
+  onSelectContent(content: any){
+    const playerRedirectURL = _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'playerRedirectURL', null);
+    const contentStatus = _.lowerCase(content.status);
+    if (playerRedirectURL && contentStatus === 'review' && _.get(this.userData, 'role') === 'reviewer') {
+      this.router.navigate([playerRedirectURL], { queryParams: { identifier: content.identifier, mode: 'review'} });
+    } else {
+      this.openContent(content.identifier);
+    }
+  }
+
+
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
