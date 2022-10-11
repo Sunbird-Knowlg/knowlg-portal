@@ -40,7 +40,7 @@ export class ContentlistComponent implements OnInit {
       request: {
         filters: {
           status: this.configService.editorConfig[_.get(this.userData, 'role')],
-          mimeType: _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'mimeType'),
+          ...(_.pick(this.configService.editorConfig.CONTENT_TYPES[this.editorType], ['mimeType', 'contentType'])),
           objectType: 'Content',
           channel: _.get(this.userData, 'channelId'),
         },
@@ -70,8 +70,8 @@ export class ContentlistComponent implements OnInit {
   }
 
   createContent() {
-
-    if (this.editorType !== 'collection' && this.editorType !== 'ecml') {
+    const createContent = ['book', 'collection', 'course', 'ecml'].includes(this.editorType);
+    if (!createContent) {
       this.openContent();
       return;
     }
@@ -86,7 +86,7 @@ export class ContentlistComponent implements OnInit {
           createdFor: [_.get(this.userData, 'channelId')],
           framework: 'knowlg_k-12',
           creator: _.get(this.userData, 'userName'),
-          ...(_.omit(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'editor'))
+          ...(_.pick(this.configService.editorConfig.CONTENT_TYPES[this.editorType], ['mimeType', 'resourceType', 'contentType']))
     }
    };
     this.helperService.createContent(requestData).subscribe(res => {
