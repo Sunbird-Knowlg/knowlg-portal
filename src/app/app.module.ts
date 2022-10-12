@@ -10,7 +10,6 @@ import { PdfComponent } from './players/pdf/pdf.component';
 import { EpubComponent } from './players/epub/epub.component';
 import { HomeComponent } from './home/home.component';
 import { SunbirdEpubPlayerModule } from '@project-sunbird/sunbird-epub-player-v9';
-import { SunbirdPdfPlayerModule } from '@project-sunbird/sunbird-pdf-player-v9';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
 import { VideoComponent } from './players/video/video.component';
 import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
@@ -37,6 +36,7 @@ import { ContentDetailsModelComponent } from './players/collection-player/conten
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HeaderComponent } from './players/header/header.component';
 import { PublishedPopupComponent } from './players/published-popup/published-popup.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -65,7 +65,6 @@ import { PublishedPopupComponent } from './players/published-popup/published-pop
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SunbirdPdfPlayerModule,
     SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
     QumlLibraryModule,
@@ -78,6 +77,7 @@ import { PublishedPopupComponent } from './players/published-popup/published-pop
     MatListModule,
     MatPaginatorModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
