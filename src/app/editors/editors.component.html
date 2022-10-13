@@ -10,8 +10,11 @@
           <span *ngIf="userData?.role === 'reviewer'"> {{configService?.labelConfig?.label?.review}}</span> ?</p>
       </div>
       <div class="editor-items flex-jc-center pb-16">
-        <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('collection')">Collection (Book, Course, etc..)</button>
-    
+        <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('book')">Book</button>
+        <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('course')">Course</button>
+      </div>
+      <div class="editor-items flex-jc-center pb-16">
+        <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('collection')">Collection</button>
         <button class="sb-btn sb-btn-normal sb-btn-primary" (click)="navigateToContentList('ecml')">Resource (Similar to Google slide)</button>
       </div>
       <div class="editor-items flex-jc-center pb-16">

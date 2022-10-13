@@ -132,6 +132,26 @@ app.get(routes.API.USER_ROLE, function (req, res) {
 });
 
 /**
+ * @param  {} routes.API.ASSET.VALIDATE validate asset URL 
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ */
+app.post(routes.API.ASSET.VALIDATE, function (req, res) {
+  let response = {
+    apiId: "asset.url.validate",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: {
+      "license": {
+          "valid": false,
+          "value": "youtube"
+      }
+    }
+  };
+  return res.send(responseUtils.successResponse(response));
+});
+
+/**
  * @param  {} routes.API.USERS This is the user role api url
  * @param  {} res
  * @param  {} {res.status(200) Sending the api response
