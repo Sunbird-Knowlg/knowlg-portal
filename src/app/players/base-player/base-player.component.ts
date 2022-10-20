@@ -52,10 +52,10 @@ export class BasePlayerComponent implements OnDestroy {
   }
 
   playerEvents(event) {
-    if (event?.edata?.type === 'SHARE') {
+    if (event?.detail?.edata?.type === 'SHARE') {
       this.share.emit(event);
     }
-    if (event?.edata?.type === 'END') {
+    if (event?.detail?.edata?.type === 'END') {
       this.configService.setMetaData(event);
     }
   }
