@@ -23,7 +23,8 @@ module.exports = {
        },
        "ASSET": {
            "CREATE": '/action/asset/v1/create',
-           "UPLAOD": '/action/asset/v1/upload/*'
+           "UPLAOD": '/action/asset/v1/upload/*',
+           "VALIDATE" : "/action/asset/v3/validate"
        },
        "ASSESSMENT": "/action/assessment/v3/*",
        "CHANNEL": "/action/channel/v3/*",
@@ -50,5 +51,6 @@ module.exports = {
            "GENERIC_EDITOR": "/generic-editor/*",
            "CONTENT_EDITOR": "/content-editor/*"
        }
-    }
+    },
+    "defaultUserId": '5a587cc1-e018-4859-a0a8-e842650b9d64'
 }

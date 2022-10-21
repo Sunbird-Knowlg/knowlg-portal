@@ -221,41 +221,62 @@
     ]
   },
   "CONTENT_TYPES": {
-    "collection": {
+    "book": {
       "mimeType": "application/vnd.ekstep.content-collection",
       "editor": "collection-editor",
       "resourceType": "Book",
       "contentType": "TextBook"
     },
+    "course": {
+      "mimeType": "application/vnd.ekstep.content-collection",
+      "editor": "collection-editor",
+      "resourceType": "Course",
+      "contentType": "Course",
+      "primaryCategory": "Course"
+    },
+    "collection": {
+      "mimeType": "application/vnd.ekstep.content-collection",
+      "editor": "collection-editor",
+      "resourceType": "Collection",
+      "contentType": "Collection",
+      "primaryCategory": "Content Playlist"
+    },
     "ecml": {
       "mimeType": "application/vnd.ekstep.ecml-archive",
       "contentType": "Resource",
       "resourceType": "Learn",
-      "editor": "interactive-editor"
+      "editor": "interactive-editor",
+      "playerRedirectURL": "players/interactive"
     },
     "pdf": {
       "mimeType": "application/pdf",
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "playerRedirectURL": "players/pdf"
     },
     "video": {
       "mimeType": ["video/mp4", "video/webm"],
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "playerRedirectURL": "players/video"
     },
     "youtube": {
       "mimeType" : "video/x-youtube",
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "playerRedirectURL": "players/interactive"
     },
     "html": {
       "mimeType": "application/vnd.ekstep.html-archive",
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "playerRedirectURL": "players/interactive"
     },
     "epub": {
       "mimeType": "application/epub",
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "playerRedirectURL": "players/epub"
     },
     "h5p": {
       "mimeType": "application/vnd.ekstep.h5p-archive",
-      "editor": "file-upload-editor"
+      "editor": "file-upload-editor",
+      "playerRedirectURL": "players/interactive"
     }
   },
   "creator": [

@@ -751,7 +751,47 @@ module.exports = {
                             },
                             "required": false,
                             "visible": true
-                        }
+                        },
+                        {
+                          "code": "verticals",
+                          "dataType": "text",
+                          "description": "Verticals",
+                          "editable": true,
+                          "index": 12,
+                          "inputType": "select",
+                          "label": "Verticals",
+                          "name": "Verticals",
+                          "placeholder": "Choose from the list of verticals",
+                          "renderingHints": {},
+                          "range": [
+                              "Nipun Bharat",
+                              "Adult Education",
+                              "Vocational Education",
+                              "CWSN",
+                              "Virtual Labs"
+                          ],
+                          "required": false,
+                          "visible": true
+                      },
+                      {
+                          "code": "programs",
+                          "dataType": "text",
+                          "description": "Programs",
+                          "editable": true,
+                          "index": 12,
+                          "inputType": "select",
+                          "label": "Programs",
+                          "name": "Programs",
+                          "placeholder": "Choose from the list of programs",
+                          "renderingHints": {},
+                          "range": [
+                              "NISHTHA 2.0 (Secondary Level)",
+                              "NISHTHA 3.0 (Nipun Bharat)",
+                              "Chapter as a Course"
+                          ],
+                          "required": false,
+                          "visible": true
+                      }
                     ]
                 },
                 "created_on": "2020-05-15T09:45:23.623Z",
@@ -760,6 +800,68 @@ module.exports = {
             }
         },
         "ts": "2022-09-01T08:56:23.471Z",
+        "ver": "1.0"
+    },
+    "content_resource_publish" : {
+        "id": "api.form.read",
+        "params": {
+            "resmsgid": "7d8c5b85-344e-4d69-ad73-558e5c153956",
+            "msgid": "8777e2c0-ebaf-4664-a3e5-8558ee5df794",
+            "status": "successful"
+        },
+        "responseCode": "OK",
+        "result": {
+            "form": {
+                "type": "content",
+                "subtype": "resource",
+                "action": "publish",
+                "component": "*",
+                "framework": "*",
+                "data": {
+                    "templateName": "defaultTemplate",
+                    "action": "publish",
+                    "fields": [
+                        {
+                            "contents": [
+                                {
+                                    "name": "Appropriateness",
+                                    "checkList": [
+                                        "No Hate speech, Abuse, Violence, Profanity",
+                                        "No Sexual content, Nudity or Vulgarity",
+                                        "No Discrimination or Defamation",
+                                        "Is suitable for children"
+                                    ]
+                                },
+                                {
+                                    "name": "Content details",
+                                    "checkList": [
+                                        "Appropriate Title, Description",
+                                        "Correct Board, Grade, Subject, Medium",
+                                        "Appropriate tags such as Resource Type, Concepts",
+                                        "Relevant Keywords"
+                                    ]
+                                },
+                                {
+                                    "name": "Usability",
+                                    "checkList": [
+                                        "Content plays correctly",
+                                        "Can see the content clearly on Desktop and App",
+                                        "Audio (if any) is clear and easy to understand",
+                                        "No Spelling mistakes in the text",
+                                        "Language is simple to understand"
+                                    ]
+                                }
+                            ],
+                            "title": "Please confirm that ALL the following items are verified (by ticking the check-boxes) before you can publish:"
+                        }
+                    ]
+                },
+                "created_on": "2020-05-15T09:45:57.076Z",
+                "last_modified_on": "2020-05-28T12:16:02.044Z",
+                "rootOrgId": "*"
+            }
+        },
+        "ts": "2022-10-07T08:07:47.943Z",
         "ver": "1.0"
     },
     "content_questions_question-filter-view": {

@@ -3,22 +3,21 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ContentlistComponent } from './contentlist.component';
 import { of as observableOf, of } from 'rxjs';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from '../../services/config/config.service';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
-const configServiceData = {
-  CONTENT_TYPES: {
-    collection: {
-      mimeType: 'application/vnd.ekstep.content-collection',
-      editor: 'collection-editor',
-      resourceType: 'Book',
-      contentType: 'TextBook'
-    }
-  }
+
+const fakeUserData = {
+  userName: 'N11',
+  userId: '5a587cc1-e018-4859-a0a8-e842650b9d64',
+  channelId: '01309282781705830427',
+  role: 'creator'
 };
+
 const fakeActivatedRoute = {
   params: observableOf({ page: 'collection-editor' })
 };
@@ -30,7 +29,7 @@ describe('ContentlistComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ContentlistComponent],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, MatPaginatorModule],
       providers: [
         HttpClient,
         { provide: Router, useClass: RouterStub },
@@ -43,9 +42,14 @@ describe('ContentlistComponent', () => {
 
   beforeEach(() => {
     localStorage.setItem('type', JSON.stringify('collection'));
+    localStorage.setItem('userData', JSON.stringify(fakeUserData));
     fixture = TestBed.createComponent(ContentlistComponent);
     component = fixture.componentInstance;
     // fixture.detectChanges();
+  });
+
+  afterEach(() => {
+    localStorage.setItem('userData', JSON.stringify(fakeUserData));
   });
 
   it('should create', () => {
@@ -102,5 +106,39 @@ describe('ContentlistComponent', () => {
     component.openContent('do_123');
     expect(router.navigate).toHaveBeenCalledWith(['/editors/collection-editor'], { queryParams: { identifier: 'do_123' } });
   });
+
+  describe('redirectToEditor', () => {
+    it('should navigate to Draft if mimetype is collection and role is #creator', () => {
+      const router = TestBed.inject(Router);
+      spyOn(component, 'openContent').and.callThrough();
+      component.editorType = 'collection';
+      component.onSelectContent({ status: 'draft', identifier: 'do_123456789' });
+      expect(component.openContent).toHaveBeenCalledWith('do_123456789');
+      expect(router.navigate).toHaveBeenCalledWith(['/editors/collection-editor'], { queryParams: { identifier: 'do_123456789' } });
+    });
+  });
+
+  describe('redirectToPlayer', () => {
+    it('should navigate to review if mimetype is #pdf and role is #reviewer', () => {
+      const router = TestBed.inject(Router);
+      spyOn(component, 'openContent').and.callThrough();
+      localStorage.setItem('type', JSON.stringify('pdf'));
+      component.userData = { role: 'reviewer' };
+      component.editorType = 'pdf';
+      component.onSelectContent({ status: 'review', identifier: 'do_123456789' });
+      expect(component.openContent).not.toHaveBeenCalled();
+      expect(router.navigate).toHaveBeenCalledWith(['players/pdf'], { queryParams: { identifier: 'do_123456789', mode: 'review' } });
+    });
+  });
+
+  it('#handlePageEvent() should set page event data and call #contentSearch method', () => {
+    spyOn(component, 'contentSearch').and.callThrough();
+    component.editorType = 'pdf';
+    component.handlePageEvent({pageSize: 1, pageIndex: 2, length: 10});
+    expect(component.pageSize).toBe(1);
+    expect(component.pageIndex).toBe(2);
+    expect(component.contentSearch).toHaveBeenCalled();
+  });
+
 
 });
