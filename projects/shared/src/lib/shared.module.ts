@@ -10,6 +10,7 @@ import { ContentService } from './services/content.service';
   declarations: [ContentlistComponent, PlayerComponent],
   imports: [ SunbirdPdfPlayerModule, SunbirdEpubPlayerModule, SunbirdVideoPlayerModule, CommonModule
   ],
-  exports: [PlayerComponent, ContentlistComponent, ContentService]
+  exports: [PlayerComponent, ContentlistComponent],
+  providers: [ContentService]
 })
 export class SharedModule { }
