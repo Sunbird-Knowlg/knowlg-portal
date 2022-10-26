@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  contentReadURL: "https://dev.knowlg.sunbird.org/action/content/v3/read",
+  compositeSearchURL: "https://dev.knowlg.sunbird.org/action/composite/v3/search"
 };
 
 /*
