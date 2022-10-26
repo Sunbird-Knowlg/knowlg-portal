@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angu
   styleUrls: ['./contentlist.component.css']
 })
 export class ContentlistComponent implements OnInit {
-  @Input() contentList;
+  @Input() contentList: Array<any> = [];
   @Output() contentSelect = new EventEmitter<any>();
 
   public contents: Array<{name: string, description?: string, initial: string, color: string, backgroundColor: string}>
