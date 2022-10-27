@@ -25,7 +25,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/sunbird/pdf-player-styles.css",
+              "src/assets/libs/sunbird-pdf-player/styles.css",
               {
                 "glob": "**/*",
                 "input": "node_modules/@project-sunbird/sunbird-collection-editor/lib/assets",
@@ -45,6 +45,11 @@
                 "glob": "**/*.*",
                 "input": "./node_modules/@project-sunbird/common-consumption/assets",
                 "output": "./assets/common-consumption"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/libs/sunbird-pdf-player/pdfjs/",
+                "output": "/assets/pdfjs/"
               }
             ],
             "styles": [
@@ -61,7 +66,7 @@
               "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
-              "src/assets/sunbird/sunbird-pdf-player.js",
+              "src/assets/libs/sunbird-pdf-player/pdf-player.js",
               "node_modules/epubjs/dist/epub.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/video.js/dist/video.js",
