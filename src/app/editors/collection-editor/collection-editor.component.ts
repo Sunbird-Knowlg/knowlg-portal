@@ -5,6 +5,7 @@ import * as _ from 'lodash-es';
 import { forkJoin, Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
+import { ConfigService } from 'src/app/services/config/config.service';
 @Component({
   selector: 'app-collection-editor',
   templateUrl: './collection-editor.component.html',
@@ -18,7 +19,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   public hierarchyConfig;
   public userData: any;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public helperService: HelperService,
-              public localStorageService: LocalStorageService){}
+              public localStorageService: LocalStorageService, private configService: ConfigService){}
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');
@@ -164,7 +165,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
       }
     };
     this.editorConfig.config.showAddCollaborator = true;
-    this.editorConfig.config.publicStorageAccount = '';
+    this.editorConfig.config.publicStorageAccount = this.configService.editorConfig.publicStorageAccount;
     this.editorConfig.config = _.assign(this.editorConfig.config, this.hierarchyConfig);
   }
 
