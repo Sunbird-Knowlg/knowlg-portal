@@ -13,6 +13,8 @@ export class BasePlayerComponent implements OnDestroy {
   playerConfig: any;
   isLoading = true;
   playerSettingconfig: any;
+  shareEvent = 'SHARE';
+  endEvent = 'END';
   private subscription: Subscription;
   private identifierChangeSubscription: Subscription;
   @Input() showPlayerOnly = false;
@@ -52,10 +54,10 @@ export class BasePlayerComponent implements OnDestroy {
   }
 
   playerEvents(event) {
-    if (event?.edata?.type === 'SHARE') {
+    if (event?.detail?.edata?.type === this.shareEvent) {
       this.share.emit(event);
     }
-    if (event?.edata?.type === 'END') {
+    if (event?.detail?.edata?.type ===  this.endEvent) {
       this.configService.setMetaData(event);
     }
   }
