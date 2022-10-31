@@ -284,6 +284,5 @@
     "FlagDraft",
     "Live"
   ],
-  "reviewer": ["Review"],
-  "publicStorageAccount": "https://sunbirddev.blob.core.windows.net/"
+  "reviewer": ["Review"]
 }
