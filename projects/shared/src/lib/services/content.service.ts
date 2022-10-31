@@ -12,22 +12,20 @@ interface Config {
 })
 export class ContentService {
 
-  private config: Config;
+  private baseUrl: string;
   private defalutConfig = { readURL: "/action/content/v3/read", searchURL: "/action/composite/v3/search" };
-  constructor(private http: HttpClient) {
-    this.config = this.defalutConfig;
-   }
+  constructor(private http: HttpClient) {}
 
-  initialize(config: Config = this.defalutConfig) {
-    this.config = config;
+  initialize(baseUrl: string) {
+    this.baseUrl = baseUrl;
   }
 
   read(contentId: string, option: any = { params: {} }): Observable<any> {
-    return this.http.get(`${this.config.readURL}/${contentId}`, option);
+    return this.http.get(`${this.baseUrl}${this.defalutConfig.readURL}/${contentId}`, option);
   }
 
   search(body: any, params?: HttpParams, headers?: HttpHeaders) {
-    return this.http.post(this.config.searchURL, body, { params, headers });
+    return this.http.post(`${this.baseUrl}${this.defalutConfig.searchURL}`, body, { params, headers });
   }
 
 }

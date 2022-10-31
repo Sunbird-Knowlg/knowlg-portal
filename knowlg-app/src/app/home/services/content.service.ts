@@ -12,10 +12,7 @@ import { get } from 'lodash-es';
 export class ContentService {
   playerConfig = {};
   constructor(private apiService: APIService) { 
-    this.apiService.initialize({
-      readURL: environment.contentReadURL,
-      searchURL: environment.compositeSearchURL
-    })
+    this.apiService.initialize(environment.baseURL)
   }
 
   getContenstList(mimeType) {
@@ -59,6 +56,24 @@ export class ContentService {
     this.playerConfig = playerConfig;
     return of(this.playerConfig);
     
+  }
+
+  search(mimeType: string) {
+    return this.apiService.search({
+      "request": {
+        "filters": {
+          "status": [
+            "Live"
+          ],
+          "mimeType": `application/${mimeType}`,
+          "objectType": "Content"
+        },
+        "query": "",
+        "sort_by": {
+          "lastUpdatedOn": "desc"
+        }
+      }
+    });
   }
 
 }

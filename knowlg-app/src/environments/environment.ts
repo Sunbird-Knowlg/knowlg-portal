@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  contentReadURL: "https://dev.knowlg.sunbird.org/action/content/v3/read",
-  compositeSearchURL: "https://dev.knowlg.sunbird.org/action/composite/v3/search"
+  baseURL: "https://dev.knowlg.sunbird.org"
 };
 
 /*
