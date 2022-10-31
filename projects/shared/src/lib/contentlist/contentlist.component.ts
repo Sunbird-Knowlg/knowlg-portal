@@ -1,5 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { ContentListItem } from './content-list-item';
 
 @Component({
   selector: 'lib-contentlist',
@@ -10,7 +11,7 @@ export class ContentlistComponent implements OnInit {
   @Input() contentList: Array<any> = [];
   @Output() contentSelect = new EventEmitter<any>();
 
-  public contents: Array<{name: string, description?: string, initial: string, color: string, backgroundColor: string}>
+  public contents: Array<ContentListItem>
   ngOnInit() {
 
     this.contents = this.contentList.map(content => {
