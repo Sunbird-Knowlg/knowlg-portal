@@ -37,8 +37,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { HeaderComponent } from './players/header/header.component';
 import { PublishedPopupComponent } from './players/published-popup/published-popup.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { SharedPlayerComponent } from './players/shared-player/shared-player.component';
 import { SharedModule } from 'shared';
+import { PlayersListComponent } from './players/players-list/players-list.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { SharedModule } from 'shared';
     ContentDetailsModelComponent,
     HeaderComponent,
     PublishedPopupComponent,
-    SharedPlayerComponent
+    PlayersListComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,6 @@ import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upl
 import { HomeComponent } from './home/home.component';
 import { EpubComponent } from './players/epub/epub.component';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
-import { PdfComponent } from './players/pdf/pdf.component';
 import { PlayersComponent } from './players/players.component';
 import { VideoComponent } from './players/video/video.component';
 import { EditorsComponent } from './editors/editors.component';
@@ -13,7 +12,7 @@ import { ContentlistComponent } from './editors/contentlist/contentlist.componen
 import { InteractiveEditorComponent } from './editors/interactive-editor/interactive-editor.component';
 import { RoleComponent } from './editors/role/role.component';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
-import { SharedPlayerComponent } from './players/shared-player/shared-player.component';
+import { PlayersListComponent } from './players/players-list/players-list.component';
 
 const routes: Routes =  [
   {
@@ -38,7 +37,7 @@ const routes: Routes =  [
     path: 'users', component: RoleComponent,
   },
   {
-    path: 'players', component: PlayersComponent,
+    path: 'players', component: PlayersListComponent,
   },
   {
     path: 'players/epub', component: EpubComponent,
@@ -53,7 +52,7 @@ const routes: Routes =  [
     path: 'players/collection', component: CollectionPlayerComponent,
   },
   {
-    path: 'players/:mimeType', component: SharedPlayerComponent,
+    path: 'players/:mimeType', component: PlayersComponent,
   }
 ];
 
