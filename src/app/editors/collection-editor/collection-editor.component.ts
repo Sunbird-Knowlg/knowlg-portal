@@ -4,7 +4,8 @@ import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
 import { forkJoin, Observable, of } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
-import { LocalStorageService } from 'src/app/services/user/localstorage.service';
+import { LocalStorageService } from '../../services/user/localstorage.service';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-collection-editor',
   templateUrl: './collection-editor.component.html',
@@ -164,7 +165,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
       }
     };
     this.editorConfig.config.showAddCollaborator = true;
-    this.editorConfig.config.publicStorageAccount = '';
+    this.editorConfig.config.publicStorageAccount = _.get(environment, 'publicStorageAccount', '');
     this.editorConfig.config = _.assign(this.editorConfig.config, this.hierarchyConfig);
   }
 
