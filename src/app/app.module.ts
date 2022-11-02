@@ -37,6 +37,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { HeaderComponent } from './players/header/header.component';
 import { PublishedPopupComponent } from './players/published-popup/published-popup.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { SharedPlayerComponent } from './players/shared-player/shared-player.component';
+import { SharedModule } from 'shared';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     CollectionDetailsModelComponent,
     ContentDetailsModelComponent,
     HeaderComponent,
-    PublishedPopupComponent
+    PublishedPopupComponent,
+    SharedPlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MatSidenavModule,
     CommonConsumptionModule,
     MatListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SharedModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{
