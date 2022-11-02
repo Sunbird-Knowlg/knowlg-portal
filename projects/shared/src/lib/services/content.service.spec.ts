@@ -31,7 +31,7 @@ describe('ContentService', () => {
 
   it('should initialize with default config', () => {
     const spy = spyOn(service, 'initialize').and.callThrough();
-    service.initialize();
+    service.initialize("http://localhost");
     expect(spy).toHaveBeenCalled();
 
   })

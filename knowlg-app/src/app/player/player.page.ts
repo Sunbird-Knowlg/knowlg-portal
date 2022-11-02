@@ -14,7 +14,14 @@ export class PlayerPage implements OnInit {
 
    ngOnInit() {
       this.activatedRoute.params.subscribe(params => {
-      this.playerConfig =  this.contentService.preparePlayerConfig(params['id'], params['mimeType']);
+      this.contentService.getContent(params['id'], params['mimeType']).subscribe(content => {
+        this.contentService.preparePlayerConfig(content).subscribe((data) => {
+          this.playerConfig =  data;
+        });
+      }, (err) => {
+        console.log(err)
+      })
+      
       this.mimeType = params.mimeType;
 
     });

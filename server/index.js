@@ -12,6 +12,7 @@ var users = require('./config/users');
 const uuid = require('uuid/v1');
 const { json } = require("express");
 const forms = require('./config/forms');
+const cors = require('cors')
 
 var app = express();
 app.set("port", 3000);
@@ -285,7 +286,7 @@ app.use([
   routes.API.FRAMEWORK,
   routes.API.COMPOSITE,
   routes.API.LANGUAGE,
-], proxy(BASE_URL, {
+], cors(), proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
     let originalUrl = req.originalUrl.replace("/action/", "/api/");
