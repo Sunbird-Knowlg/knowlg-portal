@@ -11,6 +11,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   imports: [ SunbirdEpubPlayerModule, SunbirdVideoPlayerModule, CommonModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  exports: [ PlayerComponent, ContentlistComponent, ContentService]
+  exports: [PlayerComponent, ContentlistComponent],
+  providers: [ContentService]
 })
 export class SharedModule { }
