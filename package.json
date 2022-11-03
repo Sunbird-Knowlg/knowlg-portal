@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "npm run build-shared && ng build",
     "build-shared": "ng build shared",
     "dev": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --output-path=server/dist/ --watch",
     "deploy": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --output-path=server/dist/",
@@ -60,6 +60,7 @@
     "ngx-chips": "2.2.0",
     "ngx-infinite-scroll": "^6.0.0",
     "rxjs": "~6.5.4",
+    "shared": "file:dist/shared",
     "slick-carousel": "^1.8.1",
     "svg2img": "^1.0.0-beta.1",
     "tslib": "^2.0.0",
