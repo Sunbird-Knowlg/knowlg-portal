@@ -14,8 +14,8 @@ export class PlayersComponent extends BasePlayerComponent implements OnInit {
   sidemenuConfig: any;
   configType: any;
   constructor(private activatedRoute: ActivatedRoute,
-    public configService: ConfigService,
-    public playerService: PlayerService) {
+              public configService: ConfigService,
+              public playerService: PlayerService) {
     super(configService, playerService);
   }
 

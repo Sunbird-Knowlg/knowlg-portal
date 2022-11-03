@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class PlayersListComponent {
 
- 
+
   constructor(private router: Router){}
 
   navigateToPdf(){
