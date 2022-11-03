@@ -12,20 +12,19 @@ import { environment } from 'src/environments/environment';
 })
 export class ContentlistComponent implements OnInit {
   contentList = [];
-  contents = [];
   mimeType: any;
   constructor(public router: Router, public contentService: ContentService, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.mimeType = this.activatedRoute.snapshot.paramMap.get('mimeType');
-    this.contentList = this.contentService.getContenstList(this.mimeType);
-    
+    const defaultContents = this.contentService.getContenstList(this.mimeType);
     this.contentService.search(this.mimeType).subscribe((data: any) => {
-      this.contents = get(data, 'result.content');
-      this.contentList = [...this.contentList, ...this.contents]
+      const contents = get(data, 'result.content');
+      this.contentList = [...this.contentList, ...contents];
     },
     (err: any) => {
       console.log(err)
+      this.contentList = defaultContents;
     } 
     )
   }
