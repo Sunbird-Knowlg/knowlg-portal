@@ -11,11 +11,11 @@ export class PlayersListComponent {
   constructor(private router: Router){}
 
   navigateToPdf(){
-    this.router.navigate(['players/pdf']);
+    this.router.navigate(['players/pdf/do_11348995249825382411']);
   }
 
   navigateToEpub(){
-    this.router.navigate(['players/epub']);
+    this.router.navigate(['players/epub/do_21312960731822489612047']);
   }
 
   navigateToEcml(){
@@ -23,7 +23,7 @@ export class PlayersListComponent {
   }
 
   navigateToVideo(){
-    this.router.navigate(['players/video']);
+    this.router.navigate(['players/video/do_31309320735055872011111']);
   }
 
   naviagteToCollectionPlayer(){

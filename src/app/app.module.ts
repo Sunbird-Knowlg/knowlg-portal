@@ -81,7 +81,7 @@ import { PlayersListComponent } from './players/players-list/players-list.compon
     MatPaginatorModule,
     SharedModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [{
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,
