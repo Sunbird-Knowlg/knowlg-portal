@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upload-editor.component';
 import { HomeComponent } from './home/home.component';
-import { EpubComponent } from './players/epub/epub.component';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
 import { PlayersComponent } from './players/players.component';
-import { VideoComponent } from './players/video/video.component';
 import { EditorsComponent } from './editors/editors.component';
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
@@ -40,13 +38,7 @@ const routes: Routes =  [
     path: 'players', component: PlayersListComponent,
   },
   {
-    path: 'players/epub', component: EpubComponent,
-  },
-  {
     path: 'players/interactive', component: InteractivePlayerComponent,
-  },
-  {
-    path: 'players/video', component: VideoComponent,
   },
   {
     path: 'players/collection', component: CollectionPlayerComponent,
