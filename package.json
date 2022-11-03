@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npm run build-shared && ng build",
+    "build": "ng build",
     "build-shared": "ng build shared",
     "dev": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --output-path=server/dist/ --watch",
     "deploy": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --output-path=server/dist/",
