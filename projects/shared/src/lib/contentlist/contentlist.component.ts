@@ -1,5 +1,6 @@
 import { OnInit } from '@angular/core';
 import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { UtilsService } from '../services/utils.service';
 import { ContentListItem } from './content-list-item';
 
 @Component({
@@ -11,13 +12,15 @@ export class ContentlistComponent implements OnInit {
   @Input() contentList: Array<any> = [];
   @Output() contentSelect = new EventEmitter<any>();
 
+  constructor(private utilService: UtilsService) {}
+
   public contents: Array<ContentListItem>
   ngOnInit() {
 
     this.contents = this.contentList.map(content => {
-      const {color, backgroundColor} = this.getColors();
+      const {color, backgroundColor} = this.utilService.getColors();
       const clonedContent = {...content}
-      clonedContent["initial"] = this.getInitial(content?.name)
+      clonedContent["initial"] = this.utilService.getInitial(content?.name)
       clonedContent["color"] = color
       clonedContent["backgroundColor"] = backgroundColor
       return clonedContent;
@@ -29,16 +32,4 @@ export class ContentlistComponent implements OnInit {
     this.contentSelect.emit(content);
   }
 
-  getInitial(name:string) {
-    return (name ? name.charAt(0): '')
-  }
-
-  getColors() {
-    const x = Math.floor(Math.random() * 256);
-    const y = Math.floor(Math.random() * 256);
-    const z = Math.floor(Math.random() * 256);
-    return {"color": "rgb(" + x + "," + y + "," + z + ")",  backgroundColor: "rgba(" + x + "," + y + "," + z + ", 0.2)" }
-  }
-
-  
 }
