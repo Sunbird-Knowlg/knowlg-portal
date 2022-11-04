@@ -71,7 +71,7 @@ describe('PlayersComponent', () => {
     expect(component.sidemenuConfig).toBeDefined();
   });
   it('should call ngOnInit and define configType and call setConfig method', () => {
-    component.activatedRoute.snapshot.params.mimeType = 'pdf';
+    component['activatedRoute'].snapshot.params.mimeType = 'pdf';
     spyOn(component, 'getContentDetails').and.callFake(() => of({}));
     spyOn(component, 'setConfig').and.callFake(() => of({}));
     component.ngOnInit();
