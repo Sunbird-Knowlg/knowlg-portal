@@ -70,13 +70,34 @@ describe('PlayersComponent', () => {
     expect(component.playerSettingconfig).toBeDefined();
     expect(component.sidemenuConfig).toBeDefined();
   });
-  it('should call ngOnInit and define configType and call setConfig method', () => {
+  it('should call ngOnInit and define configType and call setConfig method for pdf content', () => {
     /* tslint:disable:no-string-literal */
     component['activatedRoute'].snapshot.params.mimeType = 'pdf';
     spyOn(component, 'getContentDetails').and.callFake(() => of({}));
     spyOn(component, 'setConfig').and.callFake(() => of({}));
     component.ngOnInit();
     expect(component.setConfig).toHaveBeenCalled();
+    expect(component.getContentDetails).toHaveBeenCalled();
     expect(component.configType).toBe('pdfConfig');
+  });
+  it('should call ngOnInit and define configType and call setConfig method for epub content', () => {
+    /* tslint:disable:no-string-literal */
+    component['activatedRoute'].snapshot.params.mimeType = 'epub';
+    spyOn(component, 'getContentDetails').and.callFake(() => of({}));
+    spyOn(component, 'setConfig').and.callFake(() => of({}));
+    component.ngOnInit();
+    expect(component.setConfig).toHaveBeenCalled();
+    expect(component.getContentDetails).toHaveBeenCalled();
+    expect(component.configType).toBe('epubConfig');
+  });
+  it('should call ngOnInit and define configType and call setConfig method for video content', () => {
+    /* tslint:disable:no-string-literal */
+    component['activatedRoute'].snapshot.params.mimeType = 'video';
+    spyOn(component, 'getContentDetails').and.callFake(() => of({}));
+    spyOn(component, 'setConfig').and.callFake(() => of({}));
+    component.ngOnInit();
+    expect(component.setConfig).toHaveBeenCalled();
+    expect(component.getContentDetails).toHaveBeenCalled();
+    expect(component.configType).toBe('videoConfig');
   });
 });
