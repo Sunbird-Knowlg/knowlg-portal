@@ -4,6 +4,7 @@ import { PlayersComponent } from './players.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { PlayerService } from 'src/app/services/player/player.service';
 import { ConfigService } from 'src/app/services/config/config.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
@@ -22,14 +23,22 @@ const mockActivatedRoute = {
 describe('PlayersComponent', () => {
   let component: PlayersComponent;
   let fixture: ComponentFixture<PlayersComponent>;
-
+  let playerServiceMock;
   beforeEach(waitForAsync(() => {
+    playerServiceMock = {
+      contentChangeObservable: {
+        subscribe: () => {
+        }
+      }
+    };
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
       declarations: [PlayersComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        HttpClient, PlayerService , ConfigService,
+        HttpClient , ConfigService,
         { provide: Router, useClass: RouterStub },
+        { provide: PlayerService, useValue: playerServiceMock },
         { provide: ActivatedRoute, useValue: mockActivatedRoute },
       ]
     })
@@ -41,7 +50,7 @@ describe('PlayersComponent', () => {
     component = fixture.componentInstance;
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
