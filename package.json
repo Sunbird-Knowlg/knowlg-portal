@@ -60,7 +60,7 @@
     "ngx-chips": "2.2.0",
     "ngx-infinite-scroll": "^6.0.0",
     "rxjs": "~6.5.4",
-    "shared-module-santosh": "0.0.1",
+    "shared": "file:shared-0.0.1.tgz",
     "slick-carousel": "^1.8.1",
     "svg2img": "^1.0.0-beta.1",
     "tslib": "^2.0.0",

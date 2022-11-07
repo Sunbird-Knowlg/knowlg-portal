@@ -35,7 +35,7 @@ import { HeaderComponent } from './players/header/header.component';
 import { PublishedPopupComponent } from './players/published-popup/published-popup.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PlayersListComponent } from './players/players-list/players-list.component';
-import { SharedModule } from 'shared-module-santosh';
+import { SharedModule } from 'shared';
 @NgModule({
   declarations: [
     AppComponent,
