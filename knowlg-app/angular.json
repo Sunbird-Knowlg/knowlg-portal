@@ -26,6 +26,7 @@
                 "output": "assets"
               },
               "src/assets/libs/sunbird-pdf-player/styles.css",
+              "src/assets/libs/sunbird-epub-player/styles.css",
               {
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
@@ -52,6 +53,7 @@
             ],
             "scripts": [
               "src/assets/libs/sunbird-pdf-player/pdf-player.js",
+              "src/assets/libs/sunbird-epub-player/epub-player.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/video.js/dist/video.js",
               "node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/videojs-markers.js",

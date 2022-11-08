@@ -26,14 +26,10 @@
               "src/favicon.ico",
               "src/assets",
               "src/assets/libs/sunbird-pdf-player/styles.css",
+              "src/assets/libs/sunbird-epub-player/styles.css",
               {
                 "glob": "**/*",
                 "input": "node_modules/@project-sunbird/sunbird-collection-editor/lib/assets",
-                "output": "/assets/"
-              },
-              {
-                "glob": "**/*.*",
-                "input": "./node_modules/@project-sunbird/sunbird-epub-player-v9/lib/assets/",
                 "output": "/assets/"
               },
               {
@@ -67,6 +63,7 @@
             ],
             "scripts": [
               "src/assets/libs/sunbird-pdf-player/pdf-player.js",
+              "src/assets/libs/sunbird-epub-player/epub-player.js",
               "node_modules/epubjs/dist/epub.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/video.js/dist/video.js",
