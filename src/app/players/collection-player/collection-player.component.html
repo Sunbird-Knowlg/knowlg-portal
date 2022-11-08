@@ -33,9 +33,7 @@
                         <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio"
                             #aspectRatio>
                             <div class="h-100" *ngIf="showPlayer">
-                                <app-pdf [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === pdfMimeType"></app-pdf>
-                                <app-video [showPlayerOnly]="true" *ngIf="isActiveContentVideoType()"></app-video>
-                                <app-epub [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === epubMimeType"></app-epub>
+                                <app-player [showPlayerOnly]="true" *ngIf="!isActiveContentInteractiveType()"></app-player>
                                 <app-interactive-player [showPlayerOnly]="true" *ngIf="isActiveContentInteractiveType()" ></app-interactive-player>
                             </div>
                         </div>

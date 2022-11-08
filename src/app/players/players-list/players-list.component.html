@@ -1,0 +1,27 @@
+<div class="relative position mt-0 sb-back-actionbar back-panel">
+    <a routerLink="..">
+      <button type="button" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round" tabindex="0">
+        <em class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary">
+            <use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use>
+          </svg>
+        </em>
+        <span>Back</span>
+      </button>
+    </a>
+  </div>
+  <div class ='sbt-inside-page-container'>
+    <div class="content">
+      <div class="editor-items flex-jc-center pb-20">
+        <p class="player-header">What would you like to play ?</p>
+      </div>
+      <div class="editor-items flex-jc-center pb-20">
+        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToPdf()>PDF Content</button>
+        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToEpub()>EPUB Content</button>
+        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToEcml()>Interactive Content</button>
+        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToVideo()>Video Content</button>
+        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=naviagteToCollectionPlayer()>Collection</button>
+      </div>
+    </div>
+  </div>
+  
+  

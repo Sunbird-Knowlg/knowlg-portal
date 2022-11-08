@@ -27,7 +27,7 @@ export class ConfigService {
 
   setMetaData(event) {
     const key = this.getMetaDataKey();
-    sessionStorage.setItem(key, JSON.stringify(event.metaData));
+    sessionStorage.setItem(key, JSON.stringify(event?.metaData || event?.detail?.metaData));
   }
 
   getMetaData() {
