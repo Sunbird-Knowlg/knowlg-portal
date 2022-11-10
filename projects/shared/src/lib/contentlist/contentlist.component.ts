@@ -1,4 +1,4 @@
-import { OnInit } from '@angular/core';
+import { OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { UtilsService } from '../services/utils.service';
 import { ContentListItem } from './content-list-item';
@@ -8,7 +8,7 @@ import { ContentListItem } from './content-list-item';
   templateUrl: './contentlist.component.html',
   styleUrls: ['./contentlist.component.css']
 })
-export class ContentlistComponent implements OnInit {
+export class ContentlistComponent implements OnInit, OnChanges {
   @Input() contentList: Array<any> = [];
   @Output() contentSelect = new EventEmitter<any>();
 
@@ -31,5 +31,10 @@ export class ContentlistComponent implements OnInit {
   selectContent(content) {
     this.contentSelect.emit(content);
   }
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes?.contentList?.currentValue) {
+      this.contentList = changes.contentList.currentValue;
+      this.ngOnInit();
+    }
+  }
 }

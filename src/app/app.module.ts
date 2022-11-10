@@ -7,7 +7,6 @@ import { EditorsComponent } from './editors/editors.component';
 import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upload-editor.component';
 import { PlayersComponent } from './players/players.component';
 import { HomeComponent } from './home/home.component';
-import { SunbirdEpubPlayerModule } from '@project-sunbird/sunbird-epub-player-v9';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
 import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
 import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml-player-v9';
@@ -61,7 +60,6 @@ import { SharedModule } from 'shared';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
     QumlLibraryModule,
     CollectionEditorLibraryModule,
