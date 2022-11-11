@@ -6,12 +6,12 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
+import { ContentService } from './home/services/content.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-      SunbirdVideoPlayerModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy } , ContentService,
 ],
   bootstrap: [AppComponent],
 })

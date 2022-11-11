@@ -8,7 +8,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { PlayerslistComponent } from './playerslist/playerslist.component';
 import { ContentlistComponent } from './contentlist/contentlist.component';
 import { SharedModule } from 'shared';
-import { ContentService } from './services/content.service';
 
 @NgModule({
   imports: [
@@ -18,7 +17,7 @@ import { ContentService } from './services/content.service';
     SharedModule,
     HomePageRoutingModule
   ],
-  providers: [ContentService],
+  providers: [],
   declarations: [HomePage, PlayerslistComponent, ContentlistComponent]
 })
 export class HomePageModule {}
