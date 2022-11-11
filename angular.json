@@ -32,11 +32,6 @@
               },
               {
                 "glob": "**/*.*",
-                "input": "./node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/",
-                "output": "/assets/"
-              },
-              {
-                "glob": "**/*.*",
                 "input": "./node_modules/@project-sunbird/common-consumption/assets",
                 "output": "./assets/common-consumption"
               },
@@ -55,7 +50,6 @@
               "./node_modules/@project-sunbird/sb-styles/assets/_styles.scss",
               "./node_modules/@project-sunbird/sb-themes/themes/themes-portal.scss",
               "./node_modules/video.js/dist/video-js.min.css",
-              "./node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/videojs.markers.min.css",
               "./node_modules/videojs-http-source-selector/dist/videojs-http-source-selector.css",
               "src/assets/quml-styles/quml-carousel.css",
               "src/assets/lib/semantic/semantic.min.css",
@@ -69,7 +63,6 @@
               "node_modules/epubjs/dist/epub.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/video.js/dist/video.js",
-              "node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/videojs-markers.js",
               "node_modules/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.min.js",
               "node_modules/videojs-http-source-selector/dist/videojs-http-source-selector.min.js",
               "src/assets/libs/iziToast/iziToast.min.js",
