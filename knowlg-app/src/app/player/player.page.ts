@@ -27,7 +27,7 @@ export class PlayerPage implements OnInit {
     });
   }
   playerEvent(event) {
-    const eventType = _.get(event, 'edata.type');
+    const eventType = _.get(event, 'detail.edata.type');
     switch (eventType) {
       case 'EXIT':
         this.router.navigate(['/home/contentList/' + this.mimeType]);

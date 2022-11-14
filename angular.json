@@ -51,6 +51,7 @@
               "./node_modules/@project-sunbird/sb-themes/themes/themes-portal.scss",
               "./node_modules/video.js/dist/video-js.min.css",
               "./node_modules/videojs-http-source-selector/dist/videojs-http-source-selector.css",
+              "src/assets/libs/sunbird-video-player/videojs/videojs.markers.min.css",
               "src/assets/quml-styles/quml-carousel.css",
               "src/assets/lib/semantic/semantic.min.css",
               "src/assets/styles/styles.scss",
