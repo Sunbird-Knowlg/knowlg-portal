@@ -34,6 +34,11 @@
                 "glob": "**/*",
                 "input": "src/assets/libs/sunbird-pdf-player/pdfjs/",
                 "output": "/assets/pdfjs/"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets/images/",
+                "output": "/assets/"
               }
             ],
             "styles": [
