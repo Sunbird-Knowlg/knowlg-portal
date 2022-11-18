@@ -39,7 +39,6 @@
             "styles": [
               "src/theme/variables.scss",
               "src/global.scss",
-              "./node_modules/video.js/dist/video-js.min.css",
               "src/assets/libs/sunbird-pdf-player/styles.css",
               "src/assets/libs/sunbird-epub-player/styles.css",
               "src/assets/libs/sunbird-video-player/styles.css",
@@ -49,7 +48,6 @@
               "src/assets/libs/sunbird-pdf-player/pdf-player.js",
               "src/assets/libs/sunbird-epub-player/epub-player.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/video.js/dist/video.js",
               "src/assets/libs/sunbird-video-player/video-player.js"
             ],
             "aot": false,
