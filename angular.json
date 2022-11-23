@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "24ba845a-1d05-453c-866a-0eeda89425e3"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -56,7 +59,6 @@
               "./node_modules/@project-sunbird/sb-themes/themes/themes-portal.scss",
               "./node_modules/video.js/dist/video-js.min.css",
               "./node_modules/videojs-http-source-selector/dist/videojs-http-source-selector.css",
-              "src/assets/libs/sunbird-video-player/videojs/videojs.markers.min.css",
               "src/assets/quml-styles/quml-carousel.css",
               "src/assets/lib/semantic/semantic.min.css",
               "src/assets/styles/styles.scss",
