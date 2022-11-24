@@ -65,7 +65,7 @@ export class ContentService {
           "status": [
             "Live"
           ],
-          "mimeType": `application/${mimeType}`,
+          "mimeType": mimeType === 'video' ? ["video/mp4"] :  `application/${mimeType}`,
           "objectType": "Content"
         },
         "query": "",

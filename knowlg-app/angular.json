@@ -46,8 +46,7 @@
               "src/global.scss",
               "src/assets/libs/sunbird-pdf-player/styles.css",
               "src/assets/libs/sunbird-epub-player/styles.css",
-              "src/assets/libs/sunbird-video-player/styles.css",
-              "src/assets/libs/sunbird-video-player/videojs/videojs.markers.min.css"
+              "src/assets/libs/sunbird-video-player/styles.css"
             ],
             "scripts": [
               "src/assets/libs/sunbird-pdf-player/pdf-player.js",
