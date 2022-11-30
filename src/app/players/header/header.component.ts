@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PublishedPopupComponent } from '../published-popup/published-popup.component';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
-
+import * as _ from 'lodash-es';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');
+    this.contentId = _.get(this.activatedRoute.snapshot, 'params.id');
     this.activatedRoute.queryParams.subscribe((params: any) => {
-      this.contentId = params.identifier;
       this.isContentReviewer = params.mode && params.mode === 'review' ? true : false;
     });
   }
