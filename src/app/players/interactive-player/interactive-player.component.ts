@@ -84,7 +84,7 @@ export class InteractivePlayerComponent implements OnInit {
   }
 
   private getContentDetails() {
-    const identifier = this.queryParams.get('identifier');
+    const identifier = this.queryParams.get('id');
     if (identifier) {
       const options: any = { params: { fields: 'body,mimeType,name,artifactUrl' } };
       return this.helperService.getContent(identifier, options).
