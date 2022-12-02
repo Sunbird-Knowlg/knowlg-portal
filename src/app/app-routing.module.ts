@@ -44,6 +44,9 @@ const routes: Routes =  [
     path: 'players/collection', component: CollectionPlayerComponent,
   },
   {
+    path: 'players/interactive', component: InteractivePlayerComponent,
+  },
+  {
     path: 'players/:mimeType/:id', component: PlayersComponent,
   }
 ];
