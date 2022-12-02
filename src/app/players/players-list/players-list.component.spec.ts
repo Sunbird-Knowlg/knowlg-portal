@@ -51,7 +51,7 @@ describe('PlayersListComponent', () => {
   it('#navigateToEcml() should navigate to ecml(interactive) player', () => {
     const router = TestBed.inject(Router);
     component.navigateToEcml();
-    expect(router.navigate).toHaveBeenCalledWith(['players/interactive']);
+    expect(router.navigate).toHaveBeenCalledWith(['players/interactive/do_11319720466326323219']);
   });
   it('#navigateToEcml() should not navigate to then ecml(interactive) player', () => {
     const router = TestBed.inject(Router);
