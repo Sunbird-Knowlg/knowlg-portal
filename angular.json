@@ -46,11 +46,6 @@
               {
                 "glob": "**/*",
                 "input": "./shared/images/",
-                "output": "/assets/images/"
-              },
-              {
-                "glob": "**/*",
-                "input": "./shared/images/",
                 "output": "/assets/"
               }
             ],
