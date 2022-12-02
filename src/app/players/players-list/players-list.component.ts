@@ -19,7 +19,7 @@ export class PlayersListComponent {
   }
 
   navigateToEcml(){
-    this.router.navigate(['players/interactive']);
+    this.router.navigate(['players/interactive/do_11319720466326323219']);
   }
 
   navigateToVideo(){
