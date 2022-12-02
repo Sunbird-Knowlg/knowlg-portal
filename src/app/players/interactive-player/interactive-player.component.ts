@@ -52,7 +52,7 @@ export class InteractivePlayerComponent implements OnInit {
     };
   }
   ngOnInit(): void {
-    this.queryParams = this.activatedRoute.snapshot.queryParams;
+    this.queryParams = this.activatedRoute.snapshot.paramMap;
     this.setConfig();
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
@@ -84,9 +84,10 @@ export class InteractivePlayerComponent implements OnInit {
   }
 
   private getContentDetails() {
-    if (this.queryParams.identifier) {
+    const identifier = this.queryParams.get('id');
+    if (identifier) {
       const options: any = { params: { fields: 'body,mimeType,name,artifactUrl' } };
-      return this.helperService.getContent(this.queryParams.identifier, options).
+      return this.helperService.getContent(identifier, options).
         pipe(mergeMap((data) => {
           this.contentDetails = data.result.content;
           return of(data);
