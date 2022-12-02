@@ -38,13 +38,16 @@ const routes: Routes =  [
     path: 'players', component: PlayersListComponent,
   },
   {
-    path: 'players/interactive', component: InteractivePlayerComponent,
+    path: 'players/interactive/:id', component: InteractivePlayerComponent,
   },
   {
     path: 'players/collection', component: CollectionPlayerComponent,
   },
   {
     path: 'players/:mimeType/:id', component: PlayersComponent,
+  },
+  {
+    path: 'players/interactive', component: InteractivePlayerComponent,
   }
 ];
 
