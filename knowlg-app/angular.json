@@ -32,27 +32,27 @@
               },
               {
                 "glob": "**/*",
-                "input": "src/assets/libs/sunbird-pdf-player/pdfjs/",
+                "input": "../shared/sunbird-pdf-player/pdfjs/",
                 "output": "/assets/pdfjs/"
               },
               {
                 "glob": "**/*",
-                "input": "src/assets/images/",
+                "input": "../shared/images/",
                 "output": "/assets/"
               }
             ],
             "styles": [
               "src/theme/variables.scss",
               "src/global.scss",
-              "src/assets/libs/sunbird-pdf-player/styles.css",
-              "src/assets/libs/sunbird-epub-player/styles.css",
-              "src/assets/libs/sunbird-video-player/styles.css"
+              "../shared/sunbird-pdf-player/styles.css",
+              "../shared/sunbird-epub-player/styles.css",
+              "../shared/sunbird-video-player/styles.css"
             ],
             "scripts": [
-              "src/assets/libs/sunbird-pdf-player/pdf-player.js",
-              "src/assets/libs/sunbird-epub-player/epub-player.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "src/assets/libs/sunbird-video-player/video-player.js"
+              "../shared/sunbird-pdf-player/pdf-player.js",
+              "../shared/sunbird-epub-player/epub-player.js",
+              "../shared/sunbird-video-player/video-player.js"
             ],
             "aot": false,
             "vendorChunk": true,
