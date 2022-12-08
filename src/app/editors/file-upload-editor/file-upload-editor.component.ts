@@ -1,7 +1,6 @@
 import { Component, OnInit, NgZone, OnDestroy } from '@angular/core';
 import { of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as iziModal from 'izimodal/js/iziModal';
 import { tap, delay, first, mergeMap } from 'rxjs/operators';
 import * as _ from 'lodash-es';
 declare var jQuery: any;
@@ -11,8 +10,6 @@ import { ConfigService } from 'src/app/services/config/config.service';
 /**
  * Component Launches the File upload Editor in a IFrame Modal
  */
-declare var jQuery: any;
-jQuery.fn.iziModal = iziModal;
 
 @Component({
   selector: 'app-file-upload-editor',
