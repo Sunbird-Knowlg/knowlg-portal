@@ -44,13 +44,13 @@ export class InteractiveEditorComponent implements OnInit, OnDestroy {
       tap((data: any) => {
         this.logo = 'https://dev.sunbirded.org/assets/images/sunbird_logo.png'; // added
         this.ownershipType = data.ownershipType;
-        // this.initEditor();
+        this.initEditor();
         this.setWindowContext();
         this.setWindowConfig();
       }),
       delay(10)) // wait for iziModal lo load
       .subscribe((data) => {
-        // jQuery('#contentEditor').iziModal('open');
+        jQuery('#contentEditor').iziModal('open');
         this.setRenderer();
         this.showLoader = false;
       },
@@ -170,6 +170,7 @@ export class InteractiveEditorComponent implements OnInit, OnDestroy {
       document.getElementById('contentEditor').remove();
     }
     // Redirect to home page or content list page
+    this.router.navigate(['editors/content-list']);
     console.log('close modal');
   }
 
