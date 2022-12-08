@@ -48,7 +48,7 @@
     "export-to-csv": "^0.2.1",
     "fine-uploader": "^5.16.2",
     "font-awesome": "^4.7.0",
-    "izimodal": "1.5.1",
+    "izimodal": "^1.6.1",
     "jquery": "^3.5.1",
     "jquery.fancytree": "^2.38.1",
     "lodash-es": "^4.17.21",

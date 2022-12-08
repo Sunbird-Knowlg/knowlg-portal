@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone, OnDestroy } from '@angular/core';
 import { of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as iziModal from 'izimodal/js/iziModal';
 import { tap, delay, first, mergeMap } from 'rxjs/operators';
 import * as _ from 'lodash-es';
 declare var jQuery: any;
@@ -10,6 +11,8 @@ import { ConfigService } from 'src/app/services/config/config.service';
 /**
  * Component Launches the File upload Editor in a IFrame Modal
  */
+declare var jQuery: any;
+jQuery.fn.iziModal = iziModal;
 
 @Component({
   selector: 'app-file-upload-editor',
@@ -41,13 +44,13 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
       tap((data: any) => {
         this.logo = 'https://dev.sunbirded.org/assets/images/sunbird_logo.png'; // added
         this.ownershipType = data.ownershipType;
-        // this.initEditor();
+        this.initEditor();
         this.setWindowContext();
         this.setWindowConfig();
       }),
       delay(10)) // wait for iziModal lo load
       .subscribe((data) => {
-        // jQuery('#genericEditor').iziModal('open');
+        jQuery('#genericEditor').iziModal('open');
         this.showLoader = false;
       },
         (error) => {
@@ -158,6 +161,7 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
       document.getElementById('genericEditor').remove();
     }
     // Redirect to home page or content list page
+    this.router.navigate(['editors/content-list']);
   }
 
   ngOnDestroy() {
