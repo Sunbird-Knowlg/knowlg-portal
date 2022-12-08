@@ -1,8 +1,9 @@
 import { useEffect, useRef } from "react";
 import "./App.css";
-import { playerConfig } from "./data";
-import "./sunbird/styles.css";
-import "./sunbird/sunbird-pdf-player";
+import 'reflect-metadata';
+import { playerConfig } from "./libs/sunbird-pdf-player/playerConfig";
+import "./libs/sunbird-pdf-player/styles.css";
+import "./libs/sunbird-pdf-player/pdf-player";
 function App() {
   const sunbirdPdfPlayerRef = useRef(null);
   useEffect(() => {
