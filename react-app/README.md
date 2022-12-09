@@ -1,70 +1,96 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For Existing react app follow the below steps to integrate pdf player as web component
 
-## Available Scripts
+- Copy the assets files from web component folder
+  [assets](https://github.com/project-sunbird/sunbird-pdf-player/tree/release-5.3.0/web-component/assets) to public/assets/ folder
 
-In the project directory, you can run:
+- Copy the styles.css and sunbird-pdf-player.js as pdf-player.js files from web component folder
+  [assets](https://github.com/project-sunbird/sunbird-pdf-player/tree/release-5.3.0/web-component) to src/libs/sunbird-pdf-player folder 
 
-### `npm start`
+- Import  "reflect-metadata" in package.json file and do npm install
+    ```bash
+  "reflect-metadata": "^0.1.13"
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Import  "reflect-metadata" in App.js file 
+    ```bash
+    import 'reflect-metadata';
+    ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Create  .eslintignore  file in root folder and update below paths
 
-### `npm test`
+    ```bash
+    src/libs/*
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Import  styles.css and pdf-player.js and playerConfig files in component from src/libs/sunbird-pdf-player folder
+    ```bash
+    import { playerConfig } from "./libs/sunbird-pdf-player/playerConfig";
+    import "./libs/sunbird-pdf-player/styles.css";
+    import "./libs/sunbird-pdf-player/pdf-player";
+    ```
 
-### `npm run build`
+- Import  "useRef" in component
+    ```bash
+    import {useRef } from "react";
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Create player reference in component 
+    ```bash
+      const sunbirdPdfPlayerRef = useRef(null);
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - Listen for the output events: **playerEvent** and **telemetryEvent**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+	```javascript
+    const playerElement = sunbirdPdfPlayerRef.current;
+    const handlePlayerEvent = (event) => {
+      console.log("Player Event", event.detail);
+    };
+    const handleTelemetryEvent = (event) => {
+      console.log("Telemetry Event", event.detail);
+    };
+    playerElement.addEventListener("playerEvent", handlePlayerEvent);
+    playerElement.addEventListener("telemetryEvent", handleTelemetryEvent);
 
-### `npm run eject`
+    return () => {
+    playerElement.removeEventListener("playerEvent", handlePlayerEvent);
+    playerElement.removeEventListener("telemetryEvent", handleTelemetryEvent);
+    };
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+	```   
+- Import  below css in component 
+    ```bash
+    .player-grid {
+     height: 90vh;
+     width: 90%;
+     margin: 0 auto;
+     display: grid;
+     gap: 1.5rem;
+     padding-top: 4rem;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+     @media screen and (max-width:768px) {
+           grid-template-columns: 100%;
+            gap: 0px;
+          }
+     }
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ - Import  sunbird-pdf-player in component
+    ```bash
+    return (
+    <div className="player-grid">
+      <sunbird-pdf-player
+        player-config={JSON.stringify(playerConfig)}
+        ref={sunbirdPdfPlayerRef}
+      ></sunbird-pdf-player>
+    </div>
+    );
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Provide input to render PDF player
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Use the mock config in your component to send input to PDF player
+Click to see the mock - [playerConfig](https://github.com/project-sunbird/sunbird-pdf-player/blob/release-5.3.0/src/app/data.ts)
+**Note:** : Send input config as string   
