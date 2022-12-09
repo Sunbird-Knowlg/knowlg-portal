@@ -3,10 +3,10 @@
 For Existing react app follow the below steps to integrate pdf player as web component
 
 - Copy the assets files from web component folder
-  [assets](https://github.com/project-sunbird/sunbird-pdf-player/tree/release-5.3.0/web-component/assets) to public/assets/ folder
+  [assets](https://github.com/project-sunbird/sunbird-pdf-player/tree/master/web-component/assets) to public/assets/ folder
 
 - Copy the styles.css and sunbird-pdf-player.js as pdf-player.js files from web component folder
-  [assets](https://github.com/project-sunbird/sunbird-pdf-player/tree/release-5.3.0/web-component) to src/libs/sunbird-pdf-player folder 
+  [assets](https://github.com/project-sunbird/sunbird-pdf-player/tree/master/web-component/) to src/libs/sunbird-pdf-player folder 
 
 - Import  "reflect-metadata" in package.json file and do npm install
     ```bash
@@ -92,5 +92,5 @@ For Existing react app follow the below steps to integrate pdf player as web com
 - Provide input to render PDF player
 
 Use the mock config in your component to send input to PDF player
-Click to see the mock - [playerConfig](https://github.com/project-sunbird/sunbird-pdf-player/blob/release-5.3.0/src/app/data.ts)
+Click to see the mock - [playerConfig](https://github.com/project-sunbird/sunbird-pdf-player/blob/master/src/app/data.ts)
 **Note:** : Send input config as string   
