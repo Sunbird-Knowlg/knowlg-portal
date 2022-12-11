@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
 import { ConfigService } from '../../services/config/config.service';
