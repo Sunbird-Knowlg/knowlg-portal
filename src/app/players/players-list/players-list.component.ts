@@ -1,5 +1,6 @@
 import { Component,  } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 @Component({
   selector: 'app-players-list',
   templateUrl: './players-list.component.html',
@@ -8,22 +9,26 @@ import { Router } from '@angular/router';
 export class PlayersListComponent {
 
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private localStorageService: LocalStorageService){}
 
   navigateToPdf(){
-    this.router.navigate(['players/pdf/do_11348995249825382411']);
+    this.localStorageService.setItem('type', 'pdf');
+    this.router.navigate(['players/playercontentlist']);
   }
 
   navigateToEpub(){
-    this.router.navigate(['players/epub/do_21312960731822489612047']);
+    this.localStorageService.setItem('type', 'epub');
+    this.router.navigate(['players/playercontentlist']);
   }
 
   navigateToEcml(){
-    this.router.navigate(['players/interactive']);
+    this.localStorageService.setItem('type', 'ecml');
+    this.router.navigate(['players/playercontentlist']);
   }
 
   navigateToVideo(){
-    this.router.navigate(['players/video/do_31309320735055872011111']);
+    this.localStorageService.setItem('type', 'video');
+    this.router.navigate(['players/playercontentlist']);
   }
 
   naviagteToCollectionPlayer(){

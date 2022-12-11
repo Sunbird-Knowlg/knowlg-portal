@@ -1,0 +1,34 @@
+<div class="relative position mt-0 sb-back-actionbar d-flex flex-ai-center flex-jc-space-between">
+    <button type="button" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round sb-btn-round--notext"
+    tabindex="0"  (click)=goBack()><i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary"><use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use></svg></i><span>Back</span></button>
+</div>
+<div class='sbt-inside-page-container'>
+    <div class="relative9">
+        <div class="sb-table-container">
+            <table class="sb-table sb-table-fixed sb-table-hover sb-table-lg">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Content Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of contentArray ">
+                        <td>{{data?.name}}</td>
+                        <td>{{data?.contentType}}</td>
+                        <td><button class="btn status-button" (click)=onSelectContent(data)>{{data?.status}}</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <mat-paginator [length]="pagelength"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="handlePageEvent($event)"
+               aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>

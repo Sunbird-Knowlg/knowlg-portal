@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 
 import { PlayersListComponent } from './players-list.component';
 import { Router } from '@angular/router';
@@ -13,7 +14,7 @@ describe('PlayersListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PlayersListComponent ],
       providers: [
-        { provide: Router, useClass: RouterStub },
+        { provide: Router, useClass: RouterStub, LocalStorageService },
       ]
     })
     .compileComponents();
@@ -31,42 +32,19 @@ describe('PlayersListComponent', () => {
   it('#navigateToPdf() should navigate to pdf player', () => {
     const router = TestBed.inject(Router);
     component.navigateToPdf();
-    expect(router.navigate).toHaveBeenCalledWith(['players/pdf/do_11348995249825382411']);
-  });
-  it('#navigateToPdf() should not navigate to other then pdf player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToPdf();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/epub/do_21312960731822489612047']);
+    expect(localStorage.getItem('type')).toEqual('"pdf"');
   });
   it('#navigateToEpub() should navigate to epub player', () => {
-    const router = TestBed.inject(Router);
     component.navigateToEpub();
-    expect(router.navigate).toHaveBeenCalledWith(['players/epub/do_21312960731822489612047']);
-  });
-  it('#navigateToEpub() should not navigate to then epub player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEpub();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf/do_11348995249825382411']);
+    expect(localStorage.getItem('type')).toEqual('"epub"');
   });
   it('#navigateToEcml() should navigate to ecml(interactive) player', () => {
-    const router = TestBed.inject(Router);
     component.navigateToEcml();
-    expect(router.navigate).toHaveBeenCalledWith(['players/interactive']);
-  });
-  it('#navigateToEcml() should not navigate to then ecml(interactive) player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEcml();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/epub/do_21312960731822489612047']);
+    expect(localStorage.getItem('type')).toEqual('"ecml"');
   });
   it('#navigateToVideo() should navigate to video player', () => {
-    const router = TestBed.inject(Router);
     component.navigateToVideo();
-    expect(router.navigate).toHaveBeenCalledWith(['players/video/do_31309320735055872011111']);
-  });
-  it('#navigateToVideo() should not navigate to then video player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToVideo();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf/do_11348995249825382411']);
+    expect(localStorage.getItem('type')).toEqual('"video"');
   });
   it('#naviagteToCollectionPlayer() should navigate to collection player', () => {
     const router = TestBed.inject(Router);
