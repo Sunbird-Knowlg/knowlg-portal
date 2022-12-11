@@ -78,26 +78,24 @@ describe('PlayercontentlistComponent', () => {
     expect(component.contentArray.length).toBe(1);
   });
 
-  // describe('redirectToPlayer', () => {
-  //   it('should navigate to live if mimetype is #pdf and role is #reviewer', () => {
-  //     const router = TestBed.inject(Router);
-  //     spyOn(component, 'openContent').and.callThrough();
-  //     localStorage.setItem('type', JSON.stringify('pdf'));
-  //     component.playerType = 'pdf';
-  //     component.onSelectContent({ status: 'Live', identifier: 'do_123456789' });
-  //     expect(component.openContent).not.toHaveBeenCalled();
-  //     expect(router.navigate).toHaveBeenCalledWith(['players/pdf/do_123456789']);
-  //   });
-  // });
+  describe('redirectToPlayer', () => {
+    it('should navigate to live if mimetype is #pdf and role is #reviewer', () => {
+      const router = TestBed.inject(Router);
+      localStorage.setItem('type', JSON.stringify('pdf'));
+      component.playerType = 'pdf';
+      component.onSelectContent({ status: 'Live', identifier: 'do_123456789' });
+      expect(router.navigate).toHaveBeenCalledWith(['players/pdf/do_123456789']);
+    });
+  });
 
-  // it('#handlePageEvent() should set page event data and call #contentSearch method', () => {
-  //   spyOn(component, 'contentSearch').and.callThrough();
-  //   component.playerType = 'pdf';
-  //   component.handlePageEvent({pageSize: 1, pageIndex: 2, length: 10});
-  //   expect(component.pageSize).toBe(1);
-  //   expect(component.pageIndex).toBe(2);
-  //   expect(component.contentSearch).toHaveBeenCalled();
-  // });
+  it('#handlePageEvent() should set page event data and call #contentSearch method', () => {
+    spyOn(component, 'contentSearch').and.callThrough();
+    component.playerType = 'pdf';
+    component.handlePageEvent({pageSize: 1, pageIndex: 2, length: 10});
+    expect(component.pageSize).toBe(1);
+    expect(component.pageIndex).toBe(2);
+    expect(component.contentSearch).toHaveBeenCalled();
+  });
 
 
 });
