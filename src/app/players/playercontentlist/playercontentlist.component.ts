@@ -60,7 +60,6 @@ export class PlayercontentlistComponent implements OnInit {
 
   onSelectContent(content: any){
     const playerRedirectURL = _.get(this.configService.editorConfig.CONTENT_TYPES[this.playerType], 'playerRedirectURL', null);
-    // tslint:disable-next-line:max-line-length
     this.router.navigate([`${playerRedirectURL}/${content.identifier}`]);
   }
 

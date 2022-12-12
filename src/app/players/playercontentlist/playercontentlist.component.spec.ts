@@ -79,7 +79,7 @@ describe('PlayercontentlistComponent', () => {
   });
 
   describe('redirectToPlayer', () => {
-    it('should navigate to live if mimetype is #pdf and role is #reviewer', () => {
+    it('should navigate to live if mimetype is #pdf', () => {
       const router = TestBed.inject(Router);
       localStorage.setItem('type', JSON.stringify('pdf'));
       component.playerType = 'pdf';
