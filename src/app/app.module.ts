@@ -55,6 +55,7 @@ import { PlayercontentlistComponent } from './players/playercontentlist/playerco
     ContentDetailsModelComponent,
     HeaderComponent,
     PublishedPopupComponent,
+    PlayersListComponent,
     PlayercontentlistComponent
   ],
   imports: [
