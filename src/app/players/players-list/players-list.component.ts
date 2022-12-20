@@ -1,4 +1,4 @@
-import { Component,  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from '../../services/config/config.service';
 @Component({
@@ -6,7 +6,7 @@ import { ConfigService } from '../../services/config/config.service';
   templateUrl: './players-list.component.html',
   styleUrls: ['./players-list.component.scss']
 })
-export class PlayersListComponent {
+export class PlayersListComponent implements OnInit{
   playersList = [];
   constructor(private router: Router, private configService: ConfigService){}
 
@@ -14,7 +14,7 @@ export class PlayersListComponent {
     this.playersList = this.configService.getPlayersList();
   }
   navigateToContentList(type) {
-    this.router.navigateByUrl('player-content-list/' + type);
+    this.router.navigate([`player-content-list/${type}`]);
   }
 
 }

@@ -11,15 +11,8 @@ class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
 
-const fakeUserData = {
-  userName: 'N11',
-  userId: '5a587cc1-e018-4859-a0a8-e842650b9d64',
-  channelId: '01309282781705830427',
-  role: 'creator'
-};
-
 const fakeActivatedRoute = {
-  params: observableOf({ page: 'collection-editor' })
+  params: observableOf({ page: 'collection-editor', mimeType: 'pdf' })
 };
 
 describe('PlayercontentlistComponent', () => {
@@ -46,10 +39,6 @@ describe('PlayercontentlistComponent', () => {
     component = fixture.componentInstance;
   });
 
-  afterEach(() => {
-    localStorage.setItem('userData', JSON.stringify(fakeUserData));
-  });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -57,14 +46,14 @@ describe('PlayercontentlistComponent', () => {
   it('#ngOnInit() should call the #contentSearch method', () => {
     spyOn(component, 'contentSearch').and.callThrough();
     component.ngOnInit();
-    expect(component.playerType).toBe('pdf');
+    expect(component.mimeType).toBe('pdf');
     expect(component.contentSearch).toHaveBeenCalled();
   });
 
   it('#goBack() should navigate to "editors" page', () => {
     const router = TestBed.inject(Router);
     component.goBack();
-    expect(router.navigate).toHaveBeenCalledWith(['/players/']);
+    expect(router.navigate).toHaveBeenCalledWith(['/players']);
   });
 
   it('#contentSearch() should fetch the contents', () => {
@@ -82,15 +71,15 @@ describe('PlayercontentlistComponent', () => {
     it('should navigate to live if mimetype is #pdf', () => {
       const router = TestBed.inject(Router);
       localStorage.setItem('type', JSON.stringify('pdf'));
-      component.playerType = 'pdf';
-      component.onSelectContent({ status: 'Live', identifier: 'do_123456789' });
+      component.mimeType = 'pdf';
+      component.navigateToPlayer({ status: 'Live', identifier: 'do_123456789' });
       expect(router.navigate).toHaveBeenCalledWith(['players/pdf/do_123456789']);
     });
   });
 
   it('#handlePageEvent() should set page event data and call #contentSearch method', () => {
     spyOn(component, 'contentSearch').and.callThrough();
-    component.playerType = 'pdf';
+    component.mimeType = 'pdf';
     component.handlePageEvent({pageSize: 1, pageIndex: 2, length: 10});
     expect(component.pageSize).toBe(1);
     expect(component.pageIndex).toBe(2);

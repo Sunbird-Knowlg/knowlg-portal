@@ -10,10 +10,10 @@ import {PageEvent} from '@angular/material/paginator';
   templateUrl: './playercontentlist.component.html',
   styleUrls: ['./playercontentlist.component.scss']
 })
+
 export class PlayercontentlistComponent implements OnInit {
   constructor(private router: Router, private activatedRoute: ActivatedRoute,
               public helperService: HelperService, private configService: ConfigService) { }
-  public playerType: string;
   public contentArray = [];
   public mimeType: any;
   public isLoading = true;

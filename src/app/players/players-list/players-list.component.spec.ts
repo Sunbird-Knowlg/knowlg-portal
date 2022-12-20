@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
+
 describe('PlayersListComponent', () => {
   let component: PlayersListComponent;
   let fixture: ComponentFixture<PlayersListComponent>;
@@ -31,29 +32,27 @@ describe('PlayersListComponent', () => {
   });
   it('#navigateToPdf() should navigate to pdf player', () => {
     const router = TestBed.inject(Router);
-    component.navigateToPdf();
-    expect(localStorage.getItem('type')).toEqual('"pdf"');
+    component.navigateToContentList('pdf');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/pdf']);
   });
   it('#navigateToEpub() should navigate to epub player', () => {
-    component.navigateToEpub();
-    expect(localStorage.getItem('type')).toEqual('"epub"');
+    const router = TestBed.inject(Router);
+    component.navigateToContentList('epub');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/epub']);
   });
   it('#navigateToEcml() should navigate to ecml(interactive) player', () => {
-    component.navigateToEcml();
-    expect(localStorage.getItem('type')).toEqual('"ecml"');
+    const router = TestBed.inject(Router);
+    component.navigateToContentList('interactive');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/interactive']);
   });
   it('#navigateToVideo() should navigate to video player', () => {
-    component.navigateToVideo();
-    expect(localStorage.getItem('type')).toEqual('"video"');
+    const router = TestBed.inject(Router);
+    component.navigateToContentList('video');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/video']);
   });
   it('#naviagteToCollectionPlayer() should navigate to collection player', () => {
     const router = TestBed.inject(Router);
-    component.naviagteToCollectionPlayer();
-    expect(router.navigate).toHaveBeenCalledWith(['players/collection']);
-  });
-  it('#naviagteToCollectionPlayer() should not navigate to then collection player', () => {
-    const router = TestBed.inject(Router);
-    component.naviagteToCollectionPlayer();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/video/do_31309320735055872011111']);
+    component.navigateToContentList('collection');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/collection']);
   });
 });
