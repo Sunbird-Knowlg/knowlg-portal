@@ -239,7 +239,8 @@
       "editor": "collection-editor",
       "resourceType": "Collection",
       "contentType": "Collection",
-      "primaryCategory": "Content Playlist"
+      "primaryCategory": "Content Playlist",
+      "playerRedirectURL": "players/collection"
     },
     "ecml": {
       "mimeType": "application/vnd.ekstep.ecml-archive",

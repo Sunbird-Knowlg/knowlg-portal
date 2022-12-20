@@ -79,8 +79,12 @@ export class InteractivePlayerComponent implements OnInit {
       context: this.configService.playerConfig.INTERACTIVE_PLAYER.context,
       config: this.config,
       metadata: this.contentDetails || this.configService.playerConfig.INTERACTIVE_PLAYER.metadata,
-      data: this.contentDetails?.body || this.configService.playerConfig.INTERACTIVE_PLAYER.data
+      data: {}
     };
+
+    if (this.playerConfig.metadata.mimeType === 'application/vnd.ekstep.ecml-archive'){
+      this.playerConfig.data = this.contentDetails?.body || this.configService.playerConfig.INTERACTIVE_PLAYER.data;
+    }
   }
 
   private getContentDetails() {

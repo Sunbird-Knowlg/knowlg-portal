@@ -4,33 +4,13 @@
         <span>Back</span>
     </button>
 </div>
-<div class='sbt-inside-page-container'>
-    <div class="relative9">
-        <div class="sb-table-container">
-            <table class="sb-table sb-table-fixed sb-table-hover sb-table-lg" aria-describedby="sb player content list table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Content Type</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let data of contentArray ">
-                        <td>{{data?.name}}</td>
-                        <td>{{data?.contentType}}</td>
-                        <td><button class="btn status-button" (click)=onSelectContent(data)>{{data?.status}}</button>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-        <mat-paginator [length]="pagelength"
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizeOptions"
-               (page)="handlePageEvent($event)"
-               aria-label="Select page">
-        </mat-paginator>
-    </div>
+<div class ='sbt-inside-page-container'>
+  <div *ngIf="isLoading">Loading.....</div>
+    <lib-contentlist class="editor-items flex-jc-center pb-20" [contentList]="contentArray" (contentSelect)= "navigateToPlayer($event)"> </lib-contentlist>
+    <mat-paginator [length]="pagelength"
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="handlePageEvent($event)"
+        aria-label="Select page">
+    </mat-paginator>
 </div>

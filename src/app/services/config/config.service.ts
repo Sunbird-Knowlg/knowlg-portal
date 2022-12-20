@@ -110,4 +110,8 @@ export class ConfigService {
     config.overlay = {...config.overlay, ...configData};
     return config;
   }
+
+  getPlayersList() {
+    return this.playerConfig.PLAYERS_LIST;
+  }
 }

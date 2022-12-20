@@ -15,13 +15,8 @@
         <p class="player-header">What would you like to play ?</p>
       </div>
       <div class="editor-items flex-jc-center pb-20">
-        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToPdf()>PDF Content</button>
-        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToEpub()>EPUB Content</button>
-        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToEcml()>Interactive Content</button>
-        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=navigateToVideo()>Video Content</button>
-        <button class="sb-btn sb-btn-primary sb-btn-normal" (click)=naviagteToCollectionPlayer()>Collection</button>
+        <button *ngFor="let player of playersList" class="sb-btn sb-btn-primary sb-btn-normal" (click)="navigateToContentList(player.mimeType)">{{player.name}}</button>
       </div>
     </div>
   </div>
-  
-  
+
