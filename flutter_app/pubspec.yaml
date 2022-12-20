@@ -63,13 +63,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - public/
-    - public/assets/
-    - public/assets/pdfjs/build/
-    - public/assets/pdfjs/web/
-    - public/assets/pdfjs/
-    - public/sunbird-pdf-player.js
-    - public/styles.css
-
+    - public/libs/sunbird-pdf-player/
+    - public/libs/sunbird-pdf-player/assets/
+    - public/libs/sunbird-pdf-player/assets/pdfjs/build/
+    - public/libs/sunbird-pdf-player/assets/pdfjs/web/
+    - public/libs/sunbird-pdf-player/styles.css
+    - public/libs/sunbird-pdf-player/pdf-player.js
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

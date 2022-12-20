@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         body: Container(
           child: const WebViewPlus(
-            initialUrl: 'public/index.html',
+            initialUrl: 'public/libs/sunbird-pdf-player/index.html',
             javascriptMode: JavascriptMode.unrestricted,
           ),
         ),
