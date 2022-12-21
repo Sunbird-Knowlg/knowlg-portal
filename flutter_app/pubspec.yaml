@@ -68,7 +68,7 @@ flutter:
     - public/libs/sunbird-pdf-player/assets/pdfjs/build/
     - public/libs/sunbird-pdf-player/assets/pdfjs/web/
     - public/libs/sunbird-pdf-player/styles.css
-    - public/libs/sunbird-pdf-player/pdf-player.js
+    - public/libs/sunbird-pdf-player/sunbird-pdf-player.js
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
