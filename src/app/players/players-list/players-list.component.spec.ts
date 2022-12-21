@@ -2,10 +2,18 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 
 import { PlayersListComponent } from './players-list.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
+
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032'
+    }
+  }
+};
 
 describe('PlayersListComponent', () => {
   let component: PlayersListComponent;
@@ -16,6 +24,7 @@ describe('PlayersListComponent', () => {
       declarations: [ PlayersListComponent ],
       providers: [
         { provide: Router, useClass: RouterStub, LocalStorageService },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     })
     .compileComponents();

@@ -11,8 +11,13 @@ class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
 
-const fakeActivatedRoute = {
-  params: observableOf({ page: 'collection-editor', mimeType: 'pdf' })
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032',
+      collectionId: 'do_1234'
+    }
+  }
 };
 
 describe('PlayercontentlistComponent', () => {
@@ -26,7 +31,7 @@ describe('PlayercontentlistComponent', () => {
       providers: [
         HttpClient,
         { provide: Router, useClass: RouterStub },
-        { provide: ActivatedRoute, useValue: fakeActivatedRoute },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
         LocalStorageService, HelperService, ConfigService
       ]
     })
@@ -46,7 +51,6 @@ describe('PlayercontentlistComponent', () => {
   it('#ngOnInit() should call the #contentSearch method', () => {
     spyOn(component, 'contentSearch').and.callThrough();
     component.ngOnInit();
-    expect(component.mimeType).toBe('pdf');
     expect(component.contentSearch).toHaveBeenCalled();
   });
 

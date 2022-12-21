@@ -26,7 +26,7 @@ export class PlayercontentlistComponent implements OnInit {
   pageEvent: PageEvent;
 
   ngOnInit(): void {
-    this.mimeType = this.activatedRoute.snapshot.paramMap.get('mimeType');
+    this.mimeType = _.get(this.activatedRoute.snapshot, 'params.mimeType');
     this.contentSearch();
   }
 
