@@ -7,13 +7,10 @@ For Existing flutter app follow the below steps to integrate pdf player as web c
 
 - Import below paths for "assets" in pubspec.yaml file
     ```bash
-    - public/
     - public/libs/sunbird-pdf-player/
     - public/libs/sunbird-pdf-player/assets/
     - public/libs/sunbird-pdf-player/assets/pdfjs/build/
     - public/libs/sunbird-pdf-player/assets/pdfjs/web/
-    - public/libs/sunbird-pdf-player/styles.css
-    - public/libs/sunbird-pdf-player/sunbird-pdf-player.js
     ```
 
 - Import below dependencies  in pubspec.yaml file
