@@ -74,7 +74,7 @@ describe('PlayercontentlistComponent', () => {
       }
     }));
     component.contentSearch();
-    expect(component.contentArray.length).toBe(1);
+    expect(component.contentArray.length).toBe(2);
   });
 
   describe('redirectToPlayer', () => {

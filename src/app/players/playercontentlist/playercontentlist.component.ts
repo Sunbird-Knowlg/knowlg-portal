@@ -55,7 +55,7 @@ export class PlayercontentlistComponent implements OnInit {
     this.helperService.contentSearch(req)
       .subscribe((response) => {
         const contents  = _.get(response, 'result.content');
-        this.contentArray = [...this.contentArray, ...contents];
+        this.contentArray = [...[this.defaultContent], ...contents];
         this.pagelength = _.get(response, 'result.count');
         this.isLoading = false;
       }, (error) => {

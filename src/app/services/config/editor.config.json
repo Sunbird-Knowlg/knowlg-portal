@@ -247,7 +247,7 @@
       "contentType": "Resource",
       "resourceType": "Learn",
       "editor": "interactive-editor",
-      "playerRedirectURL": "players/interactive"
+      "playerRedirectURL": "players/interactive/ecml"
     },
     "pdf": {
       "mimeType": "application/pdf",
@@ -262,12 +262,12 @@
     "youtube": {
       "mimeType" : "video/x-youtube",
       "editor": "file-upload-editor",
-      "playerRedirectURL": "players/interactive"
+      "playerRedirectURL": "players/interactive/youtube"
     },
     "html": {
       "mimeType": "application/vnd.ekstep.html-archive",
       "editor": "file-upload-editor",
-      "playerRedirectURL": "players/interactive"
+      "playerRedirectURL": "players/interactive/html"
     },
     "epub": {
       "mimeType": "application/epub",
@@ -277,7 +277,7 @@
     "h5p": {
       "mimeType": "application/vnd.ekstep.h5p-archive",
       "editor": "file-upload-editor",
-      "playerRedirectURL": "players/interactive"
+      "playerRedirectURL": "players/interactive/h5p"
     }
   },
   "creator": [

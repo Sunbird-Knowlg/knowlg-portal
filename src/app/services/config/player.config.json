@@ -247,7 +247,7 @@
             "en"
         ],
         "license": "CC BY 4.0",
-        "name": "sample pdf",
+        "name": "Gourav Pdf Content",
         "status": "Live",
         "code": "0b6e1d2c-a6de-dfa5-bdd3-d0cb495f3632",
         "interceptionPoints": {},
@@ -299,7 +299,7 @@
         "osId": "org.ekstep.quiz.app",
         "languageCode": ["en"],
         "license": "CC BY 4.0",
-        "name": "EPUB_229.epub",
+        "name": "Gourav Epub Content",
         "attributions": ["kanmani"],
         "status": "Live",
         "code": "49f3ea6d-db45-a4a7-fcd6-daf58785c7db",
@@ -347,26 +347,429 @@
     },{
       "name": "Video Content",
       "mimeType": "video",
-      "playerRedirectURL": "players/video"
+      "playerRedirectURL": "players/video",
+      "defaultContent": {
+        "interceptionPoints": "{'items':[{'type':'QuestionSet','interceptionPoint':50,'identifier':'do_213272808198291456121'},{'type':'QuestionSet','interceptionPoint':90,'identifier':'do_213272808198291456121'},{'type':'QuestionSet','interceptionPoint':120,'identifier':'do_213272808198291456121'}]}",
+        "interceptionType": "Timestamp",
+        "compatibilityLevel": 2,
+        "copyright": "NCERT",
+        "subject": ["CPD"],
+        "channel": "0125196274181898243",
+        "language": ["English"],
+        "mimeType": "video/mp4",
+        "objectType": "Content",
+        "gradeLevel": ["Others"],
+        "appIcon": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/do_31309320735055872011111/artifact/nishtha_icon.thumb.jpg",
+        "primaryCategory": "Explanation Content",
+        "artifactUrl": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/assets/do_31309320735055872011111/engagement-with-language-.mp4",
+        "contentType": "ExplanationResource",
+        "identifier": "do_31309320735055872011111",
+        "audience": ["Student"],
+        "visibility": "Default",
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "languageCode": ["en"],
+        "license": "CC BY-SA 4.0",
+        "name": "Gourav Video Content",
+        "status": "Live",
+        "code": "1c5bd8da-ad50-44ad-8b07-9c18ec06ce29",
+        "streamingUrl": "https://ntppreprodmedia-inct.streaming.media.azure.net/409780ae-3fc2-4879-85f7-f1affcce55fa/mp4_14.ism/manifest(format=m3u8-aapl-v3)",
+        "medium": ["English"],
+        "createdOn": "2020-08-24T17:58:32.911+0000",
+        "copyrightYear": 2020,
+        "lastUpdatedOn": "2020-08-25T04:36:47.587+0000",
+        "creator": "NCERT COURSE CREATOR 6",
+        "pkgVersion": 1,
+        "versionKey": "1598330207587",
+        "framework": "ncert_k-12",
+        "createdBy": "68dc1f8e-922b-4fcd-b663-593573c75f22",
+        "resourceType": "Learn",
+        "orgDetails": { "email": "director.ncert@nic.in", "orgName": "NCERT" },
+        "licenseDetails": {
+          "name": "CC BY-SA 4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+          "description": "For details see below:"
+        }
+      }
     },{
       "name": "Youtube Content",
       "mimeType": "youtube",
-      "playerRedirectURL": "players/interactive/youtube"
+      "playerRedirectURL": "players/interactive/youtube",
+      "defaultContent": {
+        "mimeType": "video/x-youtube",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://youtu.be/GHmQ8euNwv8",
+        "contentType": "Resource",
+        "identifier": "do_213694808430682112119",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav Youtube content"
+    }
     },
     {
       "name": "HTML Content",
       "mimeType": "html",
-      "playerRedirectURL": "players/interactive/html"
+      "playerRedirectURL": "players/interactive/html",
+      "defaultContent": {
+        "mimeType": "application/vnd.ekstep.html-archive",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682605483573248113/artifact/kayal_html_1670239929027.zip",
+        "contentType": "Resource",
+        "identifier": "do_213682605483573248113",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav HTML Content"
+    }
     },
     {
       "name": "H5P Content",
       "mimeType": "h5p",
-      "playerRedirectURL": "players/interactive/h5p"
+      "playerRedirectURL": "players/interactive/h5p",
+      "defaultContent": {
+        "mimeType": "application/vnd.ekstep.h5p-archive",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682604208406528112/artifact/1670239774933_do_213682604208406528112.zip",
+        "contentType": "Resource",
+        "identifier": "do_213682604208406528112",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav H5p content"
+    }
     },
     {
       "name": "Collection",
       "mimeType": "collection",
-      "playerRedirectURL": "players/collection"
+      "playerRedirectURL": "players/collection",
+      "defaultContent": {
+        "ownershipType": [
+            "createdBy"
+        ],
+        "publish_type": "Public",
+        "copyright": "01309282781705830427",
+        "se_gradeLevelIds": [
+            "knowlg_k-12_gradelevel_class1"
+        ],
+        "keywords": [],
+        "subject": [
+            "Mathematics"
+        ],
+        "channel": "01309282781705830427",
+        "downloadUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar",
+        "organisation": [
+            "NIT",
+            "MPPS MUKKADAMPALLI"
+        ],
+        "language": [
+            "English"
+        ],
+        "mimeType": "application/vnd.ekstep.content-collection",
+        "variants": "{\"spine\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar\",\"size\":\"10327\"},\"online\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185728_do_213682434758295552119_2_ONLINE.ecar\",\"size\":\"4709\"}}",
+        "body": null,
+        "leafNodes": [
+            "do_213682433391198208118"
+        ],
+        "objectType": "content",
+        "se_mediums": [
+            "English"
+        ],
+        "gradeLevel": [
+            "Class 1"
+        ],
+        "appIcon": "",
+        "children": [
+            {
+                "lastStatusChangedOn": "2022-12-05T05:45:22.165+0000",
+                "parent": "do_213682434758295552119",
+                "children": [
+                    {
+                        "copyright": "NIT, MPPS MUKKADAMPALLI",
+                        "lastStatusChangedOn": "2022-12-05T05:43:57.886+0000",
+                        "parent": "do_213682435048775680120",
+                        "licenseterms": "By creating any type of content (resources, books, courses etc.) on DIKSHA, you consent to publish it under the Creative Commons License Framework. Please choose the applicable creative commons license you wish to apply to your content.",
+                        "organisation": [
+                            "NIT",
+                            "MPPS MUKKADAMPALLI"
+                        ],
+                        "mediaType": "content",
+                        "name": "mondatpdf",
+                        "discussionForum": "{\"enabled\":\"No\"}",
+                        "createdOn": "2022-12-05T05:41:59.852+0000",
+                        "createdFor": [
+                            "01309282781705830427",
+                            "01274256635219968039517"
+                        ],
+                        "channel": "01309282781705830427",
+                        "lastUpdatedOn": "2022-12-05T05:43:57.886+0000",
+                        "subject": [
+                            "Mathematics"
+                        ],
+                        "size": 3299359,
+                        "se_topics": [],
+                        "streamingUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/assets/do_213682433391198208118/bemh101.pdf",
+                        "identifier": "do_213682433391198208118",
+                        "resourceType": "Learn",
+                        "gradeLevel": [
+                            "Class 1"
+                        ],
+                        "ownershipType": [
+                            "createdBy"
+                        ],
+                        "compatibilityLevel": 4,
+                        "audience": [
+                            "Student"
+                        ],
+                        "trackable": "{\"enabled\":\"No\",\"autoBatch\":\"No\"}",
+                        "se_boards": [
+                            "CBSE"
+                        ],
+                        "os": [
+                            "All"
+                        ],
+                        "primaryCategory": "eTextbook",
+                        "appIcon": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/artifact/do_213678865874198528118_1669783432344_wp2601442.thumb.jpg",
+                        "se_mediums": [
+                            "English"
+                        ],
+                        "downloadUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/mondatpdf_1670219037049_do_213682433391198208118_1.ecar",
+                        "se_subjects": [
+                            "Mathematics"
+                        ],
+                        "lockKey": "d627be15-1cac-4c24-b981-3ad387068e2a",
+                        "medium": [
+                            "English"
+                        ],
+                        "framework": "knowlg_k-12",
+                        "posterImage": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213678865874198528118/artifact/do_213678865874198528118_1669783432344_wp2601442.jpg",
+                        "creator": "N11",
+                        "versionKey": "1670218960096",
+                        "mimeType": "application/pdf",
+                        "code": "529ece79-8ade-49ca-a9ee-519877d0d591",
+                        "license": "CC BY 4.0",
+                        "version": 2,
+                        "prevStatus": "Processing",
+                        "contentType": "Resource",
+                        "prevState": "Review",
+                        "language": [
+                            "English"
+                        ],
+                        "board": "CBSE",
+                        "lastPublishedOn": "2022-12-05T05:43:55.882+0000",
+                        "objectType": "Content",
+                        "lastUpdatedBy": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+                        "status": "Live",
+                        "pragma": [
+                            "external"
+                        ],
+                        "createdBy": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+                        "dialcodeRequired": "No",
+                        "lastSubmittedOn": "2022-12-05T05:42:40.055+0000",
+                        "interceptionPoints": "{}",
+                        "idealScreenSize": "normal",
+                        "contentEncoding": "identity",
+                        "depth": 2,
+                        "consumerId": "954787a2-518d-46a6-abdd-6294a07237c6",
+                        "lastPublishedBy": "ae94b68c-a535-4dce-8e7a-fb9662b0ad68",
+                        "topic": [],
+                        "se_gradeLevels": [
+                            "Class 1"
+                        ],
+                        "osId": "org.ekstep.quiz.app",
+                        "copyrightYear": 2022,
+                        "se_FWIds": [
+                            "knowlg_k-12"
+                        ],
+                        "contentDisposition": "inline",
+                        "previewUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/assets/do_213682433391198208118/bemh101.pdf",
+                        "artifactUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/assets/do_213682433391198208118/bemh101.pdf",
+                        "visibility": "Default",
+                        "credentials": "{\"enabled\":\"No\"}",
+                        "variants": "{\"full\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/mondatpdf_1670219037049_do_213682433391198208118_1.ecar\",\"size\":\"3044100\"},\"spine\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/mondatpdf_1670219037602_do_213682433391198208118_1_SPINE.ecar\",\"size\":\"7113\"}}",
+                        "index": 1,
+                        "pkgVersion": 1,
+                        "idealScreenDensity": "hdpi"
+                    }
+                ],
+                "mediaType": "content",
+                "name": "Collection Unit1",
+                "discussionForum": {
+                    "enabled": "No"
+                },
+                "createdOn": "2022-12-05T05:45:22.165+0000",
+                "channel": "01309282781705830427",
+                "generateDIALCodes": "No",
+                "lastUpdatedOn": "2022-12-05T05:46:28.287+0000",
+                "identifier": "do_213682435048775680120",
+                "ownershipType": [
+                    "createdBy"
+                ],
+                "compatibilityLevel": 1,
+                "audience": [
+                    "Student"
+                ],
+                "trackable": {
+                    "enabled": "No",
+                    "autoBatch": "No"
+                },
+                "os": [
+                    "All"
+                ],
+                "primaryCategory": "Content Playlist",
+                "languageCode": [
+                    "en"
+                ],
+                "downloadUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar",
+                "attributions": [],
+                "versionKey": "1670219122165",
+                "mimeType": "application/vnd.ekstep.content-collection",
+                "code": "5930f6ab-4ba7-716c-ad54-7fa00b246f9a",
+                "license": "CC BY 4.0",
+                "leafNodes": [
+                    "do_213682433391198208118"
+                ],
+                "version": 2,
+                "contentType": "Collection",
+                "language": [
+                    "English"
+                ],
+                "lastPublishedOn": "2022-12-08T14:19:45.585+0000",
+                "objectType": "Content",
+                "status": "Live",
+                "dialcodeRequired": "No",
+                "idealScreenSize": "normal",
+                "contentEncoding": "gzip",
+                "leafNodesCount": 1,
+                "depth": 1,
+                "osId": "org.ekstep.launcher",
+                "contentDisposition": "inline",
+                "visibility": "Parent",
+                "credentials": {
+                    "enabled": "No"
+                },
+                "variants": "{\"spine\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar\",\"size\":\"10327\"},\"online\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185728_do_213682434758295552119_2_ONLINE.ecar\",\"size\":\"4709\"}}",
+                "index": 1,
+                "pkgVersion": 2,
+                "idealScreenDensity": "hdpi"
+            }
+        ],
+        "primaryCategory": "Content Playlist",
+        "contentEncoding": "gzip",
+        "generateDIALCodes": "No",
+        "totalCompressedSize": 3299359,
+        "mimeTypesCount": "{\"application/pdf\":1,\"application/vnd.ekstep.content-collection\":1}",
+        "sYS_INTERNAL_LAST_UPDATED_ON": "2022-12-08T14:19:45.641+0000",
+        "contentType": "Collection",
+        "se_gradeLevels": [
+            "Class 1"
+        ],
+        "trackable": {
+            "enabled": "No",
+            "autoBatch": "No"
+        },
+        "identifier": "do_213682434758295552119",
+        "audience": [
+            "Student"
+        ],
+        "se_boardIds": [
+            "knowlg_k-12_board_cbse"
+        ],
+        "subjectIds": [
+            "knowlg_k-12_subject_mathematics"
+        ],
+        "toc_url": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/artifact/do_213682434758295552119_toc.json",
+        "visibility": "Default",
+        "contentTypesCount": "{\"Collection\":1,\"Resource\":1}",
+        "author": "N11",
+        "consumerId": "954787a2-518d-46a6-abdd-6294a07237c6",
+        "childNodes": [
+            "do_213682433391198208118",
+            "do_213682435048775680120"
+        ],
+        "discussionForum": {
+            "enabled": "No"
+        },
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "lastPublishedBy": "System",
+        "version": 2,
+        "se_subjects": [
+            "Mathematics"
+        ],
+        "license": "CC BY 4.0",
+        "prevState": "Review",
+        "size": 10327,
+        "lastPublishedOn": "2022-12-08T14:19:45.585+0000",
+        "name": "Gourav Collection",
+        "mediumIds": [
+            "knowlg_k-12_medium_english"
+        ],
+        "attributions": [],
+        "status": "Live",
+        "code": "Enter title",
+        "publishError": null,
+        "credentials": {
+            "enabled": "No"
+        },
+        "prevStatus": "Processing",
+        "description": "Enter description ",
+        "medium": [
+            "English"
+        ],
+        "idealScreenSize": "normal",
+        "createdOn": "2022-12-05T05:44:46.728+0000",
+        "se_boards": [
+            "CBSE"
+        ],
+        "se_mediumIds": [
+            "knowlg_k-12_medium_english"
+        ],
+        "copyrightYear": 2022,
+        "contentDisposition": "inline",
+        "additionalCategories": [
+            "Lesson Plan"
+        ],
+        "lastUpdatedOn": "2022-12-05T05:46:28.287+0000",
+        "dialcodeRequired": "No",
+        "lastStatusChangedOn": "2022-12-05T05:46:28.287+0000",
+        "createdFor": [
+            "01309282781705830427"
+        ],
+        "creator": "N11",
+        "os": [
+            "All"
+        ],
+        "flagReasons": null,
+        "se_subjectIds": [
+            "knowlg_k-12_subject_mathematics"
+        ],
+        "se_FWIds": [
+            "knowlg_k-12"
+        ],
+        "pkgVersion": 2,
+        "versionKey": "1670219162633",
+        "idealScreenDensity": "hdpi",
+        "framework": "knowlg_k-12",
+        "dialcodes": null,
+        "depth": 0,
+        "s3Key": "content/do_213682434758295552119/artifact/do_213682434758295552119_toc.json",
+        "boardIds": [
+            "knowlg_k-12_board_cbse"
+        ],
+        "lastSubmittedOn": "2022-12-05T05:46:02.600+0000",
+        "createdBy": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+        "compatibilityLevel": 1,
+        "leafNodesCount": 1,
+        "gradeLevelIds": [
+            "knowlg_k-12_gradelevel_class1"
+        ],
+        "board": "CBSE",
+        "resourceType": "Collection"
+    }
     }
   ]
 }
