@@ -50,6 +50,12 @@ describe('PlayercontentlistComponent', () => {
 
   it('#ngOnInit() should call the #contentSearch method', () => {
     spyOn(component, 'contentSearch').and.callThrough();
+    const configService: ConfigService = TestBed.inject(ConfigService);
+    spyOn(configService, 'getContentList').and.callFake(() => of({
+      result: {
+        content: [{ identifier: 'do_123', name: 'test' }]
+      }
+    }));
     component.ngOnInit();
     expect(component.contentSearch).toHaveBeenCalled();
   });

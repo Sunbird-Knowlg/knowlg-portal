@@ -1,9 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from './header.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
 import { of } from 'rxjs';
+class RouterStub {
+  navigate = jasmine.createSpy('navigate');
+}
 
 const mockActivatedRoute = {
   queryParams: of({
@@ -22,6 +25,7 @@ describe('HeaderComponent', () => {
       imports: [MatDialogModule],
       providers: [
         MatDialog,
+        { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ],
     })
