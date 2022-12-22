@@ -4,6 +4,7 @@ import * as playerConfig from './player.config.json';
 import * as editorConfig from './editor.config.json';
 import * as labelConfig from './label.config.json';
 import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash-es';
 @Injectable({
   providedIn: 'root'
 })
@@ -113,5 +114,15 @@ export class ConfigService {
 
   getPlayersList() {
     return this.playerConfig.PLAYERS_LIST;
+  }
+
+  getContentList(mimeType) {
+    const contentMetadata = _.filter(this.getPlayersList(), { mimeType })[0];
+    return contentMetadata.defaultContent;
+  }
+
+  getPlayerRedirectURL(mimeType){
+    const contentMetadata = _.filter(this.getPlayersList(), { mimeType })[0];
+    return contentMetadata.playerRedirectURL;
   }
 }

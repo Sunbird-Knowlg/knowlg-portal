@@ -39,7 +39,7 @@ const routes: Routes =  [
     path: 'players', component: PlayersListComponent,
   },
   {
-    path: 'players/interactive/:id', component: InteractivePlayerComponent,
+    path: 'players/interactive/:mimeType/:id', component: InteractivePlayerComponent,
   },
   {
     path: 'players/collection/:id', component: CollectionPlayerComponent,

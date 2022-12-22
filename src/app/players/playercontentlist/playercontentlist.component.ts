@@ -17,6 +17,7 @@ export class PlayercontentlistComponent implements OnInit {
   public contentArray = [];
   public mimeType: any;
   public isLoading = true;
+  public defaultContent: any;
 
   // MatPaginator
   pagelength = [];
@@ -27,6 +28,7 @@ export class PlayercontentlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.mimeType = _.get(this.activatedRoute.snapshot, 'params.mimeType');
+    this.defaultContent = this.configService.getContentList(this.mimeType);
     this.contentSearch();
   }
 
@@ -52,17 +54,19 @@ export class PlayercontentlistComponent implements OnInit {
     };
     this.helperService.contentSearch(req)
       .subscribe((response) => {
-        this.contentArray = _.get(response, 'result.content');
+        const contents  = _.get(response, 'result.content');
+        this.contentArray = [...this.contentArray, ...contents];
         this.pagelength = _.get(response, 'result.count');
         this.isLoading = false;
       }, (error) => {
         console.log(error);
+        this.contentArray = [this.defaultContent];
         this.isLoading = false;
       });
   }
 
   navigateToPlayer(content) {
-    const playerRedirectURL = _.get(this.configService.editorConfig.CONTENT_TYPES[this.mimeType], 'playerRedirectURL', null);
+    const playerRedirectURL = this.configService.getPlayerRedirectURL(this.mimeType);
     this.router.navigate([`${playerRedirectURL}/${content.identifier}`]);
 }
   handlePageEvent(event: PageEvent) {
