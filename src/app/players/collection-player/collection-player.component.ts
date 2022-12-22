@@ -169,4 +169,8 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
     }
   }
 
+  goBack(){
+    this.router.navigate(['player-content-list', 'collection']);
+  }
+
 }

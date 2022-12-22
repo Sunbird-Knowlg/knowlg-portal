@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { first, mergeMap, tap } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
+import * as _ from 'lodash-es';
 
 @Component({
   selector: 'app-interactive-player',
@@ -54,7 +55,7 @@ export class InteractivePlayerComponent implements OnInit {
     };
   }
   ngOnInit(): void {
-    this.queryParams = this.activatedRoute.snapshot.paramMap;
+    this.queryParams = this.activatedRoute.snapshot.queryParams;
     this.setConfig();
     this.getContentDetails().pipe(first(),
       tap((data: any) => {
@@ -90,7 +91,7 @@ export class InteractivePlayerComponent implements OnInit {
   }
 
   private getContentDetails() {
-    const identifier = this.queryParams.get('id');
+    const identifier = this.queryParams.identifier || _.get(this.activatedRoute.snapshot, 'params.id');
     if (identifier) {
       const options: any = { params: { fields: 'body,mimeType,name,artifactUrl' } };
       return this.helperService.getContent(identifier, options).
