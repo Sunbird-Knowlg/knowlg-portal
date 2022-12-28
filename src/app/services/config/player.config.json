@@ -214,5 +214,562 @@
       "name": "Gourav sample ECML"
     },
     "data": "{\"theme\":{\"id\":\"theme\",\"version\":\"1.0\",\"startStage\":\"4bce5883-ccd6-4388-a604-1ea56e3048bc\",\"stage\":[{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"4bce5883-ccd6-4388-a604-1ea56e3048bc\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"genieControls\\\":false,\\\"instructions\\\":\\\"\\\"}\"},\"param\":[{\"name\":\"next\",\"value\":\"97b1b4c2-6425-40a2-b0d1-06c3d2d081cc\"}],\"manifest\":{\"media\":[]},\"org.ekstep.text\":[{\"x\":24.58,\"y\":17.76,\"minWidth\":20,\"w\":55.29,\"maxWidth\":500,\"fill\":\"#000000\",\"fontStyle\":\"normal\",\"fontWeight\":\"normal\",\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"editable\":false,\"version\":\"V2\",\"offsetY\":0.2,\"h\":7.25,\"rotate\":0,\"textType\":\"text\",\"lineHeight\":1,\"z-index\":1,\"font\":\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\",\"fontsize\":69.33,\"weight\":\"\",\"id\":\"bb4c1d60-bd9e-4a15-b917-eaad1446be1c\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"text\\\":\\\"Sample Interactive Content\\\",\\\"color\\\":\\\"#000000\\\",\\\"fontfamily\\\":\\\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\\\",\\\"fontsize\\\":26,\\\"fontweight\\\":false,\\\"fontstyle\\\":false,\\\"align\\\":\\\"left\\\"}\"}}],\"shape\":[{\"type\":\"roundrect\",\"x\":8.18,\"y\":8.89,\"fill\":\"#cccccc\",\"w\":81.7,\"h\":25,\"radius\":10,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":0,\"id\":\"ee63bebb-88d8-487a-b802-6bdc775baeb2\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#cccccc\\\",\\\"radius\\\":10}\"}},{\"type\":\"trapezium\",\"x\":39.48,\"y\":50.62,\"fill\":\"#00ffff\",\"w\":22.71,\"h\":40.55,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":2,\"id\":\"416387c5-34ac-4d6c-a6ea-341134b80ea3\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#00ffff\\\",\\\"points\\\":[{\\\"x\\\":25,\\\"y\\\":0},{\\\"x\\\":75,\\\"y\\\":0},{\\\"x\\\":100,\\\"y\\\":100},{\\\"x\\\":0,\\\"y\\\":100}]}\"}},{\"type\":\"ellipse\",\"x\":16.25,\"y\":39.2,\"fill\":\"#ff9900\",\"w\":18,\"h\":32,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"r\":64.8,\"z-index\":3,\"id\":\"5cacaee1-1e5e-4b78-931e-4c8b79b97bc4\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ff9900\\\",\\\"radius\\\":64.8}\"}},{\"type\":\"ellipse\",\"x\":67.64,\"y\":39.2,\"fill\":\"#ff9900\",\"w\":18,\"h\":32,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"r\":64.8,\"z-index\":4,\"id\":\"bb815564-deb0-4841-a1ad-a6c331b00753\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ff9900\\\",\\\"radius\\\":64.8}\"}},{\"type\":\"star\",\"x\":18.25,\"y\":40.74,\"fill\":\"#ffff00\",\"w\":14,\"h\":25,\"corners\":5,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":5,\"id\":\"b81377e9-33e5-4d36-9126-8c8270361ed5\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ffff00\\\",\\\"corners\\\":5,\\\"points\\\":[{\\\"x\\\":50,\\\"y\\\":0},{\\\"x\\\":60.9,\\\"y\\\":35},{\\\"x\\\":100,\\\"y\\\":35},{\\\"x\\\":67.6,\\\"y\\\":60},{\\\"x\\\":79.4,\\\"y\\\":100},{\\\"x\\\":50,\\\"y\\\":72},{\\\"x\\\":20.6,\\\"y\\\":100},{\\\"x\\\":32.4,\\\"y\\\":60},{\\\"x\\\":0,\\\"y\\\":35},{\\\"x\\\":39.1,\\\"y\\\":35}]}\"}},{\"type\":\"star\",\"x\":69.03,\"y\":42.7,\"fill\":\"#ffff00\",\"w\":14,\"h\":25,\"corners\":5,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":6,\"id\":\"cdcbe12a-cb5e-4811-a2e0-c579c3422b14\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ffff00\\\",\\\"corners\\\":5,\\\"points\\\":[{\\\"x\\\":50,\\\"y\\\":0},{\\\"x\\\":60.9,\\\"y\\\":35},{\\\"x\\\":100,\\\"y\\\":35},{\\\"x\\\":67.6,\\\"y\\\":60},{\\\"x\\\":79.4,\\\"y\\\":100},{\\\"x\\\":50,\\\"y\\\":72},{\\\"x\\\":20.6,\\\"y\\\":100},{\\\"x\\\":32.4,\\\"y\\\":60},{\\\"x\\\":0,\\\"y\\\":35},{\\\"x\\\":39.1,\\\"y\\\":35}]}\"}}]},{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"97b1b4c2-6425-40a2-b0d1-06c3d2d081cc\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"genieControls\\\":false,\\\"instructions\\\":\\\"\\\"}\"},\"param\":[{\"name\":\"previous\",\"value\":\"4bce5883-ccd6-4388-a604-1ea56e3048bc\"},{\"name\":\"next\",\"value\":\"98b67878-dbe4-47b8-aa86-0d68ece06584\"}],\"manifest\":{\"media\":[{\"assetId\":\"do_113253846918701056124\"}]},\"shape\":[{\"type\":\"roundrect\",\"x\":8.18,\"y\":8.89,\"fill\":\"#cccccc\",\"w\":81.7,\"h\":25,\"radius\":10,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":0,\"id\":\"8672bd7b-ec3a-43da-a9d0-e9989d7c7110\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#cccccc\\\",\\\"radius\\\":10}\"}}],\"org.ekstep.text\":[{\"x\":41.25,\"y\":17.76,\"minWidth\":20,\"w\":55.29,\"maxWidth\":500,\"fill\":\"#000000\",\"fontStyle\":\"normal\",\"fontWeight\":\"normal\",\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"editable\":false,\"version\":\"V2\",\"offsetY\":0.2,\"h\":7.25,\"rotate\":0,\"textType\":\"text\",\"lineHeight\":1,\"z-index\":1,\"font\":\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\",\"fontsize\":69.33,\"weight\":\"\",\"id\":\"5683a685-98ed-4913-8335-667a580b5c15\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"text\\\":\\\"Images\\\",\\\"color\\\":\\\"#000000\\\",\\\"fontfamily\\\":\\\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\\\",\\\"fontsize\\\":26,\\\"fontweight\\\":false,\\\"fontstyle\\\":false,\\\"align\\\":\\\"left\\\"}\"}}],\"image\":[{\"asset\":\"do_113253846918701056124\",\"x\":12.11,\"y\":39.01,\"w\":73.83,\"h\":55.23,\"rotate\":0,\"z-index\":2,\"id\":\"6aa01c88-c4bd-4e9c-9ee0-37676b124867\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true}\"}}]},{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"98b67878-dbe4-47b8-aa86-0d68ece06584\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"genieControls\\\":false,\\\"instructions\\\":\\\"\\\"}\"},\"param\":[{\"name\":\"previous\",\"value\":\"97b1b4c2-6425-40a2-b0d1-06c3d2d081cc\"},{\"name\":\"next\",\"value\":\"78d98500-679b-418e-8cb6-5ee09cc509d6\"}],\"manifest\":{\"media\":[]},\"shape\":[{\"type\":\"roundrect\",\"x\":8.18,\"y\":8.89,\"fill\":\"#cccccc\",\"w\":81.7,\"h\":25,\"radius\":10,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":0,\"id\":\"56bc90b0-285e-436b-95b3-e2d1c6a1662a\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#cccccc\\\",\\\"radius\\\":10}\"}},{\"type\":\"rarrow\",\"x\":33.33,\"y\":56.05,\"fill\":\"#000000\",\"w\":30,\"h\":25,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":2,\"id\":\"a76bab2b-2520-4099-ac4d-380ca228c284\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#000000\\\",\\\"points\\\":[{\\\"x\\\":0,\\\"y\\\":25},{\\\"x\\\":75,\\\"y\\\":25},{\\\"x\\\":75,\\\"y\\\":0},{\\\"x\\\":100,\\\"y\\\":50},{\\\"x\\\":75,\\\"y\\\":100},{\\\"x\\\":75,\\\"y\\\":75},{\\\"x\\\":0,\\\"y\\\":75}]}\"},\"event\":[{\"type\":\"click\",\"action\":[{\"id\":\"48d605d0-d436-4ad0-b957-2c91ac0c2d60\",\"type\":\"command\",\"command\":\"transitionTo\",\"asset\":\"theme\",\"value\":\"78d98500-679b-418e-8cb6-5ee09cc509d6\",\"name\":\"Slide 4\"}]}]}],\"org.ekstep.text\":[{\"x\":36.94,\"y\":17.76,\"minWidth\":20,\"w\":55.29,\"maxWidth\":500,\"fill\":\"#000000\",\"fontStyle\":\"normal\",\"fontWeight\":\"normal\",\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"editable\":false,\"version\":\"V2\",\"offsetY\":0.2,\"h\":7.25,\"rotate\":0,\"textType\":\"text\",\"lineHeight\":1,\"z-index\":1,\"font\":\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\",\"fontsize\":69.33,\"weight\":\"\",\"id\":\"c4c832db-343a-4638-bd4c-281bedd63237\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"text\\\":\\\"Quiz\\\",\\\"color\\\":\\\"#000000\\\",\\\"fontfamily\\\":\\\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\\\",\\\"fontsize\\\":26,\\\"fontweight\\\":false,\\\"fontstyle\\\":false,\\\"align\\\":\\\"left\\\"}\"}}]},{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"78d98500-679b-418e-8cb6-5ee09cc509d6\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"instructions\\\":\\\"\\\",\\\"genieControls\\\":false}\"},\"param\":[{\"name\":\"previous\",\"value\":\"98b67878-dbe4-47b8-aa86-0d68ece06584\"}],\"manifest\":{\"media\":[]},\"org.ekstep.questionset\":[{\"x\":9,\"y\":6,\"w\":80,\"h\":85,\"rotate\":0,\"z-index\":0,\"id\":\"685e5103-0860-455c-b37b-6d8b9bae10a3\",\"data\":{\"__cdata\":\"[{\\\"template\\\":\\\"NA\\\",\\\"templateType\\\":\\\"Horizontal\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"isPartialScore\\\":true,\\\"itemType\\\":\\\"UNIT\\\",\\\"code\\\":\\\"NA\\\",\\\"apoc_json\\\":\\\"{\\\\\\\"batch\\\\\\\": true}\\\",\\\"subject\\\":\\\"English\\\",\\\"evalUnordered\\\":false,\\\"qlevel\\\":\\\"EASY\\\",\\\"channel\\\":\\\"b00bc992ef25f1a9a8d63291e20efc8d\\\",\\\"language\\\":[\\\"English\\\"],\\\"medium\\\":\\\"English\\\",\\\"type\\\":\\\"mcq\\\",\\\"title\\\":\\\"What is the color of sky?\\\\n\\\",\\\"editorState\\\":null,\\\"body\\\":\\\"{\\\\\\\"data\\\\\\\":{\\\\\\\"plugin\\\\\\\":{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.questionunit.mcq\\\\\\\",\\\\\\\"version\\\\\\\":\\\\\\\"1.3\\\\\\\",\\\\\\\"templateId\\\\\\\":\\\\\\\"horizontalMCQ\\\\\\\"},\\\\\\\"data\\\\\\\":{\\\\\\\"question\\\\\\\":{\\\\\\\"text\\\\\\\":\\\\\\\"<p>What is the color of sky?</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"hint\\\\\\\":\\\\\\\"\\\\\\\"},\\\\\\\"options\\\\\\\":[{\\\\\\\"text\\\\\\\":\\\\\\\"<p>red</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"hint\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":false,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1066\\\\\\\"},{\\\\\\\"text\\\\\\\":\\\\\\\"<p>black</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"hint\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":false,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1067\\\\\\\"},{\\\\\\\"text\\\\\\\":\\\\\\\"<p>blue</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":true,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1078\\\\\\\"},{\\\\\\\"text\\\\\\\":\\\\\\\"<p>white</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":false,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1083\\\\\\\"}],\\\\\\\"questionCount\\\\\\\":0,\\\\\\\"media\\\\\\\":[]},\\\\\\\"config\\\\\\\":{\\\\\\\"metadata\\\\\\\":{\\\\\\\"max_score\\\\\\\":1,\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"isPartialScore\\\\\\\":true,\\\\\\\"evalUnordered\\\\\\\":false,\\\\\\\"templateType\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"What is the color of sky?\\\\\\\\n\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"What is the color of sky?\\\\\\\\n\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"Sunbird\\\\\\\",\\\\\\\"medium\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"topic\\\\\\\":[],\\\\\\\"qlevel\\\\\\\":\\\\\\\"EASY\\\\\\\",\\\\\\\"gradeLevel\\\\\\\":[\\\\\\\"Grade 4\\\\\\\",\\\\\\\"Grade 5\\\\\\\"],\\\\\\\"subject\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"board\\\\\\\":\\\\\\\"CBSE\\\\\\\",\\\\\\\"category\\\\\\\":\\\\\\\"MCQ\\\\\\\"},\\\\\\\"max_time\\\\\\\":0,\\\\\\\"max_score\\\\\\\":1,\\\\\\\"partial_scoring\\\\\\\":true,\\\\\\\"layout\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"questionCount\\\\\\\":1,\\\\\\\"evalUnordered\\\\\\\":false},\\\\\\\"media\\\\\\\":[]}}\\\",\\\"createdOn\\\":\\\"2020-04-23T07:21:51.665+0000\\\",\\\"gradeLevel\\\":[\\\"Grade 4\\\",\\\"Grade 5\\\"],\\\"isShuffleOption\\\":false,\\\"appId\\\":\\\"dev.sunbird.portal\\\",\\\"options\\\":[{\\\"answer\\\":true,\\\"value\\\":{\\\"type\\\":\\\"text\\\",\\\"asset\\\":\\\"1\\\",\\\"resvalue\\\":0,\\\"resindex\\\":0}}],\\\"lastUpdatedOn\\\":\\\"2020-04-23T07:21:51.665+0000\\\",\\\"apoc_num\\\":1,\\\"identifier\\\":\\\"do_11300583638356787215\\\",\\\"lastStatusChangedOn\\\":\\\"2020-04-23T07:21:51.665+0000\\\",\\\"question\\\":null,\\\"consumerId\\\":\\\"7e0cf283-3d2b-440e-a6df-df1eb1fdc300\\\",\\\"solutions\\\":null,\\\"version\\\":2,\\\"versionKey\\\":\\\"1587626511665\\\",\\\"framework\\\":\\\"NCFCOPY\\\",\\\"createdBy\\\":\\\"8454cb21-3ce9-4e30-85b5-fade097880d8\\\",\\\"max_score\\\":1,\\\"name\\\":\\\"What is the color of sky?\\\\n\\\",\\\"template_id\\\":\\\"NA\\\",\\\"category\\\":\\\"MCQ\\\",\\\"board\\\":\\\"CBSE\\\",\\\"status\\\":\\\"Live\\\",\\\"isSelected\\\":true},{\\\"template\\\":\\\"NA\\\",\\\"templateType\\\":\\\"Horizontal\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"isPartialScore\\\":true,\\\"itemType\\\":\\\"UNIT\\\",\\\"code\\\":\\\"NA\\\",\\\"apoc_json\\\":\\\"{\\\\\\\"batch\\\\\\\": true}\\\",\\\"subject\\\":\\\"English\\\",\\\"evalUnordered\\\":false,\\\"qlevel\\\":\\\"EASY\\\",\\\"channel\\\":\\\"b00bc992ef25f1a9a8d63291e20efc8d\\\",\\\"language\\\":[\\\"English\\\"],\\\"medium\\\":\\\"English\\\",\\\"type\\\":\\\"ftb\\\",\\\"title\\\":\\\"color of sky is ____\\\\n\\\",\\\"editorState\\\":null,\\\"body\\\":\\\"{\\\\\\\"data\\\\\\\":{\\\\\\\"plugin\\\\\\\":{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.questionunit.ftb\\\\\\\",\\\\\\\"version\\\\\\\":\\\\\\\"1.1\\\\\\\",\\\\\\\"templateId\\\\\\\":\\\\\\\"ftbtemplate\\\\\\\"},\\\\\\\"data\\\\\\\":{\\\\\\\"question\\\\\\\":{\\\\\\\"text\\\\\\\":\\\\\\\"<p>color of sky is [[blue]]</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"keyboardConfig\\\\\\\":{\\\\\\\"keyboardType\\\\\\\":\\\\\\\"Device\\\\\\\",\\\\\\\"customKeys\\\\\\\":[]}},\\\\\\\"answer\\\\\\\":[\\\\\\\"blue\\\\\\\"],\\\\\\\"media\\\\\\\":[{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true}]},\\\\\\\"config\\\\\\\":{\\\\\\\"metadata\\\\\\\":{\\\\\\\"max_score\\\\\\\":1,\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"isPartialScore\\\\\\\":true,\\\\\\\"evalUnordered\\\\\\\":false,\\\\\\\"templateType\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"color of sky is ____\\\\\\\\n\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"color of sky is ____\\\\\\\\n\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"Sunbird\\\\\\\",\\\\\\\"medium\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"topic\\\\\\\":[],\\\\\\\"qlevel\\\\\\\":\\\\\\\"EASY\\\\\\\",\\\\\\\"gradeLevel\\\\\\\":[\\\\\\\"Grade 1\\\\\\\"],\\\\\\\"subject\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"board\\\\\\\":\\\\\\\"CBSE\\\\\\\",\\\\\\\"category\\\\\\\":\\\\\\\"FTB\\\\\\\"},\\\\\\\"max_time\\\\\\\":0,\\\\\\\"max_score\\\\\\\":1,\\\\\\\"partial_scoring\\\\\\\":true,\\\\\\\"layout\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"questionCount\\\\\\\":1,\\\\\\\"evalUnordered\\\\\\\":false},\\\\\\\"media\\\\\\\":[{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true}]}}\\\",\\\"createdOn\\\":\\\"2020-08-19T13:09:31.436+0000\\\",\\\"gradeLevel\\\":[\\\"Grade 1\\\"],\\\"isShuffleOption\\\":false,\\\"appId\\\":\\\"dev.sunbird.portal\\\",\\\"lastUpdatedOn\\\":\\\"2020-08-19T13:09:31.436+0000\\\",\\\"apoc_num\\\":1,\\\"identifier\\\":\\\"do_113089526345211904110\\\",\\\"lastStatusChangedOn\\\":\\\"2020-08-19T13:09:31.436+0000\\\",\\\"question\\\":null,\\\"consumerId\\\":\\\"b15de194-1925-4c36-b697-f9a4b3eb1d9e\\\",\\\"solutions\\\":null,\\\"version\\\":2,\\\"versionKey\\\":\\\"1597842571436\\\",\\\"framework\\\":\\\"NCFCOPY\\\",\\\"answer\\\":[{\\\"answer\\\":true,\\\"value\\\":{\\\"type\\\":\\\"text\\\",\\\"asset\\\":\\\"1\\\"}}],\\\"createdBy\\\":\\\"8454cb21-3ce9-4e30-85b5-fade097880d8\\\",\\\"max_score\\\":1,\\\"name\\\":\\\"color of sky is ____\\\\n\\\",\\\"template_id\\\":\\\"NA\\\",\\\"category\\\":\\\"FTB\\\",\\\"board\\\":\\\"CBSE\\\",\\\"status\\\":\\\"Live\\\",\\\"isSelected\\\":true}]\"},\"config\":{\"__cdata\":\"{\\\"title\\\":\\\"test\\\",\\\"max_score\\\":2,\\\"allow_skip\\\":true,\\\"show_feedback\\\":true,\\\"shuffle_questions\\\":false,\\\"shuffle_options\\\":false,\\\"total_items\\\":2,\\\"btn_edit\\\":\\\"Edit\\\"}\"},\"org.ekstep.question\":[{\"id\":\"do_11300583638356787215\",\"type\":\"mcq\",\"pluginId\":\"org.ekstep.questionunit.mcq\",\"pluginVer\":\"1.3\",\"templateId\":\"horizontalMCQ\",\"data\":{\"__cdata\":\"{\\\"question\\\":{\\\"text\\\":\\\"<p style='font-size:1.285em;'>What is the color of sky?</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"hint\\\":\\\"\\\"},\\\"options\\\":[{\\\"text\\\":\\\"<p style='font-size:1.285em;'>red</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"hint\\\":\\\"\\\",\\\"isCorrect\\\":false,\\\"$$hashKey\\\":\\\"object:1066\\\"},{\\\"text\\\":\\\"<p style='font-size:1.285em;'>black</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"hint\\\":\\\"\\\",\\\"isCorrect\\\":false,\\\"$$hashKey\\\":\\\"object:1067\\\"},{\\\"text\\\":\\\"<p style='font-size:1.285em;'>blue</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"isCorrect\\\":true,\\\"$$hashKey\\\":\\\"object:1078\\\"},{\\\"text\\\":\\\"<p style='font-size:1.285em;'>white</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"isCorrect\\\":false,\\\"$$hashKey\\\":\\\"object:1083\\\"}],\\\"questionCount\\\":0,\\\"media\\\":[]}\"},\"config\":{\"__cdata\":\"{\\\"metadata\\\":{\\\"max_score\\\":1,\\\"isShuffleOption\\\":false,\\\"isPartialScore\\\":true,\\\"evalUnordered\\\":false,\\\"templateType\\\":\\\"Horizontal\\\",\\\"name\\\":\\\"What is the color of sky?\\\\n\\\",\\\"title\\\":\\\"What is the color of sky?\\\\n\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"medium\\\":\\\"English\\\",\\\"topic\\\":[],\\\"qlevel\\\":\\\"EASY\\\",\\\"gradeLevel\\\":[\\\"Grade 4\\\",\\\"Grade 5\\\"],\\\"subject\\\":\\\"English\\\",\\\"board\\\":\\\"CBSE\\\",\\\"category\\\":\\\"MCQ\\\"},\\\"max_time\\\":0,\\\"max_score\\\":1,\\\"partial_scoring\\\":true,\\\"layout\\\":\\\"Horizontal\\\",\\\"isShuffleOption\\\":false,\\\"questionCount\\\":1,\\\"evalUnordered\\\":false}\"},\"w\":80,\"h\":85,\"x\":9,\"y\":6},{\"id\":\"do_113089526345211904110\",\"type\":\"ftb\",\"pluginId\":\"org.ekstep.questionunit.ftb\",\"pluginVer\":\"1.1\",\"templateId\":\"ftbtemplate\",\"data\":{\"__cdata\":\"{\\\"question\\\":{\\\"text\\\":\\\"<p style='font-size:1.285em;'>color of sky is [[blue]]</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"keyboardConfig\\\":{\\\"keyboardType\\\":\\\"Device\\\",\\\"customKeys\\\":[]}},\\\"answer\\\":[\\\"blue\\\"],\\\"media\\\":[{\\\"id\\\":\\\"org.ekstep.keyboard.eras_icon\\\",\\\"src\\\":\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\\\",\\\"assetId\\\":\\\"org.ekstep.keyboard.eras_icon\\\",\\\"type\\\":\\\"image\\\",\\\"preload\\\":true},{\\\"id\\\":\\\"org.ekstep.keyboard.language_icon\\\",\\\"src\\\":\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\\\",\\\"assetId\\\":\\\"org.ekstep.keyboard.language_icon\\\",\\\"type\\\":\\\"image\\\",\\\"preload\\\":true},{\\\"id\\\":\\\"org.ekstep.keyboard.hide_keyboard\\\",\\\"src\\\":\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\\\",\\\"assetId\\\":\\\"org.ekstep.keyboard.hide_keyboard\\\",\\\"type\\\":\\\"image\\\",\\\"preload\\\":true}]}\"},\"config\":{\"__cdata\":\"{\\\"metadata\\\":{\\\"max_score\\\":1,\\\"isShuffleOption\\\":false,\\\"isPartialScore\\\":true,\\\"evalUnordered\\\":false,\\\"templateType\\\":\\\"Horizontal\\\",\\\"name\\\":\\\"color of sky is ____\\\\n\\\",\\\"title\\\":\\\"color of sky is ____\\\\n\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"medium\\\":\\\"English\\\",\\\"topic\\\":[],\\\"qlevel\\\":\\\"EASY\\\",\\\"gradeLevel\\\":[\\\"Grade 1\\\"],\\\"subject\\\":\\\"English\\\",\\\"board\\\":\\\"CBSE\\\",\\\"category\\\":\\\"FTB\\\"},\\\"max_time\\\":0,\\\"max_score\\\":1,\\\"partial_scoring\\\":true,\\\"layout\\\":\\\"Horizontal\\\",\\\"isShuffleOption\\\":false,\\\"questionCount\\\":1,\\\"evalUnordered\\\":false}\"},\"w\":80,\"h\":85,\"x\":9,\"y\":6}]}]}],\"manifest\":{\"media\":[{\"id\":\"08c85693-0246-4719-9294-b63e64dcd621\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/renderer/controller/navigation_ctrl.js\",\"type\":\"js\"},{\"id\":\"82c4aabe-2d6d-4c62-b548-00aae5e16ca9\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/renderer/templates/navigation.html\",\"type\":\"js\"},{\"id\":\"org.ekstep.navigation\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.navigation_manifest\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.text\",\"plugin\":\"org.ekstep.text\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.text-1.2/renderer/supertextplugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.text_manifest\",\"plugin\":\"org.ekstep.text\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.text-1.2/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.questionset.quiz\",\"plugin\":\"org.ekstep.questionset.quiz\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset.quiz-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionset.quiz_manifest\",\"plugin\":\"org.ekstep.questionset.quiz\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset.quiz-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.iterator\",\"plugin\":\"org.ekstep.iterator\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.iterator-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.iterator_manifest\",\"plugin\":\"org.ekstep.iterator\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.iterator-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"230d5bb5-90cd-4127-87c6-52291e113333\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/utils/telemetry_logger.js\",\"type\":\"js\"},{\"id\":\"3d18dc64-678a-4b77-9c0d-c1a9add40563\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/utils/html_audio_plugin.js\",\"type\":\"js\"},{\"id\":\"97eb042d-0449-44dd-9dcc-22b2b32b55b1\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/utils/qs_feedback_popup.js\",\"type\":\"js\"},{\"id\":\"org.ekstep.questionset\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionset_manifest\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.questionunit.renderer.audioicon\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/audio-icon.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.renderer.downarrow\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/down_arrow.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.renderer.zoom\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/zoom.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.renderer.audio-icon1\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/audio-icon1.png\",\"type\":\"image\"},{\"id\":\"6c11b413-2496-4524-8cbc-76ea70b624c1\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/components/js/components.js\",\"type\":\"js\"},{\"id\":\"27e82de6-b1a8-4c40-8d28-2d65844adda2\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/components/css/components.css\",\"type\":\"css\"},{\"id\":\"org.ekstep.questionunit\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionunit_manifest\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/manifest.json\",\"type\":\"json\"},{\"id\":\"71b03c38-81b7-4884-8975-ae3931cceb80\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/styles/style.css\",\"type\":\"css\"},{\"id\":\"8d2902c1-460e-488c-a637-2715ddaec4b7\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/styles/horizontal_and_vertical.css\",\"type\":\"css\"},{\"id\":\"1844e018-ab62-4023-846a-ee618b9d035b\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/template/mcq-layouts.js\",\"type\":\"js\"},{\"id\":\"9020196b-9553-4464-a85b-764256483320\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/template/template_controller.js\",\"type\":\"js\"},{\"id\":\"4d2269d8-5de0-49d3-a71a-485968d73deb\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/template/question-component.js\",\"type\":\"js\"},{\"id\":\"93e48a82-8977-416b-96e3-a1ce8c09ac21\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/assets/tick_icon.png\",\"type\":\"image\"},{\"id\":\"31977eb9-ad64-4783-8a1c-0a9e256b7116\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/assets/audio-icon2.png\",\"type\":\"image\"},{\"id\":\"a359a9ec-08ee-409e-abad-4255e7a282e4\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/assets/music-blue.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.mcq\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionunit.mcq_manifest\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/manifest.json\",\"type\":\"json\"},{\"id\":\"515c0dae-4a05-44eb-98c6-4c34395b5625\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/keyboard.js\",\"type\":\"js\"},{\"id\":\"4738a049-5c87-48e7-ad85-4dc45082bae9\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/style/style.css\",\"type\":\"css\"},{\"id\":\"org.ekstep.keyboard\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.keyboard_manifest\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/manifest.json\",\"type\":\"json\"},{\"id\":\"c70a0760-76bd-45b6-b6d8-997e8506882a\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/renderer/styles/style.css\",\"type\":\"css\"},{\"id\":\"1dbe3dca-b8c9-45ca-a072-bca02256b9ec\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/renderer/ftbcontroller.js\",\"type\":\"js\"},{\"id\":\"org.ekstep.questionunit.ftb.audioblue\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1//renderer/assets/audio-blue.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.ftb\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionunit.ftb_manifest\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/manifest.json\",\"type\":\"json\"},{\"id\":\"do_113253846918701056124\",\"src\":\"/assets/public/content/do_113253846918701056124/artifact/do_113253846918701056124_1617901235425_image.jpg\",\"type\":\"image\"},{\"id\":\"QuizImage\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/editor/assets/quizimage.png\",\"assetId\":\"QuizImage\",\"type\":\"image\",\"preload\":true},{\"id\":\"org.ekstep.keyboard.eras_icon\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\",\"assetId\":\"org.ekstep.keyboard.eras_icon\",\"type\":\"image\",\"preload\":true},{\"id\":\"org.ekstep.keyboard.language_icon\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\",\"assetId\":\"org.ekstep.keyboard.language_icon\",\"type\":\"image\",\"preload\":true},{\"id\":\"org.ekstep.keyboard.hide_keyboard\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\",\"assetId\":\"org.ekstep.keyboard.hide_keyboard\",\"type\":\"image\",\"preload\":true}]},\"plugin-manifest\":{\"plugin\":[{\"id\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.text\",\"ver\":\"1.2\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionset.quiz\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.iterator\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"org.ekstep.questionset.quiz,org.ekstep.iterator\"},{\"id\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"type\":\"plugin\",\"depends\":\"org.ekstep.questionunit\"},{\"id\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"type\":\"plugin\",\"depends\":\"org.ekstep.questionunit,org.ekstep.keyboard\"}]},\"compatibilityVersion\":2}}"
-  }
+  },
+  "PLAYERS_LIST": [
+    {
+      "name": "PDF Content",
+      "mimeType": "pdf",
+      "playerRedirectURL": "players/pdf",
+      "defaultContent": {
+        "copyright": "2022",
+        "subject": [
+            "English"
+        ],
+        "channel": "01309282781705830427",
+        "language": [
+            "English"
+        ],
+        "mimeType": "application/pdf",
+        "objectType": "Content",
+        "appIcon": "",
+        "primaryCategory": "eTextbook",
+        "artifactUrl": "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/content/do_113489952498253824111/artifact/sunbird-content-dockcontentassetsdo_113489952498253824111sample.pdf",
+        "contentType": "eTextBook",
+        "identifier": "do_113489952498253824111",
+        "audience": [
+            "Student"
+        ],
+        "visibility": "Default",
+        "author": "N118",
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "languageCode": [
+            "en"
+        ],
+        "license": "CC BY 4.0",
+        "name": "Gourav Pdf Content",
+        "status": "Live",
+        "code": "0b6e1d2c-a6de-dfa5-bdd3-d0cb495f3632",
+        "interceptionPoints": {},
+        "description": "sample pdf",
+        "streamingUrl": "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/content/do_113489952498253824111/artifact/sunbird-content-dockcontentassetsdo_113489952498253824111sample.pdf",
+        "createdOn": "2022-03-08T07:25:59.731+0000",
+        "lastUpdatedOn": "2022-03-08T07:26:05.835+0000",
+        "originData": {
+            "identifier": "do_113489952498253824111",
+            "repository": "https://dock.sunbirded.org/api/content/v1/read/do_113489952498253824111"
+        },
+        "creator": "N118",
+        "pkgVersion": 1,
+        "versionKey": "1646724363361",
+        "framework": "nit_k-12",
+        "createdBy": "b6640bfe-e294-4a54-8c75-589472324624",
+        "orgDetails": {
+            "email": null,
+            "orgName": "NIT"
+        },
+        "licenseDetails": {
+            "name": "CC BY 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+            "description": "This license is Creative Commons Attribution"
+        }
+      }
+    },
+    {
+      "name": "EPUB Content",
+      "mimeType": "epub",
+      "playerRedirectURL": "players/epub",
+      "defaultContent": {
+        "compatibilityLevel": 4,
+        "copyright": "Kendriya_Vidyalaya,2020",
+        "keywords": ["epub"],
+        "subject": ["Science"],
+        "language": ["English"],
+        "mimeType": "application/epub",
+        "objectType": "Content",
+        "gradeLevel": ["Class 10"],
+        "appIcon": "https://preprodall.blob.core.windows.net/ntp-content-preprod/content/do_2130944360583331841866/artifact/book.jpg",
+        "primaryCategory": "Course Assessment",
+        "artifactUrl": "https://sunbirdstagingpublic.blob.core.windows.net/sunbird-content-staging/content/assets/do_2132118800055091201207/kehs102.epub",
+        "contentType": "SelfAssess",
+        "identifier": "do_21312960731822489612047",
+        "audience": ["Student"],
+        "visibility": "Default",
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "languageCode": ["en"],
+        "license": "CC BY 4.0",
+        "name": "Gourav Epub Content",
+        "attributions": ["kanmani"],
+        "status": "Live",
+        "code": "49f3ea6d-db45-a4a7-fcd6-daf58785c7db",
+        "description": "epub",
+        "streamingUrl": "https://sunbirdstagingpublic.blob.core.windows.net/sunbird-content-staging/content/do_21312960731822489612047/artifact/index.epub",
+        "medium": ["English"],
+        "createdOn": "2020-10-15T04:14:28.339+0000",
+        "lastUpdatedOn": "2020-10-15T04:19:30.101+0000",
+        "originData": {
+          "identifier": "do_21312917869280460814945",
+          "repository": "https://dock.preprod.ntp.net.in/api/content/v1/read/do_21312917869280460814945"
+        },
+        "creator": "classmate2",
+        "pkgVersion": 1,
+        "versionKey": "1602735570101",
+        "createdBy": "7ff59e4d-0f4f-4f25-8244-969423e91a16",
+        "board": "CBSE",
+        "resourceType": "Learn",
+        "orgDetails": {},
+        "licenseDetails": {
+          "name": "CC BY 4.0",
+          "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+          "description": "For details see below:"
+        }
+      }
+    },
+    {
+      "name": "Interactive Content",
+      "mimeType": "ecml",
+      "playerRedirectURL": "players/interactive/ecml",
+      "defaultContent": {
+        "mimeType": "application/vnd.ekstep.ecml-archive",
+        "body": "{\"theme\":{\"id\":\"theme\",\"version\":\"1.0\",\"startStage\":\"4bce5883-ccd6-4388-a604-1ea56e3048bc\",\"stage\":[{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"4bce5883-ccd6-4388-a604-1ea56e3048bc\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"genieControls\\\":false,\\\"instructions\\\":\\\"\\\"}\"},\"param\":[{\"name\":\"next\",\"value\":\"97b1b4c2-6425-40a2-b0d1-06c3d2d081cc\"}],\"manifest\":{\"media\":[]},\"org.ekstep.text\":[{\"x\":24.58,\"y\":17.76,\"minWidth\":20,\"w\":55.29,\"maxWidth\":500,\"fill\":\"#000000\",\"fontStyle\":\"normal\",\"fontWeight\":\"normal\",\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"editable\":false,\"version\":\"V2\",\"offsetY\":0.2,\"h\":7.25,\"rotate\":0,\"textType\":\"text\",\"lineHeight\":1,\"z-index\":1,\"font\":\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\",\"fontsize\":69.33,\"weight\":\"\",\"id\":\"bb4c1d60-bd9e-4a15-b917-eaad1446be1c\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"text\\\":\\\"Sample Interactive Content\\\",\\\"color\\\":\\\"#000000\\\",\\\"fontfamily\\\":\\\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\\\",\\\"fontsize\\\":26,\\\"fontweight\\\":false,\\\"fontstyle\\\":false,\\\"align\\\":\\\"left\\\"}\"}}],\"shape\":[{\"type\":\"roundrect\",\"x\":8.18,\"y\":8.89,\"fill\":\"#cccccc\",\"w\":81.7,\"h\":25,\"radius\":10,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":0,\"id\":\"ee63bebb-88d8-487a-b802-6bdc775baeb2\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#cccccc\\\",\\\"radius\\\":10}\"}},{\"type\":\"trapezium\",\"x\":39.48,\"y\":50.62,\"fill\":\"#00ffff\",\"w\":22.71,\"h\":40.55,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":2,\"id\":\"416387c5-34ac-4d6c-a6ea-341134b80ea3\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#00ffff\\\",\\\"points\\\":[{\\\"x\\\":25,\\\"y\\\":0},{\\\"x\\\":75,\\\"y\\\":0},{\\\"x\\\":100,\\\"y\\\":100},{\\\"x\\\":0,\\\"y\\\":100}]}\"}},{\"type\":\"ellipse\",\"x\":16.25,\"y\":39.2,\"fill\":\"#ff9900\",\"w\":18,\"h\":32,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"r\":64.8,\"z-index\":3,\"id\":\"5cacaee1-1e5e-4b78-931e-4c8b79b97bc4\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ff9900\\\",\\\"radius\\\":64.8}\"}},{\"type\":\"ellipse\",\"x\":67.64,\"y\":39.2,\"fill\":\"#ff9900\",\"w\":18,\"h\":32,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"r\":64.8,\"z-index\":4,\"id\":\"bb815564-deb0-4841-a1ad-a6c331b00753\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ff9900\\\",\\\"radius\\\":64.8}\"}},{\"type\":\"star\",\"x\":18.25,\"y\":40.74,\"fill\":\"#ffff00\",\"w\":14,\"h\":25,\"corners\":5,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":5,\"id\":\"b81377e9-33e5-4d36-9126-8c8270361ed5\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ffff00\\\",\\\"corners\\\":5,\\\"points\\\":[{\\\"x\\\":50,\\\"y\\\":0},{\\\"x\\\":60.9,\\\"y\\\":35},{\\\"x\\\":100,\\\"y\\\":35},{\\\"x\\\":67.6,\\\"y\\\":60},{\\\"x\\\":79.4,\\\"y\\\":100},{\\\"x\\\":50,\\\"y\\\":72},{\\\"x\\\":20.6,\\\"y\\\":100},{\\\"x\\\":32.4,\\\"y\\\":60},{\\\"x\\\":0,\\\"y\\\":35},{\\\"x\\\":39.1,\\\"y\\\":35}]}\"}},{\"type\":\"star\",\"x\":69.03,\"y\":42.7,\"fill\":\"#ffff00\",\"w\":14,\"h\":25,\"corners\":5,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":6,\"id\":\"cdcbe12a-cb5e-4811-a2e0-c579c3422b14\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#ffff00\\\",\\\"corners\\\":5,\\\"points\\\":[{\\\"x\\\":50,\\\"y\\\":0},{\\\"x\\\":60.9,\\\"y\\\":35},{\\\"x\\\":100,\\\"y\\\":35},{\\\"x\\\":67.6,\\\"y\\\":60},{\\\"x\\\":79.4,\\\"y\\\":100},{\\\"x\\\":50,\\\"y\\\":72},{\\\"x\\\":20.6,\\\"y\\\":100},{\\\"x\\\":32.4,\\\"y\\\":60},{\\\"x\\\":0,\\\"y\\\":35},{\\\"x\\\":39.1,\\\"y\\\":35}]}\"}}]},{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"97b1b4c2-6425-40a2-b0d1-06c3d2d081cc\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"genieControls\\\":false,\\\"instructions\\\":\\\"\\\"}\"},\"param\":[{\"name\":\"previous\",\"value\":\"4bce5883-ccd6-4388-a604-1ea56e3048bc\"},{\"name\":\"next\",\"value\":\"98b67878-dbe4-47b8-aa86-0d68ece06584\"}],\"manifest\":{\"media\":[{\"assetId\":\"do_113253846918701056124\"}]},\"shape\":[{\"type\":\"roundrect\",\"x\":8.18,\"y\":8.89,\"fill\":\"#cccccc\",\"w\":81.7,\"h\":25,\"radius\":10,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":0,\"id\":\"8672bd7b-ec3a-43da-a9d0-e9989d7c7110\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#cccccc\\\",\\\"radius\\\":10}\"}}],\"org.ekstep.text\":[{\"x\":41.25,\"y\":17.76,\"minWidth\":20,\"w\":55.29,\"maxWidth\":500,\"fill\":\"#000000\",\"fontStyle\":\"normal\",\"fontWeight\":\"normal\",\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"editable\":false,\"version\":\"V2\",\"offsetY\":0.2,\"h\":7.25,\"rotate\":0,\"textType\":\"text\",\"lineHeight\":1,\"z-index\":1,\"font\":\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\",\"fontsize\":69.33,\"weight\":\"\",\"id\":\"5683a685-98ed-4913-8335-667a580b5c15\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"text\\\":\\\"Images\\\",\\\"color\\\":\\\"#000000\\\",\\\"fontfamily\\\":\\\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\\\",\\\"fontsize\\\":26,\\\"fontweight\\\":false,\\\"fontstyle\\\":false,\\\"align\\\":\\\"left\\\"}\"}}],\"image\":[{\"asset\":\"do_113253846918701056124\",\"x\":12.11,\"y\":39.01,\"w\":73.83,\"h\":55.23,\"rotate\":0,\"z-index\":2,\"id\":\"6aa01c88-c4bd-4e9c-9ee0-37676b124867\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true}\"}}]},{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"98b67878-dbe4-47b8-aa86-0d68ece06584\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"genieControls\\\":false,\\\"instructions\\\":\\\"\\\"}\"},\"param\":[{\"name\":\"previous\",\"value\":\"97b1b4c2-6425-40a2-b0d1-06c3d2d081cc\"},{\"name\":\"next\",\"value\":\"78d98500-679b-418e-8cb6-5ee09cc509d6\"}],\"manifest\":{\"media\":[]},\"shape\":[{\"type\":\"roundrect\",\"x\":8.18,\"y\":8.89,\"fill\":\"#cccccc\",\"w\":81.7,\"h\":25,\"radius\":10,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":0,\"id\":\"56bc90b0-285e-436b-95b3-e2d1c6a1662a\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#cccccc\\\",\\\"radius\\\":10}\"}},{\"type\":\"rarrow\",\"x\":33.33,\"y\":56.05,\"fill\":\"#000000\",\"w\":30,\"h\":25,\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"rotate\":0,\"z-index\":2,\"id\":\"a76bab2b-2520-4099-ac4d-380ca228c284\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#000000\\\",\\\"points\\\":[{\\\"x\\\":0,\\\"y\\\":25},{\\\"x\\\":75,\\\"y\\\":25},{\\\"x\\\":75,\\\"y\\\":0},{\\\"x\\\":100,\\\"y\\\":50},{\\\"x\\\":75,\\\"y\\\":100},{\\\"x\\\":75,\\\"y\\\":75},{\\\"x\\\":0,\\\"y\\\":75}]}\"},\"event\":[{\"type\":\"click\",\"action\":[{\"id\":\"48d605d0-d436-4ad0-b957-2c91ac0c2d60\",\"type\":\"command\",\"command\":\"transitionTo\",\"asset\":\"theme\",\"value\":\"78d98500-679b-418e-8cb6-5ee09cc509d6\",\"name\":\"Slide 4\"}]}]}],\"org.ekstep.text\":[{\"x\":36.94,\"y\":17.76,\"minWidth\":20,\"w\":55.29,\"maxWidth\":500,\"fill\":\"#000000\",\"fontStyle\":\"normal\",\"fontWeight\":\"normal\",\"stroke\":\"rgba(255, 255, 255, 0)\",\"strokeWidth\":1,\"opacity\":1,\"editable\":false,\"version\":\"V2\",\"offsetY\":0.2,\"h\":7.25,\"rotate\":0,\"textType\":\"text\",\"lineHeight\":1,\"z-index\":1,\"font\":\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\",\"fontsize\":69.33,\"weight\":\"\",\"id\":\"c4c832db-343a-4638-bd4c-281bedd63237\",\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"text\\\":\\\"Quiz\\\",\\\"color\\\":\\\"#000000\\\",\\\"fontfamily\\\":\\\"'Noto Sans', 'Noto Sans Bengali', 'Noto Sans Malayalam', 'Noto Sans Gurmukhi', 'Noto Sans Devanagari', 'Noto Sans Gujarati', 'Noto Sans Telugu', 'Noto Sans Tamil', 'Noto Sans Kannada', 'Noto Sans Oriya', 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue'\\\",\\\"fontsize\\\":26,\\\"fontweight\\\":false,\\\"fontstyle\\\":false,\\\"align\\\":\\\"left\\\"}\"}}]},{\"x\":0,\"y\":0,\"w\":100,\"h\":100,\"id\":\"78d98500-679b-418e-8cb6-5ee09cc509d6\",\"rotate\":null,\"config\":{\"__cdata\":\"{\\\"opacity\\\":100,\\\"strokeWidth\\\":1,\\\"stroke\\\":\\\"rgba(255, 255, 255, 0)\\\",\\\"autoplay\\\":false,\\\"visible\\\":true,\\\"color\\\":\\\"#FFFFFF\\\",\\\"instructions\\\":\\\"\\\",\\\"genieControls\\\":false}\"},\"param\":[{\"name\":\"previous\",\"value\":\"98b67878-dbe4-47b8-aa86-0d68ece06584\"}],\"manifest\":{\"media\":[]},\"org.ekstep.questionset\":[{\"x\":9,\"y\":6,\"w\":80,\"h\":85,\"rotate\":0,\"z-index\":0,\"id\":\"685e5103-0860-455c-b37b-6d8b9bae10a3\",\"data\":{\"__cdata\":\"[{\\\"template\\\":\\\"NA\\\",\\\"templateType\\\":\\\"Horizontal\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"isPartialScore\\\":true,\\\"itemType\\\":\\\"UNIT\\\",\\\"code\\\":\\\"NA\\\",\\\"apoc_json\\\":\\\"{\\\\\\\"batch\\\\\\\": true}\\\",\\\"subject\\\":\\\"English\\\",\\\"evalUnordered\\\":false,\\\"qlevel\\\":\\\"EASY\\\",\\\"channel\\\":\\\"b00bc992ef25f1a9a8d63291e20efc8d\\\",\\\"language\\\":[\\\"English\\\"],\\\"medium\\\":\\\"English\\\",\\\"type\\\":\\\"mcq\\\",\\\"title\\\":\\\"What is the color of sky?\\\\n\\\",\\\"editorState\\\":null,\\\"body\\\":\\\"{\\\\\\\"data\\\\\\\":{\\\\\\\"plugin\\\\\\\":{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.questionunit.mcq\\\\\\\",\\\\\\\"version\\\\\\\":\\\\\\\"1.3\\\\\\\",\\\\\\\"templateId\\\\\\\":\\\\\\\"horizontalMCQ\\\\\\\"},\\\\\\\"data\\\\\\\":{\\\\\\\"question\\\\\\\":{\\\\\\\"text\\\\\\\":\\\\\\\"<p>What is the color of sky?</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"hint\\\\\\\":\\\\\\\"\\\\\\\"},\\\\\\\"options\\\\\\\":[{\\\\\\\"text\\\\\\\":\\\\\\\"<p>red</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"hint\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":false,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1066\\\\\\\"},{\\\\\\\"text\\\\\\\":\\\\\\\"<p>black</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"hint\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":false,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1067\\\\\\\"},{\\\\\\\"text\\\\\\\":\\\\\\\"<p>blue</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":true,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1078\\\\\\\"},{\\\\\\\"text\\\\\\\":\\\\\\\"<p>white</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"isCorrect\\\\\\\":false,\\\\\\\"$$hashKey\\\\\\\":\\\\\\\"object:1083\\\\\\\"}],\\\\\\\"questionCount\\\\\\\":0,\\\\\\\"media\\\\\\\":[]},\\\\\\\"config\\\\\\\":{\\\\\\\"metadata\\\\\\\":{\\\\\\\"max_score\\\\\\\":1,\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"isPartialScore\\\\\\\":true,\\\\\\\"evalUnordered\\\\\\\":false,\\\\\\\"templateType\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"What is the color of sky?\\\\\\\\n\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"What is the color of sky?\\\\\\\\n\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"Sunbird\\\\\\\",\\\\\\\"medium\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"topic\\\\\\\":[],\\\\\\\"qlevel\\\\\\\":\\\\\\\"EASY\\\\\\\",\\\\\\\"gradeLevel\\\\\\\":[\\\\\\\"Grade 4\\\\\\\",\\\\\\\"Grade 5\\\\\\\"],\\\\\\\"subject\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"board\\\\\\\":\\\\\\\"CBSE\\\\\\\",\\\\\\\"category\\\\\\\":\\\\\\\"MCQ\\\\\\\"},\\\\\\\"max_time\\\\\\\":0,\\\\\\\"max_score\\\\\\\":1,\\\\\\\"partial_scoring\\\\\\\":true,\\\\\\\"layout\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"questionCount\\\\\\\":1,\\\\\\\"evalUnordered\\\\\\\":false},\\\\\\\"media\\\\\\\":[]}}\\\",\\\"createdOn\\\":\\\"2020-04-23T07:21:51.665+0000\\\",\\\"gradeLevel\\\":[\\\"Grade 4\\\",\\\"Grade 5\\\"],\\\"isShuffleOption\\\":false,\\\"appId\\\":\\\"dev.sunbird.portal\\\",\\\"options\\\":[{\\\"answer\\\":true,\\\"value\\\":{\\\"type\\\":\\\"text\\\",\\\"asset\\\":\\\"1\\\",\\\"resvalue\\\":0,\\\"resindex\\\":0}}],\\\"lastUpdatedOn\\\":\\\"2020-04-23T07:21:51.665+0000\\\",\\\"apoc_num\\\":1,\\\"identifier\\\":\\\"do_11300583638356787215\\\",\\\"lastStatusChangedOn\\\":\\\"2020-04-23T07:21:51.665+0000\\\",\\\"question\\\":null,\\\"consumerId\\\":\\\"7e0cf283-3d2b-440e-a6df-df1eb1fdc300\\\",\\\"solutions\\\":null,\\\"version\\\":2,\\\"versionKey\\\":\\\"1587626511665\\\",\\\"framework\\\":\\\"NCFCOPY\\\",\\\"createdBy\\\":\\\"8454cb21-3ce9-4e30-85b5-fade097880d8\\\",\\\"max_score\\\":1,\\\"name\\\":\\\"What is the color of sky?\\\\n\\\",\\\"template_id\\\":\\\"NA\\\",\\\"category\\\":\\\"MCQ\\\",\\\"board\\\":\\\"CBSE\\\",\\\"status\\\":\\\"Live\\\",\\\"isSelected\\\":true},{\\\"template\\\":\\\"NA\\\",\\\"templateType\\\":\\\"Horizontal\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"isPartialScore\\\":true,\\\"itemType\\\":\\\"UNIT\\\",\\\"code\\\":\\\"NA\\\",\\\"apoc_json\\\":\\\"{\\\\\\\"batch\\\\\\\": true}\\\",\\\"subject\\\":\\\"English\\\",\\\"evalUnordered\\\":false,\\\"qlevel\\\":\\\"EASY\\\",\\\"channel\\\":\\\"b00bc992ef25f1a9a8d63291e20efc8d\\\",\\\"language\\\":[\\\"English\\\"],\\\"medium\\\":\\\"English\\\",\\\"type\\\":\\\"ftb\\\",\\\"title\\\":\\\"color of sky is ____\\\\n\\\",\\\"editorState\\\":null,\\\"body\\\":\\\"{\\\\\\\"data\\\\\\\":{\\\\\\\"plugin\\\\\\\":{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.questionunit.ftb\\\\\\\",\\\\\\\"version\\\\\\\":\\\\\\\"1.1\\\\\\\",\\\\\\\"templateId\\\\\\\":\\\\\\\"ftbtemplate\\\\\\\"},\\\\\\\"data\\\\\\\":{\\\\\\\"question\\\\\\\":{\\\\\\\"text\\\\\\\":\\\\\\\"<p>color of sky is [[blue]]</p>\\\\\\\\n\\\\\\\",\\\\\\\"image\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audio\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"audioName\\\\\\\":\\\\\\\"\\\\\\\",\\\\\\\"keyboardConfig\\\\\\\":{\\\\\\\"keyboardType\\\\\\\":\\\\\\\"Device\\\\\\\",\\\\\\\"customKeys\\\\\\\":[]}},\\\\\\\"answer\\\\\\\":[\\\\\\\"blue\\\\\\\"],\\\\\\\"media\\\\\\\":[{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true}]},\\\\\\\"config\\\\\\\":{\\\\\\\"metadata\\\\\\\":{\\\\\\\"max_score\\\\\\\":1,\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"isPartialScore\\\\\\\":true,\\\\\\\"evalUnordered\\\\\\\":false,\\\\\\\"templateType\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"name\\\\\\\":\\\\\\\"color of sky is ____\\\\\\\\n\\\\\\\",\\\\\\\"title\\\\\\\":\\\\\\\"color of sky is ____\\\\\\\\n\\\\\\\",\\\\\\\"copyright\\\\\\\":\\\\\\\"Sunbird\\\\\\\",\\\\\\\"medium\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"topic\\\\\\\":[],\\\\\\\"qlevel\\\\\\\":\\\\\\\"EASY\\\\\\\",\\\\\\\"gradeLevel\\\\\\\":[\\\\\\\"Grade 1\\\\\\\"],\\\\\\\"subject\\\\\\\":\\\\\\\"English\\\\\\\",\\\\\\\"board\\\\\\\":\\\\\\\"CBSE\\\\\\\",\\\\\\\"category\\\\\\\":\\\\\\\"FTB\\\\\\\"},\\\\\\\"max_time\\\\\\\":0,\\\\\\\"max_score\\\\\\\":1,\\\\\\\"partial_scoring\\\\\\\":true,\\\\\\\"layout\\\\\\\":\\\\\\\"Horizontal\\\\\\\",\\\\\\\"isShuffleOption\\\\\\\":false,\\\\\\\"questionCount\\\\\\\":1,\\\\\\\"evalUnordered\\\\\\\":false},\\\\\\\"media\\\\\\\":[{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.eras_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.language_icon\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true},{\\\\\\\"id\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"src\\\\\\\":\\\\\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\\\\\\\",\\\\\\\"assetId\\\\\\\":\\\\\\\"org.ekstep.keyboard.hide_keyboard\\\\\\\",\\\\\\\"type\\\\\\\":\\\\\\\"image\\\\\\\",\\\\\\\"preload\\\\\\\":true}]}}\\\",\\\"createdOn\\\":\\\"2020-08-19T13:09:31.436+0000\\\",\\\"gradeLevel\\\":[\\\"Grade 1\\\"],\\\"isShuffleOption\\\":false,\\\"appId\\\":\\\"dev.sunbird.portal\\\",\\\"lastUpdatedOn\\\":\\\"2020-08-19T13:09:31.436+0000\\\",\\\"apoc_num\\\":1,\\\"identifier\\\":\\\"do_113089526345211904110\\\",\\\"lastStatusChangedOn\\\":\\\"2020-08-19T13:09:31.436+0000\\\",\\\"question\\\":null,\\\"consumerId\\\":\\\"b15de194-1925-4c36-b697-f9a4b3eb1d9e\\\",\\\"solutions\\\":null,\\\"version\\\":2,\\\"versionKey\\\":\\\"1597842571436\\\",\\\"framework\\\":\\\"NCFCOPY\\\",\\\"answer\\\":[{\\\"answer\\\":true,\\\"value\\\":{\\\"type\\\":\\\"text\\\",\\\"asset\\\":\\\"1\\\"}}],\\\"createdBy\\\":\\\"8454cb21-3ce9-4e30-85b5-fade097880d8\\\",\\\"max_score\\\":1,\\\"name\\\":\\\"color of sky is ____\\\\n\\\",\\\"template_id\\\":\\\"NA\\\",\\\"category\\\":\\\"FTB\\\",\\\"board\\\":\\\"CBSE\\\",\\\"status\\\":\\\"Live\\\",\\\"isSelected\\\":true}]\"},\"config\":{\"__cdata\":\"{\\\"title\\\":\\\"test\\\",\\\"max_score\\\":2,\\\"allow_skip\\\":true,\\\"show_feedback\\\":true,\\\"shuffle_questions\\\":false,\\\"shuffle_options\\\":false,\\\"total_items\\\":2,\\\"btn_edit\\\":\\\"Edit\\\"}\"},\"org.ekstep.question\":[{\"id\":\"do_11300583638356787215\",\"type\":\"mcq\",\"pluginId\":\"org.ekstep.questionunit.mcq\",\"pluginVer\":\"1.3\",\"templateId\":\"horizontalMCQ\",\"data\":{\"__cdata\":\"{\\\"question\\\":{\\\"text\\\":\\\"<p style='font-size:1.285em;'>What is the color of sky?</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"hint\\\":\\\"\\\"},\\\"options\\\":[{\\\"text\\\":\\\"<p style='font-size:1.285em;'>red</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"hint\\\":\\\"\\\",\\\"isCorrect\\\":false,\\\"$$hashKey\\\":\\\"object:1066\\\"},{\\\"text\\\":\\\"<p style='font-size:1.285em;'>black</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"hint\\\":\\\"\\\",\\\"isCorrect\\\":false,\\\"$$hashKey\\\":\\\"object:1067\\\"},{\\\"text\\\":\\\"<p style='font-size:1.285em;'>blue</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"isCorrect\\\":true,\\\"$$hashKey\\\":\\\"object:1078\\\"},{\\\"text\\\":\\\"<p style='font-size:1.285em;'>white</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"isCorrect\\\":false,\\\"$$hashKey\\\":\\\"object:1083\\\"}],\\\"questionCount\\\":0,\\\"media\\\":[]}\"},\"config\":{\"__cdata\":\"{\\\"metadata\\\":{\\\"max_score\\\":1,\\\"isShuffleOption\\\":false,\\\"isPartialScore\\\":true,\\\"evalUnordered\\\":false,\\\"templateType\\\":\\\"Horizontal\\\",\\\"name\\\":\\\"What is the color of sky?\\\\n\\\",\\\"title\\\":\\\"What is the color of sky?\\\\n\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"medium\\\":\\\"English\\\",\\\"topic\\\":[],\\\"qlevel\\\":\\\"EASY\\\",\\\"gradeLevel\\\":[\\\"Grade 4\\\",\\\"Grade 5\\\"],\\\"subject\\\":\\\"English\\\",\\\"board\\\":\\\"CBSE\\\",\\\"category\\\":\\\"MCQ\\\"},\\\"max_time\\\":0,\\\"max_score\\\":1,\\\"partial_scoring\\\":true,\\\"layout\\\":\\\"Horizontal\\\",\\\"isShuffleOption\\\":false,\\\"questionCount\\\":1,\\\"evalUnordered\\\":false}\"},\"w\":80,\"h\":85,\"x\":9,\"y\":6},{\"id\":\"do_113089526345211904110\",\"type\":\"ftb\",\"pluginId\":\"org.ekstep.questionunit.ftb\",\"pluginVer\":\"1.1\",\"templateId\":\"ftbtemplate\",\"data\":{\"__cdata\":\"{\\\"question\\\":{\\\"text\\\":\\\"<p style='font-size:1.285em;'>color of sky is [[blue]]</p>\\\\n\\\",\\\"image\\\":\\\"\\\",\\\"audio\\\":\\\"\\\",\\\"audioName\\\":\\\"\\\",\\\"keyboardConfig\\\":{\\\"keyboardType\\\":\\\"Device\\\",\\\"customKeys\\\":[]}},\\\"answer\\\":[\\\"blue\\\"],\\\"media\\\":[{\\\"id\\\":\\\"org.ekstep.keyboard.eras_icon\\\",\\\"src\\\":\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\\\",\\\"assetId\\\":\\\"org.ekstep.keyboard.eras_icon\\\",\\\"type\\\":\\\"image\\\",\\\"preload\\\":true},{\\\"id\\\":\\\"org.ekstep.keyboard.language_icon\\\",\\\"src\\\":\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\\\",\\\"assetId\\\":\\\"org.ekstep.keyboard.language_icon\\\",\\\"type\\\":\\\"image\\\",\\\"preload\\\":true},{\\\"id\\\":\\\"org.ekstep.keyboard.hide_keyboard\\\",\\\"src\\\":\\\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\\\",\\\"assetId\\\":\\\"org.ekstep.keyboard.hide_keyboard\\\",\\\"type\\\":\\\"image\\\",\\\"preload\\\":true}]}\"},\"config\":{\"__cdata\":\"{\\\"metadata\\\":{\\\"max_score\\\":1,\\\"isShuffleOption\\\":false,\\\"isPartialScore\\\":true,\\\"evalUnordered\\\":false,\\\"templateType\\\":\\\"Horizontal\\\",\\\"name\\\":\\\"color of sky is ____\\\\n\\\",\\\"title\\\":\\\"color of sky is ____\\\\n\\\",\\\"copyright\\\":\\\"Sunbird\\\",\\\"medium\\\":\\\"English\\\",\\\"topic\\\":[],\\\"qlevel\\\":\\\"EASY\\\",\\\"gradeLevel\\\":[\\\"Grade 1\\\"],\\\"subject\\\":\\\"English\\\",\\\"board\\\":\\\"CBSE\\\",\\\"category\\\":\\\"FTB\\\"},\\\"max_time\\\":0,\\\"max_score\\\":1,\\\"partial_scoring\\\":true,\\\"layout\\\":\\\"Horizontal\\\",\\\"isShuffleOption\\\":false,\\\"questionCount\\\":1,\\\"evalUnordered\\\":false}\"},\"w\":80,\"h\":85,\"x\":9,\"y\":6}]}]}],\"manifest\":{\"media\":[{\"id\":\"08c85693-0246-4719-9294-b63e64dcd621\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/renderer/controller/navigation_ctrl.js\",\"type\":\"js\"},{\"id\":\"82c4aabe-2d6d-4c62-b548-00aae5e16ca9\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/renderer/templates/navigation.html\",\"type\":\"js\"},{\"id\":\"org.ekstep.navigation\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.navigation_manifest\",\"plugin\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.navigation-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.text\",\"plugin\":\"org.ekstep.text\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.text-1.2/renderer/supertextplugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.text_manifest\",\"plugin\":\"org.ekstep.text\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.text-1.2/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.questionset.quiz\",\"plugin\":\"org.ekstep.questionset.quiz\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset.quiz-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionset.quiz_manifest\",\"plugin\":\"org.ekstep.questionset.quiz\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset.quiz-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.iterator\",\"plugin\":\"org.ekstep.iterator\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.iterator-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.iterator_manifest\",\"plugin\":\"org.ekstep.iterator\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.iterator-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"230d5bb5-90cd-4127-87c6-52291e113333\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/utils/telemetry_logger.js\",\"type\":\"js\"},{\"id\":\"3d18dc64-678a-4b77-9c0d-c1a9add40563\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/utils/html_audio_plugin.js\",\"type\":\"js\"},{\"id\":\"97eb042d-0449-44dd-9dcc-22b2b32b55b1\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/utils/qs_feedback_popup.js\",\"type\":\"js\"},{\"id\":\"org.ekstep.questionset\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionset_manifest\",\"plugin\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/manifest.json\",\"type\":\"json\"},{\"id\":\"org.ekstep.questionunit.renderer.audioicon\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/audio-icon.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.renderer.downarrow\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/down_arrow.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.renderer.zoom\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/zoom.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.renderer.audio-icon1\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/assets/audio-icon1.png\",\"type\":\"image\"},{\"id\":\"6c11b413-2496-4524-8cbc-76ea70b624c1\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/components/js/components.js\",\"type\":\"js\"},{\"id\":\"27e82de6-b1a8-4c40-8d28-2d65844adda2\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/components/css/components.css\",\"type\":\"css\"},{\"id\":\"org.ekstep.questionunit\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionunit_manifest\",\"plugin\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"src\":\"/content-plugins/org.ekstep.questionunit-1.2/manifest.json\",\"type\":\"json\"},{\"id\":\"71b03c38-81b7-4884-8975-ae3931cceb80\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/styles/style.css\",\"type\":\"css\"},{\"id\":\"8d2902c1-460e-488c-a637-2715ddaec4b7\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/styles/horizontal_and_vertical.css\",\"type\":\"css\"},{\"id\":\"1844e018-ab62-4023-846a-ee618b9d035b\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/template/mcq-layouts.js\",\"type\":\"js\"},{\"id\":\"9020196b-9553-4464-a85b-764256483320\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/template/template_controller.js\",\"type\":\"js\"},{\"id\":\"4d2269d8-5de0-49d3-a71a-485968d73deb\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/template/question-component.js\",\"type\":\"js\"},{\"id\":\"93e48a82-8977-416b-96e3-a1ce8c09ac21\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/assets/tick_icon.png\",\"type\":\"image\"},{\"id\":\"31977eb9-ad64-4783-8a1c-0a9e256b7116\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/assets/audio-icon2.png\",\"type\":\"image\"},{\"id\":\"a359a9ec-08ee-409e-abad-4255e7a282e4\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/assets/music-blue.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.mcq\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionunit.mcq_manifest\",\"plugin\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"src\":\"/content-plugins/org.ekstep.questionunit.mcq-1.3/manifest.json\",\"type\":\"json\"},{\"id\":\"515c0dae-4a05-44eb-98c6-4c34395b5625\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/keyboard.js\",\"type\":\"js\"},{\"id\":\"4738a049-5c87-48e7-ad85-4dc45082bae9\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/style/style.css\",\"type\":\"css\"},{\"id\":\"org.ekstep.keyboard\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.keyboard_manifest\",\"plugin\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/manifest.json\",\"type\":\"json\"},{\"id\":\"c70a0760-76bd-45b6-b6d8-997e8506882a\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/renderer/styles/style.css\",\"type\":\"css\"},{\"id\":\"1dbe3dca-b8c9-45ca-a072-bca02256b9ec\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/renderer/ftbcontroller.js\",\"type\":\"js\"},{\"id\":\"org.ekstep.questionunit.ftb.audioblue\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1//renderer/assets/audio-blue.png\",\"type\":\"image\"},{\"id\":\"org.ekstep.questionunit.ftb\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/renderer/plugin.js\",\"type\":\"plugin\"},{\"id\":\"org.ekstep.questionunit.ftb_manifest\",\"plugin\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"src\":\"/content-plugins/org.ekstep.questionunit.ftb-1.1/manifest.json\",\"type\":\"json\"},{\"id\":\"do_113253846918701056124\",\"src\":\"/assets/public/content/do_113253846918701056124/artifact/do_113253846918701056124_1617901235425_image.jpg\",\"type\":\"image\"},{\"id\":\"QuizImage\",\"src\":\"/content-plugins/org.ekstep.questionset-1.0/editor/assets/quizimage.png\",\"assetId\":\"QuizImage\",\"type\":\"image\",\"preload\":true},{\"id\":\"org.ekstep.keyboard.eras_icon\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/eras_icon.png\",\"assetId\":\"org.ekstep.keyboard.eras_icon\",\"type\":\"image\",\"preload\":true},{\"id\":\"org.ekstep.keyboard.language_icon\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/language_icon.png\",\"assetId\":\"org.ekstep.keyboard.language_icon\",\"type\":\"image\",\"preload\":true},{\"id\":\"org.ekstep.keyboard.hide_keyboard\",\"src\":\"/content-plugins/org.ekstep.keyboard-1.1/renderer/assets/keyboard.svg\",\"assetId\":\"org.ekstep.keyboard.hide_keyboard\",\"type\":\"image\",\"preload\":true}]},\"plugin-manifest\":{\"plugin\":[{\"id\":\"org.ekstep.navigation\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.text\",\"ver\":\"1.2\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionset.quiz\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.iterator\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionset\",\"ver\":\"1.0\",\"type\":\"plugin\",\"depends\":\"org.ekstep.questionset.quiz,org.ekstep.iterator\"},{\"id\":\"org.ekstep.questionunit\",\"ver\":\"1.2\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionunit.mcq\",\"ver\":\"1.3\",\"type\":\"plugin\",\"depends\":\"org.ekstep.questionunit\"},{\"id\":\"org.ekstep.keyboard\",\"ver\":\"1.1\",\"type\":\"plugin\",\"depends\":\"\"},{\"id\":\"org.ekstep.questionunit.ftb\",\"ver\":\"1.1\",\"type\":\"plugin\",\"depends\":\"org.ekstep.questionunit,org.ekstep.keyboard\"}]},\"compatibilityVersion\":2}}",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://sunbirddev.blob.core.windows.net/sunbird-content-dev/content/do_113540914336456704180/artifact/1652944954897_do_113540914336456704180.zip",
+        "contentType": "Resource",
+        "identifier": "do_113540914336456704180",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav sample ECML"
+      }
+
+    },{
+      "name": "Video Content",
+      "mimeType": "video",
+      "playerRedirectURL": "players/video",
+      "defaultContent": {
+        "interceptionPoints": "{'items':[{'type':'QuestionSet','interceptionPoint':50,'identifier':'do_213272808198291456121'},{'type':'QuestionSet','interceptionPoint':90,'identifier':'do_213272808198291456121'},{'type':'QuestionSet','interceptionPoint':120,'identifier':'do_213272808198291456121'}]}",
+        "interceptionType": "Timestamp",
+        "compatibilityLevel": 2,
+        "copyright": "NCERT",
+        "subject": ["CPD"],
+        "channel": "0125196274181898243",
+        "language": ["English"],
+        "mimeType": "video/mp4",
+        "objectType": "Content",
+        "gradeLevel": ["Others"],
+        "appIcon": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/do_31309320735055872011111/artifact/nishtha_icon.thumb.jpg",
+        "primaryCategory": "Explanation Content",
+        "artifactUrl": "https://ntpproductionall.blob.core.windows.net/ntp-content-production/content/assets/do_31309320735055872011111/engagement-with-language-.mp4",
+        "contentType": "ExplanationResource",
+        "identifier": "do_31309320735055872011111",
+        "audience": ["Student"],
+        "visibility": "Default",
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "languageCode": ["en"],
+        "license": "CC BY-SA 4.0",
+        "name": "Gourav Video Content",
+        "status": "Live",
+        "code": "1c5bd8da-ad50-44ad-8b07-9c18ec06ce29",
+        "streamingUrl": "https://ntppreprodmedia-inct.streaming.media.azure.net/409780ae-3fc2-4879-85f7-f1affcce55fa/mp4_14.ism/manifest(format=m3u8-aapl-v3)",
+        "medium": ["English"],
+        "createdOn": "2020-08-24T17:58:32.911+0000",
+        "copyrightYear": 2020,
+        "lastUpdatedOn": "2020-08-25T04:36:47.587+0000",
+        "creator": "NCERT COURSE CREATOR 6",
+        "pkgVersion": 1,
+        "versionKey": "1598330207587",
+        "framework": "ncert_k-12",
+        "createdBy": "68dc1f8e-922b-4fcd-b663-593573c75f22",
+        "resourceType": "Learn",
+        "orgDetails": { "email": "director.ncert@nic.in", "orgName": "NCERT" },
+        "licenseDetails": {
+          "name": "CC BY-SA 4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode",
+          "description": "For details see below:"
+        }
+      }
+    },{
+      "name": "Youtube Content",
+      "mimeType": "youtube",
+      "playerRedirectURL": "players/interactive/youtube",
+      "defaultContent": {
+        "mimeType": "video/x-youtube",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://youtu.be/GHmQ8euNwv8",
+        "contentType": "Resource",
+        "identifier": "do_213694808430682112119",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav Youtube content"
+    }
+    },
+    {
+      "name": "HTML Content",
+      "mimeType": "html",
+      "playerRedirectURL": "players/interactive/html",
+      "defaultContent": {
+        "mimeType": "application/vnd.ekstep.html-archive",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682605483573248113/artifact/kayal_html_1670239929027.zip",
+        "contentType": "Resource",
+        "identifier": "do_213682605483573248113",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav HTML Content"
+    }
+    },
+    {
+      "name": "H5P Content",
+      "mimeType": "h5p",
+      "playerRedirectURL": "players/interactive/h5p",
+      "defaultContent": {
+        "mimeType": "application/vnd.ekstep.h5p-archive",
+        "objectType": "Content",
+        "primaryCategory": null,
+        "artifactUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682604208406528112/artifact/1670239774933_do_213682604208406528112.zip",
+        "contentType": "Resource",
+        "identifier": "do_213682604208406528112",
+        "languageCode": [
+            "en"
+        ],
+        "name": "Gourav H5p content"
+    }
+    },
+    {
+      "name": "Collection",
+      "mimeType": "collection",
+      "playerRedirectURL": "players/collection",
+      "defaultContent": {
+        "ownershipType": [
+            "createdBy"
+        ],
+        "publish_type": "Public",
+        "copyright": "01309282781705830427",
+        "se_gradeLevelIds": [
+            "knowlg_k-12_gradelevel_class1"
+        ],
+        "keywords": [],
+        "subject": [
+            "Mathematics"
+        ],
+        "channel": "01309282781705830427",
+        "downloadUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar",
+        "organisation": [
+            "NIT",
+            "MPPS MUKKADAMPALLI"
+        ],
+        "language": [
+            "English"
+        ],
+        "mimeType": "application/vnd.ekstep.content-collection",
+        "variants": "{\"spine\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar\",\"size\":\"10327\"},\"online\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185728_do_213682434758295552119_2_ONLINE.ecar\",\"size\":\"4709\"}}",
+        "body": null,
+        "leafNodes": [
+            "do_213682433391198208118"
+        ],
+        "objectType": "content",
+        "se_mediums": [
+            "English"
+        ],
+        "gradeLevel": [
+            "Class 1"
+        ],
+        "appIcon": "",
+        "children": [
+            {
+                "lastStatusChangedOn": "2022-12-05T05:45:22.165+0000",
+                "parent": "do_213682434758295552119",
+                "children": [
+                    {
+                        "copyright": "NIT, MPPS MUKKADAMPALLI",
+                        "lastStatusChangedOn": "2022-12-05T05:43:57.886+0000",
+                        "parent": "do_213682435048775680120",
+                        "licenseterms": "By creating any type of content (resources, books, courses etc.) on DIKSHA, you consent to publish it under the Creative Commons License Framework. Please choose the applicable creative commons license you wish to apply to your content.",
+                        "organisation": [
+                            "NIT",
+                            "MPPS MUKKADAMPALLI"
+                        ],
+                        "mediaType": "content",
+                        "name": "mondatpdf",
+                        "discussionForum": "{\"enabled\":\"No\"}",
+                        "createdOn": "2022-12-05T05:41:59.852+0000",
+                        "createdFor": [
+                            "01309282781705830427",
+                            "01274256635219968039517"
+                        ],
+                        "channel": "01309282781705830427",
+                        "lastUpdatedOn": "2022-12-05T05:43:57.886+0000",
+                        "subject": [
+                            "Mathematics"
+                        ],
+                        "size": 3299359,
+                        "se_topics": [],
+                        "streamingUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/assets/do_213682433391198208118/bemh101.pdf",
+                        "identifier": "do_213682433391198208118",
+                        "resourceType": "Learn",
+                        "gradeLevel": [
+                            "Class 1"
+                        ],
+                        "ownershipType": [
+                            "createdBy"
+                        ],
+                        "compatibilityLevel": 4,
+                        "audience": [
+                            "Student"
+                        ],
+                        "trackable": "{\"enabled\":\"No\",\"autoBatch\":\"No\"}",
+                        "se_boards": [
+                            "CBSE"
+                        ],
+                        "os": [
+                            "All"
+                        ],
+                        "primaryCategory": "eTextbook",
+                        "appIcon": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/artifact/do_213678865874198528118_1669783432344_wp2601442.thumb.jpg",
+                        "se_mediums": [
+                            "English"
+                        ],
+                        "downloadUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/mondatpdf_1670219037049_do_213682433391198208118_1.ecar",
+                        "se_subjects": [
+                            "Mathematics"
+                        ],
+                        "lockKey": "d627be15-1cac-4c24-b981-3ad387068e2a",
+                        "medium": [
+                            "English"
+                        ],
+                        "framework": "knowlg_k-12",
+                        "posterImage": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213678865874198528118/artifact/do_213678865874198528118_1669783432344_wp2601442.jpg",
+                        "creator": "N11",
+                        "versionKey": "1670218960096",
+                        "mimeType": "application/pdf",
+                        "code": "529ece79-8ade-49ca-a9ee-519877d0d591",
+                        "license": "CC BY 4.0",
+                        "version": 2,
+                        "prevStatus": "Processing",
+                        "contentType": "Resource",
+                        "prevState": "Review",
+                        "language": [
+                            "English"
+                        ],
+                        "board": "CBSE",
+                        "lastPublishedOn": "2022-12-05T05:43:55.882+0000",
+                        "objectType": "Content",
+                        "lastUpdatedBy": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+                        "status": "Live",
+                        "pragma": [
+                            "external"
+                        ],
+                        "createdBy": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+                        "dialcodeRequired": "No",
+                        "lastSubmittedOn": "2022-12-05T05:42:40.055+0000",
+                        "interceptionPoints": "{}",
+                        "idealScreenSize": "normal",
+                        "contentEncoding": "identity",
+                        "depth": 2,
+                        "consumerId": "954787a2-518d-46a6-abdd-6294a07237c6",
+                        "lastPublishedBy": "ae94b68c-a535-4dce-8e7a-fb9662b0ad68",
+                        "topic": [],
+                        "se_gradeLevels": [
+                            "Class 1"
+                        ],
+                        "osId": "org.ekstep.quiz.app",
+                        "copyrightYear": 2022,
+                        "se_FWIds": [
+                            "knowlg_k-12"
+                        ],
+                        "contentDisposition": "inline",
+                        "previewUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/assets/do_213682433391198208118/bemh101.pdf",
+                        "artifactUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/assets/do_213682433391198208118/bemh101.pdf",
+                        "visibility": "Default",
+                        "credentials": "{\"enabled\":\"No\"}",
+                        "variants": "{\"full\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/mondatpdf_1670219037049_do_213682433391198208118_1.ecar\",\"size\":\"3044100\"},\"spine\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682433391198208118/mondatpdf_1670219037602_do_213682433391198208118_1_SPINE.ecar\",\"size\":\"7113\"}}",
+                        "index": 1,
+                        "pkgVersion": 1,
+                        "idealScreenDensity": "hdpi"
+                    }
+                ],
+                "mediaType": "content",
+                "name": "Collection Unit1",
+                "discussionForum": {
+                    "enabled": "No"
+                },
+                "createdOn": "2022-12-05T05:45:22.165+0000",
+                "channel": "01309282781705830427",
+                "generateDIALCodes": "No",
+                "lastUpdatedOn": "2022-12-05T05:46:28.287+0000",
+                "identifier": "do_213682435048775680120",
+                "ownershipType": [
+                    "createdBy"
+                ],
+                "compatibilityLevel": 1,
+                "audience": [
+                    "Student"
+                ],
+                "trackable": {
+                    "enabled": "No",
+                    "autoBatch": "No"
+                },
+                "os": [
+                    "All"
+                ],
+                "primaryCategory": "Content Playlist",
+                "languageCode": [
+                    "en"
+                ],
+                "downloadUrl": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar",
+                "attributions": [],
+                "versionKey": "1670219122165",
+                "mimeType": "application/vnd.ekstep.content-collection",
+                "code": "5930f6ab-4ba7-716c-ad54-7fa00b246f9a",
+                "license": "CC BY 4.0",
+                "leafNodes": [
+                    "do_213682433391198208118"
+                ],
+                "version": 2,
+                "contentType": "Collection",
+                "language": [
+                    "English"
+                ],
+                "lastPublishedOn": "2022-12-08T14:19:45.585+0000",
+                "objectType": "Content",
+                "status": "Live",
+                "dialcodeRequired": "No",
+                "idealScreenSize": "normal",
+                "contentEncoding": "gzip",
+                "leafNodesCount": 1,
+                "depth": 1,
+                "osId": "org.ekstep.launcher",
+                "contentDisposition": "inline",
+                "visibility": "Parent",
+                "credentials": {
+                    "enabled": "No"
+                },
+                "variants": "{\"spine\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185642_do_213682434758295552119_2_SPINE.ecar\",\"size\":\"10327\"},\"online\":{\"ecarUrl\":\"https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/pdf-con_1670509185728_do_213682434758295552119_2_ONLINE.ecar\",\"size\":\"4709\"}}",
+                "index": 1,
+                "pkgVersion": 2,
+                "idealScreenDensity": "hdpi"
+            }
+        ],
+        "primaryCategory": "Content Playlist",
+        "contentEncoding": "gzip",
+        "generateDIALCodes": "No",
+        "totalCompressedSize": 3299359,
+        "mimeTypesCount": "{\"application/pdf\":1,\"application/vnd.ekstep.content-collection\":1}",
+        "sYS_INTERNAL_LAST_UPDATED_ON": "2022-12-08T14:19:45.641+0000",
+        "contentType": "Collection",
+        "se_gradeLevels": [
+            "Class 1"
+        ],
+        "trackable": {
+            "enabled": "No",
+            "autoBatch": "No"
+        },
+        "identifier": "do_213682434758295552119",
+        "audience": [
+            "Student"
+        ],
+        "se_boardIds": [
+            "knowlg_k-12_board_cbse"
+        ],
+        "subjectIds": [
+            "knowlg_k-12_subject_mathematics"
+        ],
+        "toc_url": "https://sunbirddevbbpublic.blob.core.windows.net/sunbird-content-staging-knowlg/content/do_213682434758295552119/artifact/do_213682434758295552119_toc.json",
+        "visibility": "Default",
+        "contentTypesCount": "{\"Collection\":1,\"Resource\":1}",
+        "author": "N11",
+        "consumerId": "954787a2-518d-46a6-abdd-6294a07237c6",
+        "childNodes": [
+            "do_213682433391198208118",
+            "do_213682435048775680120"
+        ],
+        "discussionForum": {
+            "enabled": "No"
+        },
+        "mediaType": "content",
+        "osId": "org.ekstep.quiz.app",
+        "lastPublishedBy": "System",
+        "version": 2,
+        "se_subjects": [
+            "Mathematics"
+        ],
+        "license": "CC BY 4.0",
+        "prevState": "Review",
+        "size": 10327,
+        "lastPublishedOn": "2022-12-08T14:19:45.585+0000",
+        "name": "Gourav Collection",
+        "mediumIds": [
+            "knowlg_k-12_medium_english"
+        ],
+        "attributions": [],
+        "status": "Live",
+        "code": "Enter title",
+        "publishError": null,
+        "credentials": {
+            "enabled": "No"
+        },
+        "prevStatus": "Processing",
+        "description": "Enter description ",
+        "medium": [
+            "English"
+        ],
+        "idealScreenSize": "normal",
+        "createdOn": "2022-12-05T05:44:46.728+0000",
+        "se_boards": [
+            "CBSE"
+        ],
+        "se_mediumIds": [
+            "knowlg_k-12_medium_english"
+        ],
+        "copyrightYear": 2022,
+        "contentDisposition": "inline",
+        "additionalCategories": [
+            "Lesson Plan"
+        ],
+        "lastUpdatedOn": "2022-12-05T05:46:28.287+0000",
+        "dialcodeRequired": "No",
+        "lastStatusChangedOn": "2022-12-05T05:46:28.287+0000",
+        "createdFor": [
+            "01309282781705830427"
+        ],
+        "creator": "N11",
+        "os": [
+            "All"
+        ],
+        "flagReasons": null,
+        "se_subjectIds": [
+            "knowlg_k-12_subject_mathematics"
+        ],
+        "se_FWIds": [
+            "knowlg_k-12"
+        ],
+        "pkgVersion": 2,
+        "versionKey": "1670219162633",
+        "idealScreenDensity": "hdpi",
+        "framework": "knowlg_k-12",
+        "dialcodes": null,
+        "depth": 0,
+        "s3Key": "content/do_213682434758295552119/artifact/do_213682434758295552119_toc.json",
+        "boardIds": [
+            "knowlg_k-12_board_cbse"
+        ],
+        "lastSubmittedOn": "2022-12-05T05:46:02.600+0000",
+        "createdBy": "5a587cc1-e018-4859-a0a8-e842650b9d64",
+        "compatibilityLevel": 1,
+        "leafNodesCount": 1,
+        "gradeLevelIds": [
+            "knowlg_k-12_gradelevel_class1"
+        ],
+        "board": "CBSE",
+        "resourceType": "Collection"
+    }
+    }
+  ]
 }

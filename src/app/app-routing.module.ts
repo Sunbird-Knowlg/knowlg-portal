@@ -11,6 +11,7 @@ import { InteractiveEditorComponent } from './editors/interactive-editor/interac
 import { RoleComponent } from './editors/role/role.component';
 import { CollectionPlayerComponent } from './players/collection-player/collection-player.component';
 import { PlayersListComponent } from './players/players-list/players-list.component';
+import { PlayercontentlistComponent } from './players/playercontentlist/playercontentlist.component';
 
 const routes: Routes =  [
   {
@@ -38,13 +39,16 @@ const routes: Routes =  [
     path: 'players', component: PlayersListComponent,
   },
   {
-    path: 'players/interactive/:id', component: InteractivePlayerComponent,
+    path: 'players/interactive/:mimeType/:id', component: InteractivePlayerComponent,
   },
   {
-    path: 'players/collection', component: CollectionPlayerComponent,
+    path: 'players/collection/:id', component: CollectionPlayerComponent,
   },
   {
     path: 'players/:mimeType/:id', component: PlayersComponent,
+  },
+  {
+    path: 'player-content-list/:mimeType', component: PlayercontentlistComponent,
   },
   {
     path: 'players/interactive', component: InteractivePlayerComponent,

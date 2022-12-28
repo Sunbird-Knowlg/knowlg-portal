@@ -35,6 +35,7 @@ import { PublishedPopupComponent } from './players/published-popup/published-pop
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { PlayersListComponent } from './players/players-list/players-list.component';
 import { SharedModule } from 'shared';
+import { PlayercontentlistComponent } from './players/playercontentlist/playercontentlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { SharedModule } from 'shared';
     ContentDetailsModelComponent,
     HeaderComponent,
     PublishedPopupComponent,
-    PlayersListComponent
+    PlayersListComponent,
+    PlayercontentlistComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 
 import { PlayersListComponent } from './players-list.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
+
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      identifier: 'do_21247940906829414411032'
+    }
+  }
+};
+
 describe('PlayersListComponent', () => {
   let component: PlayersListComponent;
   let fixture: ComponentFixture<PlayersListComponent>;
@@ -13,7 +23,8 @@ describe('PlayersListComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ PlayersListComponent ],
       providers: [
-        { provide: Router, useClass: RouterStub },
+        { provide: Router, useClass: RouterStub, LocalStorageService },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
     })
     .compileComponents();
@@ -30,52 +41,27 @@ describe('PlayersListComponent', () => {
   });
   it('#navigateToPdf() should navigate to pdf player', () => {
     const router = TestBed.inject(Router);
-    component.navigateToPdf();
-    expect(router.navigate).toHaveBeenCalledWith(['players/pdf/do_11348995249825382411']);
-  });
-  it('#navigateToPdf() should not navigate to other then pdf player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToPdf();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/epub/do_21312960731822489612047']);
+    component.navigateToContentList('pdf');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/pdf']);
   });
   it('#navigateToEpub() should navigate to epub player', () => {
     const router = TestBed.inject(Router);
-    component.navigateToEpub();
-    expect(router.navigate).toHaveBeenCalledWith(['players/epub/do_21312960731822489612047']);
-  });
-  it('#navigateToEpub() should not navigate to then epub player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEpub();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf/do_11348995249825382411']);
+    component.navigateToContentList('epub');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/epub']);
   });
   it('#navigateToEcml() should navigate to ecml(interactive) player', () => {
     const router = TestBed.inject(Router);
-    component.navigateToEcml();
-    expect(router.navigate).toHaveBeenCalledWith(['players/interactive']);
-  });
-  it('#navigateToEcml() should not navigate to then ecml(interactive) player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEcml();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/epub/do_21312960731822489612047']);
+    component.navigateToContentList('interactive');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/interactive']);
   });
   it('#navigateToVideo() should navigate to video player', () => {
     const router = TestBed.inject(Router);
-    component.navigateToVideo();
-    expect(router.navigate).toHaveBeenCalledWith(['players/video/do_31309320735055872011111']);
-  });
-  it('#navigateToVideo() should not navigate to then video player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToVideo();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf/do_11348995249825382411']);
+    component.navigateToContentList('video');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/video']);
   });
   it('#naviagteToCollectionPlayer() should navigate to collection player', () => {
     const router = TestBed.inject(Router);
-    component.naviagteToCollectionPlayer();
-    expect(router.navigate).toHaveBeenCalledWith(['players/collection']);
-  });
-  it('#naviagteToCollectionPlayer() should not navigate to then collection player', () => {
-    const router = TestBed.inject(Router);
-    component.naviagteToCollectionPlayer();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/video/do_31309320735055872011111']);
+    component.navigateToContentList('collection');
+    expect(router.navigate).toHaveBeenCalledWith(['player-content-list/collection']);
   });
 });

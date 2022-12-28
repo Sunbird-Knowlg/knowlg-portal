@@ -1,33 +1,20 @@
-import { Component,  } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConfigService } from '../../services/config/config.service';
 @Component({
   selector: 'app-players-list',
   templateUrl: './players-list.component.html',
   styleUrls: ['./players-list.component.scss']
 })
-export class PlayersListComponent {
+export class PlayersListComponent implements OnInit{
+  playersList = [];
+  constructor(private router: Router, private configService: ConfigService){}
 
-
-  constructor(private router: Router){}
-
-  navigateToPdf(){
-    this.router.navigate(['players/pdf/do_11348995249825382411']);
+  ngOnInit() {
+    this.playersList = this.configService.getPlayersList();
   }
-
-  navigateToEpub(){
-    this.router.navigate(['players/epub/do_21312960731822489612047']);
-  }
-
-  navigateToEcml(){
-    this.router.navigate(['players/interactive']);
-  }
-
-  navigateToVideo(){
-    this.router.navigate(['players/video/do_31309320735055872011111']);
-  }
-
-  naviagteToCollectionPlayer(){
-    this.router.navigate(['players/collection']);
+  navigateToContentList(type) {
+    this.router.navigate([`player-content-list/${type}`]);
   }
 
 }

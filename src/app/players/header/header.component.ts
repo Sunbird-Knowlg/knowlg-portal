@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PublishedPopupComponent } from '../published-popup/published-popup.component';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
@@ -14,13 +14,15 @@ export class HeaderComponent implements OnInit {
   public showPublishPopup = false;
   public contentId: string;
   public userData: any;
+  public mimeType: any;
 
-  constructor(private activatedRoute: ActivatedRoute, public dialog: MatDialog,
+  constructor(private activatedRoute: ActivatedRoute, public router: Router, public dialog: MatDialog,
               private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');
     this.contentId = _.get(this.activatedRoute.snapshot, 'params.id');
+    this.mimeType = _.get(this.activatedRoute.snapshot, 'params.mimeType');
     this.activatedRoute.queryParams.subscribe((params: any) => {
       this.isContentReviewer = params.mode && params.mode === 'review' ? true : false;
     });
@@ -34,6 +36,10 @@ export class HeaderComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
     });
+  }
+
+  goBack(){
+    this.router.navigate(['player-content-list', this.mimeType]);
   }
 
 }
