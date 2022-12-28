@@ -26,7 +26,7 @@ export class BasePlayerComponent implements OnDestroy {
 
 
   public getContentDetails(identifier: string) {
-      const options: any = { params: { fields: 'mimeType,name,artifactUrl' } };
+      const options: any = { params: { fields: 'mimeType,name,artifactUrl,streamingUrl' } };
       this.subscription = this.playerService.getContent(identifier, options)
       .subscribe((data) => {
         this.loadContent(data.result.content);
