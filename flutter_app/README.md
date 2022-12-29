@@ -1,16 +1,101 @@
-# flutter_app
+# Getting Started with Flutter App
 
-A new Flutter project.
+For Existing flutter app follow the below steps to integrate pdf player as web component
 
-## Getting Started
+- Copy all the  files from web component folder
+  [files](https://github.com/project-sunbird/sunbird-pdf-player/tree/master/web-component/) to public/libs/sunbird-pdf-player folder
 
-This project is a starting point for a Flutter application.
+- Import below paths for "assets" in pubspec.yaml file
+    ```bash
+    - public/libs/sunbird-pdf-player/
+    - public/libs/sunbird-pdf-player/assets/
+    - public/libs/sunbird-pdf-player/assets/pdfjs/build/
+    - public/libs/sunbird-pdf-player/assets/pdfjs/web/
+    ```
 
-A few resources to get you started if this is your first Flutter project:
+- Import below dependencies  in pubspec.yaml file
+    ```bash
+    webview_flutter_plus: ^0.3.0+2
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Create web_view.dart file in lib folder and add  below code 
+    ```bash
+	import 'package:flutter/material.dart';
+	import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+	class HomeScreen extends StatefulWidget {
+  	const HomeScreen({Key? key}) : super(key: key);
+
+  	@override
+  	State<HomeScreen> createState() => _HomeScreenState();
+	}
+
+	class _HomeScreenState extends State<HomeScreen> {
+  	@override
+  	Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: const WebViewPlus(
+            initialUrl: 'public/libs/sunbird-pdf-player/index.html',
+            javascriptMode: JavascriptMode.unrestricted,
+          ),
+        ),
+      ),
+    );
+  	}
+	}
+    ```	
+
+- Import below code in main.dart file
+    ```bash
+    import 'package:flutter/material.dart';
+    import 'package:flutter_app/web_view.dart';
+
+	void main() {
+	   runApp(const MyApp());
+	}
+
+	class MyApp extends StatelessWidget {
+  	const MyApp({Key? key}) : super(key: key);
+
+  	@override
+  	Widget build(BuildContext context) {
+    	return MaterialApp(
+      	debugShowCheckedModeBanner: false,
+      	theme: ThemeData(
+        	primarySwatch: Colors.orange,
+      	),
+      	home: const HomeScreen(),
+    	);
+  		}
+	}
+    ```	 
+
+- Create  .eslintignore  file in root folder and update below paths
+    ```bash
+    public/*
+    ```
+- Update below in "/android/build.gradle"  
+    ```bash
+    defaultConfig {
+	...	
+	minSdkVersion 20
+	...
+	}
+	...
+	android {
+	...
+    compileSdkVersion 32
+	...
+	}
+    ```
+- Add below in "/android/app/src/main/AndroidManifest.xml"  of application tag
+    ```bash
+    android:usesCleartextTraffic="true"
+    ```
+
+- Update below in "/android/app/src/main/AndroidManifest.xml"  
+    ```bash
+    android:label="knowlg_app"
+    ```
