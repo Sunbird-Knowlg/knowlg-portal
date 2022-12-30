@@ -1,13 +1,11 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContentlistComponent } from './contentlist.component';
+import { V2PlayerComponent } from './v2-player.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
-
 const mockActivatedRoute = {
   snapshot: {
     queryParams: {
@@ -16,25 +14,27 @@ const mockActivatedRoute = {
   }
 };
 
-describe('ContentlistComponent', () => {
-  let component: ContentlistComponent;
-  let fixture: ComponentFixture<ContentlistComponent>;
+describe('V2PlayerComponent', () => {
+  let component: V2PlayerComponent;
+  let fixture: ComponentFixture<V2PlayerComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ContentlistComponent ],
-      imports: [IonicModule.forRoot(), HttpClientModule],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       providers: [
         HttpClient,
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
-    }).compileComponents();
+    })
+    .compileComponents();
+  });
 
-    fixture = TestBed.createComponent(ContentlistComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(V2PlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

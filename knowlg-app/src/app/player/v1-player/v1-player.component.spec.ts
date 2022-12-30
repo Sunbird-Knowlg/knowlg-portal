@@ -1,7 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ContentlistComponent } from './contentlist.component';
+import { V1PlayerComponent } from './v1-player.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 class RouterStub {
@@ -16,25 +15,28 @@ const mockActivatedRoute = {
   }
 };
 
-describe('ContentlistComponent', () => {
-  let component: ContentlistComponent;
-  let fixture: ComponentFixture<ContentlistComponent>;
+describe('V1PlayerComponent', () => {
+  let component: V1PlayerComponent;
+  let fixture: ComponentFixture<V1PlayerComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ContentlistComponent ],
-      imports: [IonicModule.forRoot(), HttpClientModule],
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ V1PlayerComponent ],
+      imports: [HttpClientModule],
       providers: [
         HttpClient,
         { provide: Router, useClass: RouterStub },
         { provide: ActivatedRoute, useValue: mockActivatedRoute }
       ]
-    }).compileComponents();
+    })
+    .compileComponents();
+  });
 
-    fixture = TestBed.createComponent(ContentlistComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(V1PlayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

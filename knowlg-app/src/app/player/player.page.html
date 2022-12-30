@@ -3,9 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
    </ion-buttons>
-    <ion-title>{{playerConfig?.metadata?.name}}</ion-title>
+    <ion-title>Select player</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content >
-  <lib-player [playerConfig]= "playerConfig" (playerEvent)="playerEvent($event)"></lib-player>
+  <ion-row>
+    <ion-col class="ion-margin" size="11">
+      <ion-button expand="block" color="secondary" routerLink="../home" margin-top>
+        Players list
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

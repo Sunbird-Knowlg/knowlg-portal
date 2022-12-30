@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router , ActivatedRoute} from '@angular/router';
 import { ContentService } from '../services/content.service';
-import  { get } from 'lodash-es'
-import { environment } from 'src/environments/environment';
+import { get } from 'lodash-es';
 
 @Component({
   selector: 'app-contentlist',
@@ -13,11 +12,13 @@ import { environment } from 'src/environments/environment';
 export class ContentlistComponent implements OnInit {
   contentList = [];
   mimeType: any;
+  playerType: any;
   constructor(public router: Router, public contentService: ContentService, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.mimeType = this.activatedRoute.snapshot.paramMap.get('mimeType');
-    const defaultContents = this.contentService.getContenstList(this.mimeType);
+    this.playerType = this.activatedRoute.snapshot.paramMap.get('mimeType');
+    this.mimeType = this.contentService.getMimeType(this.playerType);
+    const defaultContents = this.contentService.getContenstList(this.playerType);
     this.contentService.search(this.mimeType).subscribe((data: any) => {
       const contents = get(data, 'result.content');
       this.contentList = [...this.contentList, ...contents];
@@ -25,10 +26,11 @@ export class ContentlistComponent implements OnInit {
     (err: any) => {
       console.log(err)
       this.contentList = defaultContents;
-    } 
+    }
     )
   }
   navigateToPlayer(content) {
-      this.router.navigate(['/player/', this.mimeType, content.identifier]);
+    const playerRedirectURL = this.contentService.playerRedirectURL(this.playerType);
+    this.router.navigate([playerRedirectURL, content.identifier]);
   }
 }

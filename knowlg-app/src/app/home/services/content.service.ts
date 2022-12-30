@@ -11,7 +11,7 @@ import { get } from 'lodash-es';
 })
 export class ContentService {
   playerConfig = {};
-  constructor(private apiService: APIService) { 
+  constructor(private apiService: APIService) {
     this.apiService.initialize(environment.baseURL)
   }
 
@@ -19,14 +19,14 @@ export class ContentService {
     return data[mimeType];
   }
 
-  getContex() {
+  getContext() {
     return data.CONTEXT;
   }
 
   getConfig() {
     return data.CONFIG;
   }
-  
+
   getPlayersList() {
     return data.playersArray;
   }
@@ -36,44 +36,73 @@ export class ContentService {
     if (contentMetadata) {
       return of(
         {
-          "result": {
-            "content": contentMetadata
+          result: {
+            content: contentMetadata
           }
         });
     } else {
-      return this.apiService.read(contentId)
+      return this.apiService.read(contentId, { params: { fields: 'mimeType,name,artifactUrl,body,streamingUrl'} });
     }
   }
 
   preparePlayerConfig(contentMetadata) {
-    
+
     const playerConfig = {
       metadata: get(contentMetadata, 'result.content'),
       config: this.getConfig(),
-      context: this.getContex()
+      context: this.getContext()
     };
     this.playerConfig = null;
     this.playerConfig = playerConfig;
     return of(this.playerConfig);
-    
+
+  }
+
+  prepareV1PlayerConfig(contentMetadata) {
+    const metadata = get(contentMetadata, 'result.content');
+    const playerConfig = {
+      metadata,
+      config: this.getV1ConfigData(),
+      context: this.getContext(),
+      data: metadata.mimeType === 'application/vnd.ekstep.ecml-archive' ? metadata.body : {}
+    };
+    this.playerConfig = null;
+    this.playerConfig = playerConfig;
+    return of(this.playerConfig);
+  }
+
+  getV1ConfigData(){
+    return data.V1CONFIG;
   }
 
   search(mimeType: string) {
     return this.apiService.search({
-      "request": {
-        "filters": {
-          "status": [
-            "Live"
+      request: {
+        filters: {
+          status: [
+            'Live'
           ],
-          "mimeType": mimeType === 'video' ? ["video/mp4"] :  `application/${mimeType}`,
-          "objectType": "Content"
+          mimeType,
+          objectType: 'Content'
         },
-        "query": "",
-        "sort_by": {
-          "lastUpdatedOn": "desc"
+        query: '',
+        sort_by: {
+          lastUpdatedOn: 'desc'
         }
       }
     });
+  }
+
+  getMimeType(playerType: string){
+    const playerData = data.playersArray;
+    const mimeType = _.filter(playerData, { playerType })[0].mimeType;
+    return mimeType;
+  }
+
+  playerRedirectURL(playerType: string){
+    const playerData = data.playersArray;
+    const mimeType = _.filter(playerData, { playerType })[0].playerRedirectURL;
+    return mimeType;
   }
 
 }

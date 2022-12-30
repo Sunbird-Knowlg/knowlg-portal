@@ -1,0 +1,38 @@
+{
+  "/api/*": {
+    "target": "https://dev.knowlg.sunbird.org/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/action/*": {
+    "target": "https://dev.knowlg.sunbird.org/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/learner/*": {
+    "target": "https://dev.knowlg.sunbird.org/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/assets/*": {
+    "target": "https://dev.knowlg.sunbird.org/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/content/*": {
+    "target": "https://dev.knowlg.sunbird.org/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/content-plugins/*": {
+    "target": "https://dev.knowlg.sunbird.org/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

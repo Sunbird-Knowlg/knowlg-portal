@@ -12,7 +12,7 @@
     </ion-row>
     <ion-row *ngFor="let player of playersArray ">
       <ion-col class="ion-margin" size="11">
-        <ion-button expand="block" color="secondary" (click)="navigateToContentList(player?.mimeType)" margin-top>
+        <ion-button expand="block" color="secondary" (click)="navigateToContentList(player?.playerType)" margin-top>
           {{player?.name}} content
         </ion-button>
       </ion-col>

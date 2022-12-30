@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'player/:mimeType/:id',
+    path: 'player',
     loadChildren: () => import('./player/player.module').then( m => m.PlayerPageModule)
   }
 ];
