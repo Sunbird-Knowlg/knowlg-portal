@@ -101,8 +101,8 @@ export class ContentService {
 
   playerRedirectURL(playerType: string){
     const playerData = data.playersArray;
-    const mimeType = _.filter(playerData, { playerType })[0].playerRedirectURL;
-    return mimeType;
+    const playerRedirectURL = _.filter(playerData, { playerType })[0].playerRedirectURL;
+    return playerRedirectURL;
   }
 
 }
