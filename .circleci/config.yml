@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout:
           path: ~/knowlg-portal
-     - run:
+      - run:
           name: Install  Node.js v14.20.0 with build in nvm tool
           command: 
             nvm install v14 && nvm use v14 && nvm alias default v14
