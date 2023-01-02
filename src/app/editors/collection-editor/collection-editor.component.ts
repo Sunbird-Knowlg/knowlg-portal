@@ -68,7 +68,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   }
 
   setHierarchyConfig(data: any) {
-    // tslint:disable-next-line:max-line-length
+    // eslint-disable-next-line max-len
     if (_.get(data, 'objectMetadata.config')) {
       this.hierarchyConfig = _.get(data, 'objectMetadata.config.sourcingSettings.collection');
       if (!_.isEmpty(this.hierarchyConfig.children)) {
@@ -106,7 +106,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   }
 
   setEditorConfig() {
-    // tslint:disable-next-line:max-line-length
+    // eslint-disable-next-line max-len
     const additionalCategory = _.merge(_.get(this.channelData, 'contentAdditionalCategories'), _.get(this.channelData, 'collectionAdditionalCategories'));
     this.editorConfig = {
       context: {
