@@ -12,24 +12,24 @@ jobs:
           command: 'node --version'
       - run:
           name: Installing Angular cli
-          command: 'sudo npm install -g @angular/cli@12.2.18 --no-progress'
+          command: 'npm install -g @angular/cli@13.3.12 --no-progress'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Installing NPM deps
-          command: 'sudo npm install --no-progress'
+          command: 'npm install --no-progress'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths: ./node_modules
       - run:
           name: Linting
-          command: sudo npm run lint
+          command: npm run lint
       - run:
           name: Building
           command: 'mkdir -p /tmp/logs && node --max_old_space_size=6000 ./node_modules/@angular/cli/bin/ng build --prod --optimization=false --buildOptimizer=false | tee /tmp/logs/build.log'
       - run:
           name: Testing
-          command: 'sudo npm run test-coverage | tee /tmp/logs/test_cases.log'
+          command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
       - run:
           name: Install  Node.js v14.20.0 with build in nvm tool
           command: |
@@ -42,7 +42,7 @@ jobs:
           command: 'node --version'
       - run:
           name: Install sonar scanner
-          command: sudo npm install -g sonarqube-scanner
+          command: npm install -g sonarqube-scanner
       - run:
           name: Run sonar scanner
           command: 'cd ~/knowlg-portal && sonar-scanner'
