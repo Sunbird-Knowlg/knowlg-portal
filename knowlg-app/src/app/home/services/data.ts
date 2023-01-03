@@ -607,6 +607,7 @@ export const  data = {
           'ver': '3.2.12',
           'pid': 'sunbird-portal.contentplayer'
         },
+        "contentId": "do_11319720466326323219",
         'contextRollup': {
           'l1': '505c7c48ac6dc1edc9b08f21db5a571d'
         },
@@ -644,15 +645,15 @@ export const  data = {
         showStartPage: true,
         host: '',
         overlay: {
-            enableUserSwitcher: true,
+            enableUserSwitcher: false,
             showOverlay: true,
             showNext: true,
             showPrevious: true,
             showSubmit: true,
             showReload: true,
-            showUser: true,
+            showUser: false,
             menu: {
-                showTeachersInstruction: true
+                showTeachersInstruction: false
             }
         },
         splash: {
@@ -671,7 +672,7 @@ export const  data = {
         sideMenu: {
           showShare: true,
           showDownload: true,
-          showExit: false
+          showExit: true
         }
       },
       playersArray: [{
