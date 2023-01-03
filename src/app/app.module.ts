@@ -19,7 +19,7 @@ import { QuestionCursorImplementationService } from './services/question-cursor-
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import { HelperService } from './services/helper/helper.service';
-import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor-v9';
+import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor';
 import { UserComponent } from './editors/user/user.component';
 import { RoleComponent } from './editors/role/role.component';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +34,7 @@ import { CommonConsumptionModule} from '@project-sunbird/common-consumption-v9';
 import { CollectionDetailsModelComponent } from './players/collection-player/collection-details-model/collection-details-model.component';
 import {MatListModule} from '@angular/material/list';
 import { ContentDetailsModelComponent } from './players/collection-player/content-details-model/content-details-model.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { ContentDetailsModelComponent } from './players/collection-player/conten
     MatDialogModule,
     MatSidenavModule,
     CommonConsumptionModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule
   ],
   providers: [{
     provide: QuestionCursor,

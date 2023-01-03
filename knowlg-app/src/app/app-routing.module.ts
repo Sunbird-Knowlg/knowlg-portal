@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'player/:mimeType/:id',
+    loadChildren: () => import('./player/player.module').then( m => m.PlayerPageModule)
+  }
 ];
 
 @NgModule({
