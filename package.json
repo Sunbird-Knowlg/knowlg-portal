@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-shared": "ng build shared",
+    "build-shared": "node copyContentPlayer.js && ng build shared",
     "dev": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --output-path=server/dist/ --watch",
     "deploy": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --output-path=server/dist/",
     "postdeploy": "node post-deploy.js",
