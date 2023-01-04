@@ -105,7 +105,7 @@ export class ContentlistComponent implements OnInit {
     const playerRedirectURL = _.get(this.configService.editorConfig.CONTENT_TYPES[this.editorType], 'playerRedirectURL', null);
     const contentStatus = _.lowerCase(content.status);
     if (playerRedirectURL && contentStatus === 'review' && _.get(this.userData, 'role') === 'reviewer') {
-      // tslint:disable-next-line:max-line-length
+      // eslint-disable-next-line max-len
       this.router.navigate([`${playerRedirectURL}/${content.identifier}`], { queryParams: {mode: 'review'} });
     } else {
       this.openContent(content.identifier);

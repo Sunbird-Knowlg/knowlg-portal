@@ -29,7 +29,7 @@ export class InteractivePlayerComponent implements OnInit {
 
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
 
-  // tslint:disable-next-line:use-lifecycle-interface
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
     const src = this.previewElement.nativeElement.src;
     this.previewElement.nativeElement.src = '';

@@ -89,7 +89,7 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
   private validateRequest() {
     // const validStatus = _.indexOf(this.configService.editorConfig.GENERIC_EDITOR.contentStatus, this.contentDetails.status) > -1;
     // const validState = _.indexOf(this.configService.editorConfig.GENERIC_EDITOR.contentState, this.routeParams.state) > -1;
-    // tslint:disable-next-line:max-line-length
+    // eslint-disable-next-line max-len
     // if (_.indexOf(this.configService.appConfig.PLAYER_CONFIG.MIME_TYPE.genericMimeType, this.contentDetails.mimeType) > -1 && validStatus) {
     //   if (validState && this.contentDetails.createdBy !== this.userService.userid) {
     //     return true;
