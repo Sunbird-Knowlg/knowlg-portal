@@ -200,7 +200,6 @@ app.post(routes.API.USERS, function (req, res) {
 /**
  * @param  {} routes.API.ASSESSMENT     This is the assessment api url
  * @param  {} routes.API.CONTENT.CREATE  This is the content create  api url
- * @param  {} routes.API.CONTENT.BUNDLE   This is the content bundle  api url
  * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH This is the content unlist publish  api url
  * @param  {} routes.API.CONTENT.REVIEW_COMMENTS This is the content review comments  api url
  * @param  {} proxy(BASE_URL
@@ -208,7 +207,6 @@ app.post(routes.API.USERS, function (req, res) {
  * @param  {function(req} proxyReqPathResolver
  */
 app.use([
-  routes.API.CONTENT.BUNDLE,
   routes.API.CONTENT.UNLISTED_PUBLISH,
   routes.API.CONTENT.REVIEW_COMMENTS,
 ], proxy(BASE_URL, {
@@ -250,7 +248,7 @@ app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
 app.use([
   routes.API.ASSESSMENT,
   routes.API.CONTENT.CREATE,
-  routes.API.BUNDLE,
+  routes.API.CONTENT.BUNDLE,
   routes.API.ITEMS_CREATE,
   routes.API.ITEMS_UPDATE,
   routes.API.CONTENT.UNLISTED_PUBLISH,
