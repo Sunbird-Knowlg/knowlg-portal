@@ -23,7 +23,7 @@ const mockActivatedRoute: Partial<ActivatedRoute> = {
   params: of({ id: '0124963192947507200', mimeType: 'pdf' }),
 };
 
-xdescribe('ContentlistComponent', () => {
+describe('ContentlistComponent', () => {
   let component: ContentlistComponent;
   let fixture: ComponentFixture<ContentlistComponent>;
 
