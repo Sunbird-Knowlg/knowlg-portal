@@ -21,29 +21,9 @@ export class V1PlayerComponent {
       setTimeout(() => {
         this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfig);
         this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
-          if (resp.data === 'renderer:question:submitscore') {
-            alert('Score has been submited succesfully');
-          } else if (resp.data && typeof resp.data === 'object') {
-            if (resp.data['player.pdf-renderer.error']) {
-              const pdfError = resp.data['player.pdf-renderer.error'];
-              if (pdfError.name === 'MissingPDFException') {
-                alert('This Pdf has some issue, please try with the differnet pdf content');
-              }
-            } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
-              alert('Max limit reached to attempt the quiz');
-            }
-          }
+          this.playerEvent.emit(resp);
         });
       }, 100);
     };
   }
-
-  playerEventHandler(event) {
-    this.playerEvent.emit(event);
-  }
-
-  telemetryEvent(event) {
-    this.playerEvent.emit(event);
-  }
-
 }

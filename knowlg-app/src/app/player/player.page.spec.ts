@@ -3,17 +3,24 @@ import { IonicModule } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PlayerPage } from './player.page';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { of } from 'rxjs';
 
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
 
-const mockActivatedRoute = {
+const mockActivatedRoute: Partial<ActivatedRoute> = {
   snapshot: {
-    queryParams: {
-      identifier: 'do_21247940906829414411032',
+    params: {
+      id: '0124963192947507200',
+      mimeType: 'pdf'
+    },
+    data: {
+      sendUtmParams: true
     }
-  }
+  } as any,
+  params: of({ id: '0124963192947507200', mimeType: 'pdf' }),
 };
 
 describe('PlayerPage', () => {
@@ -23,7 +30,7 @@ describe('PlayerPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PlayerPage ],
-      imports: [IonicModule.forRoot(), HttpClientModule],
+      imports: [IonicModule.forRoot(), HttpClientModule, RouterTestingModule],
       providers: [
         HttpClient,
         { provide: Router, useClass: RouterStub },

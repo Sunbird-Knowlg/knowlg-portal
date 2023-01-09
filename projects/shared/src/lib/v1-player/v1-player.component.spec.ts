@@ -22,4 +22,32 @@ describe('V1PlayerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should initialize the player with playerConfig', (done) => {
+    component.previewElement = {
+      nativeElement: {
+        contentWindow: {
+          initializePreview: function(){},
+          addEventListener: function(){}
+        },
+        src: ''
+      }
+    }
+    spyOn(component.previewElement.nativeElement.contentWindow, 'initializePreview').and.callThrough();
+    component.playerConfig = {
+      context: {
+          actor: {
+              id: '123456'
+          }
+      },
+      metadata: {
+        basePath: 'basePath'
+      }
+    }
+    component.ngAfterViewInit();
+    setTimeout(() => {
+      expect(component.playerConfig).toEqual({context: {actor: {id: '123456'}}, metadata: {basePath: 'basePath'}});
+      done();
+    }, 100);
+  })
 });
