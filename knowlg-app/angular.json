@@ -26,6 +26,11 @@
                 "output": "assets"
               },
               {
+                "glob": "**/*",
+                "input": "../shared/content",
+                "output": "content"
+              },
+              {
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
@@ -94,7 +99,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:build",
+            "proxyConfig": "proxy.config.js"
           },
           "configurations": {
             "production": {
