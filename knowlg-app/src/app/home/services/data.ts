@@ -635,6 +635,7 @@ export const  data = {
         }
       },
       V1CONFIG: {
+        whiteListUrl: ['https://obj.stage.sunbirded.org/**'],
         showEndPage: false,
         endPage: [
           {

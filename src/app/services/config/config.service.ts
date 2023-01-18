@@ -59,6 +59,7 @@ export class ConfigService {
   }
   getV1ConfigData(){
     const config = {
+      whiteListUrl: ['https://obj.stage.sunbirded.org/**'],
       showEndPage: false,
       endPage: [
         {
