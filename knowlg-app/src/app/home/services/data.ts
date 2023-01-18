@@ -635,6 +635,10 @@ export const  data = {
         }
       },
       V1CONFIG: {
+        whiteListUrl: [
+          'https://obj.stage.sunbirded.org/**',
+          'https://*.blob.core.windows.net/**'
+        ],
         showEndPage: false,
         endPage: [
           {

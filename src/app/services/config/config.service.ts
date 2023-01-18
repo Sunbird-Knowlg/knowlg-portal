@@ -59,6 +59,10 @@ export class ConfigService {
   }
   getV1ConfigData(){
     const config = {
+      whiteListUrl: [
+        'https://obj.stage.sunbirded.org/**',
+        'https://*.blob.core.windows.net/**'
+      ],
       showEndPage: false,
       endPage: [
         {
