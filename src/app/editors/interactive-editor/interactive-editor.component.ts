@@ -100,10 +100,14 @@ export class InteractiveEditorComponent implements OnInit, OnDestroy {
     });
   }
   private initEditor() {
+    let iframeURL = this.contentEditorURL + '?' + this.buildNumber;
+    if (this.queryParams.developerMode && this.queryParams.developerMode == 1) {
+      iframeURL = iframeURL + '&developerMode=1';
+    }
     jQuery('#contentEditor').iziModal({
       title: '',
       iframe: true,
-      iframeURL: this.contentEditorURL + '?' + this.buildNumber,
+      iframeURL: iframeURL,
       navigateArrows: false,
       fullscreen: true,
       openFullscreen: true,
