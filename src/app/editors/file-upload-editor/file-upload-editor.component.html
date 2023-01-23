@@ -1,9 +1,4 @@
-<!-- <div id="genericEditor"></div> -->
-<ng-container *ngIf="!showLoader">
-    <iframe [src]='editorURL()' width="100%" height="600px" frameborder="0"
-    webkitallowfullscreen mozallowfullscreen allowfullscreen>
-    </iframe>   
-</ng-container>
-<ng-container *ngIf="showLoader">
+<div id="genericEditor"></div>
+<div *ngIf="showLoader">
     Loading.....
-</ng-container>
+</div>

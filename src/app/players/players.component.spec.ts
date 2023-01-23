@@ -1,19 +1,46 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlayersComponent } from './players.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { PlayerService } from 'src/app/services/player/player.service';
+import { ConfigService } from 'src/app/services/config/config.service';
+import { of } from 'rxjs';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 class RouterStub {
   navigate = jasmine.createSpy('navigate');
 }
-
+const mockActivatedRoute = {
+  snapshot: {
+    queryParams: {
+      id: 'do_21247940906829414411032',
+    },
+    params: {
+      mimeType: 'pdf',
+      id: '1234'
+    }
+  }
+};
 describe('PlayersComponent', () => {
   let component: PlayersComponent;
   let fixture: ComponentFixture<PlayersComponent>;
-
+  let playerServiceMock;
   beforeEach(waitForAsync(() => {
+    playerServiceMock = {
+      contentChangeObservable: {
+        subscribe: () => {
+        }
+      }
+    };
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [PlayersComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
+        HttpClient, ConfigService,
         { provide: Router, useClass: RouterStub },
+        { provide: PlayerService, useValue: playerServiceMock },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
       ]
     })
       .compileComponents();
@@ -22,60 +49,55 @@ describe('PlayersComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PlayersComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('#navigateToPdf() should navigate to pdf player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToPdf();
-    expect(router.navigate).toHaveBeenCalledWith(['players/pdf']);
+  it('should call setConfig() method and define playerSettingconfig and sidemenuConfig', () => {
+    spyOn(component.configService, 'getConfigData').and.returnValue(
+      {
+        traceId: 'afhjgh',
+        sideMenu: {
+          showDownload: true,
+          showExit: true,
+          showPrint: true,
+          showReplay: true,
+          showShare: true,
+        }
+      });
+    component.setConfig();
+    expect(component.playerSettingconfig).toBeDefined();
+    expect(component.sidemenuConfig).toBeDefined();
   });
-  it('#navigateToPdf() should not navigate to other then pdf player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToPdf();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/epub']);
+  it('should call ngOnInit and define configType and call setConfig method for pdf content', () => {
+    /* eslint-disable @typescript-eslint/dot-notation */
+    component['activatedRoute'].snapshot.params.mimeType = 'pdf';
+    spyOn(component, 'getContentDetails').and.callFake(() => of({}));
+    spyOn(component, 'setConfig').and.callFake(() => of({}));
+    component.ngOnInit();
+    expect(component.setConfig).toHaveBeenCalled();
+    expect(component.getContentDetails).toHaveBeenCalled();
+    expect(component.configType).toBe('pdfConfig');
   });
-  it('#navigateToEpub() should navigate to epub player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEpub();
-    expect(router.navigate).toHaveBeenCalledWith(['players/epub']);
+  it('should call ngOnInit and define configType and call setConfig method for epub content', () => {
+    /* eslint-disable @typescript-eslint/dot-notation */
+    component['activatedRoute'].snapshot.params.mimeType = 'epub';
+    spyOn(component, 'getContentDetails').and.callFake(() => of({}));
+    spyOn(component, 'setConfig').and.callFake(() => of({}));
+    component.ngOnInit();
+    expect(component.setConfig).toHaveBeenCalled();
+    expect(component.getContentDetails).toHaveBeenCalled();
+    expect(component.configType).toBe('epubConfig');
   });
-  it('#navigateToEpub() should not navigate to then epub player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEpub();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf']);
-  });
-  it('#navigateToEcml() should navigate to ecml(interactive) player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEcml();
-    expect(router.navigate).toHaveBeenCalledWith(['players/interactive']);
-  });
-  it('#navigateToEcml() should not navigate to then ecml(interactive) player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToEcml();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/epub']);
-  });
-  it('#navigateToVideo() should navigate to video player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToVideo();
-    expect(router.navigate).toHaveBeenCalledWith(['players/video']);
-  });
-  it('#navigateToVideo() should not navigate to then video player', () => {
-    const router = TestBed.inject(Router);
-    component.navigateToVideo();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/pdf']);
-  });
-  it('#naviagteToCollectionPlayer() should navigate to collection player', () => {
-    const router = TestBed.inject(Router);
-    component.naviagteToCollectionPlayer();
-    expect(router.navigate).toHaveBeenCalledWith(['players/collection']);
-  });
-  it('#naviagteToCollectionPlayer() should not navigate to then collection player', () => {
-    const router = TestBed.inject(Router);
-    component.naviagteToCollectionPlayer();
-    expect(router.navigate).not.toHaveBeenCalledWith(['players/video']);
+  it('should call ngOnInit and define configType and call setConfig method for video content', () => {
+    /* eslint-disable @typescript-eslint/dot-notation */
+    component['activatedRoute'].snapshot.params.mimeType = 'video';
+    spyOn(component, 'getContentDetails').and.callFake(() => of({}));
+    spyOn(component, 'setConfig').and.callFake(() => of({}));
+    component.ngOnInit();
+    expect(component.setConfig).toHaveBeenCalled();
+    expect(component.getContentDetails).toHaveBeenCalled();
+    expect(component.configType).toBe('videoConfig');
   });
 });

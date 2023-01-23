@@ -18,7 +18,7 @@
                     <tr *ngFor="let data of contentArray ">
                         <td>{{data?.name}}</td>
                         <td>{{data?.contentType}}</td>
-                        <td><button class="btn status-button" (click)=openContent(data?.identifier)>{{data?.status}}</button>
+                        <td><button class="btn status-button" (click)=onSelectContent(data)>{{data?.status}}</button>
                         </td>
                     </tr>
 

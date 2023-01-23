@@ -1,10 +1,21 @@
-<div class="row" *ngFor="let content of contentList">
-    <div class="box-shodow" (click)="selectContent(content)">
-        <div class="content-name"> {{content?.name}}
-            <button class="btn view-button"> view </button>
-        </div>
-        <div class="content-description">
-            {{content?.description}}
+<div class="row" *ngFor="let content of contents">
+    <div class="sb-knowledge-card" role="link" tabindex="0" title="{{content?.name}}" aria-label="content?.name" (click)="selectContent(content)">
+        <div class="sb-knowledge-card__main-area">
+            <div class="sb-knowledge-card__img">
+                <div class="img-container" 
+                [style.background-color]="content.backgroundColor"
+                [style.color]="content.color">
+                    <label>{{content?.initial}}</label>
+                </div>
+            </div>
+            <div class="sb--card__info">
+                <div class="">
+                    <div class="sb-knowledge-card__title"
+                        title="{{content?.name}}">{{content?.name}}</div>    
+                    <div class="sb-knowledge-card__meta2" title="{{content?.description}}">{{content?.description}}</div>
+                </div> 
+            </div>
         </div>
     </div>
+    
 </div>

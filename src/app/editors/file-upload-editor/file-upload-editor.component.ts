@@ -41,13 +41,13 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
       tap((data: any) => {
         this.logo = 'https://dev.sunbirded.org/assets/images/sunbird_logo.png'; // added
         this.ownershipType = data.ownershipType;
-        // this.initEditor();
+        this.initEditor();
         this.setWindowContext();
         this.setWindowConfig();
       }),
       delay(10)) // wait for iziModal lo load
       .subscribe((data) => {
-        // jQuery('#genericEditor').iziModal('open');
+        jQuery('#genericEditor').iziModal('open');
         this.showLoader = false;
       },
         (error) => {
@@ -89,7 +89,7 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
   private validateRequest() {
     // const validStatus = _.indexOf(this.configService.editorConfig.GENERIC_EDITOR.contentStatus, this.contentDetails.status) > -1;
     // const validState = _.indexOf(this.configService.editorConfig.GENERIC_EDITOR.contentState, this.routeParams.state) > -1;
-    // tslint:disable-next-line:max-line-length
+    // eslint-disable-next-line max-len
     // if (_.indexOf(this.configService.appConfig.PLAYER_CONFIG.MIME_TYPE.genericMimeType, this.contentDetails.mimeType) > -1 && validStatus) {
     //   if (validState && this.contentDetails.createdBy !== this.userService.userid) {
     //     return true;
@@ -158,6 +158,7 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
       document.getElementById('genericEditor').remove();
     }
     // Redirect to home page or content list page
+    this.router.navigate(['editors/content-list']);
   }
 
   ngOnDestroy() {

@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
-import { SharedComponent } from './shared.component';
-import { SunbirdPdfPlayerModule } from '@project-sunbird/sunbird-pdf-player-v9';
 import { PlayerComponent } from './player/player.component';
 import { CommonModule } from '@angular/common';
 import { ContentlistComponent } from './contentlist/contentlist.component';
-import { SunbirdEpubPlayerModule } from '@project-sunbird/sunbird-epub-player-v9';
-import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
+import { ContentService } from './services/content.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { V1PlayerComponent } from './v1-player/v1-player.component';
 @NgModule({
-  declarations: [SharedComponent, ContentlistComponent, PlayerComponent],
-  imports: [ SunbirdPdfPlayerModule, SunbirdEpubPlayerModule, SunbirdVideoPlayerModule, CommonModule
+  declarations: [ ContentlistComponent, PlayerComponent, V1PlayerComponent],
+  imports: [CommonModule
   ],
-  exports: [SharedComponent, PlayerComponent, ContentlistComponent]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [V1PlayerComponent, PlayerComponent, ContentlistComponent],
+  providers: [ContentService]
 })
 export class SharedModule { }

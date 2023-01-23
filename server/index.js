@@ -12,6 +12,7 @@ var users = require('./config/users');
 const uuid = require('uuid/v1');
 const { json } = require("express");
 const forms = require('./config/forms');
+const cors = require('cors')
 
 var app = express();
 app.set("port", 3000);
@@ -132,6 +133,26 @@ app.get(routes.API.USER_ROLE, function (req, res) {
 });
 
 /**
+ * @param  {} routes.API.ASSET.VALIDATE validate asset URL 
+ * @param  {} res
+ * @param  {} {res.status(200) Sending the api response
+ */
+app.post(routes.API.ASSET.VALIDATE, function (req, res) {
+  let response = {
+    apiId: "asset.url.validate",
+    apiVersion: "1.0",
+    msgid: uuid(),
+    result: {
+      "license": {
+          "valid": false,
+          "value": "youtube"
+      }
+    }
+  };
+  return res.send(responseUtils.successResponse(response));
+});
+
+/**
  * @param  {} routes.API.USERS This is the user role api url
  * @param  {} res
  * @param  {} {res.status(200) Sending the api response
@@ -179,7 +200,6 @@ app.post(routes.API.USERS, function (req, res) {
 /**
  * @param  {} routes.API.ASSESSMENT     This is the assessment api url
  * @param  {} routes.API.CONTENT.CREATE  This is the content create  api url
- * @param  {} routes.API.CONTENT.BUNDLE   This is the content bundle  api url
  * @param  {} routes.API.CONTENT.UNLISTED_PUBLISH This is the content unlist publish  api url
  * @param  {} routes.API.CONTENT.REVIEW_COMMENTS This is the content review comments  api url
  * @param  {} proxy(BASE_URL
@@ -187,8 +207,6 @@ app.post(routes.API.USERS, function (req, res) {
  * @param  {function(req} proxyReqPathResolver
  */
 app.use([
-  routes.API.ASSESSMENT,
-  routes.API.CONTENT.BUNDLE,
   routes.API.CONTENT.UNLISTED_PUBLISH,
   routes.API.CONTENT.REVIEW_COMMENTS,
 ], proxy(BASE_URL, {
@@ -228,8 +246,9 @@ app.use([routes.API.CONTENT.HIERARCHY], proxy(BASE_URL, {
  * @param  {function req} proxyReqPathResolver
  */
 app.use([
+  routes.API.ASSESSMENT,
   routes.API.CONTENT.CREATE,
-  routes.API.BUNDLE,
+  routes.API.CONTENT.BUNDLE,
   routes.API.ITEMS_CREATE,
   routes.API.ITEMS_UPDATE,
   routes.API.CONTENT.UNLISTED_PUBLISH,
@@ -265,7 +284,7 @@ app.use([
   routes.API.FRAMEWORK,
   routes.API.COMPOSITE,
   routes.API.LANGUAGE,
-], proxy(BASE_URL, {
+], cors(), proxy(BASE_URL, {
   https: true,
   proxyReqPathResolver: function (req) {
     let originalUrl = req.originalUrl.replace("/action/", "/api/");

@@ -1,6 +1,6 @@
-<div [ngSwitch]="playerConfig?.metadata?.mimeType">
+<div [ngSwitch]="playerConfig?.metadata?.mimeType" class="h-100">
     <div *ngSwitchCase="'application/pdf'" class="player">
-        <sunbird-pdf-player class="sunbird-pdf-player" [playerConfig]="playerConfig"
+        <sunbird-pdf-player  [playerConfig]="playerConfig"
             (playerEvent)="playerEventHandler($event)" (telemetryEvent)="telemetryEvent($event)"></sunbird-pdf-player>
     </div>
     <div *ngSwitchCase="'application/epub'" class="player">

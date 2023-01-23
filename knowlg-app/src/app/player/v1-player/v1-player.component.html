@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+   </ion-buttons>
+    <ion-title>{{playerConfig?.metadata?.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <lib-v1-player [playerConfig]= "playerConfig" (playerEvent)="playerEvent($event)"></lib-v1-player>
+</ion-content>

@@ -1,15 +1,40 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { UtilsService } from '../services/utils.service';
+import { ContentListItem } from './content-list-item';
 
 @Component({
   selector: 'lib-contentlist',
   templateUrl: './contentlist.component.html',
   styleUrls: ['./contentlist.component.css']
 })
-export class ContentlistComponent {
-  @Input() contentList;
+export class ContentlistComponent implements OnInit, OnChanges {
+  @Input() contentList: Array<any> = [];
   @Output() contentSelect = new EventEmitter<any>();
+
+  constructor(private utilService: UtilsService) {}
+
+  public contents: Array<ContentListItem>
+  ngOnInit() {
+
+    this.contents = this.contentList.map(content => {
+      const {color, backgroundColor} = this.utilService.getColors();
+      const clonedContent = {...content}
+      clonedContent["initial"] = this.utilService.getInitial(content?.name)
+      clonedContent["color"] = color
+      clonedContent["backgroundColor"] = backgroundColor
+      return clonedContent;
+    });
+
+  }
 
   selectContent(content) {
     this.contentSelect.emit(content);
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes?.contentList?.currentValue) {
+      this.contentList = changes.contentList.currentValue;
+      this.ngOnInit();
+    }
   }
 }

@@ -19,9 +19,10 @@ export class PlayerService {
     private activatedRoute: ActivatedRoute
     ) {
       this.defaultContentDataMap =  {
-        do_11348995249825382411: this.configService.playerConfig.PDF_PLAYER_METADATA,
+        do_113489952498253824111: this.configService.playerConfig.PDF_PLAYER_METADATA,
         do_21312960731822489612047: this.configService.playerConfig.EPUB_PLAYER_METADATA,
-        do_31309320735055872011111: this.configService.playerConfig.VIDEO_PLAYER_METADATA
+        do_31309320735055872011111: this.configService.playerConfig.VIDEO_PLAYER_METADATA,
+        do_113540914336456704180: this.configService.playerConfig.INTERACTIVE_PLAYER.metadata
       };
       this.identifier$ = new Subject<string>();
       this.contentChangeObservable = this.identifier$.asObservable();

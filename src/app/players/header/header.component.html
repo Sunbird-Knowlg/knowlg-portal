@@ -1,0 +1,30 @@
+<div
+  class="relative position mt-0 sb-back-actionbar flex-ai-center flex-jc-space-between"
+>
+<a (click)="goBack()">
+    <button
+      type="button"
+      class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round"
+      tabindex="0"
+    >
+      <i class="icon-svg icon-svg--xxs icon-back mr-4" aria-hidden="true"
+        ><svg class="icon icon-svg--primary">
+          <use
+            xlink:href="../../assets/images/sprite.svg#arrow-long-left"
+          ></use>
+        </svg>
+      </i>
+      <span>Back</span>
+    </button>
+  </a>
+  <div style="margin-right: 100px" *ngIf="isContentReviewer">
+    <button
+      (click)="openDialog()"
+      type="button"
+      class="ui right floated sb-btn sb-btn-primary sb-btn-normal mr-8"
+      tabindex="0"
+    >
+      Publish
+    </button>
+  </div>
+</div>

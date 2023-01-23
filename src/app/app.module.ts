@@ -6,13 +6,8 @@ import { AppComponent } from './app.component';
 import { EditorsComponent } from './editors/editors.component';
 import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upload-editor.component';
 import { PlayersComponent } from './players/players.component';
-import { PdfComponent } from './players/pdf/pdf.component';
-import { EpubComponent } from './players/epub/epub.component';
 import { HomeComponent } from './home/home.component';
-import { SunbirdEpubPlayerModule } from '@project-sunbird/sunbird-epub-player-v9';
-import { SunbirdPdfPlayerModule } from '@project-sunbird/sunbird-pdf-player-v9';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
-import { VideoComponent } from './players/video/video.component';
 import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
 import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml-player-v9';
 import { QuestionCursorImplementationService } from './services/question-cursor-implementation.service';
@@ -35,18 +30,20 @@ import { CollectionDetailsModelComponent } from './players/collection-player/col
 import {MatListModule} from '@angular/material/list';
 import { ContentDetailsModelComponent } from './players/collection-player/content-details-model/content-details-model.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { HeaderComponent } from './players/header/header.component';
+import { PublishedPopupComponent } from './players/published-popup/published-popup.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PlayersListComponent } from './players/players-list/players-list.component';
+import { SharedModule } from 'shared';
+import { PlayercontentlistComponent } from './players/playercontentlist/playercontentlist.component';
 @NgModule({
   declarations: [
     AppComponent,
     EditorsComponent,
     FileUploadEditorComponent,
     PlayersComponent,
-    PdfComponent,
-    EpubComponent,
     HomeComponent,
     InteractivePlayerComponent,
-    VideoComponent,
     CollectionEditorComponent,
     ContentlistComponent,
     UserComponent,
@@ -55,14 +52,16 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     SidebarComponent,
     CollectionPlayerComponent,
     CollectionDetailsModelComponent,
-    ContentDetailsModelComponent
+    ContentDetailsModelComponent,
+    HeaderComponent,
+    PublishedPopupComponent,
+    PlayersListComponent,
+    PlayercontentlistComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SunbirdPdfPlayerModule,
-    SunbirdEpubPlayerModule,
     SunbirdVideoPlayerModule,
     QumlLibraryModule,
     CollectionEditorLibraryModule,
@@ -72,8 +71,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSidenavModule,
     CommonConsumptionModule,
     MatListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SharedModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{
     provide: QuestionCursor,
     useClass: QuestionCursorImplementationService,

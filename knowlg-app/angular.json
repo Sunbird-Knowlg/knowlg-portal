@@ -26,9 +26,9 @@
                 "output": "assets"
               },
               {
-                "glob": "**/*.*",
-                "input": "node_modules/@project-sunbird/sunbird-pdf-player-v9/lib/assets/",
-                "output": "/assets/"
+                "glob": "**/*",
+                "input": "../shared/content",
+                "output": "content"
               },
               {
                 "glob": "**/*.svg",
@@ -36,25 +36,28 @@
                 "output": "./svg"
               },
               {
-                "glob": "**/*.*",
-                "input": "./node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/",
+                "glob": "**/*",
+                "input": "../shared/sunbird-pdf-player/pdfjs/",
+                "output": "/assets/pdfjs/"
+              },
+              {
+                "glob": "**/*",
+                "input": "../shared/images/",
                 "output": "/assets/"
               }
             ],
             "styles": [
               "src/theme/variables.scss",
               "src/global.scss",
-              "node_modules/@project-sunbird/sb-styles/assets/_styles.scss",
-              "./node_modules/video.js/dist/video-js.min.css",
-              "./node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/videojs.markers.min.css",
-              "./node_modules/videojs-http-source-selector/dist/videojs-http-source-selector.css"
+              "../shared/sunbird-pdf-player/styles.css",
+              "../shared/sunbird-epub-player/styles.css",
+              "../shared/sunbird-video-player/styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/video.js/dist/video.js",
-              "node_modules/@project-sunbird/sunbird-video-player-v9/lib/assets/videojs-markers.js",
-              "node_modules/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.min.js",
-              "node_modules/videojs-http-source-selector/dist/videojs-http-source-selector.min.js"
+              "../shared/sunbird-pdf-player/pdf-player.js",
+              "../shared/sunbird-epub-player/epub-player.js",
+              "../shared/sunbird-video-player/video-player.js"
             ],
             "aot": false,
             "vendorChunk": true,
@@ -96,14 +99,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "app:build"
+            "browserTarget": "app:build",
+            "proxyConfig": "proxy.config.js"
           },
           "configurations": {
             "production": {
               "browserTarget": "app:build:production"
             },
             "ci": {
-              "progress": false
             }
           }
         },

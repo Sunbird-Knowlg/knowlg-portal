@@ -4,6 +4,7 @@ import * as playerConfig from './player.config.json';
 import * as editorConfig from './editor.config.json';
 import * as labelConfig from './label.config.json';
 import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash-es';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,7 +28,7 @@ export class ConfigService {
 
   setMetaData(event) {
     const key = this.getMetaDataKey();
-    sessionStorage.setItem(key, JSON.stringify(event.metaData));
+    sessionStorage.setItem(key, JSON.stringify(event?.metaData || event?.detail?.metaData));
   }
 
   getMetaData() {
@@ -58,6 +59,10 @@ export class ConfigService {
   }
   getV1ConfigData(){
     const config = {
+      whiteListUrl: [
+        'https://obj.stage.sunbirded.org/**',
+        'https://*.blob.core.windows.net/**'
+      ],
       showEndPage: false,
       endPage: [
         {
@@ -109,5 +114,19 @@ export class ConfigService {
     const configData =  JSON.parse(sessionStorage.getItem('ecmlConfig')) || {};
     config.overlay = {...config.overlay, ...configData};
     return config;
+  }
+
+  getPlayersList() {
+    return this.playerConfig.PLAYERS_LIST;
+  }
+
+  getContentList(mimeType) {
+    const contentMetadata = _.filter(this.getPlayersList(), { mimeType })[0];
+    return contentMetadata.defaultContent;
+  }
+
+  getPlayerRedirectURL(mimeType){
+    const contentMetadata = _.filter(this.getPlayersList(), { mimeType })[0];
+    return contentMetadata.playerRedirectURL;
   }
 }

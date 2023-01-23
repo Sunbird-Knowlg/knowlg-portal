@@ -24,7 +24,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   { text: 'Interactive', value: 'interactive' },
   { text: 'Docs', value: 'docs' }];
   videoMimeTypes = ['video/mp4', 'video/x-youtube', 'video/webm'];
-  // tslint:disable-next-line:max-line-length
+  // eslint-disable-next-line max-len
   interactiveMimeTypes = ['application/vnd.ekstep.ecml-archive', 'application/vnd.ekstep.h5p-archive', 'application/vnd.ekstep.html-archive'];
   pdfMimeType = 'application/pdf';
   epubMimeType = 'application/epub';
@@ -72,8 +72,8 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.activeMimeTypeFilter = ['all'];
-    this.queryParams = this.route.snapshot.queryParams;
-    const collectionId = this.queryParams.collectionId || 'KP_FT_1611083388567';
+    this.queryParams = this.route.snapshot.params;
+    const collectionId = this.queryParams.id || 'KP_FT_1611083388567';
     this.subscription = this.getCollectionHierarchy(collectionId).subscribe();
   }
 
@@ -167,6 +167,10 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
     } else if (_.get(event, 'selectAll') === false) {
       this.selectedItems = [];
     }
+  }
+
+  goBack(){
+    this.router.navigate(['player-content-list', 'collection']);
   }
 
 }

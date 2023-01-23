@@ -1,6 +1,6 @@
 <div class="relative position mt-0 sb-back-actionbar d-flex flex-ai-center">
 
-    <button type="button" routerLink=".." class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round sb-btn-round--notext"
+    <button type="button" (click)="goBack()" class="sb-btn sb-btn-normal sb-btn-link sb-btn-link-primary sb-left-icon-btn px-0 sb-btn-round sb-btn-round--notext"
     tabindex="0"><i class="icon-svg icon-svg--xxs icon-back mr-4"><svg class="icon icon-svg--primary"><use xlink:href="../../assets/images/sprite.svg#arrow-long-left"></use></svg></i><span>Back</span></button>
 
     <div class="textbook d-flex flex-ai-center w-100 ml-16">
@@ -33,9 +33,7 @@
                         <div class="aspectratio sbt-shadow-radius" data-ratio="16:9" id="help-video-aspect-ratio"
                             #aspectRatio>
                             <div class="h-100" *ngIf="showPlayer">
-                                <app-pdf [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === pdfMimeType"></app-pdf>
-                                <app-video [showPlayerOnly]="true" *ngIf="isActiveContentVideoType()"></app-video>
-                                <app-epub [showPlayerOnly]="true" *ngIf="activeContent?.mimeType === epubMimeType"></app-epub>
+                                <app-players [showPlayerOnly]="true" *ngIf="!isActiveContentInteractiveType()"></app-players>
                                 <app-interactive-player [showPlayerOnly]="true" *ngIf="isActiveContentInteractiveType()" ></app-interactive-player>
                             </div>
                         </div>

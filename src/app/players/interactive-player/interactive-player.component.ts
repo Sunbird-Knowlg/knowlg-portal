@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { first, mergeMap, tap } from 'rxjs/operators';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { ConfigService } from 'src/app/services/config/config.service';
+import * as _ from 'lodash-es';
 
 @Component({
   selector: 'app-interactive-player',
@@ -28,27 +29,29 @@ export class InteractivePlayerComponent implements OnInit {
 
   @ViewChild('preview', { static: false }) previewElement: ElementRef;
 
-  // tslint:disable-next-line:use-lifecycle-interface
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngAfterViewInit() {
     const src = this.previewElement.nativeElement.src;
     this.previewElement.nativeElement.src = '';
     this.previewElement.nativeElement.src = src;
     this.previewElement.nativeElement.onload = () => {
-      this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfig);
-      this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
-        if (resp.data === 'renderer:question:submitscore') {
-          alert('Score has been submited succesfully');
-        } else if (resp.data && typeof resp.data === 'object') {
-          if (resp.data['player.pdf-renderer.error']) {
-            const pdfError = resp.data['player.pdf-renderer.error'];
-            if (pdfError.name === 'MissingPDFException') {
-              alert('This Pdf has some issue, please try with the differnet pdf content');
+      setTimeout(() => {
+        this.previewElement.nativeElement.contentWindow.initializePreview(this.playerConfig);
+        this.previewElement.nativeElement.contentWindow.addEventListener('message', resp => {
+          if (resp.data === 'renderer:question:submitscore') {
+            alert('Score has been submited succesfully');
+          } else if (resp.data && typeof resp.data === 'object') {
+            if (resp.data['player.pdf-renderer.error']) {
+              const pdfError = resp.data['player.pdf-renderer.error'];
+              if (pdfError.name === 'MissingPDFException') {
+                alert('This Pdf has some issue, please try with the differnet pdf content');
+              }
+            } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
+              alert('Max limit reached to attempt the quiz');
             }
-          } else if (resp.data && resp.data.event === 'renderer:maxLimitExceeded') {
-            alert('Max limit reached to attempt the quiz');
           }
-        }
-      });
+        });
+      }, 100);
     };
   }
   ngOnInit(): void {
@@ -79,14 +82,19 @@ export class InteractivePlayerComponent implements OnInit {
       context: this.configService.playerConfig.INTERACTIVE_PLAYER.context,
       config: this.config,
       metadata: this.contentDetails || this.configService.playerConfig.INTERACTIVE_PLAYER.metadata,
-      data: this.contentDetails?.body || this.configService.playerConfig.INTERACTIVE_PLAYER.data
+      data: {}
     };
+
+    if (this.playerConfig.metadata.mimeType === 'application/vnd.ekstep.ecml-archive'){
+      this.playerConfig.data = this.contentDetails?.body || this.configService.playerConfig.INTERACTIVE_PLAYER.data;
+    }
   }
 
   private getContentDetails() {
-    if (this.queryParams.identifier) {
+    const identifier = this.queryParams.identifier || _.get(this.activatedRoute.snapshot, 'params.id');
+    if (identifier) {
       const options: any = { params: { fields: 'body,mimeType,name,artifactUrl' } };
-      return this.helperService.getContent(this.queryParams.identifier, options).
+      return this.helperService.getContent(identifier, options).
         pipe(mergeMap((data) => {
           this.contentDetails = data.result.content;
           return of(data);
