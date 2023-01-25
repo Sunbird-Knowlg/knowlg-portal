@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/knowlg-portal
     machine:
-      image: circleci/node:14.18.2-browsers
+      image: circleci/node:14.21.1-browsers
     steps:
       - checkout:
           path: ~/knowlg-portal
