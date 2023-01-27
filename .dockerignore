@@ -1,0 +1,6 @@
+node_modules
+flutter_app
+react-app
+coverage
+.angular
+dist
