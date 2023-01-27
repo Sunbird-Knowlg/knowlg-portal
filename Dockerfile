@@ -1,5 +1,5 @@
 # Dockerfile for the knowlg portal setup
-FROM node:16.19.0-slim
+FROM node:16.13.2-slim
 WORKDIR /app
 COPY . .
 RUN npm i
