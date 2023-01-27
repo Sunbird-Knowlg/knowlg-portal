@@ -13,6 +13,7 @@ describe('CollectionPlayerComponent', () => {
   const mockActivatedRoute = {
     snapshot: {
       queryParams: {
+        mode: 'review',
         collectionId: 'do_21247940906829414411032',
       }
     }
@@ -124,5 +125,10 @@ describe('CollectionPlayerComponent', () => {
     spyOn(component, 'callinitPlayer').and.callThrough();
     component.tocCardClickHandler(event);
     expect(component.callinitPlayer).toHaveBeenCalledWith(event);
+  });
+  it('#goBack() should call location back method', () => {
+    spyOn(component.location, 'back').and.callThrough();
+    component.goBack();
+    expect(component.location.back).toHaveBeenCalled();
   });
 });
