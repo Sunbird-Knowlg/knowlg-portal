@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CollectionDetailsModelComponent } from './collection-details-model/collection-details-model.component';
 import { ContentDetailsModelComponent } from './content-details-model/content-details-model.component';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-collection-player',
@@ -48,7 +49,8 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
     private helperService: HelperService,
     public route: ActivatedRoute,
     public router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public location: Location
   ) {
     this.router.onSameUrlNavigation = 'ignore';
   }
@@ -170,7 +172,7 @@ export class CollectionPlayerComponent implements OnInit, OnDestroy {
   }
 
   goBack(){
-    this.router.navigate(['player-content-list', 'collection']);
+    _.get(this.route, 'snapshot.queryParams.mode') !== 'review' ?  this.router.navigate(['player-content-list', 'collection']) : this.location.back();
   }
 
 }

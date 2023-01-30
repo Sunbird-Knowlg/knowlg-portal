@@ -50,6 +50,11 @@
           "id": "org.ekstep.reviewercomments",
           "ver": "1.0",
           "type": "plugin"
+        },
+        {
+          "id": "org.ekstep.developer",
+          "ver": "1.0",
+          "type": "plugin"
         }
       ],
       "dispatcher": "local",
@@ -239,8 +244,7 @@
       "editor": "collection-editor",
       "resourceType": "Collection",
       "contentType": "Collection",
-      "primaryCategory": "Content Playlist",
-      "playerRedirectURL": "players/collection"
+      "primaryCategory": "Content Playlist"
     },
     "ecml": {
       "mimeType": "application/vnd.ekstep.ecml-archive",

@@ -41,4 +41,9 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should call goBack and navigate to previous page', () => {
+    spyOn(component.location, 'back').and.callThrough();
+    component.goBack();
+    expect(component.location.back).toHaveBeenCalled();
+  });
 });

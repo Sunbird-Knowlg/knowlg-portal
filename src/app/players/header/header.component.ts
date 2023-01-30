@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PublishedPopupComponent } from '../published-popup/published-popup.component';
 import { LocalStorageService } from 'src/app/services/user/localstorage.service';
 import * as _ from 'lodash-es';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -17,7 +18,7 @@ export class HeaderComponent implements OnInit {
   public mimeType: any;
 
   constructor(private activatedRoute: ActivatedRoute, public router: Router, public dialog: MatDialog,
-              private localStorageService: LocalStorageService) { }
+              private localStorageService: LocalStorageService, public location: Location) { }
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');
@@ -39,7 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goBack(){
-    this.router.navigate(['player-content-list', this.mimeType]);
+    this.location.back();
   }
 
 }

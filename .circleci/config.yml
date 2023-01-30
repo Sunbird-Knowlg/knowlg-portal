@@ -11,13 +11,6 @@ jobs:
           name: Node version
           command: 'node --version'
       - run:
-          name: Install  Node.js v14.20.0 with build in nvm tool
-          command: |
-            export NVM_DIR="/opt/circleci/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-            nvm install v14 && nvm use v14 && nvm alias default v14
-            node -v
-      - run:
           name: Installing Angular cli
           command: 'npm install -g @angular/cli@14.2.10 --no-progress'
       - restore_cache:
@@ -37,7 +30,13 @@ jobs:
       - run:
           name: Testing
           command: 'npm run test-coverage | tee /tmp/logs/test_cases.log'
-     
+      - run:
+          name: Install  Node.js v14.20.0 with build in nvm tool
+          command: |
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm install v14 && nvm use v14 && nvm alias default v14
+            node -v
       - run:
           name: Alter Node version
           command: 'node --version'
