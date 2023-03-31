@@ -1,5 +1,5 @@
 # Dockerfile for the knowlg portal setup
-FROM node:16.13.2-slim
+FROM node:16.13.2-alpine
 WORKDIR /app
 COPY . .
 RUN  apk add --update python make g++\
