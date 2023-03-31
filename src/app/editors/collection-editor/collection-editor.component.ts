@@ -167,6 +167,16 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
     this.editorConfig.config.showAddCollaborator = true;
     this.editorConfig.config.publicStorageAccount = _.get(environment, 'publicStorageAccount', '');
     this.editorConfig.config = _.assign(this.editorConfig.config, this.hierarchyConfig);
+
+    // init web component
+    const collectionEditorElement = document.createElement('lib-editor');
+    collectionEditorElement.setAttribute('editor-config', JSON.stringify(this.editorConfig));
+
+    collectionEditorElement.addEventListener('editorEmitter', (event) => {
+      this.editorEventListener(event)
+    });
+
+    document.getElementById("collectionEditor").appendChild(collectionEditorElement)
   }
 
   getEditorMode() {
