@@ -2,8 +2,7 @@
 FROM node:16.13.2-alpine
 WORKDIR /app
 COPY . .
-RUN  apk add --update python make g++\
-   && rm -rf /var/cache/apk/*
+RUN apk add g++ make py3-pip
 RUN npm i
 RUN npm run deploy
 WORKDIR /app/server
