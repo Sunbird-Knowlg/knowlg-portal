@@ -53,9 +53,9 @@ describe('CollectionEditorComponent', () => {
     component.editorEventListener({});
     expect(router.navigate).toHaveBeenCalledWith(['editors/content-list']);
   });
-  it('#ngOnInit should get user data and content identifier from queryParams', () => {
+  it('#ngAfterViewInit should get user data and content identifier from queryParams', () => {
     spyOn(component, 'initialize').and.callFake(() => of(true));
-    component.ngOnInit();
+    component.ngAfterViewInit();
     expect(component.initialize).toHaveBeenCalled();
     expect(component.userData).toBeDefined();
     expect(component.queryParams.identifier).toBeDefined();
