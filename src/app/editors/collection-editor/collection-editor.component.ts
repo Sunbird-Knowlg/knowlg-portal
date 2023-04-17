@@ -179,7 +179,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
     collectionEditorElement.addEventListener('editorEmitter', (event) => {
       this.editorEventListener(event)
     });
-    this.collectionEditorViewChild.nativeElement.append(collectionEditorElement)
+    this.collectionEditorViewChild?.nativeElement?.append(collectionEditorElement)
 
   }
 
