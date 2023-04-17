@@ -57,6 +57,10 @@ describe('CollectionEditorComponent', () => {
     spyOn(component, 'initialize').and.callFake(() => of(true));
     component.ngAfterViewInit();
     expect(component.initialize).toHaveBeenCalled();
+  });
+  it('#ngOnInit should get user data and content identifier from queryParams', () => {
+    spyOn(component, 'initialize').and.callFake(() => of(true));
+    component.ngOnInit();
     expect(component.userData).toBeDefined();
     expect(component.queryParams.identifier).toBeDefined();
   });
