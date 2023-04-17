@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
@@ -20,10 +20,14 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   public userData: any;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public helperService: HelperService,
               public localStorageService: LocalStorageService){}
+  @ViewChild('collectionEditor') collectionEditorViewChild; 
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');
     this.queryParams = this.activatedRoute.snapshot.queryParams;
+  }
+
+  ngAfterViewInit() {
     this.initialize();
   }
 
@@ -175,8 +179,8 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
     collectionEditorElement.addEventListener('editorEmitter', (event) => {
       this.editorEventListener(event)
     });
+    this.collectionEditorViewChild.nativeElement.append(collectionEditorElement)
 
-    document.getElementById("collectionEditor").appendChild(collectionEditorElement)
   }
 
   getEditorMode() {

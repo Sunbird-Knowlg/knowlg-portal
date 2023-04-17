@@ -70,10 +70,10 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@project-sunbird/sunbird-collection-editor-web-component/sunbird-collection-editor.js",
               "./shared/sunbird-pdf-player/pdf-player.js",
               "./shared/sunbird-epub-player/epub-player.js",
               "./shared/sunbird-video-player/video-player.js",
-              "node_modules/@project-sunbird/sunbird-collection-editor-web-component/sunbird-collection-editor.js",
               "node_modules/epubjs/dist/epub.js",
               "node_modules/video.js/dist/video.js",
               "node_modules/videojs-contrib-quality-levels/dist/videojs-contrib-quality-levels.min.js",
