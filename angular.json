@@ -58,6 +58,7 @@
               "./shared/sunbird-pdf-player/styles.css",
               "./shared/sunbird-epub-player/styles.css",
               "./shared/sunbird-video-player/styles.css",
+              "./node_modules/@project-sunbird/sunbird-collection-editor-web-component/styles.css",
               "./node_modules/@project-sunbird/sb-styles/assets/_styles.scss",
               "./node_modules/@project-sunbird/sb-themes/themes/themes-portal.scss",
               "./node_modules/video.js/dist/video-js.min.css",
@@ -69,6 +70,7 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@project-sunbird/sunbird-collection-editor-web-component/sunbird-collection-editor.js",
               "./shared/sunbird-pdf-player/pdf-player.js",
               "./shared/sunbird-epub-player/epub-player.js",
               "./shared/sunbird-video-player/video-player.js",

@@ -1,7 +1,8 @@
 # Dockerfile for the knowlg portal setup
-FROM node:16.13.2-slim
+FROM node:16.13.2-alpine
 WORKDIR /app
 COPY . .
+RUN apk add g++ make py3-pip
 RUN npm i
 RUN npm run deploy
 WORKDIR /app/server
