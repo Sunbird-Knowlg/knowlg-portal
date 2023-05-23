@@ -17,7 +17,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Installing NPM deps
-          command: 'npm install --no-progress'
+          command: 'npm install --no-progress --force'
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths: ./node_modules
