@@ -152,6 +152,7 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
         channelData: this.channelData,
         cloudStorageUrls: '',
         cloudStorage: {
+          provider: 'azure',
           presigned_headers: {
             'x-ms-blob-type': 'BlockBlob'
           }

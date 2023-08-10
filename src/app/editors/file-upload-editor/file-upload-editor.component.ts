@@ -146,6 +146,7 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
     window.config.videoMaxSize = this.videoMaxSize;
     window.config.defaultContentFileSize = this.defaultContentFileSize; // making configurable upload limit in workspace for content upload
     window.config.cloudStorage = {
+      provider: 'azure',
       presigned_headers: {
         'x-ms-blob-type': 'BlockBlob'
       }

@@ -165,7 +165,10 @@
         "overlay": {
           "showUser": false
         },
-        "showEndPage": false
+        "showEndPage": false,
+        "uploadInfo": {
+          "isLargeFileUpload": true
+        }
       }
     },
     "WINDOW_CONTEXT": {
