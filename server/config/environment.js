@@ -9,7 +9,7 @@ let envVariables = {
   USER_ROLE: env.knowlg_bb_portal_user_role, // should be like  "creator,reviewer,collaborator"
   CREATORS: [{userName:'N11',userId:'5a587cc1-e018-4859-a0a8-e842650b9d64',channelId:'01309282781705830427'}],
   REVIEWERS: [{userName:'N150',userId:'ae94b68c-a535-4dce-8e7a-fb9662b0ad68',channelId:'01309282781705830427'}],
-  COLLABORATORS: [
+  COLLABORATORS: env.knowlg_bb_portal_users_collaborator || [
     {userName:'Collaborator 1',userId:'8a342db2-c512-476d-9c78-113b09420534',channelId:'01309282781705830427'},
     {userName:'Collaborator 2',userId:'a1e9ac3b-3c17-44da-8068-f735ba914bbc',channelId:'01309282781705830427'},
     {userName:'Collaborator 3',userId:'e8f5bd4d-84be-4280-b8ad-8ce259d47f7c',channelId:'01309282781705830427'},

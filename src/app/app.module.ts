@@ -8,13 +8,11 @@ import { FileUploadEditorComponent } from './editors/file-upload-editor/file-upl
 import { PlayersComponent } from './players/players.component';
 import { HomeComponent } from './home/home.component';
 import { InteractivePlayerComponent } from './players/interactive-player/interactive-player.component';
-import { SunbirdVideoPlayerModule } from '@project-sunbird/sunbird-video-player-v9';
 import { QuestionCursor, QumlLibraryModule } from '@project-sunbird/sunbird-quml-player-v9';
 import { QuestionCursorImplementationService } from './services/question-cursor-implementation.service';
 import { CollectionEditorComponent } from './editors/collection-editor/collection-editor.component';
 import { ContentlistComponent } from './editors/contentlist/contentlist.component';
 import { HelperService } from './services/helper/helper.service';
-import { CollectionEditorLibraryModule } from '@project-sunbird/sunbird-collection-editor';
 import { UserComponent } from './editors/user/user.component';
 import { RoleComponent } from './editors/role/role.component';
 import { FormsModule } from '@angular/forms';
@@ -62,9 +60,7 @@ import { PlayercontentlistComponent } from './players/playercontentlist/playerco
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SunbirdVideoPlayerModule,
     QumlLibraryModule,
-    CollectionEditorLibraryModule,
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,

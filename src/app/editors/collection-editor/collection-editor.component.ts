@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HelperService } from '../../services/helper/helper.service';
 import * as _ from 'lodash-es';
@@ -20,10 +20,14 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
   public userData: any;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, public helperService: HelperService,
               public localStorageService: LocalStorageService){}
+  @ViewChild('collectionEditor') collectionEditorViewChild; 
 
   ngOnInit(): void {
     this.userData = this.localStorageService.getItem('userData');
     this.queryParams = this.activatedRoute.snapshot.queryParams;
+  }
+
+  ngAfterViewInit() {
     this.initialize();
   }
 
@@ -168,6 +172,16 @@ export class CollectionEditorComponent implements OnInit, OnDestroy {
     this.editorConfig.config.showAddCollaborator = true;
     this.editorConfig.config.publicStorageAccount = _.get(environment, 'publicStorageAccount', '');
     this.editorConfig.config = _.assign(this.editorConfig.config, this.hierarchyConfig);
+
+    // init web component
+    const collectionEditorElement = document.createElement('lib-editor');
+    collectionEditorElement.setAttribute('editor-config', JSON.stringify(this.editorConfig));
+
+    collectionEditorElement.addEventListener('editorEmitter', (event) => {
+      this.editorEventListener(event)
+    });
+    this.collectionEditorViewChild?.nativeElement?.append(collectionEditorElement)
+
   }
 
   getEditorMode() {

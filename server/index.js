@@ -15,6 +15,7 @@ const forms = require('./config/forms');
 const cors = require('cors')
 
 var app = express();
+app.use(cors())
 app.set("port", 3000);
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb'}));
