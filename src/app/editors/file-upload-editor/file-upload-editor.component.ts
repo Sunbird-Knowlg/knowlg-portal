@@ -135,9 +135,6 @@ export class FileUploadEditorComponent implements OnInit, OnDestroy {
     if (this.queryParams.identifier) {
       window.context.contentId = this.queryParams.identifier;
     }
-    window.context.uploadInfo = {
-      "isLargeFileUpload": true
-    }
   }
   private setWindowConfig() {
     window.config = _.cloneDeep(this.configService.editorConfig.GENERIC_EDITOR.WINDOW_CONFIG); // cloneDeep to preserve default config
